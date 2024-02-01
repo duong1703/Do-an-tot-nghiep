@@ -1,0 +1,11 @@
+xem hướng dẫn: php spark
+Chạy tạo bảng : php spark migrate:create CreateTableUsers
+chạy cập nhât dữ liệu: php spark migrate
+run server: php spark serve
+php spark make:seeder UserSeeder
+
+git init
+git pull origin master --allow-unrelated-histories
+git push -u origin master
+
+
