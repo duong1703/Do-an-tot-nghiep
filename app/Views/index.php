@@ -1037,9 +1037,6 @@
 		</div>
 
 	</footer><!--/Footer-->
-
-
-
 	<script src="assets/user/js/jquery.js"></script>
 	<script src="assets/user/js/bootstrap.min.js"></script>
 	<script src="assets/user/js/jquery.scrollUp.min.js"></script>
