@@ -4,19 +4,17 @@ namespace App\Services;
 
 use App\Models\UserModel;
 use App\Common\ResultUtils;
-use Exception;
 
 class LoginService extends BaseService
 {
-   // private $users;
+    private $users;
     /**
         Tạo hàm constructor
      */
     function __construct()
     {
         parent::__construct();
-        //$this->users = new UserModel();
-       // $this->users->protect(false);
+        $this->users = new UserModel();
     }
 
     public function hasLoginInfo($reqData)
@@ -31,6 +29,41 @@ class LoginService extends BaseService
                 'messages' => $validate->getError()
             ];
         }
+
+        $params = $reqData->getPost();
+        $user = $this->users->where('email', $params['email'])->first();
+
+        if (!$user) {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'messages' => [
+                    'notExit' => 'Email chưa được đăng ký'
+                ]
+            ];
+        }
+
+        if (!password_verify($params['password'], $user['password'])) {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'messages' => [
+                    'WrongPass' => 'Mật khẩu không đúng'
+                ]
+            ];
+        }
+
+        $session = session();
+
+        unset($user['password']);
+
+        $session->set('user_login', $user);
+
+        return [
+            'status' => ResultUtils::STATUS_CODE_OK,
+            'massageCode' => ResultUtils::MESSAGE_CODE_OK,
+            'messages' => null
+        ];
     }
 
     private function validateLogin($reqData)

@@ -22,7 +22,7 @@ class LoginControllers extends BaseController
 
     public function index()
     {
-       return view('admin/login');
+       return view('admin/pages/login');
     }
 
     public function login()
@@ -34,6 +34,6 @@ class LoginControllers extends BaseController
         }elseif($result['status'] === ResultUtils::STATUS_CODE_ERR){
             return redirect("admin/login")->with($result['massageCode'],$result['messages']);
         }
-        return redirect("home");
+        return redirect("pages/home");
     }
 }
