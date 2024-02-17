@@ -24,3 +24,5 @@ $(".btn-del-confirm").click(function(){
 
     window.location.href = url;
 });
+
+

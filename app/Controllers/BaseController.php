@@ -67,4 +67,10 @@ abstract class BaseController extends Controller
         $data['jsFiles'] = $jsFiles;
         return $data;
     }
+
+    public function loadMasterLayoutWeb($data){
+        $data['header'] = view('user/layout/header');
+        $data['footer'] = view('user/layout/footer');
+        
+    }
 }

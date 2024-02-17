@@ -14,7 +14,7 @@
                     <table id="datatable" class="cell-border">
                         <thead>
                             <tr>
-                                <th scope="col">id</th>
+                                <th scope="col">ID</th>
                                 <th scope="col">Ảnh sản phẩm</th>
                                 <th scope="col">Tên sản phẩm</th>
                                 <th scope="col">Giá</th>

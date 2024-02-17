@@ -22,8 +22,7 @@ class UserControllers extends BaseController
     public function list(): string
     {
         $data = [];
-       
-        
+    
         $cssFiles = [
             'http://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js',
             base_url() . '/assets/admin/js/datatable.js',

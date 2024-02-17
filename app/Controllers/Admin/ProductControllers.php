@@ -45,4 +45,10 @@ class ProductControllers extends BaseController
         $data = $this->loadMasterLayout($data, 'Thêm sản phẩm', 'admin/pages/product/add');
         return view('admin/main', $data);
     }
+
+    public function create()
+    {
+        $result = $this->service->addProductsInfo($this->request);
+        return redirect('admin/product/add')->withInput()->with($result['massageCode'], $result['messages']);
+    }
 }

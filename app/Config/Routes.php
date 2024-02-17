@@ -7,12 +7,14 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'Users\HomeControllers::index');
+$routes->get('views/login','Users\LoginController::login');
 $routes->get('error/404', function(){
     return view('errors/html/error_404');
 });
 
 $routes->group('admin', function ($routes) {
     $routes->get('home', 'Admin\HomeControllers::index');
+    $routes->get('login','Admin\LoginControllers::index');
     $routes->group('user', function ($routes) {
         $routes->get('list', 'Admin\UserControllers::list');
         $routes->get('add', 'Admin\UserControllers::add');
@@ -25,6 +27,8 @@ $routes->group('admin', function ($routes) {
     $routes->group('product', function ($routes) {
         $routes->get('list', 'Admin\ProductControllers::list');
         $routes->get('add', 'Admin\ProductControllers::add');
+        $routes->post('create', 'Admin\ProductControllers::create');
     });
 
 });
+

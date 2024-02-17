@@ -23,7 +23,7 @@
 								<h2>24 DEC 2014</h2>
 							</div>
 						</div>
-						
+
 						<div class="col-sm-3">
 							<div class="video-gallery text-center">
 								<a href="#">
@@ -38,7 +38,7 @@
 								<h2>24 DEC 2014</h2>
 							</div>
 						</div>
-						
+
 						<div class="col-sm-3">
 							<div class="video-gallery text-center">
 								<a href="#">
@@ -53,7 +53,7 @@
 								<h2>24 DEC 2014</h2>
 							</div>
 						</div>
-						
+
 						<div class="col-sm-3">
 							<div class="video-gallery text-center">
 								<a href="#">
@@ -78,7 +78,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="footer-widget">
 			<div class="container">
 				<div class="row">
@@ -140,11 +140,11 @@
 							</form>
 						</div>
 					</div>
-					
+
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="footer-bottom">
 			<div class="container">
 				<div class="row">
@@ -153,16 +153,5 @@
 				</div>
 			</div>
 		</div>
-		
-	</footer><!--/Footer-->
-	
 
-  
-    <script src="assets/user/js/jquery.js"></script>
-	<script src="assets/user/js/bootstrap.min.js"></script>
-	<script src="assets/user/js/jquery.scrollUp.min.js"></script>
-	<script src="assets/user/js/price-range.js"></script>
-    <script src="assets/user/js/jquery.prettyPhoto.js"></script>
-    <script src="assets/user/js/main.js"></script>
-</body>
-</html>
+	</footer><!--/Footer-->

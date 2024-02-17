@@ -52,6 +52,7 @@ class ComposerStaticInitacaa47c167fd5395eb41cc209533f332
         ),
         'N' => 
         array (
+            'Nowakowskir\\JWT\\' => 16,
             'Nexus\\CsConfig\\' => 15,
         ),
         'L' => 
@@ -176,6 +177,10 @@ class ComposerStaticInitacaa47c167fd5395eb41cc209533f332
         'PhpCsFixer\\' => 
         array (
             0 => __DIR__ . '/..' . '/friendsofphp/php-cs-fixer/src',
+        ),
+        'Nowakowskir\\JWT\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/nowakowskir/php-jwt/src',
         ),
         'Nexus\\CsConfig\\' => 
         array (
@@ -1324,6 +1329,23 @@ class ComposerStaticInitacaa47c167fd5395eb41cc209533f332
         'Nexus\\CsConfig\\Test\\AbstractRulesetTestCase' => __DIR__ . '/..' . '/nexusphp/cs-config/src/Test/AbstractRulesetTestCase.php',
         'Nexus\\CsConfig\\Test\\FixerProvider' => __DIR__ . '/..' . '/nexusphp/cs-config/src/Test/FixerProvider.php',
         'Normalizer' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/Resources/stubs/Normalizer.php',
+        'Nowakowskir\\JWT\\Base64Url' => __DIR__ . '/..' . '/nowakowskir/php-jwt/src/Base64Url.php',
+        'Nowakowskir\\JWT\\Exceptions\\AlgorithmMismatchException' => __DIR__ . '/..' . '/nowakowskir/php-jwt/src/Exceptions/AlgorithmMismatchException.php',
+        'Nowakowskir\\JWT\\Exceptions\\EmptyTokenException' => __DIR__ . '/..' . '/nowakowskir/php-jwt/src/Exceptions/EmptyTokenException.php',
+        'Nowakowskir\\JWT\\Exceptions\\InsecureTokenException' => __DIR__ . '/..' . '/nowakowskir/php-jwt/src/Exceptions/InsecureTokenException.php',
+        'Nowakowskir\\JWT\\Exceptions\\IntegrityViolationException' => __DIR__ . '/..' . '/nowakowskir/php-jwt/src/Exceptions/IntegrityViolationException.php',
+        'Nowakowskir\\JWT\\Exceptions\\InvalidClaimTypeException' => __DIR__ . '/..' . '/nowakowskir/php-jwt/src/Exceptions/InvalidClaimTypeException.php',
+        'Nowakowskir\\JWT\\Exceptions\\InvalidStructureException' => __DIR__ . '/..' . '/nowakowskir/php-jwt/src/Exceptions/InvalidStructureException.php',
+        'Nowakowskir\\JWT\\Exceptions\\SigningFailedException' => __DIR__ . '/..' . '/nowakowskir/php-jwt/src/Exceptions/SigningFailedException.php',
+        'Nowakowskir\\JWT\\Exceptions\\TokenExpiredException' => __DIR__ . '/..' . '/nowakowskir/php-jwt/src/Exceptions/TokenExpiredException.php',
+        'Nowakowskir\\JWT\\Exceptions\\TokenInactiveException' => __DIR__ . '/..' . '/nowakowskir/php-jwt/src/Exceptions/TokenInactiveException.php',
+        'Nowakowskir\\JWT\\Exceptions\\UndefinedAlgorithmException' => __DIR__ . '/..' . '/nowakowskir/php-jwt/src/Exceptions/UndefinedAlgorithmException.php',
+        'Nowakowskir\\JWT\\Exceptions\\UnsupportedAlgorithmException' => __DIR__ . '/..' . '/nowakowskir/php-jwt/src/Exceptions/UnsupportedAlgorithmException.php',
+        'Nowakowskir\\JWT\\Exceptions\\UnsupportedTokenTypeException' => __DIR__ . '/..' . '/nowakowskir/php-jwt/src/Exceptions/UnsupportedTokenTypeException.php',
+        'Nowakowskir\\JWT\\JWT' => __DIR__ . '/..' . '/nowakowskir/php-jwt/src/JWT.php',
+        'Nowakowskir\\JWT\\TokenDecoded' => __DIR__ . '/..' . '/nowakowskir/php-jwt/src/TokenDecoded.php',
+        'Nowakowskir\\JWT\\TokenEncoded' => __DIR__ . '/..' . '/nowakowskir/php-jwt/src/TokenEncoded.php',
+        'Nowakowskir\\JWT\\Validation' => __DIR__ . '/..' . '/nowakowskir/php-jwt/src/Validation.php',
         'PHPUnit\\Exception' => __DIR__ . '/..' . '/phpunit/phpunit/src/Exception.php',
         'PHPUnit\\Framework\\ActualValueIsNotAnObjectException' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Exception/ActualValueIsNotAnObjectException.php',
         'PHPUnit\\Framework\\Assert' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert.php',
