@@ -2,7 +2,11 @@
     <h1 class="dash-title">Trang chủ /Sản phẩm</h1>
     <div class="row">
         <div class="col-lg-12">
-            <?= view('messages/messages'); ?>
+            <?php if (!empty($messageCode) && !empty($message)) : ?>
+                <div class="alert alert-<?php echo $messageCode; ?>">
+                    <?php echo $message; ?>
+                </div>
+            <?php endif; ?>
             <div class="card easion-card">
                 <div class="card-header">
                     <div class="easion-card-icon">
@@ -32,7 +36,7 @@
                                 <td>emai_address</td>
                                 <td>storage</td>
                                 <td>databases</td>
-                                <td>domains</td>  
+                                <td>domains</td>
                                 <td class="text-center">
                                     <a href="purchase-edit.html" class="btn btn-primary"><i class="fas fa-edit"></i></a>
                                     <a data-url="" class="btn btn-danger btn-del-confirm"><i class="far fa-trash-alt"></i></a>

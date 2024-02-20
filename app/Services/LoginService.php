@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\UserModel;
 use App\Common\ResultUtils;
 
+
 class LoginService extends BaseService
 {
     private $users;
@@ -25,7 +26,7 @@ class LoginService extends BaseService
         if ($validate->getErrors()) {
             return [
                 'status' => ResultUtils::STATUS_CODE_ERR,
-                'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'messageCode' => ResultUtils::MESSAGE_CODE_ERR,
                 'messages' => $validate->getError()
             ];
         }
@@ -36,7 +37,7 @@ class LoginService extends BaseService
         if (!$user) {
             return [
                 'status' => ResultUtils::STATUS_CODE_ERR,
-                'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'messageCode' => ResultUtils::MESSAGE_CODE_ERR,
                 'messages' => [
                     'notExit' => 'Email chưa được đăng ký'
                 ]
@@ -46,7 +47,7 @@ class LoginService extends BaseService
         if (!password_verify($params['password'], $user['password'])) {
             return [
                 'status' => ResultUtils::STATUS_CODE_ERR,
-                'massageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'messageCode' => ResultUtils::MESSAGE_CODE_ERR,
                 'messages' => [
                     'WrongPass' => 'Mật khẩu không đúng'
                 ]
@@ -61,7 +62,7 @@ class LoginService extends BaseService
 
         return [
             'status' => ResultUtils::STATUS_CODE_OK,
-            'massageCode' => ResultUtils::MESSAGE_CODE_OK,
+            'messageCode' => ResultUtils::MESSAGE_CODE_OK,
             'messages' => null
         ];
     }
@@ -75,7 +76,7 @@ class LoginService extends BaseService
 
         $message = [
             'email' => [
-                'valid_email' => 'Tài khoản {filled} {values} không đúng định dạng'
+                'valid_email' => 'Tài khoản {filed} {values} không đúng định dạng'
             ],
             'password' => [
                 'max_length' => 'Mật khẩu quá dài, vui lòng nhập {param} ký tự',

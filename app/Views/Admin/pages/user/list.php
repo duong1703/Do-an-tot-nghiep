@@ -2,7 +2,11 @@
     <h1 class="dash-title">Trang chủ / Tài khoản</h1>
     <div class="row">
         <div class="col-lg-12">
-            <?= view('messages/messages'); ?>
+            <?php if (!empty($messageCode) && !empty($message)) : ?>
+                <div class="alert alert-<?php echo $messageCode; ?>">
+                    <?php echo $message; ?>
+                </div>
+            <?php endif; ?>
             <div class="card easion-card">
                 <div class="card-header">
                     <div class="easion-card-icon">
