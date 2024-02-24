@@ -20,17 +20,13 @@
         <div class="card account-dialog">
             <div class="card-header bg-primary text-white"> Please sign in </div>
             <div class="card-body">
-                <?php if (!empty($messageCode) && !empty($message)) : ?>
-                    <div class="alert alert-<?php echo $messageCode; ?>">
-                        <?php echo $message; ?>
-                    </div>
-                <?php endif; ?>
+                <?= view('messages/message') ?>
                 <form action="admin/login" method="post">
                     <div class="form-group">
-                        <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                        <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
                     </div>
                     <div class="form-group">
-                        <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
                     </div>
                     <div class="account-dialog-actions">
                         <button type="submit" class="btn btn-primary">Sign in</button>

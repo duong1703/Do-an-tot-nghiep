@@ -27,42 +27,21 @@ class LoginControllers extends BaseController
 
     public function login()
     {
-        // Xử lý đăng nhập ở đây và có kết quả của quá trình đăng nhập
-        $result = array(
-            'success' => true, // Đặt thành true nếu đăng nhập thành công, false nếu không thành công
-            'messageCode' => 'success', // Mã thông điệp
-            'message' => 'Đăng nhập thành công' // Thông điệp
-        );
-
-        if ($result['success']) {
-            // Nếu đăng nhập thành công, thiết lập dữ liệu flash và chuyển hướng đến trang dashboard
-            session()->setFlashdata('messageCode', $result['messageCode']);
-            session()->setFlashdata('message', $result['message']);
-            return redirect()->to('admin/home');
-        } else {
-            // Nếu đăng nhập không thành công, thiết lập dữ liệu flash và chuyển hướng đến trang login
-            session()->setFlashdata('messageCode', $result['messageCode']);
-            session()->setFlashdata('message', $result['message']);
-            return redirect()->to('admin/login');
+        $result = $this->service->hasLoginInfo($this->request);
+        if($result["status"] === ResultUtils::STATUS_CODE_OK){
+            return redirect("admin/home");
+        }elseif($result["status"] === ResultUtils::STATUS_CODE_ERR){
+            return redirect("admin/login")->with($result['messageCode'], $result['messages']);
         }
-    }
-    public function home()
-    {
-        // Trang dashboard sau khi đăng nhập thành công
-        // Hiển thị thông báo flash nếu có
-        $data['messageCode'] = session()->getFlashdata('messageCode');
-        $data['message'] = session()->getFlashdata('message');
-
-        // Load view của trang dashboard với dữ liệu
-        return view('admin/home', $data);
+        return redirect("home");
     }
 
     public function logout()
     {
         // Xóa tất cả dữ liệu phiên
-        session()->destroy();
+        $this->service->logout();
 
         // Chuyển hướng người dùng đến trang đăng nhập
-        return redirect()->to('admin/login');
+        return redirect('admin/login');
     }
 }

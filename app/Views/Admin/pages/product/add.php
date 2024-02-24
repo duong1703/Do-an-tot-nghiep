@@ -3,11 +3,7 @@
         <h1 class="dash-title">Trang chủ / Sản phẩm / Thêm mới</h1>
         <div class="row">
             <div class="col-xl-12">
-                <?php if (!empty($messageCode) && !empty($message)) : ?>
-                    <div class="alert alert-<?php echo $messageCode; ?>">
-                        <?php echo $message; ?>
-                    </div>
-                <?php endif; ?>
+            <?= view('messages/message') ?>
                 <div class="card easion-card">
                     <div class="card-header">
                         <div class="easion-card-icon">
@@ -24,8 +20,7 @@
                                     <input name="name" type="text" class="form-control" placeholder="Nhập tên sản phẩm" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <div class="form-group">
-                                        <label for="input-choose-image">Ảnh sản phẩm</label>
+                                    <div class="form-group"><label for="input-choose-image">Ảnh sản phẩm</label>
                                         <input name="images" type="file" accept="image/*" class="form-control-file" id="input-choose-image" required>
                                     </div>
                                     <div class="form-group">

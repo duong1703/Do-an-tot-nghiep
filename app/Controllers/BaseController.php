@@ -69,8 +69,8 @@ abstract class BaseController extends Controller
     }
 
     public function loadMasterLayoutWeb($data){
-        $data['header'] = view('user/layout/header');
-        $data['footer'] = view('user/layout/footer');
+        $data['header'] = view('pages/header');
+        $data['footer'] = view('pages/footer');
         
     }
 }

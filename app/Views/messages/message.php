@@ -1,5 +1,5 @@
-<?php  if (session('messageCode')) : ?>
-    <?php foreach (session('messageCode') as $error) : ?>
+<?php  if (session('errorMsg')) : ?>
+    <?php foreach (session('errorMsg') as $error) : ?>
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
             <?= $error ?>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">

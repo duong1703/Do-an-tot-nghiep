@@ -49,6 +49,9 @@ class ProductControllers extends BaseController
     public function create()
     {
         $result = $this->service->addProductsInfo($this->request);
-        return redirect('admin/product/add')->withInput()->with($result['massageCode'], $result['messages']);
+        return redirect('admin/product/add')->withInput()->with($result['messageCode'], $result['messages']);
     }
+
+
+    
 }
