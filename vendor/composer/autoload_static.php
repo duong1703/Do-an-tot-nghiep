@@ -57,6 +57,7 @@ class ComposerStaticInitacaa47c167fd5395eb41cc209533f332
             'Predis\\' => 7,
             'PhpParser\\' => 10,
             'PhpCsFixer\\' => 11,
+            'PHPMailer\\PHPMailer\\' => 20,
         ),
         'N' => 
         array (
@@ -195,6 +196,10 @@ class ComposerStaticInitacaa47c167fd5395eb41cc209533f332
         'PhpCsFixer\\' => 
         array (
             0 => __DIR__ . '/..' . '/friendsofphp/php-cs-fixer/src',
+        ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
         'Nowakowskir\\JWT\\' => 
         array (
@@ -1466,6 +1471,13 @@ class ComposerStaticInitacaa47c167fd5395eb41cc209533f332
         'Nowakowskir\\JWT\\TokenDecoded' => __DIR__ . '/..' . '/nowakowskir/php-jwt/src/TokenDecoded.php',
         'Nowakowskir\\JWT\\TokenEncoded' => __DIR__ . '/..' . '/nowakowskir/php-jwt/src/TokenEncoded.php',
         'Nowakowskir\\JWT\\Validation' => __DIR__ . '/..' . '/nowakowskir/php-jwt/src/Validation.php',
+        'PHPMailer\\PHPMailer\\DSNConfigurator' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/DSNConfigurator.php',
+        'PHPMailer\\PHPMailer\\Exception' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/Exception.php',
+        'PHPMailer\\PHPMailer\\OAuth' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/OAuth.php',
+        'PHPMailer\\PHPMailer\\OAuthTokenProvider' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/OAuthTokenProvider.php',
+        'PHPMailer\\PHPMailer\\PHPMailer' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/PHPMailer.php',
+        'PHPMailer\\PHPMailer\\POP3' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/POP3.php',
+        'PHPMailer\\PHPMailer\\SMTP' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/SMTP.php',
         'PHPUnit\\Exception' => __DIR__ . '/..' . '/phpunit/phpunit/src/Exception.php',
         'PHPUnit\\Framework\\ActualValueIsNotAnObjectException' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Exception/ActualValueIsNotAnObjectException.php',
         'PHPUnit\\Framework\\Assert' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert.php',

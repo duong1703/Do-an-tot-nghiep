@@ -99,8 +99,8 @@
 								<li><a href="index.php?page=Trang-chu" class="active">Trang chủ</a></li>
 								<li class="dropdown"><a href="#">Cửa hàng<i class="fa fa-angle-down"></i></a>
 									<ul role="menu" class="sub-menu">
-										<li><a href="shop.html">Products</a></li>
-										<li><a href="product-details.html">Product Details</a></li>
+										<li><a href="views/product">Sản phẩm</a></li>
+										<!-- <li><a href="product-details.html">Product Details</a></li> -->
 									</ul>
 								</li>
 								<!-- <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
@@ -109,8 +109,8 @@
 										<li><a href="blog-single.html">Blog Single</a></li> -->
 									<!-- </ul> -->
 								</li>
-								<li><a href="404.html">404</a></li>
-								<!-- <li><a href="contact-us.html">Contact</a></li> -->
+								<!-- <li><a href="404.html">404</a></li> -->
+								<li><a href="views/contact">Liên hệ</a></li>
 							</ul>
 						</div>
 					</div>

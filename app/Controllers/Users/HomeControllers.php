@@ -15,6 +15,13 @@ class HomeControllers extends BaseController
         return view('login');
     }
 
+    public function contact(){
+        return view('contact');
+    }
+
+    public function product(){
+        return view('product');
+    }
 }
 
 

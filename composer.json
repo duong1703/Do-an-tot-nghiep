@@ -18,6 +18,7 @@
         "codeigniter4/shield": "dev-develop",
         "laminas/laminas-escaper": "^2.9",
         "nowakowskir/php-jwt": "^2.1",
+        "phpmailer/phpmailer": "dev-master",
         "psr/log": "^1.1"
     },
     "require-dev": {

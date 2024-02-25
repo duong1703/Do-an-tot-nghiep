@@ -8,6 +8,8 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Users\HomeControllers::index');
 $routes->get('views/login', 'Users\HomeControllers::login');
+$routes->get('views/contact', 'Users\HomeControllers::contact');
+$routes->get('views/product', 'Users\HomeControllers::product');
 $routes->get('error/404', function(){
     return view('errors/html/error_404');
 });
