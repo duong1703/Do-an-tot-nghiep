@@ -161,6 +161,7 @@
 	<script src="assets/user/js/price-range.js"></script>
 	<script src="assets/user/js/jquery.prettyPhoto.js"></script>
 	<script src="assets/user/js/main.js"></script>
+	<script src="assets/admin/js/event.js"></script>
 </body>
 
 </html>

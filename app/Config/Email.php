@@ -28,17 +28,17 @@ class Email extends BaseConfig
     /**
      * SMTP Server Address
      */
-    public string $SMTPHost = '';
+    public string $SMTPHost = 'smtp.gmail.com';
 
     /**
      * SMTP Username
      */
-    public string $SMTPUser = '';
+    public string $SMTPUser = 'dduong1703@gmail.com';
 
     /**
      * SMTP Password
      */
-    public string $SMTPPass = '';
+    public string $SMTPPass = 'ivqy hlqe nlfn cnsl';
 
     /**
      * SMTP Port

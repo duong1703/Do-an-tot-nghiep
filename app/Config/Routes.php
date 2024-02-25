@@ -10,6 +10,12 @@ $routes->get('/', 'Users\HomeControllers::index');
 $routes->get('views/login', 'Users\HomeControllers::login');
 $routes->get('views/contact', 'Users\HomeControllers::contact');
 $routes->get('views/product', 'Users\HomeControllers::product');
+$routes->get('views/cart', 'Users\HomeControllers::cart');
+
+$routes->get('/', 'Users\EmailController::index');
+$routes->match(['get', 'post'], 'contact/mail', 'Users\EmailController::sendMail');
+
+
 $routes->get('error/404', function(){
     return view('errors/html/error_404');
 });

@@ -22,6 +22,10 @@ class HomeControllers extends BaseController
     public function product(){
         return view('product');
     }
+
+    public function cart(){
+        return view('cart');
+    }
 }
 
 

@@ -25,4 +25,13 @@ $(".btn-del-confirm").click(function(){
     window.location.href = url;
 });
 
+$(".btn").click(function(){
+    let url = $(this).data('url');
+    if(!confirm("Mail đã được gửi thành công! ComputerShop cảm ơn bạn đã phản hồi")){
+        return;
+    }
+
+    window.location.href = url;
+});
+
 
