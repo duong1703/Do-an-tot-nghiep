@@ -57,7 +57,7 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="index.php?page=Trang-chu"><img src="/assets/images/logo.png" alt="" width="270" height="120"/></a>
+							<a href="index.php?page=Trang-chu"><img src="/assets/images/logo.png" alt="" width="270" height="120" /></a>
 						</div>
 						<!-- <div class="btn-group pull-right">
 							<div class="btn-group">
@@ -194,25 +194,27 @@
 			<div class="row">
 				<div class="col-sm-3">
 					<div class="left-sidebar">
-						<h2>Category</h2>
+						<h2>Danh mục sản phẩm</h2>
 						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
+										<a data-toggle="collapse" data-parent="#accordian" href="#PC">
 											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											Sportswear
+											Máy tính để bàn
 										</a>
 									</h4>
 								</div>
-								<div id="sportswear" class="panel-collapse collapse">
+								<div id="PC" class="panel-collapse collapse">
 									<div class="panel-body">
 										<ul>
-											<li><a href="#">Nike </a></li>
-											<li><a href="#">Under Armour </a></li>
-											<li><a href="#">Adidas </a></li>
-											<li><a href="#">Puma</a></li>
-											<li><a href="#">ASICS </a></li>
+											<li><a href="#">Màn hình </a></li>
+											<li><a href="#">Thùng máy </a></li>
+											<li><a href="#">Chip</a></li>
+											<li><a href="#">Ram, SSD </a></li>
+											<li><a href="#">Card đồ họa </a></li>
+											<li><a href="#">Chuột, Bàn phím</a></li>
+											<li><a href="#">Bàn, ghế Gaming </a></li>
 										</ul>
 									</div>
 								</div>
@@ -220,25 +222,19 @@
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#mens">
+										<a data-toggle="collapse" data-parent="#accordian" href="#Laptop">
 											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											Mens
+											Máy tính xách tay
 										</a>
 									</h4>
 								</div>
-								<div id="mens" class="panel-collapse collapse">
+								<div id="Laptop" class="panel-collapse collapse">
 									<div class="panel-body">
 										<ul>
-											<li><a href="#">Fendi</a></li>
-											<li><a href="#">Guess</a></li>
-											<li><a href="#">Valentino</a></li>
-											<li><a href="#">Dior</a></li>
-											<li><a href="#">Versace</a></li>
-											<li><a href="#">Armani</a></li>
-											<li><a href="#">Prada</a></li>
-											<li><a href="#">Dolce and Gabbana</a></li>
-											<li><a href="#">Chanel</a></li>
-											<li><a href="#">Gucci</a></li>
+											<li><a href="#">Quạt tản nhiệt </a></li>
+											<li><a href="#">Ram, SSD Laptop </a></li>
+											<li><a href="#">Chuột, Bàn phím Laptop</a></li>
+
 										</ul>
 									</div>
 								</div>
@@ -247,75 +243,60 @@
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#womens">
+										<a data-toggle="collapse" data-parent="#accordian" href="#Audio">
 											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											Womens
+											Tai nghe
 										</a>
 									</h4>
 								</div>
-								<div id="womens" class="panel-collapse collapse">
+								<div id="Audio" class="panel-collapse collapse">
 									<div class="panel-body">
 										<ul>
-											<li><a href="#">Fendi</a></li>
-											<li><a href="#">Guess</a></li>
-											<li><a href="#">Valentino</a></li>
-											<li><a href="#">Dior</a></li>
-											<li><a href="#">Versace</a></li>
+											<li><a href="#">ASUS</a></li>
+											<li><a href="#">Razer</a></li>
+											<li><a href="#">Apple</a></li>
+											<li><a href="#">Harmar Kadon</a></li>
+											<li><a href="#">Havit</a></li>
 										</ul>
 									</div>
 								</div>
 							</div>
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Kids</a></h4>
+									<h4 class="panel-title"><a href="#">Máy tính laptop ASUS</a></h4>
 								</div>
 							</div>
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Fashion</a></h4>
+									<h4 class="panel-title"><a href="#">Máy tính laptop ACER</a></h4>
 								</div>
 							</div>
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Households</a></h4>
+									<h4 class="panel-title"><a href="#">Máy tính laptop RAZER</a></h4>
 								</div>
 							</div>
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Interiors</a></h4>
+									<h4 class="panel-title"><a href="#">Máy tính laptop MSI</a></h4>
 								</div>
 							</div>
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Clothing</a></h4>
+									<h4 class="panel-title"><a href="#">Máy tính MACBOOK</a></h4>
 								</div>
 							</div>
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Bags</a></h4>
+									<h4 class="panel-title"><a href="#">Máy tính laptop DELL</a></h4>
 								</div>
 							</div>
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Shoes</a></h4>
+									<h4 class="panel-title"><a href="#">Máy tính đồng bộ</a></h4>
 								</div>
 							</div>
 						</div><!--/category-products-->
-
-						<div class="brands_products"><!--brands_products-->
-							<h2>Brands</h2>
-							<div class="brands-name">
-								<ul class="nav nav-pills nav-stacked">
-									<li><a href="#"> <span class="pull-right">(50)</span>Acne</a></li>
-									<li><a href="#"> <span class="pull-right">(56)</span>Grüne Erde</a></li>
-									<li><a href="#"> <span class="pull-right">(27)</span>Albiro</a></li>
-									<li><a href="#"> <span class="pull-right">(32)</span>Ronhill</a></li>
-									<li><a href="#"> <span class="pull-right">(5)</span>Oddmolly</a></li>
-									<li><a href="#"> <span class="pull-right">(9)</span>Boudestijn</a></li>
-									<li><a href="#"> <span class="pull-right">(4)</span>Rösch creative culture</a></li>
-								</ul>
-							</div>
-						</div><!--/brands_products-->
 
 						<div class="price-range"><!--price-range-->
 							<h2>Price Range</h2>
@@ -334,7 +315,7 @@
 
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
-						<h2 class="title text-center">Features Items</h2>
+						<h2 class="title text-center">SẢN PHẨM NỔI BẬT</h2>
 						<div class="col-sm-4">
 							<div class="product-image-wrapper">
 								<div class="single-products">
@@ -886,7 +867,7 @@
 				<div class="row">
 					<div class="col-sm-2">
 						<div class="companyinfo">
-						<img src="/assets/images/logo.png" alt="" width="180" height="90"/></a>
+							<img src="/assets/images/logo.png" alt="" width="180" height="90" /></a>
 						</div>
 					</div>
 					<div class="col-sm-7">

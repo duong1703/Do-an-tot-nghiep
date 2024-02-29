@@ -103,7 +103,7 @@
 		</div>
 	</section> <!--/#cart_items-->
 
-	<section id="do_action">
+	<!-- <section id="do_action">
 		<div class="container">
 			<div class="heading">
 				<h3>What would you like to do next?</h3>
@@ -178,6 +178,6 @@
 				</div>
 			</div>
 		</div>
-	</section><!--/#do_action-->
+	</section>/#do_action -->
 
 <?php include 'templates/footer.php'; ?>

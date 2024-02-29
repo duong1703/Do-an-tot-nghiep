@@ -14,7 +14,6 @@ class HomeControllers extends BaseController
     public function login(){
         return view('login');
     }
-
     public function contact(){
         return view('contact');
     }
