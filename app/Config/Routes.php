@@ -39,6 +39,7 @@ $routes->group('admin', function ($routes) {
         $routes->get('list', 'Admin\ProductControllers::list');
         $routes->get('add', 'Admin\ProductControllers::add');
         $routes->post('create', 'Admin\ProductControllers::create');
+        $routes->get('edit/(:num)', 'Admin\ProductControllers::edit/$1');
     });
 
 });

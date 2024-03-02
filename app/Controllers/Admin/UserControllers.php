@@ -51,7 +51,7 @@ class UserControllers extends BaseController
     public function create()
     {
         $result = $this->service->addUserInfo($this->request);
-        return redirect()->back()->withInput()->with($result['messageCode'], $result['messages']);
+        return redirect()->back()->withInput()->with($result['massageCode'], $result['messages']);
     }
 
     public function edit($id)
@@ -75,7 +75,7 @@ class UserControllers extends BaseController
     public function update()
     {   
         $result = $this->service->updateUserInfo($this->request);
-        return redirect()->back()->withInput()->with($result['messageCode'], $result['messages']);
+        return redirect()->back()->withInput()->with($result['massageCode'], $result['messages']);
     }
 
     public function delete($id)
@@ -87,6 +87,6 @@ class UserControllers extends BaseController
         }
 
         $result = $this->service->deleteUser($id);
-        return redirect('admin/user/list')->with($result['messageCode'], $result['messages']);
+        return redirect('admin/user/list')->with($result['massageCode'], $result['messages']);
     }
 }

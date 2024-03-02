@@ -42,8 +42,7 @@
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary">Cập nhật</button>
-                            <button id="btn-reset-edit-user" type="reset" class="btn btn-secondary">Nhập
-                                lại</button>
+                            <button id="btn-reset-edit-user" type="reset" class="btn btn-secondary">Nhập lại</button>
                         </form>
                     </div>
                 </div>

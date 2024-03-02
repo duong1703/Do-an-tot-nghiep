@@ -11,7 +11,7 @@ class ProductSeeder extends Seeder
         $data = [
             [
                 'id' =>'1',
-                'images' => '',
+                'images' => 'public/assets/images/DellXPS14.jpg',
                 'name' => 'Asus Vivobook S210',
                 'price' => '20.000.000 VND',
                 'description' => 'Sản phẩm mới luôn tốt và bền',

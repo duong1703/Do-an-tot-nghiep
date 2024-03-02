@@ -2,7 +2,7 @@
     <h1 class="dash-title">Trang chủ /Sản phẩm</h1>
     <div class="row">
         <div class="col-lg-12">
-        <?= view('messages/message') ?>
+            <?= view('messages/message') ?>
             <div class="card easion-card">
                 <div class="card-header">
                     <div class="easion-card-icon">
@@ -15,8 +15,8 @@
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">Ảnh sản phẩm</th>
                                 <th scope="col">Tên sản phẩm</th>
+                                <th scope="col">Ảnh sản phẩm</th>
                                 <th scope="col">Giá</th>
                                 <th scope="col">Mô tả sản phẩm</th>
                                 <th scope="col">Danh mục</th>
@@ -25,19 +25,25 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>id</td>
-                                <td>name</td>
-                                <td>price</td>
-                                <td>emai_address</td>
-                                <td>storage</td>
-                                <td>databases</td>
-                                <td>domains</td>
-                                <td class="text-center">
-                                    <a href="purchase-edit.html" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                                    <a data-url="" class="btn btn-danger btn-del-confirm"><i class="far fa-trash-alt"></i></a>
-                                </td>
-                            </tr>
+                            <?php if (isset($products) && !empty($products)) : ?>
+                                <?php foreach ($products as $product) : ?>
+                                    <tr>
+                                        <td><?= $product['id'] ?></td>
+                                        <td><?= $product['name'] ?></td>
+                                        <td><?= $product['images'] ?></td>
+                                        <td><?= $product['price'] ?></td>
+                                        <td><?= $product['description'] ?></td>
+                                        <td><?= $product['category'] ?></td>
+                                        <td><?= $product['amount'] ?></td>
+                                        <td class="text-center">
+                                            <a href="admin/pages/product/edit/<?= $product['id'] ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                            <a data-url="<?= base_url() ?>admin/pages/product/edit/<?= $product['id'] ?>" class="btn btn-danger btn-del-confirm">
+                                                <i class="far fa-trash-alt"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach ?>
+                            <?php endif; ?>
                         </tbody>
                     </table>
                 </div>
