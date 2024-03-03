@@ -3,7 +3,7 @@
         <h1 class="dash-title">Trang chủ / Sản phẩm / Thêm mới</h1>
         <div class="row">
             <div class="col-xl-12">
-                <?= view('messages/message') ?>
+            <?= view('messages/message') ?>
                 <div class="card easion-card">
                     <div class="card-header">
                         <div class="easion-card-icon">
@@ -34,7 +34,7 @@
                                     <input value="<?= old('price') ?>" name="price" type="text" class="form-control" placeholder="Nhập giá bán" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="description">Mô tả</label></br>
+                                    <label>Mô tả sản phẩm</label></br>
                                     <textarea value="<?= old('description') ?>" name="description" id="description"></textarea>
                                 </div>
                             </div>
@@ -45,7 +45,7 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Số lượng</label>
-                                    <input value="<?= old('amount') ?>" name="amount" type="text" class="form-control" placeholder="Nhập số lượng" required>
+                                    <input value="<?= old('amount') ?>"  name="amount" type="text" class="form-control" placeholder="Nhập số lượng" required>
                                 </div>
                             </div>
                             <!-- <div class="form-row">

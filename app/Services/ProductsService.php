@@ -15,8 +15,8 @@ class ProductsService extends BaseService
     function __construct()
     {
         parent::__construct();
-        $this->product = new ProductModel();
-        $this->product->protect(false);
+        //$this->product = new ProductModel();
+        //$this->product->protect(false);
 
         //$this->users->protect(false);
     }

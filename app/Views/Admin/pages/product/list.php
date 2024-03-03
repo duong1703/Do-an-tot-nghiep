@@ -15,8 +15,8 @@
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">Tên sản phẩm</th>
                                 <th scope="col">Ảnh sản phẩm</th>
+                                <th scope="col">Tên sản phẩm</th>
                                 <th scope="col">Giá</th>
                                 <th scope="col">Mô tả sản phẩm</th>
                                 <th scope="col">Danh mục</th>
@@ -36,8 +36,8 @@
                                         <td><?= $product['category'] ?></td>
                                         <td><?= $product['amount'] ?></td>
                                         <td class="text-center">
-                                            <a href="admin/pages/product/edit/<?= $product['id'] ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                                            <a data-url="<?= base_url() ?>admin/pages/product/edit/<?= $product['id'] ?>" class="btn btn-danger btn-del-confirm">
+                                            <a href="admin/product/edit/<?= $product['id'] ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                            <a data-url="<?= base_url() ?>admin/product/edit/<?= $product['id'] ?>" class="btn btn-danger btn-del-confirm">
                                                 <i class="far fa-trash-alt"></i>
                                             </a>
                                         </td>

@@ -3,11 +3,11 @@
 namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
 use App\Services\ProductsService;
-use App\Services\getProductByID;
 
 
 class ProductControllers extends BaseController
 {
+
     /**
         @var Service
     */
@@ -17,8 +17,7 @@ class ProductControllers extends BaseController
     {
         $this->service = new ProductsService();
     }
-
-
+    
     public function list(): string
     {
         $data = [];
@@ -47,46 +46,5 @@ class ProductControllers extends BaseController
         return view('admin/main', $data);
        
     }
-
-    public function create()
-    {
-        $result = $this->service->addProductsInfo($this->request);
-        return redirect()->back()->withInput()->with($result['massageCode'], $result['messages']);
-    }
-
-    public function edit($id)
-    {
-        $user = $this->service->getProductByID($id);
-
-        if(!$user){
-            return redirect('error/404');
-        }
-
-        $cssFiles = [
-            base_url() . '/assets/admin/js/event.js'
-            
-        ];
-
-        $dataLayout['product'] = [];
-        $data = $this->loadMasterLayout([], 'Sửa tài khoản', 'admin/pages/product/edit', $dataLayout, $cssFiles, [] );
-        return view('admin/main', $data);
-    }
-
-    public function update()
-    {   
-        $result = $this->service->updateProductInfo($this->request);
-        return redirect()->back()->withInput()->with($result['massageCode'], $result['messages']);
-    }
-
-    public function delete($id)
-    {
-        $user = $this->service->getProductByID($id);
-
-        if(!$user){
-            return redirect('error/404');
-        }
-
-        $result = $this->service->deleteProduct($id);
-        return redirect('admin/product/list')->with($result['massageCode'], $result['messages']);
-    }
 }
+

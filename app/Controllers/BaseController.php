@@ -73,4 +73,6 @@ abstract class BaseController extends Controller
         $data['footer'] = view('pages/footer');
         
     }
+
+    
 }

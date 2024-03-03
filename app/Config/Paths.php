@@ -66,6 +66,7 @@ class Paths
      */
     public string $testsDirectory = __DIR__ . '/../../tests';
 
+
     /**
      * ---------------------------------------------------------------
      * VIEW DIRECTORY NAME

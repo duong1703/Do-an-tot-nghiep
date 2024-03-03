@@ -15,12 +15,12 @@ $routes->get('views/cart', 'Users\HomeControllers::cart');
 $routes->get('/', 'Users\EmailController::index');
 $routes->match(['get', 'post'], 'contact/mail', 'Users\EmailController::sendMail');
 
-
 $routes->get('error/404', function(){
     return view('errors/html/error_404');
 });
 
 $routes->group('admin', function ($routes) {
+    $routes->get('pages/home', 'Admin\HomeControllers::index');
     $routes->get('home', 'Admin\HomeControllers::index');
     $routes->get('login','Admin\LoginControllers::index');
     $routes->post('login','Admin\LoginControllers::login');
@@ -40,6 +40,8 @@ $routes->group('admin', function ($routes) {
         $routes->get('add', 'Admin\ProductControllers::add');
         $routes->post('create', 'Admin\ProductControllers::create');
         $routes->get('edit/(:num)', 'Admin\ProductControllers::edit/$1');
+        $routes->post('update', 'Admin\ProductControllers::update');
+        $routes->get('delete/(:num)', 'Admin\ProductControllers::delete/$1');
     });
 
 });
