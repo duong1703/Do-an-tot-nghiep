@@ -6,9 +6,9 @@
 			<div class="col-sm-4 col-sm-offset-1">
 				<div class="login-form"><!--login form-->
 					<h2>Đăng nhập vào tài khoản</h2>
-					<form action="views/login" method="get">
-						<input type="text" placeholder="Name" />
+					<form action="" method="post">
 						<input type="email" placeholder="Email Address" />
+						<input type="password" placeholder="Password" />
 						<span>
 							<input type="checkbox" class="checkbox">
 							Giữ tôi đăng nhập
@@ -23,7 +23,7 @@
 			<div class="col-sm-4">
 				<div class="signup-form"><!--sign up form-->
 					<h2>Đăng ký thành viên mới!</h2>
-					<form action="views/register" method="post">
+					<form action="views/login" method="post">
 						<input type="text" placeholder="Name" />
 						<input type="email" placeholder="Email Address" />
 						<input type="password" placeholder="Password" />

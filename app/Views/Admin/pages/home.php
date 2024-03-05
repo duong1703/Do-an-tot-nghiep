@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid">
     <div class="row">
         <div class="col-xl-12">
             <div class="card easion-card">
@@ -38,7 +38,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <div class="row dash-row">
         <div class="col-xl-6">
             <div class="stats stats-primary">
@@ -48,7 +48,7 @@
                         <i class="fas fa-user"></i>
                     </div>
                     <div class="stats-data">
-                        <div class="stats-number">114</div>
+                        <div class="stats-number"></div>
                     </div>
                 </div>
             </div>

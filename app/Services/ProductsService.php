@@ -15,7 +15,7 @@ class ProductsService extends BaseService
     function __construct()
     {
         parent::__construct();
-        //$this->product = new ProductModel();
+        $this->product = new ProductModel();
         //$this->product->protect(false);
 
         //$this->users->protect(false);
@@ -35,8 +35,8 @@ class ProductsService extends BaseService
 
     public function addProductsInfo($requestData)
     {
+        
         $validate = $this->validateAddProducts($requestData);
-
         if ($validate->getErrors()) {
             return [
                 'status' => ResultUtils::STATUS_CODE_ERR,
@@ -45,8 +45,14 @@ class ProductsService extends BaseService
             ];
         }
         $dataSave = $requestData->getPost();
+        $file = $requestData->getFile('images');
+        if ($file->isValid() && !$file->hasMoved()) {
+            $newName = $file->getRandomName();
+            $dataSave['images'] = $newName; 
+            $file->move('uploads', $newName);
+        }
         try {
-            //$this->users->save($dataSave);
+            $this->product->insert($dataSave);
             return [
                 'status' => ResultUtils::STATUS_CODE_OK,
                 'massageCode' => ResultUtils::MESSAGE_CODE_OK,

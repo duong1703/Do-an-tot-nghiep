@@ -70,7 +70,7 @@
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href=""><i class="fa fa-user"></i>Tài khoản</a></li>
+								<li><a href="views/profile"><i class="fa fa-user"></i>Tài khoản</a></li>
 								<li><a href="#"><i class="fa fa-star"></i> Yêu thích</a></li>
 								<!-- <li><a href="checkout.php"><i class="fa fa-crosshairs"></i> Thanh toán</a></li> -->
 								<li><a href="views/cart"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>

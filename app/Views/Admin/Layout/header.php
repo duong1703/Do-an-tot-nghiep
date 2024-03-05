@@ -17,7 +17,7 @@
                             <i class="fas fa-user"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-                            <a class="dropdown-item" href="javascript::void()"></a>
+                            <a class="dropdown-item" href="javascript::void()"><?= session()->get('user_login') ? session()->get('user_login')['name'] : ""?></a>
                             <a class="dropdown-item" href="admin/logout">Logout</a>
                         </div>
                     </div>

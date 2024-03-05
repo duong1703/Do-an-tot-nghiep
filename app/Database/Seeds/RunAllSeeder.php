@@ -10,5 +10,6 @@ class RunAllSeeder extends Seeder
     {
         $this->call('UserSeeder');
         $this->call('ProductSeeder');
+        $this->call('SliderSeeder');
     }
 }

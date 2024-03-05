@@ -30,11 +30,16 @@
                                     <tr>
                                         <td><?= $product['id'] ?></td>
                                         <td><?= $product['name'] ?></td>
-                                        <td><?= $product['images'] ?></td>
+                                        <td>
+                                            <img src="<?= site_url("/showfile/".$product["images"]) ?>" height="60px" width="60px" alt="images">
+                                        </td>
                                         <td><?= $product['price'] ?></td>
                                         <td><?= $product['description'] ?></td>
                                         <td><?= $product['category'] ?></td>
                                         <td><?= $product['amount'] ?></td>
+                                        <td>
+                                            <img src="<?= "public/upload".$item['images']; ?>" height="60px" width="60px" alt="images">
+                                        </td>
                                         <td class="text-center">
                                             <a href="admin/product/edit/<?= $product['id'] ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
                                             <a data-url="<?= base_url() ?>admin/product/edit/<?= $product['id'] ?>" class="btn btn-danger btn-del-confirm">

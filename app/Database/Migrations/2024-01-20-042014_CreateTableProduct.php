@@ -17,7 +17,7 @@ class CreateTableProduct extends Migration
             ],
 
             'images' => [
-                'type' => 'TEXT',
+                'type' => 'VARCHAR',
                 'constraint' => 255,
                 ],
 
