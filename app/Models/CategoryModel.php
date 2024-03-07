@@ -6,5 +6,7 @@ use CodeIgniter\Model;
 
 class CategoryModel extends Model
 {
-    protected $table = 'category';
+    protected $table = 'products';
+    protected $primaryKey = 'id';
+    protected $allowedFields = ['name', 'description', 'price', 'images' , 'amount' , 'category'];
 }

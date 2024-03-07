@@ -13,43 +13,48 @@
                     </div>
                     <div class="card-body ">
                         <form action="admin/product/update" method="post">
-                            <input name="id" value="<?= $product['id'] ?>" hidden>
+                       
+
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>Tên sản phẩm</label>
-                                    <input value="<?= old('name') ?>" name="name" type="text" class="form-control" placeholder="Nhập tên sản phẩm" required>
+                                    <input value="<?= $product['name'] ?>" name="name" type="text" class="form-control" placeholder="Nhập tên sản phẩm" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <div class="form-group"><label for="input-choose-image">Ảnh sản phẩm</label>
-                                        <input value="<?= old('images') ?>" name="images" type="file" accept="image/*" class="form-control-file" id="input-choose-image" required>
+                                    <div class="form-group"><label for="input-choose-image"></label>
+                                    <input type="hidden" name="current_image" value="<?= $product['images'] ?>">
                                     </div>
-                                    <div class="form-group">
-                                        <img id="img-show" src="" class="img-fluid" alt="Hình đại diện." style="display: none;">
-                                    </div>
+                                    
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>Giá</label>
-                                    <input value="<?= old('price') ?>" name="price" type="text" class="form-control" placeholder="Nhập giá bán" required>
+                                    <input value="<?= $product['price'] ?>" name="price" type="text" class="form-control" placeholder="Nhập giá bán" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="description">Mô tả</label></br>
-                                    <textarea value="<?= old('description') ?>" name="description" id="description"></textarea>
+                                    <textarea name="description" id="description"><?= $product['description'] ?></textarea></textarea>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>Danh mục</label>
-                                    <input value="<?= old('category') ?>" name="category" type="text" class="form-control" placeholder="Nhập danh mục sản phẩm" required>
+                                    <input value="<?= $product['category'] ?>" name="category" type="text" class="form-control" placeholder="Nhập danh mục sản phẩm" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Số lượng</label>
-                                    <input value="<?= old('amount') ?>" name="amount" type="text" class="form-control" placeholder="Nhập số lượng" required>
+                                    <input value="<?= $product['amount'] ?>" name="amount" type="text" class="form-control" placeholder="Nhập số lượng" required>
                                 </div>
+                                <div class="form-group">
+                                <!-- <div class="custom-control custom-checkbox">
+                                    <input name="change-product" type="checkbox" class="custom-control-input" id="change-product">
+                                    <label class="custom-control-label" for="change-product">Thay đổi thông tin sản phẩm</label>
+                                </div> -->
+                            </div>
                             </div>
                             <button type="submit" class="btn btn-primary">Cập nhật</button>
-                            <button id="btn-reset-edit-user" type="reset" class="btn btn-secondary">Nhập lại</button>
+                            <button id="btn-reset-edit-product" type="reset" class="btn btn-secondary">Nhập lại</button>
                         </form>
                     </div>
                 </div>

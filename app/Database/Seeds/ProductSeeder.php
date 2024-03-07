@@ -13,7 +13,7 @@ class ProductSeeder extends Seeder
                 'id' =>'1',
                 'images' => '',
                 'name' => 'Asus Vivobook S210',
-                'price' => '20.000.000 VND',
+                'price' => '20.000.000',
                 'description' => 'Sản phẩm mới luôn tốt và bền',
                 'caterory' => 'Laptop',
                 'amount' => '100',

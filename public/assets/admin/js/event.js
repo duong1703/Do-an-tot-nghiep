@@ -16,6 +16,7 @@ function showChangePassword(status){
 }
 
 
+
 $(".btn-del-confirm").click(function(){
     let url = $(this).data('url');
     if(!confirm("Dữ liệu sẽ không thể khôi phục khi bị xóa, bạn chắc chắn muốn xóa không?")){

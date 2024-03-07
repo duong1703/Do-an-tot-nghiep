@@ -241,3 +241,55 @@ class ProductControllers extends BaseController
         </div>
     </div>
 </div>
+
+
+
+ public function addProductsInfo($requestData)
+    {
+
+        $validate = $this->validateAddProducts($requestData);
+        if ($validate->getErrors()) {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'messageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'messages' => $validate->getError()
+            ];
+        }
+        $dataSave = $requestData->getPost();
+        $file = $requestData->getFile('images');
+        if ($file->isValid() && !$file->hasMoved()) {
+            $newName = $file->getRandomName();
+            $dataSave['images'] = $newName;
+            $file->move('uploads', $newName);
+        }
+        try {
+            $this->product->insert($dataSave);
+            return [
+                'status' => ResultUtils::STATUS_CODE_OK,
+                'messageCode' => ResultUtils::MESSAGE_CODE_OK,
+                'messages' => ['success' => 'Thêm sản phẩm thành công']
+            ];
+        } catch (Exception $e) {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'messageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'messages' => ['success' => $e->getMessage()]
+            ];
+        }
+    }
+
+
+
+                                <?php foreach ($products as $categoryName => $categoryProducts) : ?>
+									<h2><?= $categoryName ?></h2>
+									<ul>
+										<?php foreach ($categoryProducts as $product) : ?>
+											<li><?= $product['name'] ?></li>
+											<li><img src="uploads/<?php echo $product['images'];?>" height="300.6px" width="279.29px" alt="images"></li>
+											<li><?= $product['price'] ?></li>
+											<li><?= $product['description'] ?></li>
+											<li><?= $product['category'] ?></li>
+											<li><?= $product['amount'] ?></li>
+										<?php endforeach; ?>
+									</ul>
+								<?php endforeach; ?>

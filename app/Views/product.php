@@ -70,11 +70,11 @@
 								<div id="Audio" class="panel-collapse collapse">
 									<div class="panel-body">
 										<ul>
-											<li><a href="#">ASUS</a></li>
-											<li><a href="#">Razer</a></li>
-											<li><a href="#">Apple</a></li>
-											<li><a href="#">Harmar Kadon</a></li>
-											<li><a href="#">Havit</a></li>
+											<li><a href="#">Tai nghe ASUS</a></li>
+											<li><a href="#">Tai nghe Razer</a></li>
+											<li><a href="#">Tai nghe Apple</a></li>
+											<li><a href="#">Tai nghe Harmar Kadon</a></li>
+											<li><a href="#">Tai nghe Havit</a></li>
 										</ul>
 									</div>
 								</div>

@@ -16,6 +16,7 @@ $routes->get('views/contact', 'Users\HomeControllers::contact');
 $routes->get('views/product', 'Users\HomeControllers::product');
 $routes->get('views/cart', 'Users\HomeControllers::cart');
 $routes->get('views/product_detail', 'Users\HomeControllers::product_detail');
+$routes->get('views/product_detail/(:num)', 'Users\HomeControllers::product_detail/$1');
 $routes->get('views/profile', 'Users\HomeControllers::profile');
 
 //Mail
@@ -59,7 +60,7 @@ $routes->group('admin',['filters'=> 'adminFilters'], function ($routes) {
 
     $routes->group('product', function ($routes) {
         $routes->get('list', 'Admin\ProductControllers::list');
-        $routes->get('list', 'Admin\ProductControllers::index');
+        //$routes->get('list', 'Admin\ProductControllers::index');
         $routes->get('add', 'Admin\ProductControllers::add');
         $routes->post('create', 'Admin\ProductControllers::create');
         $routes->get('edit/(:num)', 'Admin\ProductControllers::edit/$1');

@@ -2,13 +2,26 @@
 
 namespace App\Controllers\Users;
 use App\Controllers\BaseController; 
+use App\Models\ProductModel;
+use App\Models\CategoryModel;
 
 class HomeControllers extends BaseController
 {
     public function index(): string
     {
-        return view('index');
+        //return view('index');
+        $productModel = new ProductModel();
+        $categoryModel = new CategoryModel();
+        $category = $categoryModel->findAll();
+        $products = [];
+        foreach ($category as $category) {
+            $products[$category['name']] = $productModel->where('id', $category['id'])->findAll();
+        }
+        $data = [
+            'products' => $products
+        ];
 
+        return view('index', $data);
     }
 
     public function login(){
@@ -39,7 +52,8 @@ class HomeControllers extends BaseController
         return view('checkout');
     }
 
-    public function vnpay_pay(){
+    public function product_detail(){
+        return view('product_detail');
     }
 }
 

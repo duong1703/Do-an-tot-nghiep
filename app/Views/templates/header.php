@@ -123,3 +123,12 @@
 			</div>
 		</div><!--/header-bottom-->
 	</header><!--/header-->
+
+	<style>
+        .product {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+    </style>

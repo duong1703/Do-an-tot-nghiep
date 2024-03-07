@@ -2,6 +2,7 @@
 
 namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
+use App\Models\UserModel;
 use App\Services\UserService;
 use App\Services\getUserByID;
 
@@ -22,6 +23,7 @@ class UserControllers extends BaseController
     public function list(): string
     {
         $data = [];
+
     
         $cssFiles = [
             'http://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js',
