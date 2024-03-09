@@ -10,8 +10,6 @@ class HomeControllers extends BaseController
     {
         $userModel = new UserModel();
         $totalUsers = $userModel->countAllResults();
-
-
         $data = [];
         $cssFiles = [];
         $jsFiles = [];

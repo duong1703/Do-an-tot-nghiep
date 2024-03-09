@@ -60,13 +60,12 @@ $routes->group('admin',['filters'=> 'adminFilters'], function ($routes) {
 
     $routes->group('product', function ($routes) {
         $routes->get('list', 'Admin\ProductControllers::list');
-        //$routes->get('list', 'Admin\ProductControllers::index');
         $routes->get('add', 'Admin\ProductControllers::add');
         $routes->post('create', 'Admin\ProductControllers::create');
-        $routes->get('edit/(:num)', 'Admin\ProductControllers::edit/$1');
-        $routes->post('update', 'Admin\ProductControllers::update');
+        $routes->match(['get', 'post'], 'edit/(:num)', 'Admin\ProductControllers::editOrUpdate/$1'); // Use match for both GET and POST
         $routes->get('delete/(:num)', 'Admin\ProductControllers::delete/$1');
     });
+
 
 });
 
