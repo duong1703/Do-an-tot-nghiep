@@ -53,11 +53,25 @@ class ProductController extends Controller
     public function detail($productId)
     {
         $productModel = new ProductModel();
-   
-        $product = $this->$productModel->find($productId);
-
- 
-        return view('product_detail', ['product' => $product]);
+        $productId  = $productModel->find($productId);
+        if($productId == 0){
+            return false;
+        }
+        $condition =[
+            'deleted_at' => null,
+            'id' => $productId
+            ];
+        $withSelect ='name, description, price, images , amount , category';
+        $productObj = $productModel->getFirstByConditions($condition, '', $withSelect);
+        print_r($productObj);
+        die();
+        if($productObj == false){
+            return false;
+        }    
+        $data['productObj'] = productObj;
+        $data['productId '] = productId;
+    
+        return view('product_detail', $data);
     }
 
     public function products()

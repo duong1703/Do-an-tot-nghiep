@@ -15,8 +15,7 @@ $routes->post('views/login', 'Users\HomeControllers::login');
 $routes->get('views/contact', 'Users\HomeControllers::contact');
 $routes->get('views/product', 'Users\HomeControllers::product');
 $routes->get('views/cart', 'Users\HomeControllers::cart');
-$routes->get('views/product_detail', 'Users\HomeControllers::product_detail');
-$routes->get('views/product_detail/(:num)', 'Users\HomeControllers::product_detail/$1');
+$routes->get('views/product_detail/(:any)', 'Users\HomeControllers::product_detail/$1');
 $routes->get('views/profile', 'Users\HomeControllers::profile');
 
 
