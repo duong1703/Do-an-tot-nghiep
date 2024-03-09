@@ -12,8 +12,6 @@ class HomeControllers extends BaseController
         //return view('index');
         $productModel = new ProductModel();
         $allParam = $productModel->findAll();
-        print_r($allParam);
-        die();
         $products = [];
         $data['cateObj'] = $allParam;
         return view('index', $data);
