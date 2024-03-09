@@ -126,143 +126,46 @@
 
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
-						<h2 class="title text-center">SẢN PHẨM NỔI BẬT</h2>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-									
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
+                        <!-- Assuming $products is an array of products passed from the controller -->
 
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
-										</div>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Thêm vào sở thích</a></li>
-										<li><a href="views/product_detail"><i class="fa fa-plus-square"></i>Chi tiết sản phẩm</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-										
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
-										</div>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Thêm vào sở thích</a></li>
-										<li><a href="#"><i class="fa fa-plus-square"></i>Chi tiết sản phẩm</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-									
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
-										</div>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Thêm vào sở thích</a></li>
-										<li><a href="#"><i class="fa fa-plus-square"></i>Chi tiết sản phẩm</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
-										</div>
-									</div>
-									<img src="/assets/user/images/home/new.png" class="new" alt="" />
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Thêm vào sở thích</a></li>
-										<li><a href="#"><i class="fa fa-plus-square"></i>Chi tiết sản phẩm</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
-										</div>
-									</div>
-									<img src="/assets/user/images/home/sale.png" class="new" alt="" />
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Thêm vào sở thích</a></li>
-										<li><a href="#"><i class="fa fa-plus-square"></i>Chi tiết sản phẩm</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
-										</div>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Thêm vào sở thích</a></li>
-										<li><a href="#"><i class="fa fa-plus-square"></i>Chi tiết sản phẩm</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
 
-					</div><!--features_items-->
+                        <h2 class="title text-center">SẢN PHẨM NỔI BẬT</h2>
+
+                        <div class="row">
+                            <?php foreach ($cateObj as $product) : ?>
+                                <div class="col-sm-4">
+                                    <div class="product-image-wrapper">
+                                        <div class="single-products">
+                                            <div class="productinfo text-center">
+                                                <img src="uploads/<?php echo $product['images'];?>"  alt="images">
+                                                <h2><?= esc($product['name']) ?></h2>
+                                                <p><?= esc($product['description']) ?></p>
+                                                <p>Giá: <?= esc($product['price']) ?></p>
+                                                <p>Số lượng: <?= esc($product['amount']) ?></p>
+                                                <p>Danh mục: <?= esc($product['category']) ?></p>
+                                                <a href="#" class="btn btn-default add-to-cart">
+                                                    <i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng
+                                                </a>
+                                            </div>
+                                            <div class="product-overlay">
+                                                <div class="overlay-content">
+                                                    <!-- Add-to-cart button in overlay -->
+                                                    <a href="#" class="btn btn-default add-to-cart">
+                                                        <i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="choose">
+                                            <ul class="nav nav-pills nav-justified">
+                                                <li><a href="#"><i class="fa fa-plus-square"></i>Thêm vào sở thích</a></li>
+                                                <li><a href="#"><i class="fa fa-plus-square"></i>Chi tiết sản phẩm</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
 
 					<div class="category-tab"><!--category-tab-->
 						<div class="col-sm-12">
