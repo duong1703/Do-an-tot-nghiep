@@ -9,7 +9,6 @@ class HomeControllers extends BaseController
 {
     public function index(): string
     {
-        //return view('index');
         $productModel = new ProductModel();
         $allParam = $productModel->findAll();
         $products = [];

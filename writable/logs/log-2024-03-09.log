@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+INFO - 2024-03-09 12:47:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-09 12:47:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-09 12:47:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-03-09 12:50:17 --> syntax error, unexpected end of file
+in APPPATH\Views\index.php on line 435.
+ 1 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('index', [], true)
+ 3 APPPATH\Controllers\Users\HomeControllers.php(16): view('index', [...])
+=======
 INFO - 2024-03-09 05:54:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-03-09 05:54:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-03-09 09:34:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
@@ -73,10 +83,21 @@ in APPPATH\Views\index.php on line 275.
  1 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
  2 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('index', [], true)
  3 APPPATH\Controllers\Users\HomeControllers.php(24): view('index', [...])
+>>>>>>> a31aeded82509cfb066d0ec50a5d0de93f251a46
  4 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Users\HomeControllers->index()
  5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users\HomeControllers))
  6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 FCPATH\index.php(81): CodeIgniter\CodeIgniter->run()
+<<<<<<< HEAD
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\Do-an-tot-nghiep\\public\\index.php')
+CRITICAL - 2024-03-09 12:51:03 --> Undefined variable $products
+in APPPATH\Views\index.php on line 133.
+ 1 APPPATH\Views\index.php(133): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $products', 'C:\\xampp\\htdocs\\Do-an-tot-nghiep\\app\\Views\\index.php', 133)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\Do-an-tot-nghiep\\app\\Views\\index.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('index', [], true)
+ 5 APPPATH\Controllers\Users\HomeControllers.php(16): view('index', [...])
+=======
 INFO - 2024-03-09 09:54:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-03-09 09:54:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-03-09 09:54:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
@@ -124,10 +145,21 @@ in APPPATH\Views\index.php on line 139.
  3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
  4 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('index', [], true)
  5 APPPATH\Controllers\Users\HomeControllers.php(24): view('index', [...])
+>>>>>>> a31aeded82509cfb066d0ec50a5d0de93f251a46
  6 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Users\HomeControllers->index()
  7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users\HomeControllers))
  8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 FCPATH\index.php(81): CodeIgniter\CodeIgniter->run()
+<<<<<<< HEAD
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\Do-an-tot-nghiep\\public\\index.php')
+CRITICAL - 2024-03-09 12:52:12 --> Undefined array key "new"
+in APPPATH\Views\index.php on line 157.
+ 1 APPPATH\Views\index.php(157): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "new"', 'C:\\xampp\\htdocs\\Do-an-tot-nghiep\\app\\Views\\index.php', 157)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\Do-an-tot-nghiep\\app\\Views\\index.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('index', [], true)
+ 5 APPPATH\Controllers\Users\HomeControllers.php(16): view('index', [...])
+=======
 10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\xampp\\file\\htdocs\\ComputerShop\\public\\index.php')
 CRITICAL - 2024-03-09 10:17:48 --> Undefined variable $category
 in APPPATH\Views\index.php on line 139.
@@ -136,10 +168,21 @@ in APPPATH\Views\index.php on line 139.
  3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
  4 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('index', [], true)
  5 APPPATH\Controllers\Users\HomeControllers.php(24): view('index', [...])
+>>>>>>> a31aeded82509cfb066d0ec50a5d0de93f251a46
  6 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Users\HomeControllers->index()
  7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users\HomeControllers))
  8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 FCPATH\index.php(81): CodeIgniter\CodeIgniter->run()
+<<<<<<< HEAD
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\Do-an-tot-nghiep\\public\\index.php')
+CRITICAL - 2024-03-09 12:54:28 --> Undefined array key "new"
+in APPPATH\Views\index.php on line 159.
+ 1 APPPATH\Views\index.php(159): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "new"', 'C:\\xampp\\htdocs\\Do-an-tot-nghiep\\app\\Views\\index.php', 159)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\Do-an-tot-nghiep\\app\\Views\\index.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('index', [], true)
+ 5 APPPATH\Controllers\Users\HomeControllers.php(16): view('index', [...])
+=======
 10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\xampp\\file\\htdocs\\ComputerShop\\public\\index.php')
 CRITICAL - 2024-03-09 10:18:07 --> Undefined variable $category
 in APPPATH\Views\index.php on line 139.
@@ -148,10 +191,22 @@ in APPPATH\Views\index.php on line 139.
  3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
  4 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('index', [], true)
  5 APPPATH\Controllers\Users\HomeControllers.php(24): view('index', [...])
+>>>>>>> a31aeded82509cfb066d0ec50a5d0de93f251a46
  6 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Users\HomeControllers->index()
  7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users\HomeControllers))
  8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 FCPATH\index.php(81): CodeIgniter\CodeIgniter->run()
+<<<<<<< HEAD
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\Do-an-tot-nghiep\\public\\index.php')
+INFO - 2024-03-09 12:55:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-09 12:55:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-09 12:57:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-09 12:57:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-09 13:01:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-09 13:01:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-09 13:03:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-09 13:03:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+=======
 10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\xampp\\file\\htdocs\\ComputerShop\\public\\index.php')
 CRITICAL - 2024-03-09 10:18:31 --> Undefined variable $product
 in APPPATH\Views\index.php on line 139.
@@ -493,6 +548,7 @@ in APPPATH\Models\ProductModel.php on line 11.
  7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  8 FCPATH\index.php(81): CodeIgniter\CodeIgniter->run()
  9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\xampp\\file\\htdocs\\ComputerShop\\public\\index.php')
+<<<<<<< HEAD
 CRITICAL - 2024-03-09 12:20:49 --> syntax error, unexpected token "<<", expecting "function" or "const"
 in APPPATH\Models\ProductModel.php on line 11.
  1 SYSTEMPATH\Autoloader\Autoloader.php(291): CodeIgniter\Autoloader\Autoloader->includeFile('D:\\xampp\\file\\htdocs\\ComputerShop\\app\\Models\\ProductModel.php')
@@ -641,3 +697,22 @@ INFO - 2024-03-09 12:47:27 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2024-03-09 12:47:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-03-09 12:57:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-03-09 12:57:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+=======
+>>>>>>> a31aeded82509cfb066d0ec50a5d0de93f251a46
+CRITICAL - 2024-03-09 13:26:01 --> syntax error, unexpected token "<<", expecting "function" or "const"
+in APPPATH\Models\ProductModel.php on line 11.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(291): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\Do-an-tot-nghiep\\app\\Models\\ProductModel.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(269): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\ProductModel')
+ 3 APPPATH\Controllers\Users\HomeControllers.php(12): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\ProductModel')
+ 4 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Users\HomeControllers->index()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users\HomeControllers))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(81): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\Do-an-tot-nghiep\\public\\index.php')
+INFO - 2024-03-09 13:28:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-09 13:28:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-09 13:29:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-09 13:29:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-09 13:30:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-09 13:30:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+>>>>>>> d6e416d40a11e1c043c82de9e3e9d8a1c179afa0
