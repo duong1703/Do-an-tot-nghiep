@@ -44,8 +44,8 @@ class HomeControllers extends BaseController
         return view('checkout');
     }
 
-    public function product_detail(){
-        return view('product_detail');
+    public function vnpay_pay(){
+        return view('vnpay/vnpay_pay');
     }
 }
 

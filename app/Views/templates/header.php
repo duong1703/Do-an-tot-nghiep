@@ -15,6 +15,7 @@
 	<link href="/assets/user/css/animate.css" rel="stylesheet">
 	<link href="/assets/user/css/main.css" rel="stylesheet">
 	<link href="/assets/user/css/responsive.css" rel="stylesheet">
+	
 	<!--[if lt IE 9]>
     <script src="/assets/user/html5shiv./assets/user"></script>
     <script src="/assets/user/respond.min./assets/user"></script>

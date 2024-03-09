@@ -16,7 +16,7 @@
     </head>
 
     <body>
-        <?php require_once("./config.php"); ?>             
+        <?php require_once("config.php"); ?>             
         <div class="container">
         <h3>Tạo mới đơn hàng</h3>
             <div class="table-responsive">
@@ -57,7 +57,7 @@
                 &nbsp;
             </p>
             <footer class="footer">
-                <p>&copy; VNPAY 2020</p>
+                <p>&copy; VNPAY 2024</p>
             </footer>
         </div>  
     </body>

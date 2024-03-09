@@ -8,12 +8,12 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
  *
  * @author CTT VNPAY
  */
-require_once("./config.php");
+require_once("config.php");
 
-$vnp_TxnRef = rand(1,10000); //Mã giao dịch thanh toán tham chiếu của merchant
+$vnp_TxnRef = rand(1,999999); //Mã giao dịch thanh toán tham chiếu của merchant
 $vnp_Amount = $_POST['amount']; // Số tiền thanh toán
-$vnp_Locale = $_POST['language']; //Ngôn ngữ chuyển hướng thanh toán
-$vnp_BankCode = $_POST['bankCode']; //Mã phương thức thanh toán
+$vnp_Locale = 'VN'; //Ngôn ngữ chuyển hướng thanh toán
+$vnp_BankCode = 'NCB'; //Mã phương thức thanh toán
 $vnp_IpAddr = $_SERVER['REMOTE_ADDR']; //IP Khách hàng thanh toán
 
 $inputData = array(

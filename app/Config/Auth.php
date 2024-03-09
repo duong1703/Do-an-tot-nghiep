@@ -57,6 +57,7 @@ class Auth extends ShieldAuth
         'magic-link-login'            => '\CodeIgniter\Shield\Views\magic_link_form',
         'magic-link-message'          => '\CodeIgniter\Shield\Views\magic_link_message',
         'magic-link-email'            => '\CodeIgniter\Shield\Views\Email\magic_link_email',
+        'email_manual_activate_email' => '\CodeIgniter\Shield\Views\Email\email_activate_show',
     ];
 
     /**
@@ -77,7 +78,7 @@ class Auth extends ShieldAuth
         'register'          => '/',
         'login'             => '/',
         'logout'            => 'login',
-        'force_reset'       => '/',
+        'force_reset'       => 'views/profile',
         'permission_denied' => '/',
         'group_denied'      => '/',
     ];
@@ -153,7 +154,7 @@ class Auth extends ShieldAuth
      * --------------------------------------------------------------------
      * Determines whether users can register for the site.
      */
-    public bool $allowRegistration = true;
+    public bool $allowRegistration = false;
 
     /**
      * --------------------------------------------------------------------
