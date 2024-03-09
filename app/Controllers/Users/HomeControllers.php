@@ -11,16 +11,11 @@ class HomeControllers extends BaseController
     {
         //return view('index');
         $productModel = new ProductModel();
-        $categoryModel = new CategoryModel();
-        $category = $categoryModel->findAll();
+        $allParam = $productModel->findAll();
+        print_r($allParam);
+        die();
         $products = [];
-        foreach ($category as $category) {
-            $products[$category['name']] = $productModel->where('id', $category['id'])->findAll();
-        }
-        $data = [
-            'products' => $products
-        ];
-
+        $data['cateObj'] = $allParam;
         return view('index', $data);
     }
 

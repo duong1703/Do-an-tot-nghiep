@@ -482,3 +482,14 @@ INFO - 2024-03-09 11:57:53 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2024-03-09 11:57:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-03-09 12:04:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-03-09 12:04:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-03-09 12:18:50 --> syntax error, unexpected token "<<", expecting "function" or "const"
+in APPPATH\Models\ProductModel.php on line 11.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(291): CodeIgniter\Autoloader\Autoloader->includeFile('D:\\xampp\\file\\htdocs\\ComputerShop\\app\\Models\\ProductModel.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(269): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\ProductModel')
+ 3 APPPATH\Services\ProductsService.php(18): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\ProductModel')
+ 4 APPPATH\Controllers\Admin\ProductControllers.php(20): App\Services\ProductsService->__construct()
+ 5 SYSTEMPATH\CodeIgniter.php(914): App\Controllers\Admin\ProductControllers->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(493): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(81): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\xampp\\file\\htdocs\\ComputerShop\\public\\index.php')

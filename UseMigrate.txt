@@ -1,4 +1,4 @@
-xem hướng dẫn: php spark
+    xem hướng dẫn: php spark
 Chạy tạo bảng : php spark migrate:create CreateTableUsers
 chạy cập nhât dữ liệu: php spark migrate
 run server: php spark serve
@@ -9,3 +9,13 @@ git pull origin master --allow-unrelated-histories
 git push -u origin master
 
 
+- chức năng chỉnh sửa sản phẩm phía admin 
+- load sản phẩm lên trang product 
+- ở trang index, load sản phẩm nổi bật và phía danh mục
+khi bấm vào sẽ sang trang sản phẩm :V 
+- mỗi tên ở danh mục khi sang trang khác sẽ chỉ có sản phẩm đó, 
+- thêm cả product_detail trang đó chọn mua bán như bth (add cart)
+- sau đó mới thanh toán (thanh toán đẩy về quản lý đơn hàng ở phía admin) phần này em chưa làm chỉ 
+có thêm sủa xóa usẻ, thêm xóa sp ạ 
+- thanh toán để em ngiên cứu rồi cấu hình có j em hỏi anh :v 
+xong rùi ạ :V thăn kiu anh 
