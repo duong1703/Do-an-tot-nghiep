@@ -19,6 +19,10 @@ $routes->get('views/product_detail', 'Users\HomeControllers::product_detail');
 $routes->get('views/product_detail/(:num)', 'Users\HomeControllers::product_detail/$1');
 $routes->get('views/profile', 'Users\HomeControllers::profile');
 
+
+//product
+
+
 //Mail
 $routes->get('/', 'Users\EmailController::index');
 $routes->match(['get', 'post'], 'contact/mail', 'Users\EmailController::sendMail');
@@ -32,6 +36,9 @@ $routes->post('public/upload', 'UploadControllers::upload'); // Add this line.
 //Checkout
 $routes->get('views/checkout','Users\HomeControllers::checkout');
 $routes->get('vnpay/vnpay_pay','Users\HomeControllers::vnpay_pay');
+
+
+
 
 $routes->get('error/404', function(){
     return view('errors/html/error_404');

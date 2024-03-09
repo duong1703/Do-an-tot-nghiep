@@ -2,27 +2,29 @@
 
 namespace App\Controllers;
 
-use App\Controllers\BaseController;
+use CodeIgniter\Controller;
 
-class ProfileControllers extends BaseController
+class AccountController extends Controller
 {
+    public function index()
+    {
+        // Kiểm tra nếu người dùng đã đăng nhập
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('views/profile');
+        }
 
-    // Trong Controller của trang tài khoản
-    public function profile()
-{
-    $session = session();
+        // Lấy thông tin người dùng từ session
+        $data = [
+            'userId' => session()->get('userId'),
+            'email' => session()->get('email'),
+            // Lấy thông tin khác của người dùng nếu cần
+        ];
 
-    if (!$session->get('logged_in')) {
-        return redirect()->to('views/login');
+        // Hiển thị trang tài khoản với thông tin người dùng
+        return view('profile', $data);
     }
-
-    // Lấy thông tin người dùng từ session hoặc database
-    $data['username'] = $session->get('username');
-    $data['email'] = $session->get('email');
-
-    echo view('profile', $data);
 }
 
 
   
-}
+

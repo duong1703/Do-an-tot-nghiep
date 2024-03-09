@@ -6,6 +6,10 @@ use CodeIgniter\Events\Events;
 use CodeIgniter\Exceptions\FrameworkException;
 use CodeIgniter\HotReloader\HotReloader;
 
+use CodeIgniter\I18n\Time;
+use CodeIgniter\Shield\Exceptions\LogicException;
+use CodeIgniter\Shield\Exceptions\RuntimeException;
+
 /*
  * --------------------------------------------------------------------
  * Application Events
@@ -35,6 +39,33 @@ Events::on('pre_system', static function () {
 
         ob_start(static fn ($buffer) => $buffer);
     }
+
+//Mail
+Events::on('newRegistration', static function ($user, $tmpPass) {
+
+$userEmail = $user->email;
+if ($userEmail === null) {
+    throw new LogicException(
+        'Email Activation needs user email address. user_id: ' . $user->id
+    );
+}
+
+$date = Time::now()->toDateTimeString();
+
+ // Send the email
+ $email = emailer()->setFrom(setting('Email.fromEmail'), setting('Email.fromName') ?? '');
+    $email->setTo($userEmail);
+    $email->setSubject(lang('Auth.emailActivateSubject'));
+    $email->setMessage(view(setting('Auth.views')['email_manual_activate_email'], ['userEmail' => $userEmail,'tmpPass' => $tmpPass, 'date' => $date]));
+
+    if ($email->send(false) === false) {
+        throw new RuntimeException('Cannot send email for user: ' . $user->email . "\n" . $email->printDebugger(['headers']));
+    }
+
+    // Clear the email
+    $email->clear();
+
+}); 
 
     /*
      * --------------------------------------------------------------------
