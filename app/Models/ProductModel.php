@@ -4,10 +4,11 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ProductModel extends Model
+class ProductModel extends BaseModel
 {
     protected $table = 'products';
     protected $primaryKey = 'id';
+
     public function getProduct($id)
     {
         return $this->find($id);

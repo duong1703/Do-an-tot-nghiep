@@ -1,6 +1,7 @@
 <?php
 
 use App\Controllers\HomeControllers;
+use App\Controllers\ProductsController;
 use CodeIgniter\Router\RouteCollection;
 
 /**
@@ -15,10 +16,12 @@ $routes->post('views/login', 'Users\HomeControllers::login');
 $routes->get('views/contact', 'Users\HomeControllers::contact');
 $routes->get('views/product', 'Users\HomeControllers::product');
 $routes->get('views/cart', 'Users\HomeControllers::cart');
-$routes->get('views/product_detail', 'Users\HomeControllers::product_detail');
-$routes->get('views/product_detail/(:num)', 'Users\HomeControllers::product_detail/$1');
 $routes->get('views/profile', 'Users\HomeControllers::profile');
 
+// Product - User
+$routes->group('product', function ($routes) {
+    $routes->get('product_detail/(:num)', 'Users\ProductsController::productDetail/$1');
+});
 
 //product
 
