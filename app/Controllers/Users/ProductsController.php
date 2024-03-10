@@ -62,8 +62,6 @@ class ProductsController extends BaseController
             'deleted_at' => null,
             'id' => $productId
         ];
-
-
         $withSelect = 'name, description, price, images, amount, category';
         $productObj = $productModel->getFirstByConditions($condition, '', $withSelect);
 
