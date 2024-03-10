@@ -138,28 +138,30 @@
 
                         <div class="row">
                             <?php foreach ($cateObj as $product) : ?>
-                                <div class="col-sm-4">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="uploads/<?php echo $product['images'];?>"  alt="images">
-                                                <h2><?= ($product['name']) ?></h2>
-                                                <p>Giá: <?= ($product['price']) ?></p>
-                                                <p>Số lượng: <?= ($product['amount']) ?></p>
-                                                <p>Danh mục: <?= ($product['category']) ?></p>
-                                                <a href="views/cart" class="btn btn-default add-to-cart">
-                                                    <i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng
-                                                </a>
+                                <?php if ($product['status_product'] == 1) : ?>
+                                    <div class="col-sm-4">
+                                        <div class="product-image-wrapper">
+                                            <div class="single-products">
+                                                <div class="productinfo text-center">
+                                                    <img src="uploads/<?php echo $product['images']; ?>" alt="images">
+                                                    <h2><?= ($product['name']) ?></h2>
+                                                    <p>Giá: <?= ($product['price']) ?></p>
+                                                    <p>Số lượng: <?= ($product['amount']) ?></p>
+                                                    <p>Danh mục: <?= ($product['category']) ?></p>
+                                                    <a href="views/cart" class="btn btn-default add-to-cart">
+                                                        <i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="choose">
+                                                <ul class="nav nav-pills nav-justified">
+                                                    <li><a href="#"><i class="fa fa-plus-square"></i>Thêm vào sở thích</a></li>
+                                                    <li><a href="<?= base_url('product/product_detail/' . $product['id']) ?>"><i class="fa fa-plus-square"></i>Chi tiết sản phẩm</a></li>
+                                                </ul>
                                             </div>
                                         </div>
-                                        <div class="choose">
-                                            <ul class="nav nav-pills nav-justified">
-                                                <li><a href="#"><i class="fa fa-plus-square"></i>Thêm vào sở thích</a></li>
-                                                <li><a href="<?= base_url('product/product_detail/' . $product['id']) ?>"><i class="fa fa-plus-square"></i>Chi tiết sản phẩm</a></li>
-                                            </ul>
-                                        </div>
                                     </div>
-                                </div>
+                                <?php endif; ?>
                             <?php endforeach; ?>
                         </div>
                 </div>

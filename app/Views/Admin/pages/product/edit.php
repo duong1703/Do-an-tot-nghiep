@@ -24,7 +24,11 @@
                                     <input value="<?= $product['name'] ?>" name="name" type="text" class="form-control" placeholder="Enter product name" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="hidden" name="current_image" value="<?= $product['images'] ?>">
+                                    <label for="status_product">Trạng thái sản phẩm nổi bật</label>
+                                    <select name="status_product" class="form-control" required>
+                                        <option value="0" <?php echo ($product['status_product'] == 0) ? 'selected' : ''; ?>>Ẩn sản phẩm</option>
+                                        <option value="1" <?php echo ($product['status_product'] == 1) ? 'selected' : ''; ?>>Hiển thị</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-row">

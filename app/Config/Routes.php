@@ -82,7 +82,7 @@ $routes->group('admin',['filters'=> 'adminFilters'], function ($routes) {
         $routes->get('list', 'Admin\BlogControllers::list');
         $routes->get('add', 'Admin\BlogControllers::add');
         $routes->post('create', 'Admin\BlogControllers::create');
-        $routes->match(['get', 'post'], 'edit/(:num)', 'Admin\BlogControllers::editOrUpdate/$1'); // Use match for both GET and POST
+        $routes->match(['get', 'post'], 'edit/(:num)', 'Admin\BlogControllers::editOrUpdate/$1');
         $routes->get('delete/(:num)', 'Admin\BlogControllers::delete/$1');
     }); 
 });
