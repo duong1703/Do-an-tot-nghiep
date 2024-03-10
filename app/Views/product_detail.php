@@ -152,15 +152,14 @@
 
 						</div>
 						<div class="col-sm-7">
-                        <?php foreach ($productObj as $products) : ?>
-            
+                        <?php foreach ($productObj as $product) : ?>
 							<div class="product-information">
                             <img src="uploads/<?php echo $product['images'];?>"  alt="images">
-                            <h2><?= ($products['name']) ?></h2>
-								<p><?= ($products['id']) ?></p>
+                            <h2><?= ($product['name']) ?></h2>
+								<p><?= ($product['id']) ?></p>
 								<img src="images/product-details/rating.png" alt="" />
 								<span>
-									<span><?= ($products['price']) ?></span>
+									<span><?= ($product['price']) ?></span>
 									<label>Số lượng:</label>
 									<input type="text" value="3" />
 									<button href="#" type="button" class="btn btn-fefault cart">
@@ -168,9 +167,9 @@
 										Add to cart
 									</button>
 								</span>
-								<p><b>Số lương:<?= ($products['amount']) ?></p>
+								<p><b>Số lương:<?= ($product['amount']) ?></p>
 								<p><b>Trạng thái máy:</p>
-								<p><b>Danh mục:<?= ($products['category']) ?></p>
+								<p><b>Danh mục:<?= ($product['category']) ?></p>
 								<a href=""><img src="images/product-details/share.png" class="share img-responsive"  alt="" /></a>
 							</div>
 						</div>

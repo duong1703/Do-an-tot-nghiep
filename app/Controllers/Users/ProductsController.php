@@ -50,27 +50,30 @@ class ProductController extends Controller
             ]);
     }
 
-    public function detail($productId)
+    public function productDetail($productId)
     {
         $productModel = new ProductModel();
-        $productId  = $productModel->find($productId);
-        if($productId == 0){
-            return false;
+        $product = $productModel->find($productId);
+
+        if(!$product){
+            return false; // Assuming $product is false when not found
         }
-        $condition =[
+
+        $condition = [
             'deleted_at' => null,
             'id' => $productId
-            ];
-        $withSelect ='name, description, price, images , amount , category';
+        ];
+
+        $withSelect = 'name, description, price, images, amount, category';
         $productObj = $productModel->getFirstByConditions($condition, '', $withSelect);
-        print_r($productObj);
-        die();
-        if($productObj == false){
-            return false;
-        }    
-        $data['productObj'] = productObj;
-        $data['productId '] = productId;
-    
+
+        if(!$productObj){
+            return false; // Assuming $productObj is false when not found
+        }
+
+        $data['productObj'] = $productObj; // Corrected variable name
+        $data['productId'] = $productId; // Corrected variable name
+
         return view('product_detail', $data);
     }
 
