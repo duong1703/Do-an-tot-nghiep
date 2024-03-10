@@ -21,8 +21,8 @@
                                 <th scope="col">Mô tả sản phẩm</th>
                                 <th scope="col">Danh mục</th>
                                 <th scope="col">Số lượng</th>
-                                <th scope="col">Trạng thái sản phẩm nổi bật</th>
-                                <th scope="col">Chức năng</th>
+                                <th scope="col" class="text-center">Trạng thái sản phẩm nổi bật</th>
+                                <th scope="col" style="width: 100px">Chức năng</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -38,7 +38,7 @@
                                         <td><?= $product['description'] ?></td>
                                         <td><?= $product['category'] ?></td>
                                         <td><?= $product['amount'] ?></td>
-                                        <td><?= $product['status_product'] ?></td>
+                                        <td class="text-center"><?= $product['status_product'] ?></td>
                                         <td class="text-center">
                                             <a href="admin/product/edit/<?= $product['id'] ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
                                             <a data-url="<?= base_url() ?>admin/product/delete/<?= $product['id'] ?>" class="btn btn-danger btn-del-confirm">
