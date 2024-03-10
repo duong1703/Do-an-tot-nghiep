@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Users;
+use App\Controllers\BaseController;
 
 use App\Models\ProductModel;
 use App\Models\CategoryModel;
-use CodeIgniter\Controller;
-
-class ProductController extends Controller
+class ProductsController extends BaseController
 {
     public function index($category)
     {
@@ -55,7 +54,7 @@ class ProductController extends Controller
         $productModel = new ProductModel();
         $product = $productModel->find($productId);
 
-        if(!$product){
+        if (!$product) {
             return false; // Assuming $product is false when not found
         }
 
@@ -64,15 +63,16 @@ class ProductController extends Controller
             'id' => $productId
         ];
 
+
         $withSelect = 'name, description, price, images, amount, category';
         $productObj = $productModel->getFirstByConditions($condition, '', $withSelect);
 
-        if(!$productObj){
+        if (!$productObj) {
             return false; // Assuming $productObj is false when not found
         }
+        $data['productObj'] = $productObj;
+        $data['productId'] = $productId;
 
-        $data['productObj'] = $productObj; // Corrected variable name
-        $data['productId'] = $productId; // Corrected variable name
 
         return view('product_detail', $data);
     }

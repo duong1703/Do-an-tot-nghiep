@@ -107,11 +107,11 @@
                             </div>
                         </div>
                     </div>
-					
-						
+
+
 					</div>
 				</div>
-				
+
 				<div class="col-sm-9 padding-right">
 					<div class="product-details"><!--product-details-->
 						<div class="col-sm-5">
@@ -120,7 +120,7 @@
 								<h3>ZOOM</h3>
 							</div>
 							<div id="similar-product" class="carousel slide" data-ride="carousel">
-								
+
 								  <!-- Wrapper for slides -->
 								    <div class="carousel-inner">
 										<div class="item active">
@@ -138,7 +138,7 @@
 										  <a href=""><img src="images/product-details/similar2.jpg" alt=""></a>
 										  <a href=""><img src="images/product-details/similar3.jpg" alt=""></a>
 										</div>
-										
+
 									</div>
 
 								  <!-- Controls -->
@@ -152,30 +152,30 @@
 
 						</div>
 						<div class="col-sm-7">
-                        <?php foreach ($productObj as $product) : ?>
-							<div class="product-information">
-                            <img src="uploads/<?php echo $product['images'];?>"  alt="images">
-                            <h2><?= ($product['name']) ?></h2>
-								<p><?= ($product['id']) ?></p>
-								<img src="images/product-details/rating.png" alt="" />
-								<span>
-									<span><?= ($product['price']) ?></span>
-									<label>Số lượng:</label>
-									<input type="text" value="3" />
-									<button href="#" type="button" class="btn btn-fefault cart">
-										<i  class="fa fa-shopping-cart"></i>
-										Add to cart
-									</button>
-								</span>
-								<p><b>Số lương:<?= ($product['amount']) ?></p>
-								<p><b>Trạng thái máy:</p>
-								<p><b>Danh mục:<?= ($product['category']) ?></p>
-								<a href=""><img src="images/product-details/share.png" class="share img-responsive"  alt="" /></a>
-							</div>
-						</div>
-                        <?php endforeach; ?>
+                            <?php if (!empty($productObj) && is_array($productObj)) : ?>
+                                <?php foreach ($productObj as $key => $value) : ?>
+                                    <div class="product-information">
+                                        <?php if ($key === 'images') : ?>
+                                            <!-- Hiển thị hình ảnh -->
+                                            <img src="uploads/<?= $value; ?>" alt="images" style="width: 60px">
+                                        <?php elseif ($key === 'price') : ?>
+                                            <!-- Hiển thị giá -->
+                                            <h2><?= $value ?> VNĐ</h2>
+                                        <?php elseif ($key === 'amount') : ?>
+                                            <!-- Hiển thị số lượng -->
+                                            <p><b>Số lượng: <?= $value ?></b></p>
+                                        <?php elseif ($key === 'category') : ?>
+                                            <!-- Hiển thị danh mục -->
+                                            <p><b>Danh mục: <?= $value ?></b></p>
+                                        <?php else : ?>
+                                            <!-- Hiển thị các trường thông tin khác -->
+                                            <h2><?= $value ?></h2>
+                                        <?php endif; ?>
+                                    </div>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
 					</div><!--/product-details-->
-					
+
 					<div class="category-tab shop-details-tab"><!--category-tab-->
 						<div class="col-sm-12">
 							<ul class="nav nav-tabs">
@@ -198,7 +198,7 @@
 									</div>
 								</div>
 							</div>
-							
+
 							<!-- <div class="tab-pane fade" id="companyprofile" >
 								<div class="col-sm-3">
 									<div class="product-image-wrapper">
@@ -249,7 +249,7 @@
 									</div>
 								</div>
 							</div>
-							
+
 							<div class="tab-pane fade" id="tag" >
 								<div class="col-sm-3">
 									<div class="product-image-wrapper">
@@ -300,7 +300,7 @@
 									</div>
 								</div>
 							</div> -->
-							
+
 							<div class="tab-pane fade active in" id="reviews" >
 								<div class="col-sm-12">
 									<ul>
@@ -309,7 +309,7 @@
 										<li><a id="realtime-date" href=""><i class="fa fa-calendar-o"></i></a></li>
 									</ul>
 									<p><b>Nhận xét của bạn</b></p>
-									
+
 									<form action="#">
 										<span>
 											<input type="text" placeholder="Your Name"/>
@@ -323,16 +323,16 @@
 									</form>
 								</div>
 							</div>
-							
+
 						</div>
 					</div><!--/category-tab-->
-					
+
 					<div class="recommended_items"><!--recommended_items-->
 						<h2 class="title text-center">recommended items</h2>
-						
+
 						<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
 							<div class="carousel-inner">
-								<div class="item active">	
+								<div class="item active">
 									<div class="col-sm-4">
 										<div class="product-image-wrapper">
 											<div class="single-products">
@@ -346,17 +346,17 @@
 										</div>
 									</div>
 								</div>
-    
+
 							</div>
 							 <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
 								<i class="fa fa-angle-left"></i>
 							  </a>
 							  <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
 								<i class="fa fa-angle-right"></i>
-							  </a>			
+							  </a>
 						</div>
 					</div><!--/recommended_items-->
-					
+
 				</div>
 			</div>
 		</div>
