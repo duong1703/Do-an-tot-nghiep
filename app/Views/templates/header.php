@@ -111,6 +111,7 @@
 									<!-- </ul> -->
 								</li>
 								<!-- <li><a href="404.html">404</a></li> -->
+								<li><a href="views/blog">Tin tức công nghệ</a></li>
 								<li><a href="views/contact">Liên hệ</a></li>
 							</ul>
 						</div>

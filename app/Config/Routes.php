@@ -13,8 +13,10 @@ $routes->get('/', 'Users\HomeControllers::index');
 $routes->get('views/login', 'Users\HomeControllers::login');
 $routes->get('views/login', 'Users\HomeControllers::profile');
 $routes->post('views/login', 'Users\HomeControllers::login');
+$routes->get('views/blog', 'Users\HomeControllers::blog');
 $routes->get('views/contact', 'Users\HomeControllers::contact');
 $routes->get('views/product', 'Users\HomeControllers::product');
+$routes->get('views/product_detail/(:any)', 'Users\HomeControllers::product_detail/$1');
 $routes->get('views/cart', 'Users\HomeControllers::cart');
 $routes->get('views/profile', 'Users\HomeControllers::profile');
 
@@ -76,6 +78,12 @@ $routes->group('admin',['filters'=> 'adminFilters'], function ($routes) {
         $routes->get('delete/(:num)', 'Admin\ProductControllers::delete/$1');
     });
 
-
+    $routes->group('blog', function ($routes) {
+        $routes->get('list', 'Admin\BlogControllers::list');
+        $routes->get('add', 'Admin\BlogControllers::add');
+        $routes->post('create', 'Admin\BlogControllers::create');
+        $routes->match(['get', 'post'], 'edit/(:num)', 'Admin\BlogControllers::editOrUpdate/$1'); // Use match for both GET and POST
+        $routes->get('delete/(:num)', 'Admin\BlogControllers::delete/$1');
+    }); 
 });
 

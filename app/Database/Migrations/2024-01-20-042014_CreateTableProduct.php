@@ -45,6 +45,22 @@ class CreateTableProduct extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => 255,
             ],
+
+            'created_at' => [
+                'type' => 'DATE',
+                'constraint' => 255,
+            ],
+
+            'updated_at' => [
+                'type' => 'DATE',
+                'constraint' => 255,
+            ],
+
+            'deleted_at' => [
+                'type' => 'DATE',
+                'constraint' => 255,
+            ],
+
         ]);
         $this->forge->addKey('id', true);
         $this->forge->createTable('products');

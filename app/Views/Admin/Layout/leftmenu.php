@@ -43,8 +43,13 @@
                     </div>
                 </div>
 
-                <a href="" class="dash-nav-item">
-                    <i class="fas fa-info"></i>Liên hệ 
-                </a>
+                <div class="dash-nav-dropdown">
+                    <a href="javascript::void(0)" class="dash-nav-item dash-nav-dropdown-toggle">
+                    <i class="fas fa-book"></i></i> Bài viết </a>
+                    <div class="dash-nav-dropdown-menu">
+                        <a href="admin/blog/list" class="dash-nav-dropdown-item">Danh sách</a>
+                        <a href="admin/blog/add" class="dash-nav-dropdown-item">Thêm mới</a>
+                    </div>
+                </div>
             </nav>
         </div>

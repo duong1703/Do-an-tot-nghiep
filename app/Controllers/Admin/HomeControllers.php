@@ -22,4 +22,7 @@ class HomeControllers extends BaseController
         $totalUsers = $userModel->countAllResults();
         return view('admin/pages/home', ['totalUsers' => $totalUsers]);
     }
+
+
+
 }

@@ -91,8 +91,6 @@ class LoginService extends BaseService
         return $this->validation;
     }
 
-    
-
     public function logout(){
         $session = session();
     }

@@ -28,6 +28,10 @@ class HomeControllers extends BaseController
         return view('contact');
     }
 
+    public function blog(){
+        return view('blog');
+    }
+
     public function product(){
         return view('product');
     }
