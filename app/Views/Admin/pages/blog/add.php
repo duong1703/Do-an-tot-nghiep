@@ -12,7 +12,7 @@
                         <div class="easion-card-title"> Thông tin bài viết </div>
                     </div>
                     <div class="card-body ">
-                        <form action="admin/blog/create" enctype="multipart/form-data" method="post">
+                        <form action="admin/blog/create" method="post">
                             <!-- Place the first <script> tag in your HTML's <head> -->
                             <script
                                 src="https://cdn.tiny.cloud/1/hbozepm8v83oquejurp97p1x4p1eymqxvifr4r4izmvfi34i/tinymce/6/tinymce.min.js"

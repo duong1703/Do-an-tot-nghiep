@@ -19,7 +19,8 @@
         "laminas/laminas-escaper": "^2.9",
         "nowakowskir/php-jwt": "^2.1",
         "phpmailer/phpmailer": "dev-master",
-        "psr/log": "^1.1"
+        "psr/log": "^1.1",
+        "tinymce/tinymce": "dev-master"
     },
     "require-dev": {
         "codeigniter/coding-standard": "^1.5",

@@ -9,6 +9,12 @@ git pull origin master --allow-unrelated-histories
 git push -u origin master
 
 
+git add .
+git commit -m "ComputerShop"
+git pull
+git push
+
+
 - chức năng chỉnh sửa sản phẩm phía admin 
 - load sản phẩm lên trang product 
 - ở trang index, load sản phẩm nổi bật và phía danh mục
