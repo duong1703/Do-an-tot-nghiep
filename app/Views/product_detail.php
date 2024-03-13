@@ -122,7 +122,7 @@
                         <div class="view-product">
                             <?php if ($key === 'images') : ?>
                             <!-- Hiển thị hình ảnh -->
-                            <img src="uploads/<?= $value; ?>" alt="images" width="400" height="380">
+                            <img src="uploads/<?php echo $product['images']; ?>" alt="images" width="400" height="380">
                             <?php endif; ?>
                         </div>
                         <?php endforeach; ?>
