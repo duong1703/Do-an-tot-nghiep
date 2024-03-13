@@ -27,9 +27,9 @@ class ProductsService extends BaseService
     }
 
 
-    public function getProductByID($idProduct)
+    public function getProductByID($id_Product)
     {
-        return $this->product->where('id', $idProduct)->first();
+        return $this->product->where('id_product', $id_Product)->first();
     }
 
 
@@ -207,8 +207,8 @@ class ProductsService extends BaseService
     public function validateEditProduct($requestData)
     {
         $rule = [
-            'id' => [
-                'rules' => 'is_unique[products.id,id,' . $$this->request->getPost('id') . ']',
+            'id_product' => [
+                'rules' => 'is_unique[products.id,id,' . $$this->request->getPost('id_product') . ']',
                 'errors' => [
                     'is_unique' => 'ID must be unique'
                 ]

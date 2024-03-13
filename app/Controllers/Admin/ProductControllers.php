@@ -110,7 +110,7 @@ class ProductControllers extends BaseController
             base_url() . '/assets/admin/js/event.js'
         ];
         $dataLayout['product'] = $product;
-        $data = $this->loadMasterLayout([], 'Sửa tài khoản', 'admin/pages/product/edit', $dataLayout, $cssFiles, []);
+        $data = $this->loadMasterLayout([], 'Sửa sản phẩm', 'admin/pages/product/edit', $dataLayout, $cssFiles, []);
         return view('admin/main', $data);
     }
     public function delete($id)

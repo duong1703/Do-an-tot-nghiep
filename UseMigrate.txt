@@ -25,3 +25,17 @@ khi bấm vào sẽ sang trang sản phẩm :V
 có thêm sủa xóa usẻ, thêm xóa sp ạ 
 - thanh toán để em ngiên cứu rồi cấu hình có j em hỏi anh :v 
 xong rùi ạ :V thăn kiu anh 
+
+
+public function delete()
+    {
+        $model = new AffiliateModel(); 
+        $ids = $this->request->getPost('affiliate_id');
+        if ($ids != '') {
+            $model->deleteMultiIds($ids);
+            session()->setFlashdata('msg_success', 'Thành công');
+        } else {
+            session()->setFlashdata('msg_error', 'Không thành công');
+        }
+        return redirect()->back();
+    }
