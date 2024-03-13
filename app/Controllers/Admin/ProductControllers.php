@@ -84,6 +84,7 @@ class ProductControllers extends BaseController
     {
         $productModel = new ProductModel();
         $product = $this->service->getProductByID($id);
+
         if (!$product) {
             return redirect()->to('error/404')->with('error', 'Không tìm thấy sản phẩm với ID: ' . $id);
         }
@@ -98,6 +99,7 @@ class ProductControllers extends BaseController
                 'category' => $this->request->getPost('category'),
                 // 'images' => $this->request->getPost('images'),
             ];
+
             // Cập nhật thông tin sản phẩm trong cơ sở dữ liệu
             $productModel->update($id, $updatedData);
             // Chuyển hướng đến trang sản phẩm đã chỉnh sửa hoặc bất kỳ trang nào khác mong muốn

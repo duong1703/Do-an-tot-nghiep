@@ -4,6 +4,7 @@ namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
 use App\Models\BlogModel;
+use App\Models\ProductModel;
 use App\Services\BlogsService;
 use Exception;
 
@@ -20,25 +21,28 @@ class BlogControllers extends BaseController
 
     public function list(): string
     {
-
         $data = [];
         $cssFiles = [
             'http://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js',
             base_url() . '/assets/admin/js/datatable.js',
             base_url() . '/assets/admin/js/event.js',
-
         ];
 
         $jsFiles = [
             'https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css',
             base_url() . '/assets/admin/css/datatable.css'
-
         ];
-        $dataLayout['blogs']= $this->service->getAllBlogs();
-        $data = $this->loadMasterLayout($data, 'Danh sách bài viết', 'admin/pages/blog/list', $dataLayout, $cssFiles, $jsFiles);
-        return view('admin/main', $data );
-    }
+        $blogModel = new BlogModel();
+        $blogs = $blogModel->findAll();
+        if (!empty($blogs)) {
+            $dataLayout['blogs'] = $blogs;
+            $data = $this->loadMasterLayout($data, 'Danh sách bài viết', 'admin/pages/blog/list', $dataLayout, $cssFiles, $jsFiles);
 
+            return view('admin/main', $data);
+        } else {
+            return 'No data found';
+        }
+    }
     public function add(){
         $data = []; 
         $blogs = new BlogModel();
@@ -49,52 +53,55 @@ class BlogControllers extends BaseController
 
     public function create()
     {
-        $result = $this->service->addBlogsInfo($this->request);
-        dd($result);
-        return redirect()->back()->withInput()->with($result['messageCode'], $result['messages']);
+        // Check if the form is submitted
+        if ($this->request->getMethod() === 'post') {
+            // Get the form input
+            $content = $this->request->getPost('content');
+            $title = $this->request->getPost('title');
+            $data = [
+                'content' => $content,
+                'title' => $title,
+                // Add other fields here if needed
+            ];
+            $blogModel = new BlogModel();
+            $newBlogID = $blogModel->save($data);
+            session()->setFlashdata('msg_success', 'Thành công');
+            return redirect()->to('admin/blog/list');
+        }
+        return view('admin/blog/create');
     }
 
-    public function edit($id)
+
+    public function editOrUpdate($id)
     {
+        $blogModel = new BlogModel();
+        $product = $this->service->getBlogsByID($id);
 
-        $BlogModel = new BlogModel();
-
-
-        $blogs = $this->service->getBlogsByID($id);
-
-        if (!$blogs) {
-            return redirect('error/404');
+        if (!$product) {
+            return redirect()->to('error/404')->with('error', 'Không tìm thấy sản phẩm với ID: ' . $id);
         }
-
+        if ($this->request->getMethod() === 'post') {
+            // Xử lý biểu mẫu khi người dùng gửi để cập nhật thông tin sản phẩm
+            $updatedData = [
+                'content' => $this->request->getPost('content'),
+                'title' => $this->request->getPost('title'),
+            ];
+            // Cập nhật thông tin sản phẩm trong cơ sở dữ liệu
+            $blogModel->update($id, $updatedData);
+            // Chuyển hướng đến trang sản phẩm đã chỉnh sửa hoặc bất kỳ trang nào khác mong muốn
+            session()->setFlashdata('success', 'Sửa thành công');
+            return redirect()->to('admin/blog/edit/' . $id);
+        }
+        // Hiển thị biểu mẫu chỉnh sửa
         $cssFiles = [
             base_url() . '/assets/admin/js/event.js'
         ];
-        $dataLayout['blogs'] = $BlogModel->find($id);;
+        $dataLayout['blog'] = $product;
         $data = $this->loadMasterLayout([], 'Sửa tài khoản', 'admin/pages/blog/edit', $dataLayout, $cssFiles, []);
         return view('admin/main', $data);
     }
 
-    public function update()
-    {
-        $BlogModel = new BlogModel();
-        $data = [
-            'title' => $this->request->getPost('title'),
-            'content' => $this->request->getPost('content'),
-            'created_at' => $this->request->getPost('created_at'),
-            'updated_at' => $this->request->getPost('updated_at'),
-            'delete_at' => $this->request->getPost('delete_at'),
-            // Thêm các trường dữ liệu khác tương ứng với dữ liệu cần cập nhật   
-        ];
 
-        $data = [
-            'products' =>  $BlogModel ->paginate(10), // Số lượng sản phẩm trên mỗi trang
-            'pager' =>  $BlogModel ->pager,
-        ];
-
-        $BlogModel ->update($this->request->getPost('id'), $data);
-        $result = $this->service->updateBlogsInfo($this->request);
-        return redirect()->back()->withInput()->with($result['messageCode'], $result['messages']);
-    }
 
     public function delete($id)
     {

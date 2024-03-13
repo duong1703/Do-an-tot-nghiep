@@ -27,7 +27,7 @@ class BlogsService extends BaseService
 
     public function getBlogsByID($blogs)
     {
-        return $this->blogs->where('id', $blogs)->first();
+        return $this->blogs->where('id_blogs', $blogs)->first();
     }
 
     public function addBlogsInfo($requestData)

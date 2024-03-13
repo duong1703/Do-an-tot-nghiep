@@ -15,6 +15,10 @@ class ProductModel extends BaseModel
         unset($data['id_product']);
         return $this->updateTimestamp($data);
     }
+    protected function beforeUpdate(array $data)
+    {
+        return $this->updateTimestamp($data);
+    }
 
     protected function updateTimestamp(array $data)
     {
