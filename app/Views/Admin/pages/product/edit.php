@@ -12,7 +12,7 @@
                         <div class="easion-card-title"> Product Information </div>
                     </div>
                     <div class="card-body">
-                            <form action="<?= base_url('admin/product/edit/'.@$product['id']) ?>" method="post">
+                            <form action="<?= base_url('admin/product/edit/'.@$product['id_product']) ?>" method="post">
                                 <?php if (session()->has('success')) : ?>
                                     <div class="alert alert-success" role="alert">
                                         <?= session('success') ?>

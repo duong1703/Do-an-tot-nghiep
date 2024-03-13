@@ -33,7 +33,13 @@ class HomeControllers extends BaseController
     }
 
     public function product(){
-        return view('product');
+        $productModel = new ProductModel();
+        $allParam = $productModel->findAll();
+        if($allParam == null){
+            return false;
+        }
+        $data['products'] = $allParam;
+        return view('product',$data);
     }
 
     public function product_detail(){

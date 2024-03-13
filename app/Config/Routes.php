@@ -1,7 +1,8 @@
 <?php
 
-use App\Controllers\HomeControllers;
-use App\Controllers\ProductsController;
+use App\Controllers\Users\HomeControllers;
+use App\Controllers\Users\ProductsController;
+use App\Controllers\Admin\ProductController;
 use CodeIgniter\Router\RouteCollection;
 
 /**
@@ -24,8 +25,6 @@ $routes->get('views/profile', 'Users\HomeControllers::profile');
 $routes->group('product', function ($routes) {
     $routes->get('product_detail/(:num)', 'Users\ProductsController::productDetail/$1');
 });
-
-//product
 
 
 //Mail
@@ -60,7 +59,7 @@ $routes->group('admin',['filters'=> 'adminFilters'], function ($routes) {
     $routes->get('pages/home', 'Admin\HomeControllers::index');
     $routes->get('home', 'Admin\HomeControllers::index');
     $routes->get('logout','Admin\LoginControllers::logout');
-    
+
     $routes->group('user', function ($routes) {
         $routes->get('list', 'Admin\UserControllers::list');
         $routes->get('add', 'Admin\UserControllers::add');
