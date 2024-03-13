@@ -1,6 +1,6 @@
 <main class="dash-content">
     <div class="container-fluid">
-        <h1 class="dash-title">Home / Products / Edit</h1>
+        <h1 class="dash-title">Trang chủ / Sản phẩm / Chỉnh sửa</h1>
         <div class="row">
             <div class="col-xl-12">
                 <?= view('messages/message') ?>
@@ -9,7 +9,7 @@
                         <div class="easion-card-icon">
                             <i class="fas fa-chart-bar"></i>
                         </div>
-                        <div class="easion-card-title"> Product Information </div>
+                        <div class="easion-card-title"> Thông ti sản phẩm </div>
                     </div>
                     <div class="card-body">
                             <form action="<?= base_url('admin/product/edit/'.@$product['id']) ?>" method="post">
@@ -20,7 +20,7 @@
                                 <?php endif; ?>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label>Product Name</label>
+                                    <label>Tên sản phẩm</label>
                                     <input value="<?= $product['name'] ?>" name="name" type="text" class="form-control" placeholder="Enter product name" required>
                                 </div>
                                 <div class="form-group col-md-6">
@@ -33,7 +33,7 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label>Price</label>
+                                    <label>Giá</label>
                                     <input value="<?= $product['price'] ?>" name="price" type="text" class="form-control" placeholder="Enter selling price" required>
                                 </div>
                                 <div class="form-group col-md-6">
@@ -43,15 +43,15 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label>Category</label>
+                                    <label>Danh mục</label>
                                     <input value="<?= $product['category'] ?>" name="category" type="text" class="form-control" placeholder="Enter product category" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label>Quantity</label>
+                                    <label>Số lượng</label>
                                     <input value="<?= $product['amount'] ?>" name="amount" type="text" class="form-control" placeholder="Enter quantity" required>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary">Update</button>
+                            <button type="submit" class="btn btn-primary">Cập nhật</button>
                             <button id="btn-reset-edit-product" type="reset" class="btn btn-secondary" onclick="return confirm('Are you sure you want to reset?')">Reset</button>
                                 <a style="background-color: red" href="<?= base_url('admin/product/list') ?>" class="btn btn-secondary">Hủy</a>
                             </form>

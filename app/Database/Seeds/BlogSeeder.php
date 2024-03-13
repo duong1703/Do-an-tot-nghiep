@@ -10,8 +10,7 @@ class BlogSeeder extends Seeder
     {
         $data = [
             [
-                'id' =>'1',
-                'title' => 'Xin chào!',
+                'id_blogs' =>'1',
                 'content' => 'Chào mừng bạn tới trang web của chúng tôi',
                 'created_at' => '10/03/2024',
                 'updated_at' => '10/03/2024',

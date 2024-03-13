@@ -10,15 +10,11 @@ class CreateTableBlog extends Migration
     {
         //
         $this->forge->addField([
-            'id' => [
+            'id_blogs' => [
                 'type' => 'INT',
                 'constraint' => 5,
                 'unsigned' => true,
                 'auto_increment' => true,
-            ],
-            'title' => [
-                'type' => 'VARCHAR',
-                'constraint' => '255',
             ],
             'content' => [
                 'type' => 'TEXT',
@@ -26,17 +22,15 @@ class CreateTableBlog extends Migration
             'created_at' => [
                 'type' => 'DATETIME',
                 'null' => true,
+                'default' => null,
             ],
             'updated_at' => [
                 'type' => 'DATETIME',
                 'null' => true,
-            ],
-            'delete_at' => [
-                'type' => 'DATETIME',
-                'null' => true,
+                'default' => null,
             ],
         ]);
-        $this->forge->addKey('id', true);
+        $this->forge->addKey('id_blogs', true);
         $this->forge->createTable('blog');
     }
 

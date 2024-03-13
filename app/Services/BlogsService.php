@@ -2,6 +2,7 @@
 
 namespace App\Services;
 use App\Models\BlogModel;
+use App\Models\BaseModel;
 use App\Common\ResultUtils;
 use Exception;
 
@@ -43,11 +44,14 @@ class BlogsService extends BaseService
                 'messages' => $validate->getErrors() // Sử dụng $validate->getErrors() để lấy thông báo lỗi
             ];
         }
+        
+        
     }
 
     public function validateAddBlogs($requestData)
     {
         $rule = [
+            'id' => 'max_length[255]',
             'title' => 'max_length[255]',
             'content' => 'max_length[255]',
             'created_at' => 'max_length[255]',
@@ -83,10 +87,10 @@ class BlogsService extends BaseService
         return $this->validation;
     }
 
-    public function deleteBlogs($idBlog)
+    public function deleteById($id)
     {
         try {
-            $this->blogs->delete($idBlog);
+            $this->blogs->delete($id);
             return [
                 'status' => ResultUtils::STATUS_CODE_OK,
                 'massageCode' => ResultUtils::MESSAGE_CODE_OK,
