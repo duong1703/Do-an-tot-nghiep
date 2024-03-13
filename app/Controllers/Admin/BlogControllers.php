@@ -85,6 +85,7 @@ class BlogControllers extends BaseController
             $updatedData = [
                 'content' => $this->request->getPost('content'),
                 'title' => $this->request->getPost('title'),
+                
             ];
             // Cập nhật thông tin sản phẩm trong cơ sở dữ liệu
             $blogModel->update($id, $updatedData);
