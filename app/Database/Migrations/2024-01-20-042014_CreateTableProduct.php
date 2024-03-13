@@ -36,7 +36,7 @@ class CreateTableProduct extends Migration
                 'constraint' => 255,
             ],
 
-            'caterory' => [
+            'category' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
             ],

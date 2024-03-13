@@ -138,6 +138,7 @@
 
                         <div class="row">
                             <?php foreach ($cateObj as $product) : ?>
+                                 <!-- Chỉ hiển thị sản phẩm có điều kiện == 1 -->
                                 <?php if ($product['status_product'] == 1) : ?>
                                     <div class="col-sm-4">
                                         <div class="product-image-wrapper">

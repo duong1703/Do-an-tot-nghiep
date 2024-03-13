@@ -2,6 +2,8 @@
 
 namespace App\Controllers\Admin;
 
+use App\Common\ResultUtils;
+use App\Models\BaseModel;
 use App\Controllers\BaseController;
 use App\Models\BlogModel;
 use App\Models\ProductModel;
@@ -22,6 +24,8 @@ class BlogControllers extends BaseController
     public function list(): string
     {
         $data = [];
+        $data = $this->service->getAllBlogs();
+        //dd($data);
         $cssFiles = [
             'http://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js',
             base_url() . '/assets/admin/js/datatable.js',
@@ -32,12 +36,12 @@ class BlogControllers extends BaseController
             'https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css',
             base_url() . '/assets/admin/css/datatable.css'
         ];
+
         $blogModel = new BlogModel();
         $blogs = $blogModel->findAll();
         if (!empty($blogs)) {
             $dataLayout['blogs'] = $blogs;
             $data = $this->loadMasterLayout($data, 'Danh sách bài viết', 'admin/pages/blog/list', $dataLayout, $cssFiles, $jsFiles);
-
             return view('admin/main', $data);
         } else {
             return 'No data found';
@@ -72,13 +76,15 @@ class BlogControllers extends BaseController
     }
 
 
-    public function editOrUpdate($id)
+
+
+    public function editOrUpdate($id_blogs)
     {
         $blogModel = new BlogModel();
-        $product = $this->service->getBlogsByID($id);
+        $blogs = $this->service->getBlogsByID($id_blogs);
 
-        if (!$product) {
-            return redirect()->to('error/404')->with('error', 'Không tìm thấy sản phẩm với ID: ' . $id);
+        if (!$blogs) {
+            return redirect()->to('error/404')->with('error', 'Không tìm thấy bài viết với ID: ' . $id_blogs);
         }
         if ($this->request->getMethod() === 'post') {
             // Xử lý biểu mẫu khi người dùng gửi để cập nhật thông tin sản phẩm
@@ -88,33 +94,34 @@ class BlogControllers extends BaseController
 
             ];
             // Cập nhật thông tin sản phẩm trong cơ sở dữ liệu
-            $blogModel->update($id, $updatedData);
+            $blogModel->update($id_blogs, $updatedData);
             // Chuyển hướng đến trang sản phẩm đã chỉnh sửa hoặc bất kỳ trang nào khác mong muốn
             session()->setFlashdata('success', 'Sửa thành công');
-            return redirect()->to('admin/blog/edit/' . $id);
+            return redirect()->to('admin/blog/edit/' . $id_blogs);
         }
         // Hiển thị biểu mẫu chỉnh sửa
         $cssFiles = [
             base_url() . '/assets/admin/js/event.js'
         ];
-        $dataLayout['blog'] = $product;
+        $dataLayout['blog'] = $blogs;
         $data = $this->loadMasterLayout([], 'Sửa tài khoản', 'admin/pages/blog/edit', $dataLayout, $cssFiles, []);
         return view('admin/main', $data);
     }
 
-
-
     public function delete($id)
     {
         $blogs = $this->service->getBlogsByID($id);
-
+        
 
         if (!$blogs) {
             return redirect('error/404');
         }
 
-        $result = $this->service->deleteBlogs($id);
+        $result = $this->service->deleteById($id);
+        
         return redirect('admin/blog/list')->with($result['massageCode'], $result['messages']);
     }
+
+  
 
 }

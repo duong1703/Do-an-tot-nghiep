@@ -27,7 +27,6 @@ class ProductControllers extends BaseController
     {
         $data = [];
 
-
         $cssFiles = [
             'http://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js',
             base_url() . '/assets/admin/js/datatable.js',
