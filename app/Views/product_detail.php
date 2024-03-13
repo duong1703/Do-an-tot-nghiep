@@ -172,7 +172,7 @@
 
                         <?php elseif ($key === 'amount') : ?>
                         <!-- Hiển thị giá -->
-                        <p>Kho: <?= $value ?></h2>
+                                    <p>Kho: <?= $value ?></h2> </p>
 
                             <button type="button" class="btn btn-fefault cart">
                                 <i class="fa fa-shopping-cart"></i>
