@@ -8,7 +8,15 @@
                     <div class="easion-card-icon">
                         <i class="fas fa-table"></i>
                     </div>
-                    <div class="easion-card-title">Danh sách sản phẩm</div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="easion-card-title">Danh sách sản phẩm</div>
+                        </div>
+                        <div class="col-md-6" style="left: 790px">
+                            <a href="<?= base_url('admin/product/add') ?>" class="btn btn-primary"><i class="fas fa-plus"></i> Thêm mới</a>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="card-body ">
                     <table id="datatable" class="cell-border">

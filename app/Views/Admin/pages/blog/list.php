@@ -44,21 +44,17 @@
         </div>
     </div>
 </div>
-<?= $this->include("Modal/User/delete") ?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<?= $this->include("Modals/Users/delete") ?>
 <script>
-    toastr.clear();
-    // Notification for actions
-    <?php if(isset($_SESSION['msg_success'])){ ?>
-    toastr["success"]("Thành công!", "Thành công!")
-    <?php unset($_SESSION['msg_success']);?>
-    <?php } ?>
-
     $('.___js-delete-blog').on('click',function(){
-        // get data from button delete
+        // Lấy dữ liệu từ nút xóa
         const id = $(this).data('id');
-        // Set data to Form delete
-        $('.user_id_delete').val(id);
-        // Call Modal delete
+        console.log(id);
+        // Đặt dữ liệu vào Form xóa
+        $('.blog_id_delete').val(id);
+        // Gọi Modal xóa
         $('#confirmDeleteUser').modal('show');
     });
 </script>
+
