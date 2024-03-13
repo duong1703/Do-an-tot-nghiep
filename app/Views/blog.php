@@ -8,6 +8,4 @@
         </div>
     </div>
 </div>
-
-
 <?= view('templates/footer');?>

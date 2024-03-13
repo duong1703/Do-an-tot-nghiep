@@ -27,9 +27,13 @@ class ProductsService extends BaseService
     }
 
 
-    public function getProductByID($id_Product)
+    public function getProductByID($idProduct)
     {
-        return $this->product->where('id_product', $id_Product)->first();
+
+        //return $this->product->where('id_product', $id_Product)->first();
+
+        return $this->product->where('id_product', $idProduct)->first();
+
     }
 
 

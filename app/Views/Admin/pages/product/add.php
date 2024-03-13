@@ -55,10 +55,8 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="category">Danh mục</label>
-                            <select name="category" class="form-control" required>
-                                <option value="0" <?php echo (old('category') == 'laptop' || !old('category')) ? 'selected' : ''; ?>>LapTop</option>
-                                <option value="1" <?php echo (old('category') == 'tainghe') ? 'selected' : ''; ?>>Tai nghe</option>
-                            </select>
+                            <input value="<?= old('category') ?>" name="category" type="text" class="form-control" id="category" placeholder="Nhập số lượng" required>
+
                         </div>
                         <div class="form-group col-md-6">
                             <label for="amount">Số lượng</label>
