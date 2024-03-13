@@ -29,7 +29,7 @@
                             <?php if (isset($products) && !empty($products)) : ?>
                                 <?php foreach ($products as $product) : ?>
                                     <tr>
-                                        <td><?= $product['id'] ?></td>
+                                        <td><?= $product['id_product'] ?></td>
                                         <td><?= $product['name'] ?></td>
                                         <td>
                                             <img src="uploads/<?php echo $product['images'];?>" height="60px" width="60px" alt="images">
@@ -40,8 +40,8 @@
                                         <td><?= $product['amount'] ?></td>
                                         <td class="text-center"><?= $product['status_product'] ?></td>
                                         <td class="text-center">
-                                            <a href="admin/product/edit/<?= $product['id'] ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                                            <a data-url="<?= base_url() ?>admin/product/delete/<?= $product['id'] ?>" class="btn btn-danger btn-del-confirm">
+                                            <a href="admin/product/edit/<?= $product['id_product'] ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                            <a data-url="<?= base_url() ?>admin/product/delete/<?= $product['id_product'] ?>" class="btn btn-danger btn-del-confirm">
                                                 <i class="far fa-trash-alt"></i>
                                             </a>
                                         </td>

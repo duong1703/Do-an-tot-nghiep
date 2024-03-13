@@ -18,6 +18,8 @@ class ProductControllers extends BaseController
     public function __construct()
     {
         $this->service = new ProductsService();
+        $this->validation = \Config\Services::validation();
+
     }
 
 
@@ -46,18 +48,36 @@ class ProductControllers extends BaseController
     {
         $data = [];
         $products = new ProductModel();
-        $data['products'] = $products->findAll();
-        //return view('view/product',  $data); 
         $data = $this->loadMasterLayout($data, 'Thêm sản phẩm', 'admin/pages/product/add');
+
         return view('admin/main', $data);
     }
 
     public function create()
     {
-        $result = $this->service->addProductsInfo($this->request);
-        //dd( $result);
-        return redirect()->back()->withInput()->with($result['messageCode'], $result['messages']);
+        $productModel = new ProductModel();
+
+        // Lấy dữ liệu post và làm sạch chuỗi
+        $productObj = $this->request->getPost(null, FILTER_SANITIZE_STRING);
+        // Kiểm tra xem khóa 'images' có tồn tại hay không, nếu không, đặt nó thành chuỗi rỗng
+        if (!array_key_exists('images', $productObj)) {
+            $productObj['images'] = '';
+        }
+        $productObj['id_product'] = null;
+
+        try {
+            // Chèn dữ liệu vào cơ sở dữ liệu
+            $productModel->protect(false)->insert($productObj); // Loại bỏ bảo vệ trường khóa chính
+            // Thiết lập thông báo flash khi chèn thành công
+            session()->setFlashdata('success', 'Thêm sản phẩm thành công');
+        } catch (\Exception $e) {
+
+            // Thiết lập thông báo flash khi có lỗi
+            session()->setFlashdata('error', 'Có lỗi xảy ra khi thêm sản phẩm');
+        }
+        return redirect()->to(base_url('admin/product/list'));
     }
+
 
     public function editOrUpdate($id)
     {

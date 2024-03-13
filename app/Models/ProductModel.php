@@ -7,19 +7,31 @@ use CodeIgniter\Model;
 class ProductModel extends BaseModel
 {
     protected $table = 'products';
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'id_product';
+    protected $allowedFields = ['name', 'description', 'price', 'images', 'amount', 'category', 'status_product', 'created_at', 'updated_at', 'deleted_at'];
+    protected $useAutoIncrement = true; // Thêm dòng này để bật AUTO_INCREMENT cho cột khóa chính
+    protected function beforeInsert(array $data)
+    {
+        unset($data['id_product']);
+        return $this->updateTimestamp($data);
+    }
+
+    protected function updateTimestamp(array $data)
+    {
+        $currentTimestamp = date('Y-m-d H:i:s');
+
+        if (!array_key_exists('created_at', $data)) {
+            $data['created_at'] = $currentTimestamp;
+        }
+
+        $data['updated_at'] = $currentTimestamp;
+
+        return $data;
+    }
 
     public function getProduct($id)
     {
         return $this->find($id);
-    }
-    protected $allowedFields = ['name', 'description', 'price', 'images' , 'amount' , 'category', 'status_product', 'created_at', 'updated_at', 'deleted_at'];
-    protected $beforeUpdate = ['updateTimestamp'];
-
-    protected function updateTimestamp(array $data)
-    {
-        $data['updated_at'] = date('Y-m-d H:i:s');
-        return $data;
     }
 }
 
