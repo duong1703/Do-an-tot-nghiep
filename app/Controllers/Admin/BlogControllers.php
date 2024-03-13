@@ -108,20 +108,16 @@ class BlogControllers extends BaseController
         return view('admin/main', $data);
     }
 
-    public function delete($id)
+    public function delete()
     {
-        $blogs = $this->service->getBlogsByID($id);
-        
-
-        if (!$blogs) {
-            return redirect('error/404');
+        $blogModel = new BlogModel();
+        $ids = $this->request->getPost('id_blogs');
+        if ($ids != '') {
+            $blogModel->deleteMultiIds($ids);
+            session()->setFlashdata('msg_success', 'Thành công');
+        } else {
+            session()->setFlashdata('msg_error', 'Không thành công');
         }
-
-        $result = $this->service->deleteById($id);
-        
-        return redirect('admin/blog/list')->with($result['massageCode'], $result['messages']);
+        return redirect('admin/blog/list');
     }
-
-  
-
 }

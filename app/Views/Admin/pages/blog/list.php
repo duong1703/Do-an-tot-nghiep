@@ -32,9 +32,7 @@
                                     <td><?= $blog['created_at'] ?></td>
                                     <td class="text-center">
                                         <a href="admin/blog/edit/<?= $blog['id_blogs'] ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                                        <a data-url="<?= base_url() ?>admin/blog/delete/<?= $blog['id_blogs'] ?>" class="btn btn-danger btn-del-confirm">
-                                            <i class="far fa-trash-alt"></i>
-                                        </a>
+                                        <a class="btn btn-danger btn-sm ___js-delete-blog" data-id="<?= @$blog['id_blogs'];?>">Xóa</a>
                                     </td>
                                 </tr>
                             <?php endforeach ?>
@@ -46,6 +44,7 @@
         </div>
     </div>
 </div>
+<?= $this->include("Modal/User/delete") ?>
 <script>
     toastr.clear();
     // Notification for actions
@@ -53,4 +52,13 @@
     toastr["success"]("Thành công!", "Thành công!")
     <?php unset($_SESSION['msg_success']);?>
     <?php } ?>
+
+    $('.___js-delete-blog').on('click',function(){
+        // get data from button delete
+        const id = $(this).data('id');
+        // Set data to Form delete
+        $('.user_id_delete').val(id);
+        // Call Modal delete
+        $('#confirmDeleteUser').modal('show');
+    });
 </script>
