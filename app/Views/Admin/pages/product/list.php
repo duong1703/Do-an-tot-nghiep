@@ -32,7 +32,7 @@
                                         <td><?= $product['id_product'] ?></td>
                                         <td><?= $product['name'] ?></td>
                                         <td>
-                                            <img src="uploads/<?php echo $product['images'];?>" height="60px" width="60px" alt="images">
+                                        <img src="uploads/<?php echo $product['images']; ?>" alt="" height="60px" width="60px">
                                         </td>
                                         <td><?= $product['price'] . "VND" ?></td>
                                         <td><?= $product['description'] ?></td>

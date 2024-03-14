@@ -24,7 +24,7 @@ class BlogControllers extends BaseController
     public function list(): string
     {
         $data = [];
-        $data = $this->service->getAllBlogs();
+        //$data = $this->service->getAllBlogs();
         //dd($data);
         $cssFiles = [
             'http://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js',
@@ -110,7 +110,7 @@ class BlogControllers extends BaseController
 
     public function delete($id)
     {
-        $blogs = $this->service->getBlogsByID($id);
+        $blogs = $this->service->deleteById($id);
         
 
         if (!$blogs) {
