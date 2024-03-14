@@ -13,7 +13,7 @@
                 </div>
                 <div class="modal-footer">
                     <input type="hidden" name="id_blogs" class="blog_id_delete">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                    <a style="background-color: red" href="<?= base_url('admin/blog/list') ?>" class="btn btn-secondary">Hủy</a>
                     <button type="submit" class="btn btn-danger">Xác nhận xóa</button>
                 </div>
             </div>

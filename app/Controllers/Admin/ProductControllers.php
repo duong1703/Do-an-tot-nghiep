@@ -57,27 +57,44 @@ class ProductControllers extends BaseController
     {
         $productModel = new ProductModel();
 
-        // Lấy dữ liệu post và làm sạch chuỗi
-        $productObj = $this->request->getPost(null, FILTER_SANITIZE_STRING);
-        // Kiểm tra xem khóa 'images' có tồn tại hay không, nếu không, đặt nó thành chuỗi rỗng
-        if (!array_key_exists('images', $productObj)) {
+        // Lấy dữ liệu post
+        $productObj = $this->request->getPost();
+
+        // Kiểm tra xem đã có tệp ảnh được tải lên hay chưa
+        if ($imageFile = $this->request->getFile('images')) {
+            // Đường dẫn thư mục lưu trữ ảnh
+            $uploadDirectory = FCPATH . 'uploads'; // Thư mục lưu trữ trên máy chủ
+
+            // Tạo tên file duy nhất để tránh trùng lặp
+            $newName = $imageFile->getRandomName();
+
+            // Di chuyển ảnh vào thư mục lưu trữ
+            if ($imageFile->move($uploadDirectory, $newName)) {
+                // Lưu đường dẫn của ảnh vào mảng dữ liệu sản phẩm
+                $productObj['images'] = $newName; // Chỉ lưu đường dẫn tương đối
+            }
+        } else {
+            // Nếu không có ảnh được tải lên, đặt giá trị của trường ảnh là chuỗi rỗng
             $productObj['images'] = '';
         }
+
+        // Thiết lập giá trị cho trường khóa chính
         $productObj['id_product'] = null;
 
         try {
             // Chèn dữ liệu vào cơ sở dữ liệu
             $productModel->protect(false)->insert($productObj); // Loại bỏ bảo vệ trường khóa chính
+
             // Thiết lập thông báo flash khi chèn thành công
             session()->setFlashdata('success', 'Thêm sản phẩm thành công');
         } catch (\Exception $e) {
-
             // Thiết lập thông báo flash khi có lỗi
             session()->setFlashdata('error', 'Có lỗi xảy ra khi thêm sản phẩm');
         }
+
+        // Chuyển hướng người dùng đến trang danh sách sản phẩm sau khi thêm thành công
         return redirect()->to(base_url('admin/product/list'));
     }
-
 
     public function editOrUpdate($id)
     {
