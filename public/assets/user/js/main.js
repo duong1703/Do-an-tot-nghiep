@@ -51,3 +51,4 @@ function updateTime() {
 
 // Gọi hàm updateTime() mỗi giây để cập nhật thời gian
 setInterval(updateTime, 1000);
+

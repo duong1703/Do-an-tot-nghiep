@@ -1,5 +1,6 @@
 <div class="container-fluid">
     <h1 class="dash-title">Trang chủ / Tài khoản</h1>
+    <script src="public/vendor/toastr/build/toastr.min.js"></script>
     <div class="row">
         <div class="col-lg-12">
         <?= view('messages/message') ?>
@@ -29,8 +30,8 @@
                                     <td><?= $user['password'] ?></td>
                                     <td><?= $user['email'] ?></td>
                                     <td class="text-center">
-                                        <a href="admin/user/edit/<?= $user['id'] ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                                        <a data-url="<?= base_url() ?>/admin/user/delete/<?= $user['id'] ?>" class="btn btn-danger btn-del-confirm">
+                                        <a href="admin/user/edit/<?= $user['id'] ?>" class="btn btn-primary btn-sm ___js-edit-user"><i class="fas fa-edit"></i></a>
+                                        <a class="btn btn-danger btn-sm ___js-delete-user" data-id="<?= @$user['id'];?>">
                                             <i class="far fa-trash-alt"></i>
                                         </a>
                                     </td>
@@ -43,3 +44,16 @@
         </div>
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<?= $this->include("Modals/Users/delete") ?>
+<script>
+    $('.___js-delete-user').on('click',function(){
+        // Lấy dữ liệu từ nút xóa
+        const id = $(this).data('id');
+        console.log(id);
+        // Đặt dữ liệu vào Form xóa
+        $('.user_id_delete').val(id);
+        // Gọi Modal xóa
+        $('#confirmDeleteUser').modal('show');
+    });
+</script>

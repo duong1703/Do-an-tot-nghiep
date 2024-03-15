@@ -48,7 +48,7 @@
                         <i class="fas fa-user"></i>
                     </div>
                     <div class="stats-data">
-                        <div class="stats-number"><?= isset($totalUsers) ? $totalUsers : '0' ?></div>
+                        <div class="stats-number"></div>
                     </div>
                 </div>
             </div>

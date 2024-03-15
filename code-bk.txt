@@ -345,4 +345,168 @@ class ProductControllers extends BaseController
   Welcome to TinyMCE!
 </textarea>
 <button type="button" class="btn btn-primary mt-4">Đăng bài</button>
+
+
+
+
+<div class="col-sm-9 padding-right">
+                <div class="product-details">
+                    <!--product-details-->
+                    <div class="col-sm-5">
+                        <?php if (!empty($productObj) && is_array($productObj)) : ?>
+                        <?php foreach ($productObj as $key => $value) : ?>
+                        <div class="product-information">
+                            <?php if ($key === 'images') : ?>
+                            <!-- Hiển thị hình ảnh -->
+                            <img src="uploads/<?php echo $product['images']; ?>" alt="images" width="400" height="380">
+                            <?php endif; ?>
+                        </div>
+                        <?php endforeach; ?>
+                        <?php endif; ?>
+                        <div id="similar-product" class="carousel slide" data-ride="carousel">
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <a href=""><img src="images/product-details/similar1.jpg" alt=""></a>
+                                    <a href=""><img src="images/product-details/similar2.jpg" alt=""></a>
+                                    <a href=""><img src="images/product-details/similar3.jpg" alt=""></a>
+                                </div>
+                                <div class="item">
+                                    <a href=""><img src="images/product-details/similar1.jpg" alt=""></a>
+                                    <a href=""><img src="images/product-details/similar2.jpg" alt=""></a>
+                                    <a href=""><img src="images/product-details/similar3.jpg" alt=""></a>
+                                </div>
+                                <div class="item">
+                                    <a href=""><img src="images/product-details/similar1.jpg" alt=""></a>
+                                    <a href=""><img src="images/product-details/similar2.jpg" alt=""></a>
+                                    <a href=""><img src="images/product-details/similar3.jpg" alt=""></a>
+                                </div>
+
+                            </div>
+
+                            <!-- Controls -->
+                            <a class="left item-control" href="#similar-product" data-slide="prev">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a class="right item-control" href="#similar-product" data-slide="next">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-7">
+                        <?php if (!empty($productObj) && is_array($productObj)) : ?>
+                        <?php foreach ($productObj as $key => $value) : ?>
+                        <?php if ($key === 'name') : ?>
+                        <!-- Hiển thị tên sản phẩm -->
+                        <h2><?= $value ?></h2>
+
+                        <?php elseif ($key === 'price') : ?>
+                        <!-- Hiển thị giá -->
+                        <h2><?= $value ?> VNĐ</h2>
+
+                        <?php elseif ($key === 'amount') : ?>
+
+                        <!-- Hiển thị giá -->
+                                    <p>Kho: <?= $value ?></h2> </p>
+
+                            <button type="button" class="btn btn-fefault cart">
+                                <i class="fa fa-shopping-cart"></i>
+                                Add to cart
+                            </button>
+
+                            <?php endif; ?>
+                            <?php endforeach; ?>
+                            <?php endif; ?>
+                    </div>
+                    <!--/product-details-->
+
+                    <div class="category-tab shop-details-tab">
+                        <!--category-tab-->
+                        <div class="col-sm-12">
+                            <ul class="nav nav-tabs">
+                                <li><a href="#details" data-toggle="tab">Chi tiết sản phẩm</a></li>
+                                <li class="active"><a href="#reviews" data-toggle="tab">Đánh giá</a></li>
+                            </ul>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-pane fade" id="details">
+                                <?php if (!empty($productObj) && is_array($productObj)) : ?>
+                                <?php foreach ($productObj as $key => $value) : ?>
+                                <?php if ($key === 'description') : ?>
+                                <!-- Hiển thị mô tả sản phẩm -->
+                                <p><?= $value ?></p>
+                                <?php endif; ?>
+                                <?php endforeach; ?>
+                                <?php endif; ?>
+                            </div>
+
+
+
+                            <div class="tab-pane fade active in" id="reviews">
+                                <div class="col-sm-12">
+                                    <ul>
+                                        <li><a href=""><i class="fa fa-user"></i></a></li>
+                                        <li><a id="realtime-time" href=""><i class="fa fa-clock-o"></i></a></li>
+                                        <li><a id="realtime-date" href=""><i class="fa fa-calendar-o"></i></a></li>
+                                    </ul>
+                                    <p><b>Write Your Review</b></p>
+
+                                    <form action="#">
+                                        <span>
+                                            <input type="text" placeholder="Your Name" />
+                                            <input type="email" placeholder="Email Address" />
+                                        </span>
+                                        <textarea name=""></textarea>
+                                        <b>Rating: </b> <img src="images/product-details/rating.png" alt="" />
+                                        <button type="button" class="btn btn-default pull-right">
+                                            Submit
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--/category-tab-->
+                </div>
+            </div>
+
+            <form action="<?= base_url('admin/blog/delete') ?>" method="post">
+            <div class="modal fade" id="confirmDeleteUser" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteUser" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Xóa bài viết</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Bạn có chắc chắn muốn xóa bài viết này?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="hidden" name="id_blogs" class="blog_id_delete">
+                            <a style="background-color: red" href="<?= base_url('admin/blog/list') ?>" class="btn btn-secondary">Hủy</a>
+                            <button type="submit" class="btn btn-danger">Xác nhận xóa</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
         
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<?= $this->include("Modals/Users/delete") ?>
+<script>
+    $('.___js-delete-blog').on('click',function(){
+        // Lấy dữ liệu từ nút xóa
+        const id = $(this).data('id');
+        console.log(id);
+        // Đặt dữ liệu vào Form xóa
+        $('.blog_id_delete').val(id);
+        // Gọi Modal xóa
+        $('#confirmDeleteUser').modal('show');
+    });
+</script>

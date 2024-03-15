@@ -27,7 +27,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="images">Ảnh sản phẩm</label>
-                            <input value="<?= old('images') ?>" name="images" type="file" accept="image/*" class="form-control-file" id="images" required>
+                            <input name="images" type="file" accept="image/*" class="form-control-file" id="images" required>
                             <div class="form-group">
                                 <img id="img-show" src="" class="img-fluid" alt="Hình đại diện." style="display: none;">
                             </div>
@@ -55,7 +55,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="category">Danh mục</label>
-                            <input value="<?= old('category') ?>" name="category" type="text" class="form-control" id="category" placeholder="Nhập số lượng" required>
+                            <input value="<?= old('category') ?>" name="category" type="text" class="form-control" id="category" placeholder="Nhập danh mục" required>
 
                         </div>
                         <div class="form-group col-md-6">

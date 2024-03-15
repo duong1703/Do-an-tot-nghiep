@@ -11,11 +11,12 @@ use App\Services\BlogsService;
 use Exception;
 
 class BlogControllers extends BaseController
-{  
-     /**
-        @var Service
+{
+    /**
+     * @var Service
      */
     private $service;
+
     public function __construct()
     {
         $this->service = new BlogsService();
@@ -39,16 +40,19 @@ class BlogControllers extends BaseController
 
         $blogModel = new BlogModel();
         $blogs = $blogModel->findAll();
-        if (!empty($blogs)) {
+
+        $dataLayout = [];
+        if ($blogs) {
             $dataLayout['blogs'] = $blogs;
-            $data = $this->loadMasterLayout($data, 'Danh sách bài viết', 'admin/pages/blog/list', $dataLayout, $cssFiles, $jsFiles);
-            return view('admin/main', $data);
-        } else {
-            return 'No data found';
         }
+        $data = $this->loadMasterLayout($data, 'Danh sách bài viết', 'admin/pages/blog/list', $dataLayout, $cssFiles, $jsFiles);
+        return view('admin/main', $data);
     }
-    public function add(){
-        $data = []; 
+
+
+    public function add()
+    {
+        $data = [];
         $blogs = new BlogModel();
         $data['blogs'] = $blogs->findAll();
         $data = $this->loadMasterLayout($data, 'Thêm bài viết', 'admin/pages/blog/add');
@@ -74,8 +78,6 @@ class BlogControllers extends BaseController
         }
         return view('admin/blog/create');
     }
-
-
 
 
     public function editOrUpdate($id_blogs)
@@ -108,20 +110,27 @@ class BlogControllers extends BaseController
         return view('admin/main', $data);
     }
 
-    public function delete($id)
+    public function delete()
     {
-        $blogs = $this->service->deleteById($id);
-        
 
-        if (!$blogs) {
-            return redirect('error/404');
+        $blogModel = new BlogModel();
+        $ids = $this->request->getPost('id_blogs');
+
+        // Chuyển $ids thành một mảng nếu nó không phải là mảng
+        if (!is_array($ids)) {
+            $ids = explode(',', $ids); // Phân tách chuỗi thành mảng dựa trên dấu phẩy
+        }
+        // Kiểm tra xem có id nào được gửi lên không
+        if (!empty($ids)) {
+            foreach ($ids as $id) {
+                // Xóa bài viết với id được chỉ định
+                $blogModel->delete($id);
+            }
+            session()->setFlashdata('msg_success', 'Thành công');
+        } else {
+            session()->setFlashdata('msg_error', 'Không thành công');
         }
 
-        $result = $this->service->deleteById($id);
-        
-        return redirect('admin/blog/list')->with($result['massageCode'], $result['messages']);
+        return redirect()->to(base_url('admin/blog/list'));
     }
-
-  
-
 }

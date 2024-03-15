@@ -77,12 +77,12 @@ $routes->group('admin',['filters'=> 'adminFilters'], function ($routes) {
         $routes->get('delete/(:num)', 'Admin\ProductControllers::delete/$1');
     });
 
-    $routes->group('blog', function ($routes) {
-        $routes->get('list', 'Admin\BlogControllers::list');
-        $routes->get('add', 'Admin\BlogControllers::add');
-        $routes->post('create', 'Admin\BlogControllers::create');
-        $routes->match(['get', 'post'], 'edit/(:num)', 'Admin\BlogControllers::editOrUpdate/$1'); // Use match for both GET and POST
-        $routes->get('delete/(:num)', 'Admin\BlogControllers::delete/$1');
-    }); 
+        $routes->group('blog', function ($routes) {
+            $routes->get('list', 'Admin\BlogControllers::list');
+            $routes->get('add', 'Admin\BlogControllers::add');
+            $routes->post('create', 'Admin\BlogControllers::create');
+            $routes->match(['get', 'post'], 'edit/(:num)', 'Admin\BlogControllers::editOrUpdate/$1'); // Use match for both GET and POST
+            $routes->post('delete', 'Admin\BlogControllers::delete');
+        });
 });
 

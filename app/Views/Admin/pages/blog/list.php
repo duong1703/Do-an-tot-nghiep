@@ -31,10 +31,8 @@
                                     <td><?= $blog['content'] ?></td>
                                     <td><?= $blog['created_at'] ?></td>
                                     <td class="text-center">
-                                        <a href="admin/blog/edit/<?= $blog['id_blogs'] ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                                        <a data-url="<?= base_url() ?>admin/blog/delete/<?= $blog['id_blogs'] ?>" class="btn btn-danger btn-del-confirm">
-                                            <i class="far fa-trash-alt"></i>
-                                        </a>
+                                        <a href="admin/blog/edit/<?= $blog['id_blogs'] ?>" class="btn btn-primary btn-sm ___js-edit-blog"><i class="fas fa-edit"></i></a>
+                                        <a class="btn btn-danger btn-sm ___js-delete-blog" data-id="<?= @$blog['id_blogs'];?>"><i class="far fa-trash-alt"></i></a>
                                     </td>
                                 </tr>
                             <?php endforeach ?>
@@ -46,11 +44,17 @@
         </div>
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<?= $this->include("Modals/Blog/delete") ?>
 <script>
-    toastr.clear();
-    // Notification for actions
-    <?php if(isset($_SESSION['msg_success'])){ ?>
-    toastr["success"]("Thành công!", "Thành công!")
-    <?php unset($_SESSION['msg_success']);?>
-    <?php } ?>
+    $('.___js-delete-blog').on('click',function(){
+        // Lấy dữ liệu từ nút xóa
+        const id = $(this).data('id');
+        console.log(id);
+        // Đặt dữ liệu vào Form xóa
+        $('.blogs_id_delete').val(id);
+        // Gọi Modal xóa
+        $('#confirmDeleteBlogs').modal('show');
+    });
 </script>
+

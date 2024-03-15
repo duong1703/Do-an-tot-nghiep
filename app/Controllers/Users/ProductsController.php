@@ -14,8 +14,12 @@ class ProductsController extends BaseController
         $category = $categoryModel->find($category);
         $products = $productModel->where('category_id', $category)->findAll();
         $data['products'] = $productModel->findAll();
-        
 
+        $data = [
+            'products' => $productModel->paginate(10),
+            'pager' => $productModel->pager
+        ];
+        
         $category = [
                         'MÀN HÌNH', 
                         'THÙNG MÁY', 
@@ -41,6 +45,8 @@ class ProductsController extends BaseController
             'category' => $category,
             'products' => $products
             ]);
+
+        
     }
 
     public function productDetail($productId)
@@ -79,5 +85,6 @@ class ProductsController extends BaseController
 
         // Load view và truyền dữ liệu sản phẩm vào view
         return view('products', $data);
+        
     }
 }

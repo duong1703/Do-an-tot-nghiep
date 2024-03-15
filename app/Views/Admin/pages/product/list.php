@@ -1,5 +1,6 @@
 <div class="dash-content">
     <h1 class="dash-title">Trang chủ /Sản phẩm</h1>
+    <script src="public/vendor/toastr/build/toastr.min.js"></script>
     <div class="row">
         <div class="col-lg-12">
             <?= view('messages/message') ?>
@@ -8,15 +9,23 @@
                     <div class="easion-card-icon">
                         <i class="fas fa-table"></i>
                     </div>
-                    <div class="easion-card-title">Danh sách sản phẩm</div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="easion-card-title">Danh sách sản phẩm</div>
+                        </div>
+                        <div class="col-md-6" style="left: 790px">
+                            <a href="<?= base_url('admin/product/add') ?>" class="btn btn-primary"><i class="fas fa-plus"></i> Thêm mới</a>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="card-body ">
                     <table id="datatable" class="cell-border">
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">Ảnh sản phẩm</th>
                                 <th scope="col">Tên sản phẩm</th>
+                                <th scope="col">Ảnh sản phẩm</th>
                                 <th scope="col">Giá</th>
                                 <th scope="col">Mô tả sản phẩm</th>
                                 <th scope="col">Danh mục</th>
@@ -27,9 +36,9 @@
                         </thead>
                         <tbody>
                             <?php if (isset($products) && !empty($products)) : ?>
-                                <?php foreach ($products as $product) : ?>
+                                <?php foreach ($products as $index => $product) : ?>
                                     <tr>
-                                        <td><?= $product['id_product'] ?></td>
+                                        <td><?= $index + 1 ?></td>
                                         <td><?= $product['name'] ?></td>
                                         <td>
                                         <img src="uploads/<?php echo $product['images']; ?>" alt="" height="60px" width="60px">
@@ -40,9 +49,8 @@
                                         <td><?= $product['amount'] ?></td>
                                         <td class="text-center"><?= $product['status_product'] ?></td>
                                         <td class="text-center">
-                                            <a href="admin/product/edit/<?= $product['id_product'] ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                                            <a data-url="<?= base_url() ?>admin/product/delete/<?= $product['id_product'] ?>" class="btn btn-danger btn-del-confirm">
-                                                <i class="far fa-trash-alt"></i>
+                                            <a href="admin/product/edit/<?= $product['id_product'] ?>" class="btn btn-primary btn-sm ___js-edit-product"><i class="fas fa-edit"></i></a>
+                                            <a class="btn btn-danger btn-sm ___js-delete-product" data-id="<?= @$product['id_product'];?>"><i class="far fa-trash-alt"></i>
                                             </a>
                                         </td>
                                     </tr>
@@ -55,3 +63,17 @@
         </div>
     </div>
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<?= $this->include("Modals/Product/delete") ?>
+<script>
+    $('.___js-delete-product').on('click',function(){
+        // Lấy dữ liệu từ nút xóa
+        const id = $(this).data('id');
+        console.log(id);
+        // Đặt dữ liệu vào Form xóa
+        $('.product_id_delete').val(id);
+        // Gọi Modal xóa
+        $('#confirmDeleteProduct').modal('show');
+    });
+</script>

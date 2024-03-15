@@ -122,7 +122,7 @@
                         <div class="view-product">
                             <?php if ($key === 'images') : ?>
                             <!-- Hiển thị hình ảnh -->
-                            <img src="uploads/<?php echo $product['images']; ?>" alt="images" width="400" height="380">
+                            <img src="uploads/<?= $value; ?>" alt="images" width="400" height="380">
                             <?php endif; ?>
                         </div>
                         <?php endforeach; ?>
@@ -171,9 +171,8 @@
                         <h2><?= $value ?> VNĐ</h2>
 
                         <?php elseif ($key === 'amount') : ?>
-
                         <!-- Hiển thị giá -->
-                                    <p>Kho: <?= $value ?></h2> </p>
+                        <p>Kho: <?= $value ?></h2>
 
                             <button type="button" class="btn btn-fefault cart">
                                 <i class="fa fa-shopping-cart"></i>

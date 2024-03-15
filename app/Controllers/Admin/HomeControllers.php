@@ -9,7 +9,6 @@ class HomeControllers extends BaseController
     public function index(): string
     {
         $userModel = new UserModel();
-        $totalUsers = $userModel->countAllResults();
         $data = [];
         $cssFiles = [];
         $jsFiles = [];
@@ -19,8 +18,8 @@ class HomeControllers extends BaseController
 
     public function countUser(){
         $userModel = new UserModel();
-        $totalUsers = $userModel->countAllResults();
-        return view('admin/pages/home', ['totalUsers' => $totalUsers]);
+        $data['totalUsers'] = $userModel->countAllResults();
+        return view('admin/pages/home', ['totalUsers' => $$data]);
     }
 
 
