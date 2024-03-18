@@ -1,6 +1,6 @@
 <footer id="footer"><!--Footer-->
 		<div class="footer-top">
-			<div class="container">
+			<div class="container mt-4">
 				<div class="row">
 					<div class="col-sm-2">
 						<div class="companyinfo">
@@ -107,6 +107,8 @@
 	<script src="assets/user/js/jquery.prettyPhoto.js"></script>
 	<script src="assets/user/js/main.js"></script>
 	<script src="assets/admin/js/event.js"></script>
+	
+</body>
 </body>
 
 </html>

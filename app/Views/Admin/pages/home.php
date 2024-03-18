@@ -55,13 +55,13 @@
         </div>
         <div class="col-xl-6">
             <div class="stats stats-success ">
-                <h3 class="stats-title"> Tổng lượt đánh giá </h3>
+                <h3 class="stats-title"> Doanh thu bán hàng </h3>
                 <div class="stats-content">
                     <div class="stats-icon">
-                        <i class="far fa-share-square"></i>
+                        <i class="fas fa-cube"></i>
                     </div>
                     <div class="stats-data">
-                        <div class="stats-number">25,541</div>
+                        <div class="stats-number"></div>
                     </div>
                 </div>
             </div>

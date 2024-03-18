@@ -510,3 +510,31 @@ class ProductControllers extends BaseController
         $('#confirmDeleteUser').modal('show');
     });
 </script>
+
+
+
+public function productDetail($productId)
+    {
+        $productModel = new ProductModel();
+        $product = $productModel->find($productId);
+
+        if (!$product) {
+            return false; //Assuming $product is false when not found
+        }
+
+        $condition = [
+            'deleted_at' => null,
+            'id' => $productId
+        ];
+        $withSelect = 'name, description, price, images, amount, category';
+        $productObj = $productModel->getFirstByConditions($condition, '', $withSelect);
+
+        if (!$productObj) {
+            return false; //Assuming $productObj is false when not found
+        }
+        $data['productObj'] = $productObj;
+        $data['productId'] = $productId;
+
+
+        return view('product_detail', $data);
+    }

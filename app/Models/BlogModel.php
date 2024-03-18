@@ -32,4 +32,9 @@ class BlogModel extends BaseModel
 
         return $data;
     }
+
+    public function blog()
+    {
+        return $this->findAll();
+    }
 }

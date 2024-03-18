@@ -12,6 +12,7 @@ use CodeIgniter\Router\RouteCollection;
 //WEB
 $routes->get('/', 'Users\HomeControllers::index');
 $routes->get('views/login', 'Users\HomeControllers::login');
+$routes->get('views/register', 'Users\HomeControllers::register');
 $routes->get('views/login', 'Users\HomeControllers::profile');
 $routes->post('views/login', 'Users\HomeControllers::login');
 $routes->get('views/blog', 'Users\HomeControllers::blog');

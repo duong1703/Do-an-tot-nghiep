@@ -3,6 +3,7 @@
 namespace App\Controllers\Users;
 use App\Controllers\BaseController; 
 use App\Models\ProductModel;
+use App\Models\BlogModel;
 use App\Models\CategoryModel;
 
 class HomeControllers extends BaseController
@@ -29,7 +30,9 @@ class HomeControllers extends BaseController
     }
 
     public function blog(){
-        return view('blog');
+        $model = new BlogModel();
+        $data['blogsObj'] = $model->findAll();
+        return view('blog', $data);
     }
 
     public function product(){

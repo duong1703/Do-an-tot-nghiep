@@ -524,6 +524,10 @@ ul.sub-menu {
   margin-left: -5px;
   margin-top: -3px;
   padding: 7px 17px;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
 }
 
 .searchform button i {

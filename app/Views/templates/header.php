@@ -15,7 +15,7 @@
 	<link href="/assets/user/css/animate.css" rel="stylesheet">
 	<link href="/assets/user/css/main.css" rel="stylesheet">
 	<link href="/assets/user/css/responsive.css" rel="stylesheet">
-	
+
 	<!--[if lt IE 9]>
     <script src="/assets/user/html5shiv./assets/user"></script>
     <script src="/assets/user/respond.min./assets/user"></script>
@@ -76,6 +76,7 @@
 								<!-- <li><a href="checkout.php"><i class="fa fa-crosshairs"></i> Thanh toán</a></li> -->
 								<li><a href="views/cart"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
 								<li><a href="views/login"><i class="fa fa-lock"></i> Đăng nhập</a></li>
+								<li><a href="views/register"><i class="fa fa-lock"></i> Đăng ký</a></li>
 							</ul>
 						</div>
 					</div>
@@ -104,12 +105,13 @@
 										<!-- <li><a href="product-details.html">Product Details</a></li> -->
 									</ul>
 								</li>
-								<!-- <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
+								<li class="dropdown"><a href="#">Giới thiệu sản phẩm HOT<i class="fa fa-angle-down"></i></a>
 									<ul role="menu" class="sub-menu">
-										<li><a href="blog.html">Blog List</a></li>
-										<li><a href="blog-single.html">Blog Single</a></li> -->
-									<!-- </ul> -->
+										<li><a href="">Laptop</a></li>
+										<li><a href="">Tai nghe</a></li> 
+									</ul>
 								</li>
+								
 								<!-- <li><a href="404.html">404</a></li> -->
 								<li><a href="views/blog">Tin tức công nghệ</a></li>
 								<li><a href="views/contact">Liên hệ</a></li>

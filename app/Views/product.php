@@ -136,30 +136,33 @@
                     <h2 class="title text-center">Sản phẩm</h2>
 
                     <?php foreach ($products as $product): ?>
-                    <div class="col-sm-4">
-                        <div class="product-image-wrapper">
-                            <div class="single-products">
-                                <div class="productinfo text-center">
-                                    <img src="uploads/<?php echo $product['images']; ?>" alt="images">
-                                    <h2><?php echo $product['price']; ?> VND</h2>
-                                    <p><?php echo $product['name']; ?></p>
-                                    <p>Danh mục: <?= ($product['category']) ?></p>
-                                    <!-- Add to cart button -->
-                                    <a href="#" class="btn btn-default add-to-cart"><i
-                                            class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
+                                <div class="col-sm-4">
+                                    <div class="product-image-wrapper">
+                                        <div class="single-products">
+                                            <div class="productinfo text-center">
+                                                <img src="uploads/<?php echo $product['images']; ?>" alt="images">
+                                                <h2><?php echo $product['price']; ?> VND</h2>
+                                                <p><?php echo $product['name']; ?></p>
+                                                <p>Danh mục: <?= ($product['category']) ?></p>
+                                                <!-- Add to cart button -->
+                                                <a href="#" class="btn btn-default add-to-cart"><i
+                                                        class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
+                                            </div>
+                                        </div>
+                                        <div class="choose">
+                                            <ul class="nav nav-pills nav-justified">
+                                                <!-- Additional options or actions here -->
+                                                <li><a href=""><i class="fa fa-plus-square"></i>Thêm vào sở thích</a></li>
+                                                <li><a href="<?= base_url('product_detail/' . $product['id_product']) ?>"><i
+                                                            class="fa fa-plus-square"></i>Chi tiết sản phẩm</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="choose">
-                                <ul class="nav nav-pills nav-justified">
-                                    <!-- Additional options or actions here -->
-                                    <li><a href=""><i class="fa fa-plus-square"></i>Thêm vào sở thích</a></li>
-                                    <li><a href="<?= base_url('product_detail/' . $product['id_product']) ?>"><i
-                                                class="fa fa-plus-square"></i>Chi tiết sản phẩm</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
                     <?php endforeach; ?>
+
+                    <!-- Phân trang -->
+                   
                     <!-- Pagination -->
                     <ul class="pagination" >
                         
@@ -174,5 +177,7 @@
     </div>
     </div>
 </section>
+
+
 
 <?php include 'templates/footer.php'; ?>

@@ -16,9 +16,12 @@ class ProductsController extends BaseController
         $data['products'] = $productModel->findAll();
 
         $data = [
-            'products' => $productModel->paginate(10),
+            'products' => $productModel->paginate(10), // Số lượng sản phẩm trên mỗi trang
             'pager' => $productModel->pager
         ];
+
+        
+
         
         $category = [
                         'MÀN HÌNH', 
@@ -55,7 +58,7 @@ class ProductsController extends BaseController
         $product = $productModel->find($productId);
 
         if (!$product) {
-            return false; // Assuming $product is false when not found
+            return false; //Assuming $product is false when not found
         }
 
         $condition = [
@@ -66,7 +69,7 @@ class ProductsController extends BaseController
         $productObj = $productModel->getFirstByConditions($condition, '', $withSelect);
 
         if (!$productObj) {
-            return false; // Assuming $productObj is false when not found
+            return false; //Assuming $productObj is false when not found
         }
         $data['productObj'] = $productObj;
         $data['productId'] = $productId;

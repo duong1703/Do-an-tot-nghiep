@@ -13,6 +13,36 @@
     <title>Đăng nhập</title>
 </head>
 
+<style>
+/* HTML: <div class="loader"></div> */
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  display: grid;
+  border: 4px solid #0000;
+  border-radius: 50%;
+  border-right-color: #25b09b;
+  animation: l15 1s infinite linear;
+}
+.loader::before,
+.loader::after {    
+  content: "";
+  grid-area: 1/1;
+  margin: 2px;
+  border: inherit;
+  border-radius: 50%;
+  animation: l15 2s infinite;
+}
+.loader::after {
+  margin: 8px;
+  animation-duration: 3s;
+}
+@keyframes l15{ 
+  100%{transform: rotate(1turn)}
+}
+</style>
+
 <body>
 
     <div class="form-screen">
@@ -20,9 +50,10 @@
         <div class="card account-dialog">
             <div class="card-header bg-primary text-white"> Please sign in </div>
             <div class="card-body">
-                <?php if (session()->getFlashdata('error')) : ?>
-                    <p style="color:red"><?= session()->getFlashdata('error'); ?></p>
+                <?php if (session()->getFlashdata('error')): ?>
+                            <p style="color:red"><?= session()->getFlashdata('error'); ?></p>
                 <?php endif; ?>
+                
                 <form action="login" method="post">
                     <div class="form-group">
                         <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
@@ -31,12 +62,31 @@
                         <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
                     </div>
                     <div class="account-dialog-actions">
-                        <button type="submit" class="btn btn-primary">Sign in</button>
+                        <button id="loginButton" type="submit" class="btn btn-primary">Sign in</button>
                     </div>
                 </form>
+                
             </div>
         </div>
+        <div id="loading" class="loader mt-4" style="display:none;"></div>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+        $("#loginButton").click(function(){
+            // Hiển thị loader
+            $("#loading").show();
+            
+            // Gửi form đăng nhập
+            $("#loginForm").submit();
+        setTimeout(function() {
+            $("#loginButton").submit(); // Gửi form đăng nhập
+        }, 30000);
+        });
+        });
+    </script>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
