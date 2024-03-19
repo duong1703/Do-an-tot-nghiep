@@ -48,7 +48,7 @@
     <div class="form-screen">
         <img src="assets/images/logo.png" alt="">
         <div class="card account-dialog">
-            <div class="card-header bg-primary text-white"> Please sign in </div>
+            <div class="card-header bg-primary text-white"> Vui lòng đăng nhập </div>
             <div class="card-body">
                 <?php if (session()->getFlashdata('error')): ?>
                             <p style="color:red"><?= session()->getFlashdata('error'); ?></p>
@@ -62,7 +62,7 @@
                         <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
                     </div>
                     <div class="account-dialog-actions">
-                        <button id="loginButton" type="submit" class="btn btn-primary">Sign in</button>
+                        <button id="loginButton" type="submit" class="btn btn-primary">Đăng nhập</button>
                     </div>
                 </form>
                 

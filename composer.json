@@ -16,6 +16,7 @@
         "ext-json": "*",
         "ext-mbstring": "*",
         "codeigniter4/shield": "dev-develop",
+        "google/apiclient": "^2.0@dev",
         "laminas/laminas-escaper": "^2.9",
         "nowakowskir/php-jwt": "^2.1",
         "phpmailer/phpmailer": "dev-master",

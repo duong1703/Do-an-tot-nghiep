@@ -116,9 +116,13 @@
             <div class="col-sm-9 padding-right">
                     <div class="product-details"><!--product-details-->
                         <div class="col-sm-5">
-                            <div class="view-product">
-                                <img src="images/product-details/1.jpg" alt="" />
-                                <h3>ZOOM</h3>
+                            <div>
+                                <img src="uploads/<?php echo $productObj['images']; ?>" alt="images" height="300.6px" width="279.29px">
+                                <h2><?= $productObj['name'] ?></h2>
+                                <p>Mô tả: <?= $productObj['description'] ?></p>
+                                <p>Giá: <?= $productObj['price'] ?></p>
+                                <p>Số lượng: <?= $productObj['amount'] ?></p>
+                                <p>Danh mục: <?= $productObj['category'] ?></p>
                             </div>
                             <div id="similar-product" class="carousel slide" data-ride="carousel">
                                 
@@ -184,13 +188,13 @@
                         </div>
                         <div class="tab-content">
                             <div class="tab-pane fade" id="details" >
-                            <?php if (!empty($productObj) && is_array($productObj)) : ?>
-                                <?php foreach ($productObj as $key => $value) : ?>
-                                <?php if ($key === 'description') : ?>
-                                <!-- Hiển thị mô tả sản phẩm -->
-                                <p><?= $value ?></p>
-                                <?php endif; ?>
-                                <?php endforeach; ?>
+                            <?php if (!empty ($productObj) && is_array($productObj)): ?>
+                                        <?php foreach ($productObj as $key => $value): ?>
+                                                <?php if ($key === 'description'): ?>
+                                                        <!-- Hiển thị mô tả sản phẩm -->
+                                                        <p><?= $value ?></p>
+                                                <?php endif; ?>
+                                        <?php endforeach; ?>
                                 <?php endif; ?>
                             </div>
                             

@@ -56,25 +56,20 @@ class ProductsController extends BaseController
     {
         $productModel = new ProductModel();
         $product = $productModel->find($productId);
-
         if (!$product) {
-            return false; //Assuming $product is false when not found
+            return false;
         }
-
         $condition = [
             'deleted_at' => null,
-            'id' => $productId
+            'id_product' => $productId
         ];
         $withSelect = 'name, description, price, images, amount, category';
         $productObj = $productModel->getFirstByConditions($condition, '', $withSelect);
-
         if (!$productObj) {
-            return false; //Assuming $productObj is false when not found
+            return false;
         }
         $data['productObj'] = $productObj;
         $data['productId'] = $productId;
-
-
         return view('product_detail', $data);
     }
 

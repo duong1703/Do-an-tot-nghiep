@@ -157,7 +157,7 @@
                                             <div class="choose">
                                                 <ul class="nav nav-pills nav-justified">
                                                     <li><a href="#"><i class="fa fa-plus-square"></i>Thêm vào sở thích</a></li>
-                                                    <li><a href="<?= base_url('product_detail/' . $product['id_product']) ?>"><i class="fa fa-plus-square"></i>Chi tiết sản phẩm</a></li>
+                                                    <li><a href="<?= base_url('product/product_detail/'. $product['id_product']) ?>"><i class="fa fa-plus-square"></i>Chi tiết sản phẩm</a></li>
                                                 </ul>
                                             </div>
                                         </div>

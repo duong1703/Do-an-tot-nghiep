@@ -107,6 +107,7 @@
 	<script src="assets/user/js/jquery.prettyPhoto.js"></script>
 	<script src="assets/user/js/main.js"></script>
 	<script src="assets/admin/js/event.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.5/pagination.min.js"></script>
 	
 </body>
 </body>
