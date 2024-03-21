@@ -39,27 +39,29 @@ $routes->post('public/upload', 'UploadControllers::upload'); // Add this line.
 
 
 //Checkout
-$routes->get('views/checkout','Users\HomeControllers::checkout');
-$routes->get('vnpay/vnpay_pay','Users\HomeControllers::vnpay_pay');
+$routes->get('views/checkout', 'Users\HomeControllers::checkout');
+$routes->get('vnpay/vnpay_pay', 'Users\HomeControllers::vnpay_pay');
 
 
-
-
-$routes->get('error/404', function(){
+$routes->get('error/404', function () {
     return view('errors/html/error_404');
 });
 
 
-$routes->get('showfile/(:any)','Admin\FileControllers::index/$1');
+$routes->get('showfile/(:any)', 'Admin\FileControllers::index/$1');
+
+//User-web
+$routes->post('views/login', 'Users\AuthController::login');
+
 
 //Admin-web
-$routes->get('login','Admin\LoginControllers::index');
-$routes->post('login','Admin\LoginControllers::login');
+$routes->get('login', 'Admin\LoginControllers::index');
+$routes->post('login', 'Admin\LoginControllers::login');
 
-$routes->group('admin',['filters'=> 'adminFilters'], function ($routes) {
+$routes->group('admin', ['filters' => 'adminFilters'], function ($routes) {
     $routes->get('pages/home', 'Admin\HomeControllers::index');
     $routes->get('home', 'Admin\HomeControllers::index');
-    $routes->get('logout','Admin\LoginControllers::logout');
+    $routes->get('logout', 'Admin\LoginControllers::logout');
 
     $routes->group('user', function ($routes) {
         $routes->get('list', 'Admin\UserControllers::list');
@@ -78,12 +80,12 @@ $routes->group('admin',['filters'=> 'adminFilters'], function ($routes) {
         $routes->get('delete/(:num)', 'Admin\ProductControllers::delete/$1');
     });
 
-        $routes->group('blog', function ($routes) {
-            $routes->get('list', 'Admin\BlogControllers::list');
-            $routes->get('add', 'Admin\BlogControllers::add');
-            $routes->post('create', 'Admin\BlogControllers::create');
-            $routes->match(['get', 'post'], 'edit/(:num)', 'Admin\BlogControllers::editOrUpdate/$1'); // Use match for both GET and POST
-            $routes->post('delete', 'Admin\BlogControllers::delete');
-        });
+    $routes->group('blog', function ($routes) {
+        $routes->get('list', 'Admin\BlogControllers::list');
+        $routes->get('add', 'Admin\BlogControllers::add');
+        $routes->post('create', 'Admin\BlogControllers::create');
+        $routes->match(['get', 'post'], 'edit/(:num)', 'Admin\BlogControllers::editOrUpdate/$1'); // Use match for both GET and POST
+        $routes->post('delete', 'Admin\BlogControllers::delete');
+    });
 });
 

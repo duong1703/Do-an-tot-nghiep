@@ -16,4 +16,13 @@ class UserModel extends Model
         $userInfo = $userModel->find($userId);
         return $userInfo;
     }
+
+    public function countUsers()
+    {
+        return $this->countUsers();
+    }
+
+    public function login($email, $password){
+
+    }
 }

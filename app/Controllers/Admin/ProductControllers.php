@@ -23,6 +23,7 @@ class ProductControllers extends BaseController
     }
 
 
+
     public function list(): string
     {
         $data = [];

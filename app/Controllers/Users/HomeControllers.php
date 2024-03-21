@@ -5,6 +5,7 @@ use App\Controllers\BaseController;
 use App\Models\ProductModel;
 use App\Models\BlogModel;
 use App\Models\CategoryModel;
+use App\Models\UserModel;
 
 class HomeControllers extends BaseController
 {
@@ -23,6 +24,10 @@ class HomeControllers extends BaseController
 
     public function register(){
         return view('register');
+    }
+
+    public function logout(){
+        return view('logout');
     }
 
     public function contact(){

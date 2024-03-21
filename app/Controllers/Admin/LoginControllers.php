@@ -37,7 +37,7 @@ class LoginControllers extends BaseController
         //}elseif($result["status"] === ResultUtils::STATUS_CODE_ERR){
         //    return redirect("admin/login")->with($result['messageCode'], $result['messages']);
         //}
-        //return redirect("home");
+        //return redirect("home")
 
         $session = session();
         $model = new UserModel();
@@ -75,6 +75,8 @@ class LoginControllers extends BaseController
         //    return redirect("admin/login")->with($result['messageCode'], $result['messages']);
         //}
         //return redirect("home");
+
+
 
         $session = session();
         $model = new UserModel();

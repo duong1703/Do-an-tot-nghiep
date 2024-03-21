@@ -45,7 +45,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="price">Giá</label>
-                            <input value="<?= old('price') ?>" name="price" type="number" class="form-control" id="price" placeholder="Nhập giá bán" required>
+                            <input value="<?= old('price') ?>" name="price" type="text" class="form-control" placeholder="Nhập giá bán sản phẩm" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="description">Mô tả sản phẩm</label>

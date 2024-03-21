@@ -19,6 +19,14 @@ class UserControllers extends BaseController
         $this->service = new UserService();
     }
 
+    public function index()
+    {
+        $userModel = new UserModel();
+        $data['totalUsers'] = $userModel->countUsers();
+
+        return view('user_list', $data);
+    }
+
 
     public function list(): string
     {

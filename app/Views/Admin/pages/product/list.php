@@ -14,7 +14,7 @@
                             <div class="easion-card-title">Danh sách sản phẩm</div>
                         </div>
                         <div class="col-md-6" style="left: 790px">
-                            <a href="<?= base_url('admin/product/add') ?>" class="btn btn-primary"><i class="fas fa-plus"></i> Thêm mới</a>
+                            <a href="<?= base_url('admin/product/add') ?>" class="btn btn-primary border border-danger rounded-pill"><i class="fas fa-plus"></i> Thêm mới</a>
                         </div>
                     </div>
 

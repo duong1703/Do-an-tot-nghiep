@@ -4,7 +4,9 @@
                     <i class="fas fa-bars"></i>
                 </a>
                 <a href="http://localhost:8080/admin/home" class="easion-logo"><img src="/assets/images/logo.png" alt="" height="50" width="120"></a>
+
             </header>
+            <p class="text-center bg-primary text-dark">Version 1.0.0</p>
             <nav class="dash-nav-list">
                 <a href="http://localhost:8080/admin/home" class="dash-nav-item">
                     <i class="fas fa-home"></i> Thống kê </a>
@@ -51,5 +53,7 @@
                         <a href="admin/blog/add" class="dash-nav-dropdown-item">Thêm mới</a>
                     </div>
                 </div>
+
             </nav>
+
         </div>

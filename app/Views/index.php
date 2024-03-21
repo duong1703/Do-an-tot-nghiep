@@ -167,4 +167,5 @@
                         </div>
                 </div>
 </section>
+
 <?= view('templates/footer');?>

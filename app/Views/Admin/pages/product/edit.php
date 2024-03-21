@@ -21,7 +21,7 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>Tên sản phẩm</label>
-                                    <input value="<?= $product['name'] ?>" name="name" type="text" class="form-control" placeholder="Enter product name" required>
+                                    <input value="<?= $product['name'] ?>" name="name" type="text" class="form-control" placeholder="Nhập tên sản phẩm" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="status_product">Trạng thái sản phẩm nổi bật</label>
@@ -34,7 +34,7 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>Giá</label>
-                                    <input value="<?= $product['price'] ?>" name="price" type="text" class="form-control" placeholder="Enter selling price" required>
+                                    <input value="<?= $product['price'] ?>" name="price" type="text" class="form-control" placeholder="Nhập giá bán sản phẩm" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="description">Description</label></br>
@@ -44,11 +44,11 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>Danh mục</label>
-                                    <input value="<?= $product['category'] ?>" name="category" type="text" class="form-control" placeholder="Enter product category" required>
+                                    <input value="<?= $product['category'] ?>" name="category" type="text" class="form-control" placeholder="Nhập danh mục sản phẩm" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Số lượng</label>
-                                    <input value="<?= $product['amount'] ?>" name="amount" type="text" class="form-control" placeholder="Enter quantity" required>
+                                    <input value="<?= $product['amount'] ?>" name="amount" type="text" class="form-control" placeholder="Nhập số lượng" required>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary">Cập nhật</button>

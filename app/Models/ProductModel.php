@@ -47,5 +47,7 @@ class ProductModel extends BaseModel
 
         return $this->find($id, );
     }
+
+
 }
 

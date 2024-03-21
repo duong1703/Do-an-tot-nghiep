@@ -5,48 +5,32 @@ namespace App\Controllers;
 use App\Models\UserModel;
 use CodeIgniter\Controller;
 
-class AuthController extends Controller
+class AuthControllers extends Controller
 {
     public function login()
     {
-        // Kiểm tra nếu người dùng đã đăng nhập
-        if (session()->get('isLoggedIn')) {
-            return redirect()->to('views/profile');
+        // Kiểm tra xem người dùng đã gửi dữ liệu đăng nhập chưa
+        if ($this->request->getMethod() === 'post') {
+            // Lấy thông tin đăng nhập từ biểu mẫu
+            $email = $this->request->getPost('email');
+            $password = $this->request->getPost('password');
+
+            // Kiểm tra thông tin đăng nhập trong cơ sở dữ liệu
+            $userModel = new UserModel();
+            $user = $userModel->where('email', $email)->first();
+
+            if ($user && password_verify($password, $user['password'])) {
+                // Đăng nhập thành công, lưu thông tin người dùng vào session và chuyển hướng đến trang chính
+                $session = session();
+                $session->set('user', $user);
+                return redirect()->to('views/index');
+            } else {
+                // Đăng nhập không thành công, hiển thị thông báo lỗi
+                return redirect()->back()->with('error', 'Email hoặc mật khẩu không chính xác');
+            }
         }
 
-        // Nếu không, hiển thị trang đăng nhập
+        // Hiển thị form đăng nhập
         return view('views/login');
-    }
-
-    public function processLogin()
-    {
-        $email = $this->request->getVar('email');
-        $password = $this->request->getVar('password');
-
-        $userModel = new UserModel();
-        $user = $userModel->where('email', $email)->first();
-
-        if ($user && password_verify($password, $user['password'])) {
-            // Đăng nhập thành công, lưu thông tin người dùng vào session
-            session()->set([
-                'isLoggedIn' => true,
-                'userId' => $user['id'],
-                'email' => $user['email'],
-                // Lưu thêm thông tin khác của người dùng nếu cần
-            ]);
-
-            return redirect()->to('views/profile');
-        } else {
-            // Đăng nhập không thành công, redirect lại trang đăng nhập với thông báo lỗi
-            return redirect()->back()->withInput()->with('error', 'Invalid email or password');
-        }
-    }
-
-    public function logout()
-    {
-        // Xóa tất cả các biến session liên quan đến đăng nhập
-        session()->remove(['isLoggedIn', 'userId', 'email']);
-
-        return redirect()->to('/');
     }
 }

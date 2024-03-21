@@ -3,11 +3,13 @@
 namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
 use App\Models\UserModel;
+use App\Models\ProductModel;
 
 class HomeControllers extends BaseController
 {
     public function index(): string
     {
+
         $userModel = new UserModel();
         $data = [];
         $cssFiles = [];
