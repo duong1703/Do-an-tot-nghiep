@@ -32,8 +32,7 @@
                     <a href="javascript::void(0)" class="dash-nav-item dash-nav-dropdown-toggle">
                         <i class="fas fa-comments"></i> Đánh giá </a>
                     <div class="dash-nav-dropdown-menu">
-                        <a href="" class="dash-nav-dropdown-item">Danh sách</a>
-                        <a href="" class="dash-nav-dropdown-item">Thêm mới</a>
+                        <a href="admin/reviews/list" class="dash-nav-dropdown-item">Danh sách</a>
                     </div>
                 </div>
 
@@ -41,7 +40,7 @@
                     <a href="javascript::void(0)" class="dash-nav-item dash-nav-dropdown-toggle">
                     <i class="fas fa-cube"></i></i> Đơn hàng </a>
                     <div class="dash-nav-dropdown-menu">
-                        <a href="" class="dash-nav-dropdown-item">Danh sách</a>
+                        <a href="admin/order/list" class="dash-nav-dropdown-item">Danh sách</a>
                     </div>
                 </div>
 

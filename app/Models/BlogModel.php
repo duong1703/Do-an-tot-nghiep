@@ -37,4 +37,8 @@ class BlogModel extends BaseModel
     {
         return $this->findAll();
     }
+
+
+
+
 }

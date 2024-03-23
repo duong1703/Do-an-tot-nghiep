@@ -6,13 +6,17 @@
                 <h2 class="title text-center">Tin công nghệ mới nhất</h2>
             </div>
         </div>
-        <?php if (!empty($blogs) && is_array($blogs)) : ?>
-        <?php foreach ($blogs as $blog) : ?>
-            <li>
-                <h2><?= esc($blog['title']); ?></h2>
-                <p><?= esc($blog['content']); ?></p>
-            </li>
-        <?php endforeach; ?>
+        <?php if (!empty($blogs)) : ?>
+            <ul>
+                <?php foreach ($blogs as $blog) : ?>
+                    <li>
+                        <h2><?= $blog['title']; ?></h2>
+                        <p><?= $blog['content']; ?></p>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        <?php else : ?>
+            <p>Không có bài viết nào.</p>
         <?php endif; ?>
     </div>
 </div>

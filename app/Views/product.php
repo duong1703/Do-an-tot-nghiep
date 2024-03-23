@@ -17,6 +17,7 @@ if ($currentPage > $totalPages) {
 
 // Tính toán vị trí bắt đầu của sản phẩm trong truy vấn SQL hoặc từ bất kỳ nguồn dữ liệu nào bạn sử dụng
 $start = ($currentPage - 1) * $itemsPerPage;
+
 ?>
 <!--<section id="advertisement">-->
 <!--    <div class="container">-->
@@ -158,19 +159,21 @@ $start = ($currentPage - 1) * $itemsPerPage;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <p><?php echo $product['name']; ?></p>
+
                                             <img src="uploads/<?php echo $product['images']; ?>" alt="images">
                                             <h2><?php echo $product['price']; ?> VND</h2>
                                             <p><?php echo $product['name']; ?></p>
                                             <p>Danh mục: <?= $product['category'] ?></p>
 <!--                                            <a href="" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>-->
-                                            <button class="btn btn-default add-to-cart" onclick="addToCart(<?php echo $product['name']; ?>)">Thêm vào giỏ hàng</button>
+                                            <form class="btn btn-default add-to-cart" action="cart/<?= $product['id_product'] ?>" method="post" >
+                                                <i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng
+                                            </form>
                                         </div>
                                     </div>
                                     <div class="choose">
                                         <ul class="nav nav-pills nav-justified">
                                             <li><a href="#"><i class="fa fa-plus-square"></i>Thêm vào sở thích</a></li>
-                                            <li><a href="<?= base_url('product_detail/' . $product['id_product']) ?>"><i class="fa fa-plus-square"></i>Chi tiết sản phẩm</a></li>
+                                            <li><a href="<?= base_url('product/product_detail/' . $product['id_product']) ?>"><i class="fa fa-plus-square"></i>Chi tiết sản phẩm</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -180,6 +183,7 @@ $start = ($currentPage - 1) * $itemsPerPage;
                     <!-- Pagination -->
                     <div class="text-center">
                         <ul id="pagination" class="pagination"></ul>
+
                     </div>
                 </div>
             </div>

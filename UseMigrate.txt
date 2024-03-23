@@ -1,4 +1,4 @@
-    xem hướng dẫn: php spark
+xem hướng dẫn: php spark
 Chạy tạo bảng : php spark migrate:create CreateTableUsers
 chạy cập nhât dữ liệu: php spark migrate
 run server: php spark serve

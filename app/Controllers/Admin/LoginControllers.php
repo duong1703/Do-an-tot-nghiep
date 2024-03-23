@@ -96,20 +96,25 @@ class LoginControllers extends BaseController
                     'logged_in'     => TRUE
                 ];
                 $session->set($ses_data);
-                return redirect()->to('views/index');
+                return redirect()->to('admin/pages/home');
             }else{
                 $session->setFlashdata('error', 'Password is incorrect.');
-                return redirect()->to('views/login');
+                return redirect()->to('admin/pages/login');
             }
         }else{
             $session->setFlashdata('error', 'Email does not exist.');
-            return redirect()->to('views/login');
+            return redirect()->to('admin/pages/login');
         }
     }
 
 
     public function logout()
     {
+        // Load the session service
+        $session = session();
+
+        // Destroy the session
+        $session->destroy();
         // Xóa tất cả dữ liệu phiên
         $this->service->logout();
 

@@ -44,10 +44,18 @@ class ProductModel extends BaseModel
 
     public function getProduct($id)
     {
-
         return $this->find($id, );
     }
 
+    public function search($keyword)
+    {
+       $db = \Config\Database::connect();
+       $buider = $this->table = 'products';
+       $buider->select('*');
+       $buider->where('name',$keyword );
+       $querry = $buider->get();
+       return $querry->getResults();
+    }
 
 }
 

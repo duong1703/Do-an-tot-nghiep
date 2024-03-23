@@ -125,9 +125,6 @@
 
                 </div>
             </div>
-            <div class="col-sm-9 padding-right">
-                <div class="features_items">
-                   
                 
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
@@ -149,9 +146,9 @@
                                                     <p>Giá: <?= ($product['price']) ?></p>
                                                     <p>Số lượng: <?= ($product['amount']) ?></p>
                                                     <p>Danh mục: <?= ($product['category']) ?></p>
-                                                    <a href="views/cart" class="btn btn-default add-to-cart">
+                                                    <form class="btn btn-default add-to-cart" action="" method="post" >
                                                         <i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng
-                                                    </a>
+                                                    </form>
                                                 </div>
                                             </div>
                                             <div class="choose">

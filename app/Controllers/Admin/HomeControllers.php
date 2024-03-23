@@ -7,9 +7,15 @@ use App\Models\ProductModel;
 
 class HomeControllers extends BaseController
 {
+
+    public function __construct()
+    {
+        $this->db = \Config\Database::connect();
+    }
+
+
     public function index(): string
     {
-
         $userModel = new UserModel();
         $data = [];
         $cssFiles = [];
@@ -17,13 +23,6 @@ class HomeControllers extends BaseController
         $data = $this->loadMasterLayout ($data, 'Trang chủ', 'admin/pages/home', $jsFiles, $cssFiles);
         return view('admin/main', $data );
     }
-
-    public function countUser(){
-        $userModel = new UserModel();
-        $data['totalUsers'] = $userModel->countAllResults();
-        return view('admin/pages/home', ['totalUsers' => $$data]);
-    }
-
 
 
 }

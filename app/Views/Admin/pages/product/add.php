@@ -35,32 +35,52 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="status_product">Trạng thái sản phẩm nổi bật</label>
-                            <select name="status_product" class="form-control" required>
-                                <option value="0" <?php echo (old('status_product') == 0) ? 'selected' : ''; ?>>Ẩn sản phẩm</option>
-                                <option value="1" <?php echo (old('status_product') == 1) ? 'selected' : ''; ?>>Hiển thị</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
                             <label for="price">Giá</label>
                             <input value="<?= old('price') ?>" name="price" type="text" class="form-control" placeholder="Nhập giá bán sản phẩm" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="description">Mô tả sản phẩm</label>
+                            <label for="description">Thông số sản phẩm</label>
                             <textarea name="description" id="description" class="form-control"><?= old('description') ?></textarea>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="category">Danh mục</label>
-                            <input value="<?= old('category') ?>" name="category" type="text" class="form-control" id="category" placeholder="Nhập danh mục" required>
-
+<!--                            <input value="--><?//= old('category') ?><!--" name="category" type="text" class="form-control" id="category" placeholder="Nhập danh mục" required>-->
+                            <select value="<?= old('category') ?>" name="category" class="form-control" id="category" required>
+                                <option>Nhập danh mục sản phẩm</option>
+                                <option>MÀN HÌNH</option>
+                                <option>THÙNG MÁY</option>
+                                <option>CHIP</option>
+                                <option>RAM</option>
+                                <option>SSD</option>
+                                <option>HDD</option>
+                                <option>CARD ĐỒ HỌA</option>
+                                <option>CHUỘT</option>
+                                <option>BÀN PHÍM</option>
+                                <option>BÀN, GHẾ GAMING</option>
+                                <option>QUẠT TẢN NHIỆT</option>
+                                <option>TAI NGHE</option>
+                                <option>TABLET</option>
+                                <option>BÀN PHÍM</option>
+                                <option>LOA</option>
+                                <option>LAPTOP</option>
+                                <option>IPAD</option>
+                            </select>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="amount">Số lượng</label>
                             <input value="<?= old('amount') ?>" name="amount" type="number" class="form-control" id="amount" placeholder="Nhập số lượng" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="status_product">Trạng thái sản phẩm nổi bật</label>
+                            <select name="status_product" class="form-control" required>
+                                <option value="0" <?php echo (old('status_product') == 0) ? 'selected' : ''; ?>>Ẩn sản phẩm</option>
+                                <option value="1" <?php echo (old('status_product') == 1) ? 'selected' : ''; ?>>Hiển thị</option>
+                            </select>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-success">Thêm mới</button>

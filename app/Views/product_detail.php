@@ -161,12 +161,12 @@
                                    <p>Giá: <?= $productObj['price'] ?></p>
                                     <label>Quantity:</label>
                                     <input type="text" value="3" />
-                                    <button type="button" class="btn btn-fefault cart rounded-pill">
-                                        <i class="fa fa-shopping-cart"></i>
-                                        Add to cart
-                                    </button>
+
                                 </span>
                                 <p>Danh mục: <?= $productObj['category'] ?></p>
+                                <form class="btn btn-default add-to-cart mt-4" action="" method="post" >
+                                    <i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng
+                                </form>
                                 <a href=""><img src="images/product-details/share.png" class="share img-responsive"  alt="" /></a>
                             </div><!--/product-information-->
                         </div>

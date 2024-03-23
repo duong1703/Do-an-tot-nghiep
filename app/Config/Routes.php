@@ -16,6 +16,7 @@ $routes->get('views/register', 'Users\HomeControllers::register');
 $routes->get('views/login', 'Users\HomeControllers::profile');
 $routes->post('views/login', 'Users\HomeControllers::login');
 $routes->get('views/blog', 'Users\HomeControllers::blog');
+$routes->get('views/blog', 'Users\BlogControllers::index');
 $routes->get('views/contact', 'Users\HomeControllers::contact');
 $routes->get('views/product', 'Users\HomeControllers::product');
 $routes->get('product_detail/(:num)', 'Users\HomeControllers::product_detail/$1');
@@ -86,6 +87,14 @@ $routes->group('admin', ['filters' => 'adminFilters'], function ($routes) {
         $routes->post('create', 'Admin\BlogControllers::create');
         $routes->match(['get', 'post'], 'edit/(:num)', 'Admin\BlogControllers::editOrUpdate/$1'); // Use match for both GET and POST
         $routes->post('delete', 'Admin\BlogControllers::delete');
+    });
+
+    $routes->group('order', function ($routes) {
+        $routes->get('list', 'Admin\OrderControllers::list');
+    });
+
+    $routes->group('reviews', function ($routes) {
+        $routes->get('list', 'Admin\ReviewsControllers::list');
     });
 });
 

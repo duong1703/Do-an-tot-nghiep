@@ -12,7 +12,7 @@
                     <div class="easion-card-title">Danh sách bài viết</div>
                 </div>
                 <div class="card-body">
-                    <table id="datatable" class="cell-border">
+                    <table id="datatable" class="table table-striped table-hover">
                         <thead>
                         <tr>
                             <th scope="col">ID</th>
@@ -55,6 +55,26 @@
         $('.blogs_id_delete').val(id);
         // Gọi Modal xóa
         $('#confirmDeleteBlogs').modal('show');
+    });
+
+    $('#datatable').DataTable({
+        initComplete: function () {
+            this.api()
+                .columns()
+                .every(function () {
+                    var column = this;
+                    var title = column.footer().textContent;
+
+                    // Create input element and add event listener
+                    $('<input type="text" placeholder="Search ' + title + '" />')
+                        .appendTo($(column.footer()).empty())
+                        .on('keyup change clear', function () {
+                            if (column.search() !== this.value) {
+                                column.search(this.value).draw();
+                            }
+                        });
+                });
+        }
     });
 </script>
 

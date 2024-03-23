@@ -22,8 +22,6 @@ class ProductControllers extends BaseController
 
     }
 
-
-
     public function list(): string
     {
         $data = [];
@@ -142,5 +140,12 @@ class ProductControllers extends BaseController
 
         $result = $this->service->deleteProduct($id);
         return redirect('admin/product/list')->with($result['massageCode'], $result['messages']);
+    }
+
+    public function search(){
+        $ProductModel = new ProductModel();
+        $name = $this -> request ->getPost('name');
+        $data = $ProductModel->getdata($name);
+        return view('admin/product/list', ['data'=>$data]);
     }
 }
