@@ -17,15 +17,18 @@ class BaseModel extends Model
     protected $returnType     = 'array';// or 'object'
     protected $protectFields        = true;
     //Dates
-    //protected $useTimestamps        = false;
-    //protected $dateFormat           = 'datetime';
+    protected $useTimestamps        = false;
+    protected $dateFormat           = 'datetime';
     protected $createdField         = 'created_at';
     protected $updatedField         = 'updated_at';
     protected $deletedField         = 'deleted_at';
 
     /*Validating data
     */
+    protected $validationRules      = [];
+    protected $validationMessages   = [];
     protected $skipValidation     = false;
+    protected $cleanValidationRules = true;
     // Callbacks
     protected $allowCallbacks       = true;
     protected $afterInsert          = [];

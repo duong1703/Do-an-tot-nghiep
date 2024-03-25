@@ -66,47 +66,6 @@ class LoginControllers extends BaseController
         }
     }
 
-    public function login_customers()
-    {
-        //$result = $this->service->hasLoginInfo($this->request);
-        //if($result["status"] === ResultUtils::STATUS_CODE_OK){
-        //    return redirect("admin/home");
-        //}elseif($result["status"] === ResultUtils::STATUS_CODE_ERR){
-        //    return redirect("admin/login")->with($result['messageCode'], $result['messages']);
-        //}
-        //return redirect("home");
-
-
-
-        $session = session();
-        $model = new UserModel();
-        $email = $this->request->getVar('email');
-        $password = $this->request->getVar('password');
-        $data = $model->where('email', $email)->first();
-
-        if($data){
-            $pass = $data['password'];
-            $authenticatePassword = password_verify($password, $pass);
-            if($authenticatePassword){
-                $ses_data = [
-                    'id'       => $data['id'],
-                    'name'     => $data['name'],
-                    'email'     => $data['email'],
-                    'password'     => $data['password'],
-                    'logged_in'     => TRUE
-                ];
-                $session->set($ses_data);
-                return redirect()->to('admin/pages/home');
-            }else{
-                $session->setFlashdata('error', 'Password is incorrect.');
-                return redirect()->to('admin/pages/login');
-            }
-        }else{
-            $session->setFlashdata('error', 'Email does not exist.');
-            return redirect()->to('admin/pages/login');
-        }
-    }
-
 
     public function logout()
     {

@@ -24,5 +24,4 @@ class HomeControllers extends BaseController
         return view('admin/main', $data );
     }
 
-
 }

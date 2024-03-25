@@ -32,105 +32,102 @@ $start = ($currentPage - 1) * $itemsPerPage;
                 <div class="left-sidebar">
                     <h2>Danh mục sản phẩm</h2>
                     <div class="panel-group category-products" id="accordian">
-                        <!--category-productsr-->
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordian" href="#PC">
-                                        <span class="badge pull-right"><i class="fa fa-plus"></i></span>
-                                        Máy tính để bàn
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="PC" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <ul>
-                                        <li><a href="#">Màn hình </a></li>
-                                        <li><a href="#">Thùng máy </a></li>
-                                        <li><a href="#">Chip</a></li>
-                                        <li><a href="#">Ram, SSD </a></li>
-                                        <li><a href="#">Card đồ họa </a></li>
-                                        <li><a href="#">Chuột, Bàn phím</a></li>
-                                        <li><a href="#">Bàn, ghế Gaming </a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordian" href="#Laptop">
-                                        <span class="badge pull-right"><i class="fa fa-plus"></i></span>
-                                        Máy tính xách tay
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="Laptop" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <ul>
-                                        <li><a href="#">Quạt tản nhiệt </a></li>
-                                        <li><a href="#">Ram, SSD Laptop </a></li>
-                                        <li><a href="#">Chuột, Bàn phím Laptop</a></li>
-
-                                    </ul>
-                                </div>
+                                <h4 class="panel-title"><a href="">MÀN HÌNH</a></h4>
                             </div>
                         </div>
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordian" href="#Audio">
-                                        <span class="badge pull-right"><i class="fa fa-plus"></i></span>
-                                        Tai nghe
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="Audio" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <ul>
-                                        <li><a href="#">Tai nghe ASUS</a></li>
-                                        <li><a href="#">Tai nghe Razer</a></li>
-                                        <li><a href="#">Tai nghe Apple</a></li>
-                                        <li><a href="#">Tai nghe Harmar Kadon</a></li>
-                                        <li><a href="#">Tai nghe Havit</a></li>
-                                    </ul>
-                                </div>
+                                <h4 class="panel-title"><a href="">THÙNG MÁY</a></h4>
                             </div>
                         </div>
+
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Máy tính laptop ASUS</a></h4>
+                                <h4 class="panel-title"><a href="">CHIP</a></h4>
                             </div>
                         </div>
+
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Máy tính laptop ACER</a></h4>
+                                <h4 class="panel-title"><a href="">RAM</a></h4>
                             </div>
                         </div>
+
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Máy tính laptop RAZER</a></h4>
+                                <h4 class="panel-title"><a href="">SSD</a></h4>
                             </div>
                         </div>
+
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Máy tính laptop MSI</a></h4>
+                                <h4 class="panel-title"><a href="">HDD</a></h4>
                             </div>
                         </div>
+
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Máy tính MACBOOK</a></h4>
+                                <h4 class="panel-title"><a href="">CARD ĐỒ HỌA</a></h4>
                             </div>
                         </div>
+
+
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Máy tính laptop DELL</a></h4>
+                                <h4 class="panel-title"><a href="">CHUỘT</a></h4>
                             </div>
                         </div>
+
+
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Máy tính đồng bộ</a></h4>
+                                <h4 class="panel-title"><a href="">BÀN, GHẾ GAMING</a></h4>
+                            </div>
+                        </div>
+
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a href="">QUẠT TẢN NHIỆT</a></h4>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a href="#">TAI NGHE</a></h4>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a href="#">TABLET</a></h4>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a href="#">BÀN PHÍM</a></h4>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a href="#">LAPTOP</a></h4>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a href="#">IPAD</a></h4>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a href="#">LOA</a></h4>
                             </div>
                         </div>
                     </div>
@@ -160,14 +157,11 @@ $start = ($currentPage - 1) * $itemsPerPage;
                                     <div class="single-products">
                                         <div class="productinfo text-center">
 
-                                            <img src="uploads/<?php echo $product['images']; ?>" alt="images">
-                                            <h2><?php echo $product['price']; ?> VND</h2>
-                                            <p><?php echo $product['name']; ?></p>
-                                            <p>Danh mục: <?= $product['category'] ?></p>
-<!--                                            <a href="" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>-->
-                                            <form class="btn btn-default add-to-cart" action="cart/<?= $product['id_product'] ?>" method="post" >
-                                                <i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng
-                                            </form>
+                                            <img id="images" src="uploads/<?php echo $product['images']; ?>" alt="images">
+                                            <h2 id="price"><?php echo $product['price']; ?> VND</h2>
+                                            <p id="product"><?php echo $product['name']; ?></p>
+                                            <p id="category">Danh mục: <?= $product['category'] ?></p>
+                                            <a href="javascript:void(0)" onclick="addToCart()" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
                                         </div>
                                     </div>
                                     <div class="choose">
@@ -236,6 +230,10 @@ $start = ($currentPage - 1) * $itemsPerPage;
     $(document).ready(function() {
         createPagination();
     });
+
+
+
+
 </script>
 
 

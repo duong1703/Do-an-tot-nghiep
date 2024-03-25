@@ -1,117 +1,45 @@
 <?php
 
-namespace App\Controllers\Admin;
 
-use App\Common\ResultUtils;
-use App\Controllers\BaseController;
-use App\Services\LoginService;
+namespace App\Controllers;
+use CodeIgniter\RESTful\ResourceController;
+use CodeIgniter\API\ResponseTrait;
 use App\Models\UserModel;
+use Firebase\JWT\JWT;
 
 
-class LoginControllers extends BaseController
+class LoginControllers extends ResourceController
 {
-    /**
-    @var Service
-     */
-    private $service;
-
-    public function __construct()
-    {
-        $this->service = new LoginService();
-    }
-
+    use ResponseTrait;
 
     public function index()
     {
-        if(session()->has('user_login')){
-            return redirect('users/login');
-        }
-        return view('views/login');
+        helper(['form']);
+        $rules = [
+            'email' => 'required|valid_email',
+            'password' => 'required|min_length[6]'
+        ];
+        if(!$this->validate($rules)) return $this->fail($this->validator->getErrors());
+        $UserModel = new UserModel();
+        $user = $UserModel->where("email", $this->request->getVar('email'))->first();
+        if(!$user) return $this->failNotFound('Email Not Found');
+
+        $verify = password_verify($this->request->getVar('password'), $user['password']);
+        if(!$verify) return $this->fail('Wrong Password');
+
+        $key = getenv('TOKEN_SECRET');
+        // Thiết lập "nbf" để token chỉ có thể sử dụng sau 10 phút kể từ thời điểm hiện tại
+        $notBefore = time() + (10 * 60); // 10 phút * 60 giây/phút
+        $payload = array(
+            "iat" => time(),
+            "nbf" => $notBefore,
+            "uid" => $user['id'],
+            "email" => $user['email']
+        );
+
+        $token = JWT::encode($payload, $key);
+
+        return $this->respond($token);
     }
 
-    public function login()
-    {
-        //$result = $this->service->hasLoginInfo($this->request);
-        //if($result["status"] === ResultUtils::STATUS_CODE_OK){
-        //    return redirect("admin/home");
-        //}elseif($result["status"] === ResultUtils::STATUS_CODE_ERR){
-        //    return redirect("admin/login")->with($result['messageCode'], $result['messages']);
-        //}
-        //return redirect("home");
-
-        $session = session();
-        $model = new UserModel();
-        $email = $this->request->getVar('email');
-        $password = $this->request->getVar('password');
-        $data = $model->where('email', $email)->first();
-
-        if($data){
-            $pass = $data['password'];
-            $authenticatePassword = password_verify($password, $pass);
-            if($authenticatePassword){
-                $ses_data = [
-                    'id'       => $data['id'],
-                    'email'     => $data['email'],
-                    'logged_in'     => TRUE
-                ];
-                $session->set($ses_data);
-                return redirect()->to('views/index');
-            }else{
-                $session->setFlashdata('error', 'Password is incorrect.');
-                return redirect()->to('views/login');
-            }
-        }else{
-            $session->setFlashdata('error', 'Email does not exist.');
-            return redirect()->to('views/login');
-        }
-    }
-
-    public function login_customers()
-    {
-        //$result = $this->service->hasLoginInfo($this->request);
-        //if($result["status"] === ResultUtils::STATUS_CODE_OK){
-        //    return redirect("admin/home");
-        //}elseif($result["status"] === ResultUtils::STATUS_CODE_ERR){
-        //    return redirect("admin/login")->with($result['messageCode'], $result['messages']);
-        //}
-        //return redirect("home");
-
-        $session = session();
-        $model = new UserModel();
-        $email = $this->request->getVar('email');
-        $password = $this->request->getVar('password');
-        $data = $model->where('email', $email)->first();
-
-        if($data){
-            $pass = $data['password'];
-            $authenticatePassword = password_verify($password, $pass);
-            if($authenticatePassword){
-                $ses_data = [
-                    'id'       => $data['id'],
-                    'name'     => $data['name'],
-                    'email'     => $data['email'],
-                    'password'     => $data['password'],
-                    'logged_in'     => TRUE
-                ];
-                $session->set($ses_data);
-                return redirect()->to('views/index');
-            }else{
-                $session->setFlashdata('error', 'Password is incorrect.');
-                return redirect()->to('views/login');
-            }
-        }else{
-            $session->setFlashdata('error', 'Email does not exist.');
-            return redirect()->to('views/login');
-        }
-    }
-
-
-    public function logout()
-    {
-        // Xóa tất cả dữ liệu phiên
-        $this->service->logout();
-
-        // Chuyển hướng người dùng đến trang đăng nhập
-        return redirect('views/login');
-    }
 }

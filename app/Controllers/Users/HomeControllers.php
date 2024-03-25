@@ -15,6 +15,7 @@ class HomeControllers extends BaseController
         $allParam = $productModel->findAll();
         $products = [];
         $data['cateObj'] = $allParam;
+        $data['recommendedProducts'] = $productModel->findAll();
         return view('index', $data);
     }
 
@@ -32,6 +33,10 @@ class HomeControllers extends BaseController
 
     public function contact(){
         return view('contact');
+    }
+
+    public function reviews(){
+        return view('reviews');
     }
 
     public function blog(){

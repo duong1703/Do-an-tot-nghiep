@@ -12,7 +12,7 @@
                     <div class="easion-card-title">Danh sách bài viết</div>
                 </div>
                 <div class="card-body">
-                    <table id="datatable" class="table table-striped table-hover">
+                    <table id="datatable" class="cell-border stripe">
                         <thead>
                         <tr>
                             <th scope="col">ID</th>

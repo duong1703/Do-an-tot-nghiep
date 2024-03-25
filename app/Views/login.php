@@ -16,11 +16,10 @@
                                 <?php endif; ?>
                                 <form class="mx-1 mx-md-4 mt-4" action="views/login" method="post">
                                     <div class="d-flex flex-row align-items-center mb-4">
-                                        <!--                    <i><img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/new-post.png" alt="new-post"/></i>-->
                                         <div class="form-outline flex-fill mb-0">
 
                                             <label class="form-label" for="email">Email của bạn</label>
-                                            <input type="email" value="<?php old('email'); ?>" id="email" class="form-control" placeholder="Example@gmail.com" required/>
+                                            <input type="email" value="<?= old('email') ?>" id="email" class="form-control" placeholder="Example@gmail.com" required/>
                                         </div>
                                     </div>
                                     <hr>
@@ -28,7 +27,7 @@
                                         <div class="form-outline flex-fill mb-0 mt-4">
 
                                             <label class="form-label" for="password">Mật khẩu</label>
-                                            <input type="password" value="<?php old('password'); ?>"
+                                            <input type="password" value="<?= old('password') ?>"
                                                    class="form-control is-invalid" id="form3Example4c"
                                                    class="form-control" placeholder="Your password" required/>
                                         </div>
@@ -41,10 +40,8 @@
                                         <label class="form-label" for="form3Example4cd">Nhập lại mật khẩu</label>
                                       </div>
                                     </div> -->
-
-                                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4 mt-2">
-                                        <button id="loginButton" type="submit" class="btn btn-primary">Đăng nhập
-                                        </button>
+                                    <div class="account-dialog-actions">
+                                        <button id="loginButton" type="submit" class="btn btn-primary">Đăng nhập</button>
                                     </div>
                                 </form>
 

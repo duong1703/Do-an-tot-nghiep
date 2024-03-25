@@ -17,12 +17,7 @@ class UserModel extends Model
         return $userInfo;
     }
 
-    public function countUsers()
-    {
-        return $this->countUsers();
-    }
-
-    public function login($email, $password){
-
+    public function registerUsers($data){
+        return $this->db->insert('users', $data);
     }
 }

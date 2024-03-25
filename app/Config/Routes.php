@@ -9,8 +9,9 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
-//WEB
-$routes->get('/', 'Users\HomeControllers::index');
+//WEB-GUI
+$routes->get('/', 'Users\HomeControllers::index', ['filters' => 'AuthFilters']);
+$routes->get('views/index', 'HomeControllers::index');
 $routes->get('views/login', 'Users\HomeControllers::login');
 $routes->get('views/register', 'Users\HomeControllers::register');
 $routes->get('views/login', 'Users\HomeControllers::profile');
@@ -34,6 +35,11 @@ $routes->get('/', 'Users\EmailController::index');
 $routes->match(['get', 'post'], 'contact/mail', 'Users\EmailController::sendMail');
 
 
+//Reviews
+$routes->get('/', 'Users\ReviewsControllers::index');
+$routes->match(['get', 'post'], 'reviews/reviews', 'Users\ReviewsControllers::sendreviews');
+
+
 //testup
 $routes->get('admin/pages/product/add', 'UploadControllers::add');          // Add this line.
 $routes->post('public/upload', 'UploadControllers::upload'); // Add this line.
@@ -52,12 +58,15 @@ $routes->get('error/404', function () {
 $routes->get('showfile/(:any)', 'Admin\FileControllers::index/$1');
 
 //User-web
-$routes->post('views/login', 'Users\AuthController::login');
+$routes->post('views/register', 'RegisterControllers::index');
+$routes->post('views/login', 'LoginControllers::index');
+
 
 
 //Admin-web
 $routes->get('login', 'Admin\LoginControllers::index');
 $routes->post('login', 'Admin\LoginControllers::login');
+
 
 $routes->group('admin', ['filters' => 'adminFilters'], function ($routes) {
     $routes->get('pages/home', 'Admin\HomeControllers::index');

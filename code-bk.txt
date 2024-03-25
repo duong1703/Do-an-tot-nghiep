@@ -538,3 +538,77 @@ public function productDetail($productId)
 
         return view('product_detail', $data);
     }
+
+
+
+
+
+
+<?php
+// Tính toán $totalItems (tổng số sản phẩm) và $itemsPerPage (số sản phẩm trên mỗi trang)
+$totalItems = 100; // Giả sử bạn có tổng cộng 100 sản phẩm
+$itemsPerPage = 10; // Số lượng sản phẩm bạn muốn hiển thị trên mỗi trang
+
+// Tính toán $totalPages (tổng số trang)
+$totalPages = ceil($totalItems / $itemsPerPage);
+
+// Xác định $currentPage (trang hiện tại)
+$currentPage = isset($_GET['page']) ? $_GET['page'] : 1; // Mặc định là trang 1 nếu không có tham số truy vấn
+
+// Trong trường hợp $currentPage vượt quá $totalPages, đặt lại $currentPage là trang cuối cùng
+if ($currentPage > $totalPages) {
+    $currentPage = $totalPages;
+}
+
+// Tính toán vị trí bắt đầu của sản phẩm trong truy vấn SQL hoặc từ bất kỳ nguồn dữ liệu nào bạn sử dụng
+$start = ($currentPage - 1) * $itemsPerPage;
+
+?>
+<!-- CSS Bootstrap -->
+<!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
+
+<!-- JavaScript jQuery -->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+
+<!-- JavaScript Bootstrap -->
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
+<script>
+    // Định nghĩa biến để lấy tổng số trang và số trang hiện tại
+    var totalPages = <?php echo $totalPages; ?>;
+    var currentPage = <?php echo $currentPage; ?>;
+
+    // Hàm để tạo phân trang sử dụng Bootstrap Pagination
+    function createPagination() {
+        var pagination = $('#pagination');
+        pagination.empty();
+        // Tạo nút 'Previous'
+        if (currentPage > 1) {
+            pagination.append('<li><a href="javascript::void(0)" onclick="changePage(' + (currentPage - 1) + ');">&laquo;</a></li>');
+        }
+        // Tạo các nút trang
+        for (var i = 1; i <= totalPages; i++) {
+            pagination.append('<li ' + (i === currentPage ? 'class="active"' : '') + '><a href="javascript::void(0)" onclick="changePage(' + i + ');">' + i + '</a></li>');
+        }
+        // Tạo nút 'Next'
+        if (currentPage < totalPages) {
+            pagination.append('<li><a href="javascript::void(0)" onclick="changePage(' + (currentPage + 1) + ');">&raquo;</a></li>');
+        }
+    }
+
+    // Hàm để thay đổi trang
+    function changePage(page) {
+        currentPage = page;
+        // Thực hiện ajax hoặc chuyển hướng trang web đến trang mới
+        window.location.href = 'views/product/?page=' + page;
+        // Hoặc: $.ajax({url: 'your_script.php?page=' + page, success: function(result){ $('#dataContainer').html(result);}});
+        // Sau khi thực hiện xong, cập nhật lại phân trang
+        createPagination();
+    }
+
+    // Khởi tạo phân trang khi trang web được tải
+    $(document).ready(function() {
+        createPagination();
+    });
+
+</script>

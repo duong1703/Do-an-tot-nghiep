@@ -1510,6 +1510,48 @@
             "install-path": "../guzzlehttp/psr7"
         },
         {
+            "name": "kejawenlab/ci4pager",
+            "version": "1.0",
+            "version_normalized": "1.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KejawenLab/CI4Pager.git",
+                "reference": "05d00350641845bcc086d9a98634fb0ebc5c4a22"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KejawenLab/CI4Pager/zipball/05d00350641845bcc086d9a98634fb0ebc5c4a22",
+                "reference": "05d00350641845bcc086d9a98634fb0ebc5c4a22",
+                "shasum": ""
+            },
+            "require": {
+                "codeigniter4/framework": "dev-master",
+                "ext-pdo": "*",
+                "php": ">=7.2"
+            },
+            "time": "2019-07-16T11:39:50+00:00",
+            "type": "project",
+            "installation-source": "source",
+            "autoload": {
+                "files": [
+                    "src/functions.php"
+                ],
+                "psr-4": {
+                    "KejawenLab\\CodeIgniter\\Pagination\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "CodeIgniter 4 Pagination Library",
+            "support": {
+                "issues": "https://github.com/KejawenLab/CI4Pager/issues",
+                "source": "https://github.com/KejawenLab/CI4Pager/tree/master"
+            },
+            "install-path": "../kejawenlab/ci4pager"
+        },
+        {
             "name": "kint-php/kint",
             "version": "5.1.0",
             "version_normalized": "5.1.0.0",

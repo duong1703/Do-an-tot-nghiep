@@ -39,3 +39,23 @@ public function delete()
         }
         return redirect()->back();
     }
+
+ <!-- Trong view giỏ hàng -->
+                <?php if (session()->has('views/cart')) : ?>
+                    <h1>Giỏ hàng của bạn</h1>
+                    <ul>
+                        <?php foreach (session()->get('views/cart') as $item) : ?>
+                            <li>
+                                <span><?= $item['id_product'] ?></span>
+                                <span><?= $item['images'] ?></span>
+                                <span><?= $item['name'] ?></span>
+                                <span><?= $item['description'] ?></span>
+                                <span><?= $item['price'] ?></span>
+                                <span><?= $item['quantity'] ?></span>
+                                <span><?= $item['total'] ?></span>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                <?php else : ?>
+                    <p><?= view('emptycart'); ?></p>
+                <?php endif; ?>

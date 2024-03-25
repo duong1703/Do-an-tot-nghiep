@@ -108,7 +108,37 @@
 	<script src="assets/user/js/main.js"></script>
 	<script src="assets/admin/js/event.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.5/pagination.min.js"></script>
-	
+
+<script>
+    // Add active class to the current button (highlight it)
+    var header = document.getElementById("myactive");
+    var btns = header.getElementsByClassName("li");
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function() {
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+        });
+    }
+
+</script>
+
+<!-- Chatra {literal} -->
+<script>
+    (function(d, w, c) {
+        w.ChatraID = 'g4LghmZXo4MihSLTA';
+        var s = d.createElement('script');
+        w[c] = w[c] || function() {
+            (w[c].q = w[c].q || []).push(arguments);
+        };
+        s.async = true;
+        s.src = 'https://call.chatra.io/chatra.js';
+        if (d.head) d.head.appendChild(s);
+    })(document, window, 'Chatra');
+</script>
+<!-- /Chatra {/literal} -->
+
+
 </body>
 </body>
 

@@ -15,6 +15,10 @@
 	<link href="/assets/user/css/animate.css" rel="stylesheet">
 	<link href="/assets/user/css/main.css" rel="stylesheet">
 	<link href="/assets/user/css/responsive.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.6.0/pagination.min.js" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.6.0/pagination.js" rel="stylesheet">
+
 
 	<!--[if lt IE 9]>
     <script src="/assets/user/html5shiv./assets/user"></script>
@@ -70,13 +74,12 @@
 					</div>
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
-							<ul class="nav navbar-nav">
-								<li><a href="views/profile"><i class="fa fa-user"></i>Tài khoản</a></li>
-								<li><a href="#"><i class="fa fa-star"></i> Yêu thích</a></li>
+							<ul class="nav navbar-nav --bs-breadcrumb-divider: '>'">
+								<li><a class="breadcrumb-item" href="views/profile"><i class="fa fa-user"></i>Tài khoản</a></li>
+								<li><a class="breadcrumb-item"  href="#"><i class="fa fa-star"></i> Yêu thích</a></li>
 								<!-- <li><a href="checkout.php"><i class="fa fa-crosshairs"></i> Thanh toán</a></li> -->
-								<li><a href="views/cart"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
-								<li><a href="views/login"><i class="fa fa-lock"></i> Đăng nhập</a></li>
-								<li><a href="views/register"><i class="fa fa-lock"></i> Đăng ký</a></li>
+								<li><a class="breadcrumb-item" href="views/cart"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+								<li><a class="breadcrumb-item" href="views/login"><i class="fa fa-lock"></i> Đăng nhập</a></li>
 							</ul>
 						</div>
 					</div>
@@ -98,10 +101,10 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="index.php?page=Trang-chu" class="active">Trang chủ</a></li>
+								<li><a  href="index.php?page=Trang-chu" id="myactive" class=" breadcrumb-item active">Trang chủ</a></li>
 								<li class="dropdown"><a href="#">Cửa hàng<i class="fa fa-angle-down"></i></a>
 									<ul role="menu" class="sub-menu">
-										<li><a href="views/product">Sản phẩm</a></li>
+										<li><a class="breadcrumb-item" href="views/product">Sản phẩm</a></li>
 										<!-- <li><a href="product-details.html">Product Details</a></li> -->
 									</ul>
 								</li>
@@ -113,8 +116,8 @@
 								</li>
 								
 								<!-- <li><a href="404.html">404</a></li> -->
-								<li><a href="views/blog">Tin tức công nghệ</a></li>
-								<li><a href="views/contact">Liên hệ</a></li>
+								<li><a class="breadcrumb-item" href="views/blog">Tin tức công nghệ</a></li>
+								<li><a class="breadcrumb-item" href="views/contact">Liên hệ</a></li>
 							</ul>
 						</div>
 					</div>

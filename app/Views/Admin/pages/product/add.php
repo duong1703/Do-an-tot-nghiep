@@ -57,7 +57,6 @@
                                 <option>HDD</option>
                                 <option>CARD ĐỒ HỌA</option>
                                 <option>CHUỘT</option>
-                                <option>BÀN PHÍM</option>
                                 <option>BÀN, GHẾ GAMING</option>
                                 <option>QUẠT TẢN NHIỆT</option>
                                 <option>TAI NGHE</option>

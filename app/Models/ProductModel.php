@@ -57,5 +57,12 @@ class ProductModel extends BaseModel
        return $querry->getResults();
     }
 
+
+    public function getProductsByCategory($name)
+    {
+        // Thực hiện truy vấn để lấy các sản phẩm từ một danh mục cụ thể
+        return $this->where('name', $name)
+            ->findAll();
+    }
 }
 

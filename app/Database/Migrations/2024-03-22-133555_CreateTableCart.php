@@ -25,6 +25,11 @@ class CreateTableCart extends Migration
                 'constraint' => 11,
                 'unsigned' => true,
             ],
+            'quantity' => [
+                'type' => 'VARCHAR',
+                'constraint' => 11,
+                'unsigned' => true,
+            ],
             'created_at' => [
                 'type' => 'DATETIME',
                 'null' => true,

@@ -10,6 +10,7 @@ class EmailController extends BaseController
     {
         return view('contact/email');
     }
+
     function sendMail()
     {
         $from = $this->request->getVar('mailfrom');
