@@ -71,5 +71,6 @@
     },
     "scripts": {
         "test": "phpunit"
-    }
+    },
+    "prefer-stable": true
 }

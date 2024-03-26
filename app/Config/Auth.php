@@ -11,9 +11,10 @@ declare(strict_types=1);
  * the LICENSE file that was distributed with this source code.
  */
 
-namespace Config;
+namespace CodeIgniter\Shield\Config;
 
-use CodeIgniter\Shield\Config\Auth as ShieldAuth;
+
+use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Shield\Authentication\Actions\ActionInterface;
 use CodeIgniter\Shield\Authentication\AuthenticatorInterface;
 use CodeIgniter\Shield\Authentication\Authenticators\AccessTokens;
@@ -27,7 +28,7 @@ use CodeIgniter\Shield\Authentication\Passwords\PwnedValidator;
 use CodeIgniter\Shield\Authentication\Passwords\ValidatorInterface;
 use CodeIgniter\Shield\Models\UserModel;
 
-class Auth extends ShieldAuth
+class Auth extends BaseConfig
 {
     /**
      * ////////////////////////////////////////////////////////////////////
@@ -57,7 +58,6 @@ class Auth extends ShieldAuth
         'magic-link-login'            => '\CodeIgniter\Shield\Views\magic_link_form',
         'magic-link-message'          => '\CodeIgniter\Shield\Views\magic_link_message',
         'magic-link-email'            => '\CodeIgniter\Shield\Views\Email\magic_link_email',
-        'email_manual_activate_email' => '\CodeIgniter\Shield\Views\Email\email_activate_show',
     ];
 
     /**
@@ -78,7 +78,7 @@ class Auth extends ShieldAuth
         'register'          => '/',
         'login'             => '/',
         'logout'            => 'login',
-        'force_reset'       => 'views/profile',
+        'force_reset'       => '/',
         'permission_denied' => '/',
         'group_denied'      => '/',
     ];
@@ -99,8 +99,8 @@ class Auth extends ShieldAuth
      * @var array<string, class-string<ActionInterface>|null>
      */
     public array $actions = [
-        'register' => null,
-        'login'    => null,
+        'register' => \CodeIgniter\Shield\Authentication\Actions\EmailActivator::class,
+        'login'    => \CodeIgniter\Shield\Authentication\Actions\Email2FA::class,
     ];
 
     /**
@@ -138,8 +138,7 @@ class Auth extends ShieldAuth
      * when using the 'chain' filter. Each Authenticator listed will be checked.
      * If no match is found, then the next in the chain will be checked.
      *
-     * @var string[]
-     * @phpstan-var list<string>
+     * @var list<string>
      */
     public array $authenticationChain = [
         'session',
@@ -154,7 +153,7 @@ class Auth extends ShieldAuth
      * --------------------------------------------------------------------
      * Determines whether users can register for the site.
      */
-    public bool $allowRegistration = false;
+    public bool $allowRegistration = true;
 
     /**
      * --------------------------------------------------------------------
@@ -265,7 +264,7 @@ class Auth extends ShieldAuth
      * You can add custom classes as long as they adhere to the
      * CodeIgniter\Shield\Authentication\Passwords\ValidatorInterface.
      *
-     * @var class-string<ValidatorInterface>[]
+     * @var list<class-string<ValidatorInterface>>
      */
     public array $passwordValidators = [
         CompositionValidator::class,

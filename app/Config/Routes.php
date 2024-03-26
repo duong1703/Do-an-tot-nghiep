@@ -4,6 +4,7 @@ use App\Controllers\Users\HomeControllers;
 use App\Controllers\Users\ProductsController;
 use App\Controllers\Admin\ProductController;
 use CodeIgniter\Router\RouteCollection;
+use CodeIgniter\RESTful\ResourceController;
 
 /**
  * @var RouteCollection $routes
@@ -21,8 +22,18 @@ $routes->get('views/blog', 'Users\BlogControllers::index');
 $routes->get('views/contact', 'Users\HomeControllers::contact');
 $routes->get('views/product', 'Users\HomeControllers::product');
 $routes->get('product_detail/(:num)', 'Users\HomeControllers::product_detail/$1');
-$routes->get('views/cart', 'Users\HomeControllers::cart');
+$routes->get('views/cart/(:num)', 'Users\HomeControllers::cart/$1');
 $routes->get('views/profile', 'Users\HomeControllers::profile');
+
+//Authentication
+service('auth')->routes($routes);
+service('auth')->routes($routes, ['except' => ['login', 'register']]);
+$routes->get('views/login', '\App\Controllers\Auth\LoginController::login');
+$routes->get('views/register', '\App\Controllers\Auth\RegisterController::register');
+
+
+
+
 
 // Product - User
 $routes->group('product', function ($routes) {
@@ -56,12 +67,6 @@ $routes->get('error/404', function () {
 
 
 $routes->get('showfile/(:any)', 'Admin\FileControllers::index/$1');
-
-//User-web
-$routes->post('views/register', 'RegisterControllers::index');
-$routes->post('views/login', 'LoginControllers::index');
-
-
 
 //Admin-web
 $routes->get('login', 'Admin\LoginControllers::index');

@@ -122,12 +122,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/codeigniter4/shield.git",
-                "reference": "ee6b500269f468a72fb558cbc664320281f9b2be"
+                "reference": "d55fc089a6930745665f7998ad21cf4b8f6eee75"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codeigniter4/shield/zipball/ee6b500269f468a72fb558cbc664320281f9b2be",
-                "reference": "ee6b500269f468a72fb558cbc664320281f9b2be",
+                "url": "https://api.github.com/repos/codeigniter4/shield/zipball/d55fc089a6930745665f7998ad21cf4b8f6eee75",
+                "reference": "d55fc089a6930745665f7998ad21cf4b8f6eee75",
                 "shasum": ""
             },
             "require": {
@@ -146,16 +146,16 @@
                 "mockery/mockery": "^1.0",
                 "phpstan/extension-installer": "^1.3",
                 "phpstan/phpstan-strict-rules": "^1.5",
-                "rector/rector": "1.0.2"
+                "rector/rector": "1.0.3"
             },
             "suggest": {
                 "ext-curl": "Required to use the password validation rule via PwnedValidator class.",
                 "ext-openssl": "Required to use the JWT Authenticator."
             },
-            "time": "2024-03-04T14:17:26+00:00",
+            "time": "2024-03-17T04:15:31+00:00",
             "default-branch": true,
             "type": "library",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "CodeIgniter\\Shield\\": "src"

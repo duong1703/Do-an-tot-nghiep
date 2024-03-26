@@ -3,7 +3,7 @@
         'name' => 'codeigniter4/framework',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '0f0076b2ac1f8ffc965bb21537266ee83688c030',
+        'reference' => '2f589f1d7470bb51dd42612f02362ae8a9d26d85',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -28,7 +28,7 @@
         'codeigniter4/framework' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '0f0076b2ac1f8ffc965bb21537266ee83688c030',
+            'reference' => '2f589f1d7470bb51dd42612f02362ae8a9d26d85',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -46,7 +46,7 @@
         'codeigniter4/shield' => array(
             'pretty_version' => 'dev-develop',
             'version' => 'dev-develop',
-            'reference' => 'ee6b500269f468a72fb558cbc664320281f9b2be',
+            'reference' => 'd55fc089a6930745665f7998ad21cf4b8f6eee75',
             'type' => 'library',
             'install_path' => __DIR__ . '/../codeigniter4/shield',
             'aliases' => array(

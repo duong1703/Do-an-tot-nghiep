@@ -17,6 +17,7 @@ class ProductsController extends BaseController
         $products = $productModel->where('category_id', $category)->findAll();
         $data['products'] = $categoryModel->findAll();
 
+
 //        $perPage = 10; // Số lượng sản phẩm trên mỗi trang
 //        $currentPage = $this->request->getGet('page') ?? 1; // Trang hiện tại, mặc định là trang 1 nếu không có page
 //
@@ -111,14 +112,5 @@ class ProductsController extends BaseController
         //return view('admin/product/list', ['products' => $products]);
     }
 
-    public function recommendedProducts()
-    {
-        // Lấy danh sách các sản phẩm từ cùng một danh mục hoặc danh mục tương tự
-        $productModel = new ProductModel();
-        $recommendedProducts = $productModel->getProductsByCategory('recommended');
-
-        // Trả về view và truyền dữ liệu sản phẩm gợi ý
-        return view('recommended_products', ['recommendedProducts' => $recommendedProducts]);
-    }
 
 }

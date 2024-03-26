@@ -1,45 +1,45 @@
 <?php
-
-
 namespace App\Controllers;
-use CodeIgniter\RESTful\ResourceController;
-use CodeIgniter\API\ResponseTrait;
+use CodeIgniter\Controller;
 use App\Models\UserModel;
-use Firebase\JWT\JWT;
 
-
-class LoginControllers extends ResourceController
+class LoginControllers extends Controller
 {
-    use ResponseTrait;
-
     public function index()
     {
         helper(['form']);
-        $rules = [
-            'email' => 'required|valid_email',
-            'password' => 'required|min_length[6]'
-        ];
-        if(!$this->validate($rules)) return $this->fail($this->validator->getErrors());
-        $UserModel = new UserModel();
-        $user = $UserModel->where("email", $this->request->getVar('email'))->first();
-        if(!$user) return $this->failNotFound('Email Not Found');
-
-        $verify = password_verify($this->request->getVar('password'), $user['password']);
-        if(!$verify) return $this->fail('Wrong Password');
-
-        $key = getenv('TOKEN_SECRET');
-        // Thiết lập "nbf" để token chỉ có thể sử dụng sau 10 phút kể từ thời điểm hiện tại
-        $notBefore = time() + (10 * 60); // 10 phút * 60 giây/phút
-        $payload = array(
-            "iat" => time(),
-            "nbf" => $notBefore,
-            "uid" => $user['id'],
-            "email" => $user['email']
-        );
-
-        $token = JWT::encode($payload, $key);
-
-        return $this->respond($token);
+        echo view('login');
     }
 
+    public function loginAuth()
+    {
+        $session = session();
+        $userModel = new UserModel();
+        $email = $this->request->getVar('email');
+        $password = $this->request->getVar('password');
+
+        $data = $userModel->where('email', $email)->first();
+
+        if($data){
+            $pass = $data['password'];
+            $authenticatePassword = password_verify($password, $pass);
+            if($authenticatePassword){
+                $ses_data = [
+                    'id' => $data['id'],
+                    'name' => $data['name'],
+                    'email' => $data['email'],
+                    'isLoggedIn' => TRUE
+                ];
+                $session->set($ses_data);
+                return redirect()->to('views/index');
+
+            }else{
+                $session->setFlashdata('msg', 'Password is incorrect.');
+                return redirect()->to('views/login');
+            }
+        }else{
+            $session->setFlashdata('msg', 'Email does not exist.');
+            return redirect()->to('views/login');
+        }
+    }
 }

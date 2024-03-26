@@ -161,7 +161,7 @@ $start = ($currentPage - 1) * $itemsPerPage;
                                             <h2 id="price"><?php echo $product['price']; ?> VND</h2>
                                             <p id="product"><?php echo $product['name']; ?></p>
                                             <p id="category">Danh mục: <?= $product['category'] ?></p>
-                                            <a href="javascript:void(0)" onclick="addToCart()" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
+                                            <a href="<?= site_url('views/cart/'. $product['id_product']) ?>" onclick="addToCart()" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
                                         </div>
                                     </div>
                                     <div class="choose">

@@ -11,10 +11,12 @@
               <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Đăng ký</p>
-                <?php if(isset($validation)):?>
-                    <div class="alert alert-danger"><?= $validation->listErrors() ?></div>
-                <?php endif;?>
-                <form class="mx-1 mx-md-4 mt-4" action="views/register"  method="post">
+                  <?php if(isset($validation)):?>
+                      <div class="alert alert-warning">
+                          <?= $validation->listErrors() ?>
+                      </div>
+                  <?php endif;?>
+                <form class="mx-1 mx-md-4 mt-4" action="" method="post">
                   <div class="d-flex flex-row align-items-center mb-4">
                     <div class="form-outline flex-fill mb-0">
                       <label class="form-label" for="form3Example3c">Email của bạn</label>

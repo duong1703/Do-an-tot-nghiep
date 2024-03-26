@@ -1,31 +1,40 @@
 <?php
-
 namespace App\Controllers;
-use CodeIgniter\RESTful\ResourceController;
-use CodeIgniter\API\ResponseTrait;
+use CodeIgniter\Controller;
 use App\Models\UserModel;
 
-class RegisterControllers extends ResourceController
+class RegisterControllers extends Controller
 {
-    use ResponseTrait;
     public function index()
     {
         helper(['form']);
-        $rules = [
-            'email' => 'required|valid_email|is_unique[users.email]',
-            'password' => 'required|min_length[6]',
-            'confpassword' => 'matches[password]'
-        ];
-        if(!$this->validate($rules)) return $this->fail($this->validator->getErrors());
-        $data = [
-            'email'     => $this->request->getVar('email'),
-            'password'  => password_hash($this->request->getVar('password'), PASSWORD_BCRYPT)
-        ];
-        $model = new UserModel();
-        $registered = $model->save($data);
-        $this->respondCreated($registered);
+        $data = [];
+        echo view('register', $data);
+    }
 
-        return json_decode($data);
+    public function store()
+    {
+        helper(['form']);
+        $rules = [
+            'name'          => 'required|min_length[2]|max_length[50]',
+            'email'         => 'required|min_length[4]|max_length[100]|valid_email|is_unique[users.email]',
+            'password'      => 'required|min_length[4]|max_length[50]',
+        ];
+
+        if($this->validate($rules)){
+            $userModel = new UserModel();
+            $data = [
+                'name'     => $this->request->getVar('name'),
+                'email'    => $this->request->getVar('email'),
+                'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
+            ];
+            $userModel->save($data);
+            return redirect()->to('views/login');
+        }else{
+            $data['validation'] = $this->validator;
+            echo view('register', $data);
+        }
+
     }
 
 }

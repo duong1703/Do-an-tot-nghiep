@@ -29,8 +29,7 @@ class Filters extends BaseConfig
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
         'adminFilters' => AuthFilters::class,
-        'auth'     => Auth::class,
-        'cors'          => Cors::class,
+        'authGuard' => \App\Filters\AuthGuard::class,
     ];
 
     /**
@@ -45,7 +44,6 @@ class Filters extends BaseConfig
             // 'honeypot',
             // 'csrf',
             // 'invalidchars',
-            'cors'
         ],
         'after' => [
             'toolbar',

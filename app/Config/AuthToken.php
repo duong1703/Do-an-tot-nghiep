@@ -11,14 +11,12 @@ declare(strict_types=1);
  * the LICENSE file that was distributed with this source code.
  */
 
-namespace Config;
-
-use CodeIgniter\Shield\Config\AuthToken as ShieldAuthToken;
+namespace CodeIgniter\Shield\Config;
 
 /**
  * Configuration for Token Auth and HMAC Auth
  */
-class AuthToken extends ShieldAuthToken
+class AuthToken extends BaseAuthToken
 {
     /**
      * --------------------------------------------------------------------
