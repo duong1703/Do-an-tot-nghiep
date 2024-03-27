@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d738f01e60f1d59f57f01eb0ceb07afb",
+    "content-hash": "dd1677ea381322c5e6ae692e0b6c64ff",
     "packages": [
         {
             "name": "codeigniter4/settings",
@@ -63,16 +63,16 @@
         },
         {
             "name": "codeigniter4/shield",
-            "version": "dev-develop",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codeigniter4/shield.git",
-                "reference": "d55fc089a6930745665f7998ad21cf4b8f6eee75"
+                "reference": "0b1cab53ea89b37464f72ad075b9b287c0cc0f5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codeigniter4/shield/zipball/d55fc089a6930745665f7998ad21cf4b8f6eee75",
-                "reference": "d55fc089a6930745665f7998ad21cf4b8f6eee75",
+                "url": "https://api.github.com/repos/codeigniter4/shield/zipball/0b1cab53ea89b37464f72ad075b9b287c0cc0f5e",
+                "reference": "0b1cab53ea89b37464f72ad075b9b287c0cc0f5e",
                 "shasum": ""
             },
             "require": {
@@ -97,7 +97,6 @@
                 "ext-curl": "Required to use the password validation rule via PwnedValidator class.",
                 "ext-openssl": "Required to use the JWT Authenticator."
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -133,7 +132,7 @@
                 "slack": "https://codeigniterchat.slack.com",
                 "source": "https://github.com/codeigniter4/shield"
             },
-            "time": "2024-03-17T04:15:31+00:00"
+            "time": "2024-03-17T04:00:12+00:00"
         },
         {
             "name": "facebook/graph-sdk",
@@ -197,25 +196,25 @@
         },
         {
             "name": "firebase/php-jwt",
-            "version": "v6.10.0",
+            "version": "v6.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/firebase/php-jwt.git",
-                "reference": "a49db6f0a5033aef5143295342f1c95521b075ff"
+                "reference": "4dd1e007f22a927ac77da5a3fbb067b42d3bc224"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/firebase/php-jwt/zipball/a49db6f0a5033aef5143295342f1c95521b075ff",
-                "reference": "a49db6f0a5033aef5143295342f1c95521b075ff",
+                "url": "https://api.github.com/repos/firebase/php-jwt/zipball/4dd1e007f22a927ac77da5a3fbb067b42d3bc224",
+                "reference": "4dd1e007f22a927ac77da5a3fbb067b42d3bc224",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.4||^8.0"
+                "php": "^7.1||^8.0"
             },
             "require-dev": {
                 "guzzlehttp/guzzle": "^6.5||^7.4",
-                "phpspec/prophecy-phpunit": "^2.0",
-                "phpunit/phpunit": "^9.5",
+                "phpspec/prophecy-phpunit": "^1.1",
+                "phpunit/phpunit": "^7.5||^9.5",
                 "psr/cache": "^1.0||^2.0",
                 "psr/http-client": "^1.0",
                 "psr/http-factory": "^1.0"
@@ -254,9 +253,9 @@
             ],
             "support": {
                 "issues": "https://github.com/firebase/php-jwt/issues",
-                "source": "https://github.com/firebase/php-jwt/tree/v6.10.0"
+                "source": "https://github.com/firebase/php-jwt/tree/v6.4.0"
             },
-            "time": "2023-12-01T16:26:39+00:00"
+            "time": "2023-02-09T21:01:23+00:00"
         },
         {
             "name": "google/apiclient",
@@ -5709,7 +5708,7 @@
         "phpmailer/phpmailer": 20,
         "tinymce/tinymce": 20
     },
-    "prefer-stable": false,
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^7.4 || ^8.0",

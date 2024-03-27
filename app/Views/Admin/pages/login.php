@@ -50,12 +50,19 @@
         <div class="card account-dialog">
             <div class="card-header bg-primary text-white"> Vui lòng đăng nhập </div>
             <div class="card-body">
-                <?php if (session()->getFlashdata('error')): ?>
-                            <p style="color:red"><?= session()->getFlashdata('error'); ?></p>
-                <?php endif; ?>
-                
-                <form action="login" method="post">
-                    <div class="form-group">
+                <?php if(session()->has("error")): {?>
+                    <div id="error" class="alert alert-danger p-1 text-center" role="alert">
+                        <?= session()->get("error") ?>
+                    </div>
+                <?php } endif;?>
+                <?php if(session()->has("success")): {?>
+                    <div class="alert alert-success p-1 text-center" role="alert" id="successMessage" style="display: none;">Đăng nhập thành công!</div>>
+                        <?= session()->get("success") ?>
+                    </div>
+                <?php } endif;?>
+                <form id="loginForm" action="login" method="post">
+                    <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
+                    <div  class="form-group">
                         <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
                     </div>
                     <div class="form-group">
@@ -86,6 +93,26 @@
         });
         });
     </script>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Ngăn chặn hành động mặc định của form
+            // Sau khi xử lý đăng nhập thành công, hiển thị thông báo và chuyển hướng sau 2 giây
+            document.getElementById('successMessage').style.display = 'block';
+            setTimeout(function() {
+                window.location.href = 'home'; // Chuyển hướng đến trang chủ
+            }, 30000); // Thời gian hiển thị thông báo thành công (ms)
+        });
+    </script>
+
+    <script>
+        // Nếu đăng nhập không thành công:
+        document.getElementById('error')
+        setTimeout(function() {
+            window.location.href = 'login'; // Tải lại trang đăng nhập
+        }, 30000); // Sau 3 giây
+    </script>
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

@@ -16,7 +16,8 @@
                           <?= $validation->listErrors() ?>
                       </div>
                   <?php endif;?>
-                <form class="mx-1 mx-md-4 mt-4" action="" method="post">
+                <form class="mx-1 mx-md-4 mt-4" action="<?= base_url('register') ?>" method="post">
+                    <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
                   <div class="d-flex flex-row align-items-center mb-4">
                     <div class="form-outline flex-fill mb-0">
                       <label class="form-label" for="form3Example3c">Email của bạn</label>
@@ -38,9 +39,7 @@
                       <label class="form-label" for="form3Example4cd">Nhập lại mật khẩu</label>
                     </div>
                   </div> -->
-                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                        <button value="submit"  type="button" class="btn btn-primary btn-lg mt-2">Đăng ký</button>
-                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Login</button>
 
                 </form>
 

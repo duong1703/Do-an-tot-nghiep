@@ -10,6 +10,7 @@ use App\Models\UserModel;
 
 class LoginControllers extends BaseController
 {
+
     /**
         @var Service
      */
@@ -31,6 +32,7 @@ class LoginControllers extends BaseController
 
     public function login()
     {
+        $security = \Config\Services::security();
         //$result = $this->service->hasLoginInfo($this->request);
         //if($result["status"] === ResultUtils::STATUS_CODE_OK){
         //    return redirect("admin/home");

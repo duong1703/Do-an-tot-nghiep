@@ -15,6 +15,7 @@ $routes->get('/', 'Users\HomeControllers::index', ['filters' => 'AuthFilters']);
 $routes->get('views/index', 'HomeControllers::index');
 $routes->get('views/login', 'Users\HomeControllers::login');
 $routes->get('views/register', 'Users\HomeControllers::register');
+$routes->post('views/register', 'Users\HomeControllers::register');
 $routes->get('views/login', 'Users\HomeControllers::profile');
 $routes->post('views/login', 'Users\HomeControllers::login');
 $routes->get('views/blog', 'Users\HomeControllers::blog');
@@ -24,15 +25,6 @@ $routes->get('views/product', 'Users\HomeControllers::product');
 $routes->get('product_detail/(:num)', 'Users\HomeControllers::product_detail/$1');
 $routes->get('views/cart/(:num)', 'Users\HomeControllers::cart/$1');
 $routes->get('views/profile', 'Users\HomeControllers::profile');
-
-//Authentication
-service('auth')->routes($routes);
-service('auth')->routes($routes, ['except' => ['login', 'register']]);
-$routes->get('views/login', '\App\Controllers\Auth\LoginController::login');
-$routes->get('views/register', '\App\Controllers\Auth\RegisterController::register');
-
-
-
 
 
 // Product - User

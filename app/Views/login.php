@@ -1,6 +1,6 @@
 <?php include 'templates/header.php'; ?>
 
-
+<?php $validation = \Config\Services::validation() ?>
 <section class="vh-100 mt-4" style="">
     <div class="container h-100">
         <div class="row d-flex justify-content-center align-items-center h-100 mb-4 ">
@@ -11,16 +11,21 @@
                             <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
                                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Đăng nhập</p>
-                                <?php if(session()->getFlashdata('msg')):?>
-                                    <div class="alert alert-warning">
-                                        <?= session()->getFlashdata('msg') ?>
+                                <?php if(session()->has("error")): {?>
+                                    <div class="alert alert-danger p-1 text-center" role="alert">
+                                        <?= session()->get("error") ?>
                                     </div>
-                                <?php endif;?>
-                                <form class="mx-1 mx-md-4 mt-4" action="" method="post">
+                                <?php } endif;?>
+                                <?php if(session()->has("success")): {?>
+                                    <div class="alert alert-success p-1 text-center" role="alert">
+                                        <?= session()->get("success") ?>
+                                    </div>
+                                <?php } endif;?>
+                                <form class="mx-1 mx-md-4 mt-4" action="<?php echo base_url('/login'); ?>" method="post">
+                                    <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <div class="form-outline flex-fill mb-0">
-
-                                            <label class="form-label" for="email">Email của bạn</label>
+                                            <label class="form-label" for="email">Email</label>
                                             <input type="email" value="<?= old('email') ?>" id="email" class="form-control" placeholder="Example@gmail.com" required/>
                                         </div>
                                     </div>
@@ -42,9 +47,7 @@
                                         <label class="form-label" for="form3Example4cd">Nhập lại mật khẩu</label>
                                       </div>
                                     </div> -->
-                                    <div class="account-dialog-actions">
-                                        <button id="loginButton" type="submit" class="btn btn-primary">Đăng nhập</button>
-                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-block">Login</button>
                                 </form>
 
 

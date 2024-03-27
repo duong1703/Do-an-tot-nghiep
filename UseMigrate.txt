@@ -59,3 +59,16 @@ public function delete()
                 <?php else : ?>
                     <p><?= view('emptycart'); ?></p>
                 <?php endif; ?>
+
+
+
+
+
+Các mục cần hoàn thiện:
+- Trang login, register cho user. sau khi đăng ký thành công auto chuyển hướng qua login, rồi login vào website
+Ở trong trang chủ, sau khi login sẽ hiển thị user ở góc bên trên phải ( ví dụ : xin chào, ...... rồi toggle xuống có đăng xuất)
+- Danh mục sản phẩm, ở trang chủ và trang sản phẩm, bấm vào mục nào sẽ chuyển sang trang sản phẩm mục đó
+- Phân trang ( dã chuyển được trang nhưng các sản phẩm đều hiển thị như nhau dù đã add limit/page)
+- Thêm sản phẩm chạy slide để kiểu khuyến khích
+- Thêm shopping cart, hiển thị sản phẩm trong giỏ hàng, cộng trừ sản phẩm để lựa chọn
+- Cộng thanh toán giá tiền sản phẩm sau đó là PAY

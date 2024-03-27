@@ -169,6 +169,7 @@
                             <?php endforeach; ?>
                         </div>
                     </div>
+
     </section>
 
 <?= view('templates/footer'); ?>
