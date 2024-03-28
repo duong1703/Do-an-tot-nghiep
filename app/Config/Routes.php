@@ -23,7 +23,7 @@ $routes->get('views/blog', 'Users\BlogControllers::index');
 $routes->get('views/contact', 'Users\HomeControllers::contact');
 $routes->get('views/product', 'Users\HomeControllers::product');
 $routes->get('product_detail/(:num)', 'Users\HomeControllers::product_detail/$1');
-$routes->get('views/cart/(:num)', 'Users\HomeControllers::cart/$1');
+$routes->get('views/cart', 'Users\HomeControllers::cart');
 $routes->get('views/profile', 'Users\HomeControllers::profile');
 
 

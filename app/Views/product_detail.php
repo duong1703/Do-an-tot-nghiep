@@ -162,7 +162,7 @@
                                     <label>Quantity:</label>
                                     <input type="text" value="3"/>
 
-                                      <a href="<?= site_url('cart/'. $productObj['id_products']) ?>" onclick="addtocart()"
+                                      <a href="" onclick="addtocart()"
                                          class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
 
                                 </span>

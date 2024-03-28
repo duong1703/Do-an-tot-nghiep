@@ -14,10 +14,11 @@
                     </div>
                     <div class="card-body">
                         <form action="<?= base_url('admin/blog/edit/'.@$blog['id_blogs']) ?>" method="post">
+                            <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
                             <?php if (session()->has('success')) : ?>
-                            <div class="alert alert-success" role="alert">
-                                <?= session('success') ?>
-                            </div>
+                                <div class="alert alert-success" role="alert">
+                                    <?= session('success') ?>
+                                </div>
                             <?php endif; ?>
                             <div class="form-group">
                                 <label for="title">Tiêu đề:</label>

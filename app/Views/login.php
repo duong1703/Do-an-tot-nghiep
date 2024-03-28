@@ -21,7 +21,7 @@
                                         <?= session()->get("success") ?>
                                     </div>
                                 <?php } endif;?>
-                                <form class="mx-1 mx-md-4 mt-4" action="<?php echo base_url('/login'); ?>" method="post">
+                                <form class="mx-1 mx-md-4 mt-4" action="<?php echo base_url('views/login'); ?>" method="post">
                                     <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <div class="form-outline flex-fill mb-0">

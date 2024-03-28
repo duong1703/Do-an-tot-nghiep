@@ -58,11 +58,9 @@ class ProductModel extends BaseModel
     }
 
 
-    public function getProductsByCategory($name)
+    public function getProductsByCategory($category)
     {
-        // Thực hiện truy vấn để lấy các sản phẩm từ một danh mục cụ thể
-        return $this->where('name', $name)
-            ->findAll();
+        return $this->where('category', $category)->findAll();
     }
 }
 

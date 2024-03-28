@@ -2,7 +2,7 @@
 <?php
 // Tính toán $totalItems (tổng số sản phẩm) và $itemsPerPage (số sản phẩm trên mỗi trang)
 $totalItems = 100; // Giả sử bạn có tổng cộng 100 sản phẩm
-$itemsPerPage = 10; // Số lượng sản phẩm bạn muốn hiển thị trên mỗi trang
+$itemsPerPage = 12; // Số lượng sản phẩm bạn muốn hiển thị trên mỗi trang
 
 // Tính toán $totalPages (tổng số trang)
 $totalPages = ceil($totalItems / $itemsPerPage);

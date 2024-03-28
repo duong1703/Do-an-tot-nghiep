@@ -13,6 +13,12 @@
                     </div>
                     <div class="card-body ">
                         <form action="admin/user/update" method="post">
+                            <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
+                            <?php if (session()->has('success')) : ?>
+                                <div class="alert alert-success" role="alert">
+                                    <?= session('success') ?>
+                                </div>
+                            <?php endif; ?>
                             <input name="id" value="<?= $user['id'] ?>" hidden>
                             <div class="form-row">
                                 <div class="form-group col-md-12">

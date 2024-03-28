@@ -47,11 +47,11 @@ class HomeControllers extends BaseController
 
     public function product(){
         $productModel = new ProductModel();
-        $allParam = $productModel->findAll();
-        if($allParam == null){
-            return false;
-        }
-        $data['products'] = $allParam;
+//        $product = $productModel->paginate(10);
+//        if($product == null){
+//            return false;
+//        }
+        $data['products'] = $productModel->paginate(12);
         return view('product',$data);
     }
 

@@ -2,14 +2,14 @@
 
 namespace App\Controllers\Users;
 use App\Controllers\BaseController;
-
 use App\Models\ProductModel;
 use App\Models\CategoryModel;
+
 class ProductsController extends BaseController
 {
     public function index($category)
     {
-
+        $pager = \Config\Services::pager();
         $data = [];
         $productModel = new ProductModel();
         $categoryModel = new CategoryModel();
@@ -32,7 +32,7 @@ class ProductsController extends BaseController
 //
 //        // Tính toán tổng số trang dựa trên tổng số sản phẩm và số lượng sản phẩm trên mỗi trang
 //        $totalPages = ceil($totalProducts / $perPage);
-        
+//
         $category = [
                         'MÀN HÌNH', 
                         'THÙNG MÁY', 
@@ -57,7 +57,6 @@ class ProductsController extends BaseController
         return view('product', $data , [
             'category' => $category,
             'products' => $products,
-//            'totalPages' => $totalPages
             ]);
 
         
@@ -88,13 +87,35 @@ class ProductsController extends BaseController
     {
         // Load model ProductModel
         $productModel = new ProductModel();
-        
+
         // Lấy danh sách sản phẩm từ model
         $data['products'] = $productModel->getAllProducts();
 
         // Load view và truyền dữ liệu sản phẩm vào view
         return view('products', $data);
         
+    }
+
+    public function category($category)
+    {
+        $productModel = new ProductModel();
+        $data['products'] = $productModel->getProductsByCategory($category);
+
+        return view('category', $data);
+    }
+
+    public function filterByPrice()
+    {
+        $minPrice = $this->request->getPost('minPrice');
+        $maxPrice = $this->request->getPost('maxPrice');
+
+        $productModel = new ProductModel();
+        $filteredProducts = $productModel
+            ->where('price >=', $minPrice)
+            ->where('price <=', $maxPrice)
+            ->findAll();
+
+        // Hiển thị kết quả lọc
     }
 
     public function search()

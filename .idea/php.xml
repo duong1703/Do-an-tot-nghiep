@@ -70,7 +70,6 @@
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/codeigniter/coding-standard" />
       <path value="$PROJECT_DIR$/vendor/codeigniter4/settings" />
-      <path value="$PROJECT_DIR$/vendor/codeigniter4/shield" />
       <path value="$PROJECT_DIR$/vendor/doctrine/annotations" />
       <path value="$PROJECT_DIR$/vendor/doctrine/deprecations" />
       <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />

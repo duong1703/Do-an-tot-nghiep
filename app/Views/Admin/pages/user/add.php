@@ -14,6 +14,7 @@
                 </div>
                 <div class="card-body ">
                     <form action="admin/user/create" method="post">
+                        <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
                         <div class="form-row">
                             <div class="form-group col-md-8">
                                 <label for="inputEmai">Email</label>

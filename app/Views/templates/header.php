@@ -15,9 +15,7 @@
 	<link href="/assets/user/css/animate.css" rel="stylesheet">
 	<link href="/assets/user/css/main.css" rel="stylesheet">
 	<link href="/assets/user/css/responsive.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.6.0/pagination.min.js" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.6.0/pagination.js" rel="stylesheet">
+
 
 
 	<!--[if lt IE 9]>
