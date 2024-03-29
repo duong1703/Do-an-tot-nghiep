@@ -11,12 +11,11 @@
         "slack": "https://codeigniterchat.slack.com"
     },
     "require": {
-        "php": "^7.4 || ^8.0",
+        "php": "^8.0 || ^8.1 || ^8.2",
         "ext-intl": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
         "codeigniter4/shield": "^1.0",
-        "facebook/graph-sdk": "^5.1",
         "firebase/php-jwt": "6.4",
         "google/apiclient": "^2.0@dev",
         "kejawenlab/ci4pager": "^1.0",

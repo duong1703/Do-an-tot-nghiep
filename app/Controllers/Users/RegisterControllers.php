@@ -34,7 +34,5 @@ class RegisterControllers extends Controller
             $data['validation'] = $this->validator;
             echo view('register', $data);
         }
-
     }
-
 }
