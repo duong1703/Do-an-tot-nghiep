@@ -1,5 +1,6 @@
 <?php include 'templates/header.php'; ?>
 
+<<<<<<< HEAD
 <section class="vh-100 mt-4">
     <div class="container h-100">
         <div class="row d-flex justify-content-center align-items-center h-100 mb-4">
@@ -47,6 +48,5 @@
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 <?php include 'templates/footer.php'; ?>

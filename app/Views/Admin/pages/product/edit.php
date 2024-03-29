@@ -9,10 +9,11 @@
                         <div class="easion-card-icon">
                             <i class="fas fa-chart-bar"></i>
                         </div>
-                        <div class="easion-card-title"> Thông ti sản phẩm </div>
+                        <div class="easion-card-title"> Thông tin sản phẩm </div>
                     </div>
                     <div class="card-body">
                             <form action="<?= base_url('admin/product/edit/'.@$product['id_product']) ?>" method="post">
+                                <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
                                 <?php if (session()->has('success')) : ?>
                                     <div class="alert alert-success" role="alert">
                                         <?= session('success') ?>
@@ -54,6 +55,7 @@
                             <button type="submit" class="btn btn-primary">Cập nhật</button>
                             <button id="btn-reset-edit-product" type="reset" class="btn btn-secondary" onclick="return confirm('Are you sure you want to reset?')">Reset</button>
                                 <a style="background-color: red" href="<?= base_url('admin/product/list') ?>" class="btn btn-secondary">Hủy</a>
+                                <a style="background-color: yellow" href="<?= base_url('admin/product/list') ?>" class="btn btn-warning ">Quay lại</a>
                             </form>
                     </div>
                 </div>

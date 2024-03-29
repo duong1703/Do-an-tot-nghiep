@@ -2,7 +2,7 @@
 <?php
 // Tính toán $totalItems (tổng số sản phẩm) và $itemsPerPage (số sản phẩm trên mỗi trang)
 $totalItems = 100; // Giả sử bạn có tổng cộng 100 sản phẩm
-$itemsPerPage = 10; // Số lượng sản phẩm bạn muốn hiển thị trên mỗi trang
+$itemsPerPage = 12; // Số lượng sản phẩm bạn muốn hiển thị trên mỗi trang
 
 // Tính toán $totalPages (tổng số trang)
 $totalPages = ceil($totalItems / $itemsPerPage);
@@ -133,15 +133,10 @@ $start = ($currentPage - 1) * $itemsPerPage;
                     </div>
                     <!--/category-products-->
 
-                    <div class="price-range">
-                        <!--price-range-->
-                        <h2>Lọc giá</h2>
-                        <div class="well">
-                            <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="80"
-                                data-slider-step="5" data-slider-value="[0,80]" id="sl2"><br />
-                            <b>0 VND</b> <b class="pull-right">80.000.000 VND</b>
-                        </div>
-                    </div>
+                    <p>
+                        <label for="amount">Lọc giá:</label><input type="text" id="amount" readonly="" style="border:0; color:#f6931f; font-weight:bold;">
+                    </p>
+                    <div id="slider-range-min"></div>
                     <!--/price-range-->
 
                 </div>
@@ -156,7 +151,6 @@ $start = ($currentPage - 1) * $itemsPerPage;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-
                                             <img id="images" src="uploads/<?php echo $product['images']; ?>" alt="images">
                                             <h2 id="price"><?php echo $product['price']; ?> VND</h2>
                                             <p id="product"><?php echo $product['name']; ?></p>
@@ -230,11 +224,29 @@ $start = ($currentPage - 1) * $itemsPerPage;
     $(document).ready(function() {
         createPagination();
     });
-
-
-
-
 </script>
+
+<script>
+    function showProducts(minPrice, maxPrice) {
+        $("#products li").hide().filter(function() {
+            var price = parseInt($(this).data("price"), 10);
+            return price >= minPrice && price <= maxPrice;
+        }).show();
+    }
+    $( function() {
+        $( "#slider-range-min" ).slider({
+            range: "min",
+            value: 100,
+            min: 1,
+            max: 80,
+            slide: function( event, ui ) {
+                $( "#amount" ).val( "VND" + ui.value );
+            }
+        });
+        $( "#amount" ).val( "VND" + $( "#slider-range-min" ).slider( "value" ) );
+    } );
+</script>
+
 
 
 <?php include 'templates/footer.php'; ?>

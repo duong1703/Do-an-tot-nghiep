@@ -1,7 +1,7 @@
 <?= view('templates/header'); ?>
 <?= view('templates/slider'); ?>
 
-<hr>
+    <hr>
     <section>
         <div class="container">
             <div class="row">

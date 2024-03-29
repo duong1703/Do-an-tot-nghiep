@@ -15,9 +15,7 @@
 	<link href="/assets/user/css/animate.css" rel="stylesheet">
 	<link href="/assets/user/css/main.css" rel="stylesheet">
 	<link href="/assets/user/css/responsive.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.6.0/pagination.min.js" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.6.0/pagination.js" rel="stylesheet">
+
 
 
 	<!--[if lt IE 9]>
@@ -117,12 +115,6 @@
 									<ul role="menu" class="sub-menu">
 										<li><a class="breadcrumb-item" href="views/product">Sản phẩm</a></li>
 										<!-- <li><a href="product-details.html">Product Details</a></li> -->
-									</ul>
-								</li>
-								<li class="dropdown"><a href="#">Giới thiệu sản phẩm HOT<i class="fa fa-angle-down"></i></a>
-									<ul role="menu" class="sub-menu">
-										<li><a href="">Laptop</a></li>
-										<li><a href="">Tai nghe</a></li> 
 									</ul>
 								</li>
 								

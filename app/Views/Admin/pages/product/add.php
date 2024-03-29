@@ -3,8 +3,16 @@
 <div class="dash-content">
     <div class="container-fluid">
         <h1 class="dash-title">Trang chủ / Sản phẩm / Thêm mới</h1>
-
-        <?= view('messages/message') ?>
+        <?php if(session()->has("error")): {?>
+            <div id="error" class="alert alert-danger p-1 " role="alert">
+                <?= session()->get("error") ?>
+            </div>
+        <?php } endif;?>
+        <?php if(session()->has("success")): {?>
+        <div class="alert alert-success p-1 " role="alert">
+        <?= session()->get("success") ?>
+    </div>
+    <?php } endif;?>
 
         <div class="card easion-card">
             <div class="card-header">
@@ -15,11 +23,7 @@
             </div>
             <div class="card-body">
                 <form action="<?= base_url('admin/product/create') ?>" enctype="multipart/form-data" method="post">
-                    <?php if(session()->getFlashdata('success')): ?>
-                        <div class="alert alert-success" role="alert">
-                            <?= session()->getFlashdata('success') ?>
-                        </div>
-                    <?php endif; ?>
+                    <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="name">Tên sản phẩm</label>
@@ -84,6 +88,7 @@
                     </div>
                     <button type="submit" class="btn btn-success">Thêm mới</button>
                     <button type="reset" class="btn btn-secondary">Nhập lại</button>
+                    <a style="background-color: yellow" href="<?= base_url('admin/product/list') ?>" class="btn btn-warning ">Quay lại</a>
                 </form>
             </div>
         </div>

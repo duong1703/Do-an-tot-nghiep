@@ -160,9 +160,9 @@
                                 <span>
                                    <p>Giá: <?= $productObj['price'] . ' ' . 'VND' ?></p>
                                     <label>Quantity:</label>
-                                    <input type="text" value="3"/>
+                                    <input type="number" min="1" value="1"/>
 
-                                      <a href="<?= site_url('cart/'. $productObj['id_products']) ?>" onclick="addtocart()"
+                                      <a href="" onclick="addtocart()"
                                          class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
 
                                 </span>

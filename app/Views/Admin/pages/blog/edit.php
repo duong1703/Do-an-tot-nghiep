@@ -14,10 +14,11 @@
                     </div>
                     <div class="card-body">
                         <form action="<?= base_url('admin/blog/edit/'.@$blog['id_blogs']) ?>" method="post">
+                            <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
                             <?php if (session()->has('success')) : ?>
-                            <div class="alert alert-success" role="alert">
-                                <?= session('success') ?>
-                            </div>
+                                <div class="alert alert-success" role="alert">
+                                    <?= session('success') ?>
+                                </div>
                             <?php endif; ?>
                             <div class="form-group">
                                 <label for="title">Tiêu đề:</label>
@@ -31,6 +32,7 @@
                             <a style="background-color: red" href="<?= base_url('admin/blog/list') ?>" class="btn btn-secondary">Hủy</a>
                             <button id="btn-reset-edit-product" type="reset" class="btn btn-secondary"
                                 onclick="return confirm('Are you sure you want to reset?')">Reset</button>
+                            <a style="background-color: yellow" href="<?= base_url('admin/blog/list') ?>" class="btn btn-warning ">Quay lại</a>
                         </form>
                     </div>
                 </div>

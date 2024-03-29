@@ -9,9 +9,8 @@ use CodeIgniter\RESTful\ResourceController;
 /**
  * @var RouteCollection $routes
  */
-
 //WEB-GUI
-$routes->get('/', 'Users\HomeControllers::index', ['filters' => 'AuthFilters']);
+$routes->get('/', 'Users\HomeControllers::index');
 $routes->get('views/index', 'HomeControllers::index');
 $routes->get('views/login', 'Users\HomeControllers::login');
 $routes->post('login', 'Users\HomeControllers::login');
@@ -20,13 +19,12 @@ $routes->get('views/register', 'Users\HomeControllers::register');
 $routes->post('register', 'Users\HomeControllers::register');
 $routes->get('views/login', 'Users\HomeControllers::profile');
 $routes->post('views/login', 'Users\HomeControllers::login');
+$routes->get('views/profile', 'Users\HomeControllers::profile');
 $routes->get('views/blog', 'Users\HomeControllers::blog');
-$routes->get('views/blog', 'Users\BlogControllers::index');
 $routes->get('views/contact', 'Users\HomeControllers::contact');
 $routes->get('views/product', 'Users\HomeControllers::product');
 $routes->get('product_detail/(:num)', 'Users\HomeControllers::product_detail/$1');
-$routes->get('views/cart/(:num)', 'Users\HomeControllers::cart/$1');
-$routes->get('views/profile', 'Users\HomeControllers::profile');
+$routes->get('views/cart', 'Users\HomeControllers::cart');
 
 
 // Product - User
@@ -61,6 +59,7 @@ $routes->get('error/404', function () {
 
 
 $routes->get('showfile/(:any)', 'Admin\FileControllers::index/$1');
+
 
 //Admin-web
 $routes->get('login', 'Admin\LoginControllers::index');

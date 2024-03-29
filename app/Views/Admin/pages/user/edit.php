@@ -13,6 +13,12 @@
                     </div>
                     <div class="card-body ">
                         <form action="admin/user/update" method="post">
+                            <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
+                            <?php if (session()->has('success')) : ?>
+                                <div class="alert alert-success" role="alert">
+                                    <?= session('success') ?>
+                                </div>
+                            <?php endif; ?>
                             <input name="id" value="<?= $user['id'] ?>" hidden>
                             <div class="form-row">
                                 <div class="form-group col-md-12">
@@ -43,6 +49,7 @@
                             </div>
                             <button type="submit" class="btn btn-primary">Cập nhật</button>
                             <button id="btn-reset-edit-user" type="reset" class="btn btn-secondary">Nhập lại</button>
+                            <a style="background-color: yellow" href="<?= base_url('admin/user/list') ?>" class="btn btn-warning ">Quay lại</a>
                         </form>
                     </div>
                 </div>
