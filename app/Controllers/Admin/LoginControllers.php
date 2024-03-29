@@ -24,7 +24,7 @@ class LoginControllers extends BaseController
 
     public function index()
     {
-        if(session()->has('user_login')){
+        if(session()->has('admin_login')){
             return redirect('admin/login');
         }
         return view('admin/pages/login');

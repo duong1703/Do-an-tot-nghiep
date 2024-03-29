@@ -18,25 +18,26 @@
                         <div class="form-row">
                             <div class="form-group col-md-8">
                                 <label for="inputEmai">Email</label>
-                                <input value="<?= old('email') ?>" name="email" type="email" class="form-control" id="inputEmai" placeholder="Email" required>
+                                <input  name="email" type="email" class="form-control" id="inputEmai" placeholder="Email" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputAddress">Tên hiển thị</label>
-                            <input value="<?= old('name') ?>" name="name" type="text" class="form-control" id="inputAddress" placeholder="Tên hiển thị người dùng" required>
+                            <input  name="name" type="text" class="form-control" id="inputAddress" placeholder="Tên hiển thị người dùng" required>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="password">Mật khẩu</label>
-                                <input value="<?= old('password') ?>" name="password" type="password" class="form-control" id="password" placeholder="Nhập vào mật khẩu">
+                                <input  name="password" type="password" class="form-control" id="password" placeholder="Nhập vào mật khẩu">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="password-confirm">Xác nhận mật khẩu</label>
-                                <input value="<?= old('password_confirm') ?>" name="password_confirm" type="password" class="form-control" id="password-confirm" placeholder="Xác nhận lại mật khẩu">
+                                <input  name="password_confirm" type="password" class="form-control" id="password-confirm" placeholder="Xác nhận lại mật khẩu">
                             </div>
                         </div>
                         <button type="submit" class="btn btn-success">Đăng ký</button>
                         <button type="reset" class="btn btn-secondary">Nhập lại</button>
+                        <a style="background-color: yellow" href="<?= base_url('admin/user/list') ?>" class="btn btn-warning ">Quay lại</a>
                     </form>
                 </div>
             </div>

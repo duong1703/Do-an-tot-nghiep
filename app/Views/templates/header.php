@@ -106,12 +106,6 @@
 										<!-- <li><a href="product-details.html">Product Details</a></li> -->
 									</ul>
 								</li>
-								<li class="dropdown"><a href="#">Giới thiệu sản phẩm HOT<i class="fa fa-angle-down"></i></a>
-									<ul role="menu" class="sub-menu">
-										<li><a href="">Laptop</a></li>
-										<li><a href="">Tai nghe</a></li> 
-									</ul>
-								</li>
 								
 								<!-- <li><a href="404.html">404</a></li> -->
 								<li><a class="breadcrumb-item" href="views/blog">Tin tức công nghệ</a></li>

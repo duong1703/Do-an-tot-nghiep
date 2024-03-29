@@ -24,11 +24,12 @@ class HomeControllers extends BaseController
     }
 
     public function register(){
-        return view('register');
+            echo view('register');
+
     }
 
     public function logout(){
-        return view('logout');
+        return redirect()->to('views/login');
     }
 
     public function contact(){

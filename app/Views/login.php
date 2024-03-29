@@ -21,7 +21,8 @@
                                         <?= session()->get("success") ?>
                                     </div>
                                 <?php } endif;?>
-                                <form class="mx-1 mx-md-4 mt-4" action="<?php echo base_url('views/login'); ?>" method="post">
+                                <form class="mx-1 mx-md-4 mt-4" action="" method="post">
+                                    <?= \Config\Services::validation()->listErrors() ?>
                                     <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <div class="form-outline flex-fill mb-0">
@@ -39,14 +40,6 @@
                                                    class="form-control" placeholder="Your password" required/>
                                         </div>
                                     </div>
-
-                                    <!-- <div class="d-flex flex-row align-items-center mb-4">
-                                      <i><img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/repeat.png" alt="repeat"/></i>
-                                      <div class="form-outline flex-fill mb-0">
-                                        <input type="password" id="form3Example4cd" class="form-control" />
-                                        <label class="form-label" for="form3Example4cd">Nhập lại mật khẩu</label>
-                                      </div>
-                                    </div> -->
                                     <button type="submit" class="btn btn-primary btn-block">Login</button>
                                 </form>
 

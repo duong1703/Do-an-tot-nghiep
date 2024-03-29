@@ -104,20 +104,6 @@ class ProductsController extends BaseController
         return view('category', $data);
     }
 
-    public function filterByPrice()
-    {
-        $minPrice = $this->request->getPost('minPrice');
-        $maxPrice = $this->request->getPost('maxPrice');
-
-        $productModel = new ProductModel();
-        $filteredProducts = $productModel
-            ->where('price >=', $minPrice)
-            ->where('price <=', $maxPrice)
-            ->findAll();
-
-        // Hiển thị kết quả lọc
-    }
-
     public function search()
     {
         // Lấy từ khóa tìm kiếm từ URL

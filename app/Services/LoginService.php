@@ -58,7 +58,7 @@ class LoginService extends BaseService
 
         unset($user['password']);
 
-        $session->set('user_login', $user);
+        $session->set('admin_login', $user);
 
         return [
             'status' => ResultUtils::STATUS_CODE_OK,

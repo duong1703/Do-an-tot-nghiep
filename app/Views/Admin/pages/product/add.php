@@ -88,6 +88,7 @@
                     </div>
                     <button type="submit" class="btn btn-success">Thêm mới</button>
                     <button type="reset" class="btn btn-secondary">Nhập lại</button>
+                    <a style="background-color: yellow" href="<?= base_url('admin/product/list') ?>" class="btn btn-warning ">Quay lại</a>
                 </form>
             </div>
         </div>

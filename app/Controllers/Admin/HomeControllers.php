@@ -16,6 +16,7 @@ class HomeControllers extends BaseController
 
     public function index(): string
     {
+
         $userModel = new UserModel();
         $data = [];
         $cssFiles = [];
@@ -23,5 +24,7 @@ class HomeControllers extends BaseController
         $data = $this->loadMasterLayout ($data, 'Trang chủ', 'admin/pages/home', $jsFiles, $cssFiles);
         return view('admin/main', $data );
     }
+
+
 
 }

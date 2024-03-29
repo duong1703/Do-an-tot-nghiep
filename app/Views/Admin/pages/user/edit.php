@@ -49,6 +49,7 @@
                             </div>
                             <button type="submit" class="btn btn-primary">Cập nhật</button>
                             <button id="btn-reset-edit-user" type="reset" class="btn btn-secondary">Nhập lại</button>
+                            <a style="background-color: yellow" href="<?= base_url('admin/user/list') ?>" class="btn btn-warning ">Quay lại</a>
                         </form>
                     </div>
                 </div>

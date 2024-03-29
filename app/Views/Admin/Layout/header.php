@@ -26,12 +26,7 @@
             </a>
 
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-                <?php if (session()->has('user_login')): ?>
-                    <a class="dropdown-item" href="javascript:void()">
-                        Xin chào, <?= session()->get('user_login')['name'] ?>
-                    </a>
-                <?php endif; ?>
-
+                <a class="dropdown-item" href="javascript:void()">Xin chào, <?= session()->get('admin_login') ? session()->get('admin_login')['name'] : '' ?></a>
                 <a class="dropdown-item" href="admin/logout">Logout</a>
             </div>
         </div>

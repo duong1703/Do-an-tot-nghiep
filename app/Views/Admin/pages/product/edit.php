@@ -55,6 +55,7 @@
                             <button type="submit" class="btn btn-primary">Cập nhật</button>
                             <button id="btn-reset-edit-product" type="reset" class="btn btn-secondary" onclick="return confirm('Are you sure you want to reset?')">Reset</button>
                                 <a style="background-color: red" href="<?= base_url('admin/product/list') ?>" class="btn btn-secondary">Hủy</a>
+                                <a style="background-color: yellow" href="<?= base_url('admin/product/list') ?>" class="btn btn-warning ">Quay lại</a>
                             </form>
                     </div>
                 </div>

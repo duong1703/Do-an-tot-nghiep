@@ -58,9 +58,5 @@ class ProductModel extends BaseModel
     }
 
 
-    public function getProductsByCategory($category)
-    {
-        return $this->where('category', $category)->findAll();
-    }
 }
 

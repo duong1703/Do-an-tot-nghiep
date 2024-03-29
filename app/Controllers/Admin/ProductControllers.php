@@ -148,4 +148,5 @@ class ProductControllers extends BaseController
         $data = $ProductModel->getdata($name);
         return view('admin/product/list', ['data'=>$data]);
     }
+
 }
