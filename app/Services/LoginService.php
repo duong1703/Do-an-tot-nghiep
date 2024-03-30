@@ -45,26 +45,21 @@ class LoginService extends BaseService
         }
 
         if (!password_verify($params['password'], $user['password'])) {
+            $session = session();
+            session()->set('logged_in', true);
+            session()->set('id', $user['id']);
+            session()->set('admin_name', $user['admin_name']);
+
+            unset($user['password']);
+
+            $session->set('admin_name', $user);
+
             return [
-                'status' => ResultUtils::STATUS_CODE_ERR,
-                'messageCode' => ResultUtils::MESSAGE_CODE_ERR,
-                'messages' => [
-                    'WrongPass' => 'Mật khẩu không đúng'
-                ]
+                'status' => ResultUtils::STATUS_CODE_OK,
+                'messageCode' => ResultUtils::MESSAGE_CODE_OK,
+                'messages' => null
             ];
         }
-
-        $session = session();
-
-        unset($user['password']);
-
-        $session->set('admin_login', $user);
-
-        return [
-            'status' => ResultUtils::STATUS_CODE_OK,
-            'messageCode' => ResultUtils::MESSAGE_CODE_OK,
-            'messages' => null
-        ];
     }
 
     private function validateLogin($reqData)

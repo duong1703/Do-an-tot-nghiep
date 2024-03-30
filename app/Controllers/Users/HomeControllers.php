@@ -91,7 +91,7 @@ class HomeControllers extends BaseController
     public function logout()
     {
         session()->destroy();
-        return redirect()->to('/');
+        return redirect()->to('views/login');
     }
 
 

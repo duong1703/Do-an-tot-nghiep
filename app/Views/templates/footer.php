@@ -109,6 +109,8 @@
 	<script src="assets/admin/js/event.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.5/pagination.min.js"></script>
 
+<script src="https://uhchat.net/code.php?f=3c7a44"></script>
+
 <script>
     // Add active class to the current button (highlight it)
     var header = document.getElementById("myactive");
@@ -122,9 +124,6 @@
     }
 
 </script>
-
-<script src="https://uhchat.net/code.php?f=3c7a44"></script>
-
 
 </body>
 </body>

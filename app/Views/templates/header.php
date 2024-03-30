@@ -76,7 +76,6 @@
                             <ul class="nav navbar-nav --bs-breadcrumb-divider: '>'">
                                 <li><a class="breadcrumb-item" href="views/profile"><i class="fa fa-user"></i><?= session()->get("customer_name") ?></a></li>
                                 <li><a class="breadcrumb-item" href="#"><i class="fa fa-star"></i> Yêu thích</a></li>
-                                <!-- <li><a href="checkout.php"><i class="fa fa-crosshairs"></i> Thanh toán</a></li> -->
                                 <li><a class="breadcrumb-item" href="views/cart"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
                                 <li><a class="breadcrumb-item" href="/logout"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
                             </ul>
@@ -85,7 +84,6 @@
                             <ul class="nav navbar-nav --bs-breadcrumb-divider: '>'">
                                 <li><a class="breadcrumb-item" href="views/profile"><i class="fa fa-user"></i>Tài khoản</a></li>
                                 <li><a class="breadcrumb-item" href="#"><i class="fa fa-star"></i> Yêu thích</a></li>
-                                <!-- <li><a href="checkout.php"><i class="fa fa-crosshairs"></i> Thanh toán</a></li> -->
                                 <li><a class="breadcrumb-item" href="views/cart"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
                                 <li><a class="breadcrumb-item" href="views/login"><i class="fa fa-lock"></i> Đăng nhập</a></li>
                             </ul>
