@@ -32,7 +32,9 @@
                                 <textarea name="content" id="content">Welcome to TinyMCE!</textarea>
                             </div>
                             <button type="submit" class="btn btn-success mt-4 ">Đăng bài</button>
-                            <a style="background-color: yellow" href="<?= base_url('admin/blog/list') ?>" class="btn btn-warning ">Quay lại</a>                        </form>
+                            <button style="background-color: yellow" href="<?= base_url('admin/blog/list') ?>" class="btn btn-warning  mt-4">Quay lại</button>
+                        </form>
+
                     </div>
                 </div>
             </div>

@@ -1,4 +1,5 @@
 <form action="<?php echo base_url('contact/mail') ?>" id="main-contact-form" class="contact-form row" name="contact-form" method="post">
+    <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>"/>
     <div class="form-group col-md-6">
         <input type="text" name="name" class="form-control" required="required" placeholder="Name">
     </div>

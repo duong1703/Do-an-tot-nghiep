@@ -612,3 +612,17 @@ $start = ($currentPage - 1) * $itemsPerPage;
     });
 
 </script>
+
+
+
+<div class="tab-content">
+                            <div class="tab-pane fade" id="details">
+                                <?php if (!empty ($productObj) && is_array($productObj)): ?>
+                                    <?php foreach ($productObj as $key => $value): ?>
+                                        <?php if ($key === 'description'): ?>
+                                            <!-- Hiển thị mô tả sản phẩm -->
+                                            <p><?= $value ?></p>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </div>

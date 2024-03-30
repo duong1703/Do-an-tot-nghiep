@@ -60,7 +60,7 @@
                         <?= session()->get("success") ?>
                     </div>
                 <?php } endif;?>
-                <form id="loginForm" action="login" method="post">
+                <form id="loginForm" action="admin/login" method="post">
                     <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
                     <div  class="form-group">
                         <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
@@ -103,14 +103,6 @@
                 window.location.href = 'home'; // Chuyển hướng đến trang chủ
             }, 30000); // Thời gian hiển thị thông báo thành công (ms)
         });
-    </script>
-
-    <script>
-        // Nếu đăng nhập không thành công:
-        document.getElementById('error')
-        setTimeout(function() {
-            window.location.href = 'login'; // Tải lại trang đăng nhập
-        }, 30000); // Sau 3 giây
     </script>
 
 

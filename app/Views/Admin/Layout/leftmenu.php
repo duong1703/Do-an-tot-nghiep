@@ -3,12 +3,12 @@
                 <a href="javascript::void()" class="menu-toggle">
                     <i class="fas fa-bars"></i>
                 </a>
-                <a href="http://localhost:8080/admin/home" class="easion-logo"><img src="/assets/images/logo.png" alt="" height="50" width="120"></a>
+                <a href="http://localhost:8080/admin/pages/home" class="easion-logo"><img src="/assets/images/logo.png" alt="" height="50" width="120"></a>
 
             </header>
             <p class="text-center bg-primary text-dark">Version 1.0.0</p>
             <nav class="dash-nav-list">
-                <a href="http://localhost:8080/admin/home" class="dash-nav-item">
+                <a href="http://localhost:8080/admin/pages/home" class="dash-nav-item">
                     <i class="fas fa-home"></i> Thống kê </a>
                 <div class="dash-nav-dropdown">
                     <a href="javascript::void(0)" class="dash-nav-item dash-nav-dropdown-toggle">

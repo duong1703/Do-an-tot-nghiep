@@ -60,11 +60,11 @@ class LoginControllers extends BaseController
                 return redirect()->to('admin/pages/home');
             }else{
                 $session->setFlashdata('error', 'Password is incorrect.');
-                return redirect()->to('login');
+                return redirect()->to('admin/login');
             }
         }else{
             $session->setFlashdata('error', 'Email does not exist.');
-            return redirect()->to('login');
+            return redirect()->to('admin/login');
         }
     }
 
@@ -80,6 +80,6 @@ class LoginControllers extends BaseController
         $this->service->logout();
 
         // Chuyển hướng người dùng đến trang đăng nhập
-        return redirect('login');
+        return redirect('admin/login');
     }
 }

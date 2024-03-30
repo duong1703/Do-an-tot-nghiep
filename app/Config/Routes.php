@@ -5,6 +5,7 @@ use App\Controllers\Users\ProductsController;
 use App\Controllers\Admin\ProductController;
 use CodeIgniter\Router\RouteCollection;
 use CodeIgniter\RESTful\ResourceController;
+use App\Filters\AuthFilter;
 
 /**
  * @var RouteCollection $routes
@@ -12,13 +13,20 @@ use CodeIgniter\RESTful\ResourceController;
 //WEB-GUI
 $routes->get('/', 'Users\HomeControllers::index');
 $routes->get('views/index', 'HomeControllers::index');
+
+//Đăng nhập web
 $routes->get('views/login', 'Users\HomeControllers::login');
-$routes->post('login', 'Users\HomeControllers::login');
-$routes->get('logout', 'Users\HomeControllers::logout');
+$routes->post('/login', 'Users\HomeControllers::login');
+
+//Đăng ký web
 $routes->get('views/register', 'Users\HomeControllers::register');
-$routes->post('register', 'Users\HomeControllers::register');
+$routes->post('views/register', 'Users\HomeControllers::register');
+
+//Đăng xuất
+$routes->get('logout', 'Users\HomeControllers::logout');
+
+
 $routes->get('views/login', 'Users\HomeControllers::profile');
-$routes->post('views/login', 'Users\HomeControllers::login');
 $routes->get('views/profile', 'Users\HomeControllers::profile');
 $routes->get('views/blog', 'Users\HomeControllers::blog');
 $routes->get('views/contact', 'Users\HomeControllers::contact');
@@ -62,13 +70,13 @@ $routes->get('showfile/(:any)', 'Admin\FileControllers::index/$1');
 
 
 //Admin-web
-$routes->get('login', 'Admin\LoginControllers::index');
-$routes->post('login', 'Admin\LoginControllers::login');
+$routes->get('admin/login', 'Admin\LoginControllers::index');
+$routes->post('admin/login', 'Admin\LoginControllers::login');
 
 
-$routes->group('admin', ['filters' => 'adminFilters'], function ($routes) {
+$routes->group('admin', ['filters' => AuthFilter::class], function ($routes) {
     $routes->get('pages/home', 'Admin\HomeControllers::index');
-    $routes->get('home', 'Admin\HomeControllers::index');
+//    $routes->get('home', 'Admin\HomeControllers::index');
     $routes->get('logout', 'Admin\LoginControllers::logout');
 
     $routes->group('user', function ($routes) {
