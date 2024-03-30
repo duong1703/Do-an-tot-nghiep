@@ -1,6 +1,6 @@
 <?php include 'templates/header.php'; ?>
 
-<<<<<<< HEAD
+
 <section class="vh-100 mt-4">
     <div class="container h-100">
         <div class="row d-flex justify-content-center align-items-center h-100 mb-4">
@@ -34,8 +34,7 @@
                                         <input type="password" name="confirm_password" value="<?= old('confirm_password') ?>" id="confirm_password" class="form-control" placeholder="Nhập lại mật khẩu" />
                                     </div>
                                     <div>
-                                        <label>Đã có tài khoản:</label>
-                                        <a href="<?= base_url('views/login') ?>">Đăng nhập</a>
+                                        <label>Đã có tài khoản:</label><a href="<?= base_url('views/login') ?>">Đăng nhập</a>
                                     </div>
                                     <button type="submit" class="btn btn-primary btn-block">Đăng ký</button>
                                 </form>
