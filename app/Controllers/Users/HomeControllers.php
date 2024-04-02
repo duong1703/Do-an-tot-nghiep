@@ -24,8 +24,8 @@ class HomeControllers extends BaseController
 
     public function login()
     {
-        // Kiểm tra nếu đã đăng nhập, chuyển hướng người dùng đến trang dashboard hoặc trang chính
-        if (session()->has('logged_in') && session()->get('logged_in')) {
+        // Kiểm tra nếu đã đăng nhập và là người dùng, chuyển hướng đến trang chính
+        if (session()->has('logged_in') && session()->has('customer_id')) {
             return redirect()->to('/');
         }
 
@@ -50,11 +50,15 @@ class HomeControllers extends BaseController
                 return view('login', $data);
             }
         }
-
         return view('login');
     }
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 791d07eabf8f1c010d75ff3ce06bb55c9d9fabe4
     public function register()
     {
         if ($this->request->getMethod() === 'post') {
@@ -91,7 +95,7 @@ class HomeControllers extends BaseController
     public function logout()
     {
         session()->destroy();
-        return redirect()->to('views/login');
+        return redirect()->to('login');
     }
 
 

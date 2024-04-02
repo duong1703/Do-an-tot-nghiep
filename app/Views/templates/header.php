@@ -85,7 +85,7 @@
                                 <li><a class="breadcrumb-item" href="views/profile"><i class="fa fa-user"></i>Tài khoản</a></li>
                                 <li><a class="breadcrumb-item" href="#"><i class="fa fa-star"></i> Yêu thích</a></li>
                                 <li><a class="breadcrumb-item" href="views/cart"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
-                                <li><a class="breadcrumb-item" href="views/login"><i class="fa fa-lock"></i> Đăng nhập</a></li>
+                                <li><a class="breadcrumb-item" href="/login"><i class="fa fa-lock"></i> Đăng nhập</a></li>
                             </ul>
                         <?php endif; ?>
                     </div>
