@@ -15,7 +15,7 @@ $routes->get('/', 'Users\HomeControllers::index');
 $routes->get('views/index', 'HomeControllers::index');
 
 //Đăng nhập web
-$routes->get('views/login', 'Users\HomeControllers::login');
+$routes->get('login', 'Users\HomeControllers::login');
 $routes->post('/login', 'Users\HomeControllers::login');
 
 //Đăng ký web
@@ -26,7 +26,7 @@ $routes->post('views/register', 'Users\HomeControllers::register');
 $routes->get('logout', 'Users\HomeControllers::logout');
 
 
-$routes->get('views/login', 'Users\HomeControllers::profile');
+//$routes->get('views/login', 'Users\HomeControllers::profile');
 $routes->get('views/profile', 'Users\HomeControllers::profile');
 $routes->get('views/blog', 'Users\HomeControllers::blog');
 $routes->get('views/contact', 'Users\HomeControllers::contact');

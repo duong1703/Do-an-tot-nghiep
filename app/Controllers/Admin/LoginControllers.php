@@ -32,15 +32,6 @@ class LoginControllers extends BaseController
 
     public function login()
     {
-        $security = \Config\Services::security();
-        //$result = $this->service->hasLoginInfo($this->request);
-        //if($result["status"] === ResultUtils::STATUS_CODE_OK){
-        //    return redirect("admin/home");
-        //}elseif($result["status"] === ResultUtils::STATUS_CODE_ERR){
-        //    return redirect("admin/login")->with($result['messageCode'], $result['messages']);
-        //}
-        //return redirect("home")
-
         $session = session();
         $model = new UserModel();
         $email = $this->request->getVar('email');

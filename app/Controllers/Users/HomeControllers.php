@@ -22,8 +22,8 @@ class HomeControllers extends BaseController
 
     public function login()
     {
-        // Kiểm tra nếu đã đăng nhập, chuyển hướng người dùng đến trang dashboard hoặc trang chính
-        if (session()->has('logged_in') && session()->get('logged_in')) {
+        // Kiểm tra nếu đã đăng nhập và là người dùng, chuyển hướng đến trang chính
+        if (session()->has('logged_in') && session()->has('customer_id')) {
             return redirect()->to('/');
         }
 
@@ -48,9 +48,9 @@ class HomeControllers extends BaseController
                 return view('login', $data);
             }
         }
-
         return view('login');
     }
+
 
 
 
@@ -91,7 +91,7 @@ class HomeControllers extends BaseController
     public function logout()
     {
         session()->destroy();
-        return redirect()->to('views/login');
+        return redirect()->to('login');
     }
 
 
