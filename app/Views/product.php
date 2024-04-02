@@ -31,112 +31,7 @@ $start = ($currentPage - 1) * $itemsPerPage;
             <div class="col-sm-3">
                 <div class="left-sidebar">
                     <h2>Danh mục sản phẩm</h2>
-                    <div class="panel-group category-products" id="accordian">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="">MÀN HÌNH</a></h4>
-                            </div>
-                        </div>
-
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="">THÙNG MÁY</a></h4>
-                            </div>
-                        </div>
-
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="">CHIP</a></h4>
-                            </div>
-                        </div>
-
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="">RAM</a></h4>
-                            </div>
-                        </div>
-
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="">SSD</a></h4>
-                            </div>
-                        </div>
-
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="">HDD</a></h4>
-                            </div>
-                        </div>
-
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="">CARD ĐỒ HỌA</a></h4>
-                            </div>
-                        </div>
-
-
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="">CHUỘT</a></h4>
-                            </div>
-                        </div>
-
-
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="">BÀN, GHẾ GAMING</a></h4>
-                            </div>
-                        </div>
-
-
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="">QUẠT TẢN NHIỆT</a></h4>
-                            </div>
-                        </div>
-
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">TAI NGHE</a></h4>
-                            </div>
-                        </div>
-
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">TABLET</a></h4>
-                            </div>
-                        </div>
-
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">BÀN PHÍM</a></h4>
-                            </div>
-                        </div>
-
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">LAPTOP</a></h4>
-                            </div>
-                        </div>
-
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">IPAD</a></h4>
-                            </div>
-                        </div>
-
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">LOA</a></h4>
-                            </div>
-                        </div>
-                    </div>
-                    <!--/category-products-->
-
-                    <p>
-                        <label for="amount">Lọc giá:</label><input type="text" id="amount" readonly="" style="border:0; color:#f6931f; font-weight:bold;">
-                    </p>
-                    <div id="slider-range-min"></div>
+                    <?= view('category') ?>
                     <!--/price-range-->
 
                 </div>
@@ -155,7 +50,7 @@ $start = ($currentPage - 1) * $itemsPerPage;
                                             <h2 id="price"><?php echo $product['price']; ?> VND</h2>
                                             <p id="product"><?php echo $product['name']; ?></p>
                                             <p id="category">Danh mục: <?= $product['category'] ?></p>
-                                            <a href="<?= site_url('views/cart/'. $product['id_product']) ?>" onclick="addToCart()" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
+                                            <a href="javascript:void(0)" onclick="addtocart()" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
                                         </div>
                                     </div>
                                     <div class="choose">

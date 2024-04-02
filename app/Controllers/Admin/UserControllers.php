@@ -22,9 +22,9 @@ class UserControllers extends BaseController
     public function index()
     {
         $userModel = new UserModel();
-        $data['totalUsers'] = $userModel->countUsers();
-
-        return view('user_list', $data);
+        $data['totalUsers'] = $userModel->countAllResults();
+        dd($data);
+        return view('admin/pages/home', $data);
     }
 
 

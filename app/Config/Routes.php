@@ -29,11 +29,14 @@ $routes->get('logout', 'Users\HomeControllers::logout');
 $routes->get('views/login', 'Users\HomeControllers::profile');
 $routes->get('views/profile', 'Users\HomeControllers::profile');
 $routes->get('views/blog', 'Users\HomeControllers::blog');
+$routes->get('views/intro', 'Users\HomeControllers::intro');
 $routes->get('views/contact', 'Users\HomeControllers::contact');
 $routes->get('views/product', 'Users\HomeControllers::product');
 $routes->get('product_detail/(:num)', 'Users\HomeControllers::product_detail/$1');
-$routes->get('views/cart', 'Users\HomeControllers::cart');
 
+//giỏ hàng
+$routes->get('views/cart', 'Users\HomeControllers::cart');
+$routes->post('addToCart', 'Users\HomeControllers::addToCart');
 
 // Product - User
 $routes->group('product', function ($routes) {
@@ -46,11 +49,6 @@ $routes->get('/', 'Users\EmailController::index');
 $routes->match(['get', 'post'], 'contact/mail', 'Users\EmailController::sendMail');
 
 
-//Reviews
-$routes->get('/', 'Users\ReviewsControllers::index');
-$routes->match(['get', 'post'], 'reviews/reviews', 'Users\ReviewsControllers::sendreviews');
-
-
 //testup
 $routes->get('admin/pages/product/add', 'UploadControllers::add');          // Add this line.
 $routes->post('public/upload', 'UploadControllers::upload'); // Add this line.
@@ -58,7 +56,6 @@ $routes->post('public/upload', 'UploadControllers::upload'); // Add this line.
 
 //Checkout
 $routes->get('views/checkout', 'Users\HomeControllers::checkout');
-$routes->get('vnpay/vnpay_pay', 'Users\HomeControllers::vnpay_pay');
 
 
 $routes->get('error/404', function () {
@@ -74,7 +71,7 @@ $routes->get('admin/login', 'Admin\LoginControllers::index');
 $routes->post('admin/login', 'Admin\LoginControllers::login');
 
 
-$routes->group('admin', ['filters' => AuthFilter::class], function ($routes) {
+$routes->group('admin', ['filter' => 'AdminFilter'], function ($routes) {
     $routes->get('pages/home', 'Admin\HomeControllers::index');
 //    $routes->get('home', 'Admin\HomeControllers::index');
     $routes->get('logout', 'Admin\LoginControllers::logout');

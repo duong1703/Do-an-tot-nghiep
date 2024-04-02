@@ -7,7 +7,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<title>Trang chủ</title>
-	<base href="http://localhost:8080">
+	<base href="http://localhost:8080/">
 	<link href="/assets/user/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/assets/user/css/font-awesome.min.css" rel="stylesheet">
 	<link href="/assets/user/css/prettyPhoto.css" rel="stylesheet">
@@ -94,7 +94,7 @@
 			</div>
 		</div><!--/header-middle-->
 
-		<div class="header-bottom"><!--header-bottom-->
+		<div id="Header" class="header-bottom"><!--header-bottom-->
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-9">
@@ -106,8 +106,8 @@
 								<span class="icon-bar"></span>
 							</button>
 						</div>
-						<div class="mainmenu pull-left">
-							<ul class="nav navbar-nav collapse navbar-collapse">
+						<div  class="mainmenu pull-left">
+							<ul  class="nav navbar-nav collapse navbar-collapse">
 								<li><a  href="index.php?page=Trang-chu" id="myactive" class=" breadcrumb-item active">Trang chủ</a></li>
 								<li class="dropdown"><a href="#">Cửa hàng<i class="fa fa-angle-down"></i></a>
 									<ul role="menu" class="sub-menu">
@@ -118,6 +118,7 @@
 								
 								<!-- <li><a href="404.html">404</a></li> -->
 								<li><a class="breadcrumb-item" href="views/blog">Tin tức công nghệ</a></li>
+                                <li><a class="breadcrumb-item" href="views/intro">Giới thiệu</a></li>
 								<li><a class="breadcrumb-item" href="views/contact">Liên hệ</a></li>
 							</ul>
 						</div>

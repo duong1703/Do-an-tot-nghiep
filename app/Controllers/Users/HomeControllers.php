@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Controllers\Users;
-use App\Controllers\BaseController; 
+
+use App\Controllers\BaseController;
+use App\Models\CartModel;
 use App\Models\ProductModel;
 use App\Models\BlogModel;
 use App\Models\CategoryModel;
@@ -53,7 +55,6 @@ class HomeControllers extends BaseController
     }
 
 
-
     public function register()
     {
         if ($this->request->getMethod() === 'post') {
@@ -87,7 +88,6 @@ class HomeControllers extends BaseController
     }
 
 
-
     public function logout()
     {
         session()->destroy();
@@ -95,49 +95,61 @@ class HomeControllers extends BaseController
     }
 
 
-
-    public function contact(){
+    public function contact()
+    {
         return view('contact');
     }
 
-    public function reviews(){
+    public function reviews()
+    {
         return view('reviews');
     }
 
-    public function blog(){
+    public function intro(){
+        return view('intro');
+    }
+
+    public function blog()
+    {
         $model = new BlogModel();
         $data['blogsObj'] = $model->findAll();
         return view('blog', $data);
     }
 
-    public function product(){
+    public function product()
+    {
         $productModel = new ProductModel();
 //        $product = $productModel->paginate(10);
 //        if($product == null){
 //            return false;
 //        }
         $data['products'] = $productModel->paginate(12);
-        return view('product',$data);
+        return view('product', $data);
     }
 
-    public function product_detail(){
+    public function product_detail()
+    {
         return view('product_detail');
     }
 
-    public function cart(){
+    public function cart()
+    {
         return view('cart');
     }
 
-    public function profile(){
+    public function addToCart(){
+
+    }
+
+
+    public function profile()
+    {
         return view('profile');
     }
 
-    public function checkout(){
+    public function checkout()
+    {
         return view('checkout');
-    }
-
-    public function vnpay_pay(){
-        return view('vnpay/vnpay_pay');
     }
 }
 

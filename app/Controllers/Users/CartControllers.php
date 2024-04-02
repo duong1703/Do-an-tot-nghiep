@@ -1,53 +1,35 @@
 <?php
 
-
 namespace App\Controllers;
-use App\Models\CartModel;
+
 use App\Models\ProductModel;
+use CodeIgniter\Controller;
 
-class CartControllers extends BaseController
+class CartControllers extends Controller
 {
-    public function index(){
-        $session = session();
-        $data['products'] = $session->get('cart') ?? []; // Lấy dữ liệu giỏ hàng từ session, nếu không có thì trả về mảng rỗng
-        return view('cart', $data);
-    }
-
-    public function buy($id)
+    public function add()
     {
-        $ProductModel = new ProductModel();
-        $product = $ProductModel->find($id);
+        // Lấy dữ liệu từ request
+        $productId = $this->request->getVar('product_id');
+        $quantity = $this->request->getVar('quantity');
 
-        $session = session();
-        $cart = $session->get('cart') ?? [];
+        // Lấy thông tin sản phẩm
+        $productModel = new ProductModel();
+        $product = $productModel->find($productId);
 
-        // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng chưa
-        $found = false;
-        foreach ($cart as &$item) {
-            if ($item['id_product'] == $product['id_product']) {
-                $item['quantity']++;
-                $found = true;
-                break;
-            }
-        }
+        // Thêm sản phẩm vào giỏ hàng
+        $cart = \Config\Services::cart();
+        $cart->insert([
+            'id' => $product['id'],
+            'images' => $product['images'],
+            'name' => $product['name'],
+            'price' => $product['price'],
+            'qty' => $quantity,
+            'total' => $product['total'],
+            'options' => [],
+        ]);
 
-        // Nếu sản phẩm chưa tồn tại, thêm vào giỏ hàng
-        if (!$found) {
-            $item = [
-                'id_product' => $product['id_product'],
-                'name' => $product['name'],
-                'images' => $product['images'],
-                'price' => $product['price'],
-                'quantity' => 1
-            ];
-            $cart[] = $item;
-        }
-
-        // Cập nhật session giỏ hàng
-        $session->set('cart', $cart);
-
-        return redirect()->to(site_url('views/cart'));
+        // Chuyển hướng đến trang giỏ hàng
+        return redirect()->to('views/cart');
     }
-
-
 }

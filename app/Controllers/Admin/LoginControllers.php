@@ -48,6 +48,11 @@ class LoginControllers extends BaseController
         $data = $model->where('email', $email)->first();
 
         if($data){
+            if ($data['status_users'] == 0) {
+                // Tài khoản đã bị disable, hiển thị thông báo lỗi và chuyển hướng người dùng đến trang đăng nhập
+                $session->setFlashdata('error', 'Tài khoản của bạn đã bị vô hiệu hóa.');
+                return redirect()->to('admin/login');
+            }
             $pass = $data['password'];
             $authenticatePassword = password_verify($password, $pass);
             if($authenticatePassword){

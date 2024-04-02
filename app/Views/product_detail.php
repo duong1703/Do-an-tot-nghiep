@@ -151,6 +151,7 @@
                             <!--                            </div>-->
 
                         </div>
+
                         <div class="col-sm-7">
                             <div class="product-information"><!--/product-information-->
                                 <!--                                <img src="images/product-details/new.jpg" class="newarrival" alt="" />-->
@@ -161,15 +162,16 @@
                                    <p>Giá: <?= $productObj['price'] . ' ' . 'VND' ?></p>
                                     <label>Quantity:</label>
                                     <input type="number" min="1" value="1"/>
-
-                                      <a href="" onclick="addtocart()"
-                                         class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
+                                    <form action="addToCart" method="post" id="cartForm">
+                                                    <input type="hidden" name="product_id" id="productId">
+                                                    <button type="submit" class="btn btn-default add-to-cart"><i
+                                                                class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</button>
+                                        </form>
 
                                 </span>
                                 <p>Danh mục: <?= $productObj['category'] ?></p>
 
                             </div><!--/product-information-->
-
                         </div>
                     </div><!--/product-details-->
 
@@ -195,7 +197,7 @@
                             <div class="tab-pane fade active in" id="reviews">
                                 <div class="col-sm-12">
                                     <ul>
-                                        <li><a href=""><i class="fa fa-user"></i></a></li>
+                                        <li><a><i class="fa fa-user"><?= session()->get("customer_name") ?></i></a></li>
                                         <li><a id="realtime-time" href=""><i class="fa fa-clock-o"></i></a></li>
                                         <li><a id="realtime-date" href=""><i class="fa fa-calendar-o"></i></a></li>
                                     </ul>
@@ -216,7 +218,9 @@
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
 
-                                                    <a href="javascript:void(0)" onclick="addtocart()" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
+                                                    <a href="javascript:void(0)" onclick="addtocart()"
+                                                       class="btn btn-default add-to-cart"><i
+                                                                class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -227,15 +231,21 @@
                                         <div class="product-image-wrapper">
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
-                                                    <a href="javascript:void(0)" onclick="addtocart()" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
+                                                    <a href="javascript:void(0)" onclick="addtocart()"
+                                                       class="btn btn-default add-to-cart"><i
+                                                                class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev"><i class="fa fa-angle-left"></i></a>
-                            <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next"><i class="fa fa-angle-right"></i></a>
+                            <a class="left recommended-item-control" href="#recommended-item-carousel"
+                               data-slide="prev"><i
+                                        class="fa fa-angle-left"></i></a>
+                            <a class="right recommended-item-control" href="#recommended-item-carousel"
+                               data-slide="next"><i
+                                        class="fa fa-angle-right"></i></a>
                         </div>
                     </div>
 
@@ -243,5 +253,19 @@
             </div>
         </div>
     </section>
+
+
+    <script>
+        function addtocart() {
+            // Get product ID (replace with your logic)
+            var productId = document.getElementById("yourProductIdElement").value;
+
+            // Set product ID in hidden field
+            document.getElementById("productId").value = productId;
+
+            // Submit the form
+            document.getElementById("cartForm").submit();
+        }
+    </script>
 
 <?= view('templates/footer'); ?>

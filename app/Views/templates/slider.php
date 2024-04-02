@@ -22,14 +22,14 @@
 						<div class="item active">
 
 							<div class="col-sm-12">
-								<img src="<?= base_url('assets/images/banner1.jpg') ?>" class="girl img-responsive" alt="" width="900" height="400"/>
+								<img src="<?= base_url('assets/images/banner1.jpg') ?>" class="girl img-responsive" alt="" width="1797" height="744"/>
 								
 							</div>
 						</div>
 						<div class="item">
 
 							<div class="col-sm-12">
-								<img src="<?= base_url('assets/images/banner2.png') ?>" class="girl img-responsive" alt="" width="900" height="400"/>
+								<img src="<?= base_url('assets/images/banner2.png') ?>" class="girl img-responsive" alt="" width="1797" height="744"/>
 								
 							</div>
 						</div>
@@ -37,7 +37,7 @@
 						<div class="item">
 
 							<div class="col-sm-12">
-								<img src="<?= base_url('assets/images/banner3.jpg') ?>" class="girl img-responsive" alt="" width="900" height="400"/>
+								<img src="<?= base_url('assets/images/banner3.jpg') ?>" class="girl img-responsive" alt="" width="1797" height="744"/>
 								
 							</div>
 						</div>
@@ -56,5 +56,8 @@
 		</div>
 	</div>
 </section><!--/slider-->
+
+
+
 
 

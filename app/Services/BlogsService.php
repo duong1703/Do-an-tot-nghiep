@@ -23,7 +23,7 @@ class BlogsService extends BaseService
 
     public function getAllBlogs()
     {
-        //return $this->blogs->findAll();
+        return $this->blogs->findAll();
     }
 
     public function getBlogsByID($blogs)
