@@ -30,7 +30,7 @@ $routes->get('logout', 'Users\HomeControllers::logout');
 $routes->get('views/profile', 'Users\HomeControllers::profile');
 $routes->get('views/blog', 'Users\HomeControllers::blog');
 $routes->get('views/contact', 'Users\HomeControllers::contact');
-$routes->get('views/product', 'Users\HomeControllers::product');
+$routes->get('views/product/(:segment)', 'Users\HomeControllers::product/$1');
 $routes->get('product_detail/(:num)', 'Users\HomeControllers::product_detail/$1');
 $routes->get('views/cart', 'Users\HomeControllers::cart');
 

@@ -110,14 +110,37 @@ class HomeControllers extends BaseController
         return view('blog', $data);
     }
 
-    public function product(){
+    public function product($category = null){
         $productModel = new ProductModel();
-//        $product = $productModel->paginate(10);
-//        if($product == null){
-//            return false;
-//        }
-        $data['products'] = $productModel->paginate(12);
-        return view('product',$data);
+        $data = [];
+        if($category){
+            // Nếu có danh mục được chọn, lọc sản phẩm theo danh mục
+            $data['products'] = $productModel->where('category', $category)->paginate(12);
+        } else {
+            // Nếu không có danh mục được chọn, hiển thị tất cả sản phẩm
+            $data['products'] = $productModel->paginate(12);
+        }
+        // Danh sách các danh mục cố định
+        $data['categories'] = [
+            'MÀN HÌNH',
+            'THÙNG MÁY',
+            'CHIP',
+            'RAM',
+            'SSD',
+            'HDD',
+            'CARD ĐỒ HỌA',
+            'CHUỘT',
+            'BÀN PHÍM',
+            'BÀN, GHẾ GAMING',
+            'QUẠT TẢN NHIỆT',
+            'TAI NGHE',
+            'LAPTOP',
+            'BALO MÁY TÍNH',
+            'IPAD',
+            'TABLET',
+            'LOA'
+        ];
+        return view('product', $data);
     }
 
     public function product_detail(){

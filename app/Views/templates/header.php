@@ -111,7 +111,7 @@
 								<li><a  href="index.php?page=Trang-chu" id="myactive" class=" breadcrumb-item active">Trang chủ</a></li>
 								<li class="dropdown"><a href="#">Cửa hàng<i class="fa fa-angle-down"></i></a>
 									<ul role="menu" class="sub-menu">
-										<li><a class="breadcrumb-item" href="views/product">Sản phẩm</a></li>
+										<li><a class="breadcrumb-item" href="views/product/0">Sản phẩm</a></li>
 										<!-- <li><a href="product-details.html">Product Details</a></li> -->
 									</ul>
 								</li>
