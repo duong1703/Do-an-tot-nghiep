@@ -4,8 +4,8 @@
         <div class="row">
             <div class="col-xl-12">
                 <?= view('messages/message') ?>
-                <div class="card easion-card">
-                    <div class="card-header">
+                <div class="card easion-card rounded-4">
+                    <div class="card-header rounded-4">
                         <div class="easion-card-icon">
                             <i class="fas fa-chart-bar"></i>
                         </div>
@@ -45,17 +45,36 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>Danh mục</label>
-                                    <input value="<?= $product['category'] ?>" name="category" type="text" class="form-control" placeholder="Nhập danh mục sản phẩm" required>
+                                    <select value="<?= old('category') ?>" name="category" class="form-control" id="category"
+                                            required>
+                                        <option>Nhập danh mục sản phẩm</option>
+                                        <option>MÀN HÌNH</option>
+                                        <option>THÙNG MÁY</option>
+                                        <option>CHIP</option>
+                                        <option>RAM</option>
+                                        <option>SSD</option>
+                                        <option>HDD</option>
+                                        <option>CARD ĐỒ HỌA</option>
+                                        <option>CHUỘT</option>
+                                        <option>BÀN, GHẾ GAMING</option>
+                                        <option>QUẠT TẢN NHIỆT</option>
+                                        <option>TAI NGHE</option>
+                                        <option>TABLET</option>
+                                        <option>BÀN PHÍM</option>
+                                        <option>LOA</option>
+                                        <option>LAPTOP</option>
+                                        <option>IPAD</option>
+                                    </select>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Số lượng</label>
                                     <input value="<?= $product['amount'] ?>" name="amount" type="text" class="form-control" placeholder="Nhập số lượng" required>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary">Cập nhật</button>
-                            <button id="btn-reset-edit-product" type="reset" class="btn btn-secondary" onclick="return confirm('Are you sure you want to reset?')">Reset</button>
-                                <a style="background-color: red" href="<?= base_url('admin/product/list') ?>" class="btn btn-secondary">Hủy</a>
-                                <a style="background-color: yellow" href="<?= base_url('admin/product/list') ?>" class="btn btn-warning ">Quay lại</a>
+                            <button type="submit" class="btn btn-primary rounded-4">Cập nhật</button>
+                            <button id="btn-reset-edit-product" type="reset" class="btn btn-secondary rounded-4" onclick="return confirm('Are you sure you want to reset?')">Reset</button>
+                                <a style="background-color: red" href="<?= base_url('admin/product/list') ?>" class="btn btn-secondary rounded-4">Hủy</a>
+                                <a style="background-color: yellow" href="<?= base_url('admin/product/list') ?>" class="btn btn-warning rounded-4 ">Quay lại</a>
                             </form>
                     </div>
                 </div>

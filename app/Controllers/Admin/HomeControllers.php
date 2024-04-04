@@ -10,7 +10,7 @@ class HomeControllers extends BaseController
 
     public function __construct()
     {
-        $this->db = \Config\Database::connect();
+        $db      = \Config\Database::connect();
     }
 
 

@@ -105,4 +105,24 @@ class ProductsController extends BaseController
     }
 
 
+    public function countProductsByCategory()
+    {
+        $ProductModel= new ProductModel();
+
+        // Fetch the counts of products for each category
+        $categories = $ProductModel->groupBy('category')->findAll();
+
+        // Loop through each category and get the count of products
+        $categoryCounts = [];
+        foreach ($categories as $category) {
+            $count = $ProductModel->where('category', $category['category'])->countAllResults();
+            $categoryCounts[$category['category']] = $count;
+        }
+
+        // Pass $categoryCounts array to the view
+        return view('category', ['categoryCounts' => $categoryCounts]);
+    }
+
+
+
 }

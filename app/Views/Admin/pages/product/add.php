@@ -14,8 +14,8 @@
             </div>
         <?php } endif; ?>
 
-        <div class="card easion-card">
-            <div class="card-header">
+        <div class="card easion-card rounded-4">
+            <div class="card-header rounded-4">
                 <div class="easion-card-icon">
                     <i class="fas fa-chart-bar"></i>
                 </div>
@@ -97,10 +97,10 @@
                             </select>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-success">Thêm mới</button>
-                    <button type="reset" class="btn btn-secondary">Nhập lại</button>
+                    <button type="submit" class="btn btn-success rounded-4">Thêm mới</button>
+                    <button type="reset" class="btn btn-secondary rounded-4">Nhập lại</button>
                     <a style="background-color: yellow" href="<?= base_url('admin/product/list') ?>"
-                       class="btn btn-warning ">Quay lại</a>
+                       class="btn btn-warning rounded-4 ">Quay lại</a>
                 </form>
             </div>
         </div>

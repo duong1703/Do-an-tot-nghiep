@@ -4,8 +4,8 @@
         <div class="row">
             <div class="col-xl-12">
             <?= view('messages/message') ?>
-                <div class="card easion-card">
-                    <div class="card-header">
+                <div class="card easion-card rounded-4">
+                    <div class="card-header rounded-4">
                         <div class="easion-card-icon">
                             <i class="fas fa-chart-bar"></i>
                         </div>
@@ -30,6 +30,13 @@
                                 <label for="inputAddress">Tên hiển thị</label>
                                 <input name="name" type="text" value="<?= $user['name'] ?>" class="form-control" id="inputAddress" placeholder="Tên hiển thị người dùng" required>
                             </div>
+                            <div class="form-group">
+                                <label for="status_product">Trạng thái users</label>
+                                <select name="status_users" class="form-control" required>
+                                    <option  value="1" <?php echo ($user['status_users'] == 1) ? 'selected' : ''; ?>>Enable</option>
+                                    <option  value="0" <?php echo ($user['status_users'] == 0) ? 'selected' : ''; ?>>Disable</option>
+                                </select>
+                            </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="password">Mật khẩu</label>
@@ -47,9 +54,9 @@
                                         khẩu</label>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary">Cập nhật</button>
-                            <button id="btn-reset-edit-user" type="reset" class="btn btn-secondary">Nhập lại</button>
-                            <a style="background-color: yellow" href="<?= base_url('admin/user/list') ?>" class="btn btn-warning ">Quay lại</a>
+                            <button type="submit" class="btn btn-primary rounded-4">Cập nhật</button>
+                            <button id="btn-reset-edit-user" type="reset" class="btn btn-secondary rounded-4">Nhập lại</button>
+                            <a style="background-color: yellow" href="<?= base_url('admin/user/list') ?>" class="btn btn-warning rounded-4 ">Quay lại</a>
                         </form>
                     </div>
                 </div>

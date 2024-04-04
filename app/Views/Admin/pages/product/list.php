@@ -6,8 +6,8 @@
     <div class="row">
         <div class="col-lg-12">
             <?= view('messages/message') ?>
-            <div class="card easion-card">
-                <div class="card-header">
+            <div class="card easion-card rounded-4">
+                <div class="card-header rounded-4">
                     <div class="easion-card-icon">
                         <i class="fas fa-table"></i>
                     </div>

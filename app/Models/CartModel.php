@@ -10,21 +10,26 @@ class CartModel extends Model
 {
 
     protected $table = 'cart';
-    protected $primaryKey = 'id_cart';
-    protected $allowedFields = ['id_cart ', 'user', 'id_product', 'quantity' , 'created_at', 'status_cart'];
-
-    public function updateProduct($id_product, $quantity)
+    protected $primaryKey = 'id';
+    protected $allowedFields = ['user_id', 'product_id ', 'images', 'quantity ', 'price ' , 'total', 'created_at '];
+    protected $useAutoIncrement = true; // Thêm dòng này để bật AUTO_INCREMENT cho cột khóa chính
+    protected function beforeInsert(array $data)
     {
-        // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng chưa
-        $cartItem = $this->where('id_product', id_product())->where('id_product', $id_product)->first();
+        // Add your logic here
+        return $this->updateTimestamp($data);
+    }
+    protected function beforeUpdate(array $data)
+    {
+        return $this->updateTimestamp($data);
+    }
+    protected function updateTimestamp(array $data)
+    {
+        $currentTimestamp = date('Y-m-d H:i:s');
 
-        if ($cartItem) {
-            // Cập nhật số lượng sản phẩm
-            $newQuantity = $cartItem['quantity'] + $quantity;
-            $this->update($cartItem['id_product'], ['quantity' => $newQuantity]);
-        } else {
-            // Thêm mới sản phẩm vào giỏ hàng
-            $this->insert(['id_product' => id_product(), 'id_product' => $id_product, 'quantity' => $quantity]);
+        if (!array_key_exists('created_at', $data)) {
+            $data['created_at'] = $currentTimestamp;
         }
+
+        return $data;
     }
 }

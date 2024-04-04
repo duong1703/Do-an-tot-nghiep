@@ -9,8 +9,9 @@ use App\Common\ResultUtils;
 class LoginService extends BaseService
 {
     private $users;
+
     /**
-        Tạo hàm constructor
+     * Tạo hàm constructor
      */
     function __construct()
     {
@@ -45,21 +46,26 @@ class LoginService extends BaseService
         }
 
         if (!password_verify($params['password'], $user['password'])) {
-            $session = session();
-            session()->set('logged_in', true);
-            session()->set('id', $user['id']);
-            session()->set('admin_name', $user['admin_name']);
-
-            unset($user['password']);
-
-            $session->set('admin_name', $user);
-
             return [
                 'status' => ResultUtils::STATUS_CODE_OK,
                 'messageCode' => ResultUtils::MESSAGE_CODE_OK,
-                'messages' => null
+                'messages' => [
+                    'wrongpass' => 'Mật khẩu chưa đúng!'
+                ]
             ];
         }
+
+        $session = session();
+
+        unset($user['password']);
+
+        $session->set('user_login', $user);
+
+        return [
+            'status' => ResultUtils::STATUS_CODE_OK,
+            'messageCode' => ResultUtils::MESSAGE_CODE_OK,
+            'messages' => null
+        ];
     }
 
     private function validateLogin($reqData)
@@ -86,7 +92,8 @@ class LoginService extends BaseService
         return $this->validation;
     }
 
-    public function logout(){
+    public function logout()
+    {
         $session = session();
     }
 }

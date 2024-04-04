@@ -33,12 +33,11 @@ class BlogModel extends BaseModel
         return $data;
     }
 
-    public function blog()
+    public function index()
     {
-        return $this->findAll();
+        $BlogModel = new BlogModel();
+        $data['blogs'] = $BlogModel->findAll(); // Lấy danh sách blog từ model
+
+        return view('blog', $data); // Chuyển dữ liệu blog đến view
     }
-
-
-
-
 }

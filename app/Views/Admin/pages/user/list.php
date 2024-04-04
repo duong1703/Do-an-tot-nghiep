@@ -4,8 +4,8 @@
     <div class="row">
         <div class="col-lg-12">
         <?= view('messages/message') ?>
-            <div class="card easion-card">
-                <div class="card-header">
+            <div class="card easion-card rounded-4">
+                <div class="card-header rounded-4">
                     <div class="easion-card-icon">
                         <i class="fas fa-table"></i>
                     </div>
@@ -17,6 +17,7 @@
                             <tr>
                                 <th scope="col">id</th>
                                 <th scope="col">Tên</th>
+                                <th scope="col">Status</th>
                                 <th scope="col">Mật khẩu</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Chức năng</th>
@@ -27,6 +28,7 @@
                                 <tr>
                                     <td><?= $user['id'] ?></td>
                                     <td><?= $user['name'] ?></td>
+                                    <td class="text-center"><?= $user['status_users'] ?></td>
                                     <td><?= $user['password'] ?></td>
                                     <td><?= $user['email'] ?></td>
                                     <td class="text-center">

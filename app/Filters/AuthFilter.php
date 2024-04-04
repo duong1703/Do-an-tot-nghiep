@@ -11,12 +11,13 @@ class AuthFilter implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
-        $session = Services::session();
+        $session = session();
 
-        // Kiểm tra xem người dùng đã đăng nhập vào trang quản trị chưa
-        if (!$session->get('admin_logged_in')) {
-            // Nếu không, chuyển hướng đến trang đăng nhập
-            return redirect()->to(site_url('admin/login'));
+        if (!$session->get("logged_in")){
+            if (current_url() === base_url().'admin/login'){
+                return view('admin/pages/home');
+            }
+            return redirect('admin/login');
         }
     }
 
