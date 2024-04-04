@@ -1,30 +1,61 @@
+<?php
+// Số sản phẩm trên mỗi trang
+$perPage = 12;
+
+// Tính tổng số trang dựa trên số lượng sản phẩm và số sản phẩm trên mỗi trang
+$totalPages = ceil(count($products) / $perPage);
+
+// Khai báo biến $currentPage và khởi tạo giá trị mặc định là 1
+$currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
+?>
+
 <?php include 'templates/header.php'; ?>
 
 <section>
     <div class="container">
         <div class="row">
             <div class="col-sm-3">
+<<<<<<< HEAD
 
                 <!-- Danh sách các danh mục sản phẩm -->
+=======
+>>>>>>> 5fdaf86673bca2b4547b1383b90bbf30452f6f17
                 <h2>Danh mục sản phẩm</h2>
                 <ul class="list-group">
-                    <?php if (!empty($categories)): ?>
+                    <?php if(isset($categories) && !empty($categories)): ?>
                         <?php foreach ($categories as $category): ?>
-                            <li class="list-group-item"><a href="<?= base_url('product/' . $category) ?>"><?= $category ?></a></li>
+                            <li class="list-group-item">
+                                <a href="<?= base_url('views/product/' . urlencode($category)) ?>"><?= $category ?></a>
+                            </li>
                         <?php endforeach; ?>
                     <?php else: ?>
                         <li class="list-group-item">Không có danh mục sản phẩm.</li>
                     <?php endif; ?>
                 </ul>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5fdaf86673bca2b4547b1383b90bbf30452f6f17
             </div>
 
             <div class="col-sm-9 padding-right">
                 <div class="features_items">
                     <h2 class="title text-center">Sản phẩm</h2>
                     <div id="dataContainer" class="row">
+<<<<<<< HEAD
                         <?php if (!empty($products)): ?>
                             <?php foreach ($products as $product): ?>
+=======
+                        <?php
+                        // Tính toán chỉ số bắt đầu của sản phẩm trên trang hiện tại
+                        $startIndex = ($currentPage - 1) * $perPage;
+
+                        // Lấy các sản phẩm cho trang hiện tại
+                        $currentProducts = array_slice($products, $startIndex, $perPage);
+
+                        if (!empty($currentProducts)): ?>
+                            <?php foreach ($currentProducts as $product): ?>
+>>>>>>> 5fdaf86673bca2b4547b1383b90bbf30452f6f17
                                 <div class="col-sm-4">
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
@@ -54,7 +85,19 @@
                     </div>
                     <!-- Pagination -->
                     <div class="text-center">
-                        <ul id="pagination" class="pagination"></ul>
+                        <ul id="pagination" class="pagination">
+                            <?php if ($currentPage > 1): ?>
+                                <li class="page-item"><a class="page-link" href="<?= site_url('views/product/' . urlencode($category) . '/' . ($currentPage - 1)) ?>">Previous</a></li>
+                            <?php endif; ?>
+
+                            <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+                                <li class="page-item <?= $currentPage == $i ? 'active' : '' ?>"><a class="page-link" href="<?= site_url('views/product/' . urlencode($category) . '/' . $i) ?>"><?= $i ?></a></li>
+                            <?php endfor; ?>
+
+                            <?php if ($currentPage < $totalPages): ?>
+                                <li class="page-item"><a class="page-link" href="<?= site_url('views/product/' . urlencode($category) . '/' . ($currentPage + 1)) ?>">Next</a></li>
+                            <?php endif; ?>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -67,11 +110,8 @@
 
 <script>
     // Hàm để chuyển hướng đến trang hiển thị sản phẩm theo danh mục được chọn
-    function viewProducts() {
-        var selectedCategory = document.getElementById("categorySelect").value;
-        if (selectedCategory) {
-            window.location.href = '/product/' + selectedCategory; // Điều hướng đến trang hiển thị sản phẩm theo danh mục
-        }
+    function viewProducts(category) {
+        window.location.href = 'views/product/' + category;
     }
 </script>
 

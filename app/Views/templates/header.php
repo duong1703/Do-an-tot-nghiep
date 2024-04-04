@@ -61,6 +61,7 @@
         </div>
     </div><!--/header_top-->
 
+<<<<<<< HEAD
     <div class="header-middle"><!--header-middle-->
         <div class="container">
             <div class="row">
@@ -72,6 +73,46 @@
                     <!-- <div class="btn-group pull-right">
                         <div class="btn-group">
                         </div>
+=======
+		<div id="Header" class="header-bottom"><!--header-bottom-->
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-9">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+						</div>
+						<div  class="mainmenu pull-left">
+							<ul  class="nav navbar-nav collapse navbar-collapse">
+								<li><a  href="index.php?page=Trang-chu" id="myactive" class=" breadcrumb-item active">Trang chủ</a></li>
+								<li class="dropdown"><a href="#">Cửa hàng<i class="fa fa-angle-down"></i></a>
+									<ul role="menu" class="sub-menu">
+										<li><a class="breadcrumb-item" href="views/product/0">Sản phẩm</a></li>
+										<!-- <li><a href="product-details.html">Product Details</a></li> -->
+									</ul>
+								</li>
+								
+								<!-- <li><a href="404.html">404</a></li> -->
+								<li><a class="breadcrumb-item" href="views/blog">Tin tức công nghệ</a></li>
+                                <li><a class="breadcrumb-item" href="views/intro">Giới thiệu</a></li>
+								<li><a class="breadcrumb-item" href="views/contact">Liên hệ</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-3">
+						<div class="search_box pull-right">
+							<input type="text" placeholder="Search" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/header-bottom-->
+	</header><!--/header-->
+>>>>>>> 5fdaf86673bca2b4547b1383b90bbf30452f6f17
 
                         <div class="btn-group">
                         </div>

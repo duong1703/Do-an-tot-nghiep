@@ -7,12 +7,16 @@ use App\Models\CategoryModel;
 
 class ProductsController extends BaseController
 {
-    public function index($category = null)
+    public function index($category)
     {
         $data = [];
 
+        // Tạo model và truy vấn các sản phẩm thuộc danh mục được chọn
+        $productModel = new ProductModel();
+        $products = $productModel->where('category', $category)->findAll();
+
         // Danh sách các danh mục sản phẩm
-        $categories = [
+        $data['categories'] = [
             'MÀN HÌNH',
             'THÙNG MÁY',
             'CHIP',
@@ -32,26 +36,17 @@ class ProductsController extends BaseController
             'LOA',
         ];
 
-        // In ra dữ liệu của mảng $categories
-        print_r($categories);
-        die("!@142");
-        // Truyền danh sách danh mục vào view để hiển thị trong thanh điều hướng
-        $data['categories'] = $categories;
-        // Tạo model và truy vấn các sản phẩm thuộc danh mục được chọn (nếu có)
-        $productModel = new ProductModel();
-        if ($category) {
-            $products = $productModel->where('category', $category)->findAll();
-        } else {
-            // Nếu không có danh mục được chọn, truy vấn tất cả sản phẩm
-            $products = $productModel->findAll();
+        // Kiểm tra nếu không có sản phẩm nào thuộc danh mục này
+        if (empty($products)) {
+            // Trả về thông báo lỗi
+            return view('category', $data);
         }
 
         // Truyền danh sách sản phẩm vào view để hiển thị
         $data['products'] = $products;
-
-        return view('product', $data);
+        // Truyền dữ liệu sang view
+        return view('category', $data);
     }
-
 
     public function productDetail($productId)
     {
@@ -78,13 +73,12 @@ class ProductsController extends BaseController
     {
         // Load model ProductModel
         $productModel = new ProductModel();
-
         // Lấy danh sách sản phẩm từ model
         $data['products'] = $productModel->getAllProducts();
 
         // Load view và truyền dữ liệu sản phẩm vào view
         return view('products', $data);
-        
+
     }
 
     public function category($category)
