@@ -1,35 +1,32 @@
 <?php
 
 namespace App\Controllers;
-
 use App\Models\ProductModel;
-use CodeIgniter\Controller;
+use App\Models\CartModel;
 
-class CartControllers extends Controller
+class CartControllers extends BaseController
 {
-    public function add()
+    public function addToCart()
     {
-        // Lấy dữ liệu từ request
-        $productId = $this->request->getVar('product_id');
-        $quantity = $this->request->getVar('quantity');
+        $id_product = $this->request->getPost('id_product');
 
-        // Lấy thông tin sản phẩm
-        $productModel = new ProductModel();
-        $product = $productModel->find($productId);
+        // Lấy thông tin sản phẩm từ CSDL
+        $ProductModel = new ProductModel();
+        $product = $ProductModel->find($id_product);
 
-        // Thêm sản phẩm vào giỏ hàng
-        $cart = \Config\Services::cart();
-        $cart->insert([
-            'id' => $product['id'],
-            'images' => $product['images'],
-            'name' => $product['name'],
-            'price' => $product['price'],
-            'qty' => $quantity,
-            'total' => $product['total'],
-            'options' => [],
-        ]);
+        if ($product) {
+            // Thêm sản phẩm vào giỏ hàng
+            $cart = session()->get('cart') ?? [];
+            $cart[] = $product;
+            session()->set('cart', $cart);
 
-        // Chuyển hướng đến trang giỏ hàng
-        return redirect()->to('views/cart');
+            // Trả về phản hồi JSON cho trình duyệt
+            return $this->response->setJSON(['success' => true]);
+        } else {
+            // Trả về phản hồi JSON nếu không tìm thấy sản phẩm
+            return $this->response->setJSON(['success' => false, 'message' => 'Sản phẩm không tồn tại.']);
+        }
+        return view('cart', ['product' => $product]);
     }
+
 }

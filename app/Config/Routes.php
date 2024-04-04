@@ -36,12 +36,20 @@ $routes->get('product_detail/(:num)', 'Users\HomeControllers::product_detail/$1'
 
 //giỏ hàng
 $routes->get('views/cart', 'Users\HomeControllers::cart');
-$routes->post('addToCart', 'Users\HomeControllers::addToCart');
+
 
 // Product - User
 $routes->group('product', function ($routes) {
     $routes->get('product_detail/(:num)', 'Users\ProductsController::productDetail/$1');
 });
+
+
+
+$routes->get('views/checkout', 'Users\HomeControllers::checkout');
+
+
+
+
 
 
 //Mail
@@ -71,7 +79,7 @@ $routes->get('admin/login', 'Admin\LoginControllers::index');
 $routes->post('admin/login', 'Admin\LoginControllers::login');
 
 
-$routes->group('admin', ['filter' => 'AdminFilter'], function ($routes) {
+$routes->group('admin', ['filter' => 'AuthFilter'], function ($routes) {
     $routes->get('pages/home', 'Admin\HomeControllers::index');
 //    $routes->get('home', 'Admin\HomeControllers::index');
     $routes->get('logout', 'Admin\LoginControllers::logout');

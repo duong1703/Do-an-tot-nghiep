@@ -5,8 +5,8 @@
         <div class="row">
             <div class="col-xl-12">
                 <?= view('messages/message') ?>
-                <div class="card easion-card">
-                    <div class="card-header">
+                <div class="card easion-card rounded-4">
+                    <div class="card-header rounded-4" >
                         <div class="easion-card-icon">
                             <i class="fas fa-chart-bar"></i>
                         </div>
@@ -29,10 +29,10 @@
                                 <textarea class="form-control" id="content" name="content"><?= $blog['content'] ?></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary">Cập nhật</button>
-                            <a style="background-color: red" href="<?= base_url('admin/blog/list') ?>" class="btn btn-secondary">Hủy</a>
+                            <a style="background-color: red" href="<?= base_url('admin/blog/list') ?>" class="btn btn-secondary rounded-4">Hủy</a>
                             <button id="btn-reset-edit-product" type="reset" class="btn btn-secondary"
                                 onclick="return confirm('Are you sure you want to reset?')">Reset</button>
-                            <a style="background-color: yellow" href="<?= base_url('admin/blog/list') ?>" class="btn btn-warning ">Quay lại</a>
+                            <a style="background-color: yellow" href="<?= base_url('admin/blog/list') ?>" class="btn btn-warning rounded-4">Quay lại</a>
                         </form>
                     </div>
                 </div>

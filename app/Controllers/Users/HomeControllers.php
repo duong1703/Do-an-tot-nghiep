@@ -9,6 +9,7 @@ use App\Models\BlogModel;
 use App\Models\CategoryModel;
 use App\Models\UserModel;
 use App\Models\CustomerModel;
+use CodeIgniter\Database\RawSql;
 
 class HomeControllers extends BaseController
 {
@@ -43,6 +44,8 @@ class HomeControllers extends BaseController
                 session()->set('logged_in', true);
                 session()->set('customer_id', $customer['customer_id']);
                 session()->set('customer_name', $customer['customer_name']);
+                session()->set('customer_email', $customer['customer_email']);
+                session()->set('created_at', $customer['created_at']);
                 return redirect()->to('/');
             } else {
                 // Đăng nhập không thành công, hiển thị thông báo lỗi
@@ -54,11 +57,6 @@ class HomeControllers extends BaseController
     }
 
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 791d07eabf8f1c010d75ff3ce06bb55c9d9fabe4
     public function register()
     {
         if ($this->request->getMethod() === 'post') {
@@ -85,7 +83,7 @@ class HomeControllers extends BaseController
                     'customer_name' => $nameCustomer,
                 ];
                 $customerModel->insert($data);
-                return redirect()->to('views/login');
+                return redirect()->to('login');
             }
         }
         return view('register');
@@ -141,10 +139,6 @@ class HomeControllers extends BaseController
         return view('cart');
     }
 
-    public function addToCart(){
-
-    }
-
 
     public function profile()
     {
@@ -153,7 +147,13 @@ class HomeControllers extends BaseController
 
     public function checkout()
     {
+
         return view('checkout');
+    }
+
+    public function sendreviews()
+    {
+        return view('sendreviews');
     }
 }
 

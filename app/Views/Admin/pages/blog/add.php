@@ -12,8 +12,8 @@
                         </button>
                     </div>
                 <?php endif; ?>
-                <div class="card easion-card">
-                    <div class="card-header">
+                <div class="card easion-card rounded-4">
+                    <div class="card-header rounded-4">
                         <div class="easion-card-icon">
                             <i class="fas fa-chart-bar"></i>
                         </div>
@@ -31,8 +31,8 @@
                                 <label>Nội dung</label>
                                 <textarea name="content" id="content">Welcome to TinyMCE!</textarea>
                             </div>
-                            <button type="submit" class="btn btn-success mt-4 ">Đăng bài</button>
-                            <button style="background-color: yellow" href="<?= base_url('admin/blog/list') ?>" class="btn btn-warning  mt-4">Quay lại</button>
+                            <button type="submit" class="btn btn-success mt-4 rounded-4 ">Đăng bài</button>
+                            <button style="background-color: yellow" href="<?= base_url('admin/blog/list') ?>" class="btn btn-warning  rounded-4 mt-4">Quay lại</button>
                         </form>
 
                     </div>

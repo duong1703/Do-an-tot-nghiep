@@ -2773,5 +2773,33 @@ button {
   border:none;
 }
 
+.shipping-info li {
+  list-style: none;
+}
+
+.productinfo:hover{
+  border: 1px solid orange;
+  transition: all 1s;
+  cursor: pointer;
+}
+
+.rating {
+  display: flex;
+  justify-content: start;
+}
+
+.star {
+  font-size: 24px;
+  cursor: pointer;
+  color: #ccc;
+  margin:  5px; /* Khoảng cách giữa các sao */
+}
+
+.star:hover,
+.star.active {
+  color: #ffcc00;
+}
+
+
 License Terms
 

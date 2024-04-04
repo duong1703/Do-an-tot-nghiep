@@ -33,11 +33,13 @@
                                         <label class="form-label" for="confirm_password">Xác nhận mật khẩu</label>
                                         <input type="password" name="confirm_password" value="<?= old('confirm_password') ?>" id="confirm_password" class="form-control" placeholder="Nhập lại mật khẩu" required />
                                     </div>
+                                    <hr>
                                     <button type="submit" class="btn btn-primary btn-block">Đăng ký</button>
+
                                 </form>
                                 <hr>
                                 <div>
-                                    <label class="text-center mt-4">Đã có tài khoản:</label><a href="<?= base_url('views/login') ?>">Đăng nhập</a>
+                                    <label class="text-center mt-4">Đã có tài khoản:</label><a href="<?= base_url('/login') ?>">Đăng nhập</a>
                                 </div>
                             </div>
                             <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">

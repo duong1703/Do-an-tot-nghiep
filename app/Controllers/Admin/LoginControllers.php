@@ -33,6 +33,9 @@ class LoginControllers extends BaseController
     public function login()
     {
         $session = session();
+        if (session()->has('logged_in') && session()->has('name')) {
+            return redirect()->to('admin/pages/home');
+        }
         $model = new UserModel();
         $email = $this->request->getVar('email');
         $password = $this->request->getVar('password');
@@ -49,9 +52,12 @@ class LoginControllers extends BaseController
             if($authenticatePassword){
                 $ses_data = [
                     'id'       => $data['id'],
+                    'name' => $data['name'],
                     'email'     => $data['email'],
                     'logged_in'     => TRUE
                 ];
+                session()->set('logged_in', true);
+                session()->set('name', $ses_data['name']);
                 $session->set($ses_data);
                 return redirect()->to('admin/pages/home');
             }else{

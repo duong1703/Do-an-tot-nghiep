@@ -32,4 +32,15 @@ class CartModel extends Model
 
         return $data;
     }
+
+    public function getProduct($productId)
+    {
+        // Viết truy vấn để lấy thông tin của sản phẩm từ CSDL dựa trên $productId
+        // Trả về thông tin sản phẩm hoặc false nếu không tìm thấy sản phẩm
+    }
+
+    public function addToCart($cartItem)
+    {
+        $this->insert($cartItem);
+    }
 }

@@ -23,7 +23,6 @@ class UserControllers extends BaseController
     {
         $userModel = new UserModel();
         $data['totalUsers'] = $userModel->countAllResults();
-        dd($data);
         return view('admin/pages/home', $data);
     }
 

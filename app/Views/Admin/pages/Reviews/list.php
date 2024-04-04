@@ -25,6 +25,21 @@
                         </tr>
                         </thead>
                         <tbody>
+                        <?php if (isset($comments) && !empty($comment)): ?>
+                            <?php foreach ($comment as $index => $comment) : ?>
+                                <tr>
+                                    <td><?= $index + 1 ?></td>
+                                    <td><?= $comment['customer_name']; ?></td>
+                                    <td><?= $comment['customer_email']; ?></td>
+                                    <td><?= $comment['content']; ?></td>
+                                    <td><?= $comment['created_at']; ?></td>
+                                    <td><?= $comment['Rating']; ?></td>
+                                    <td class="text-center">
+                                        <a class="btn btn-danger btn-sm ___js-delete-blog" data-id="<?= @$comment['id'];?>"><i class="far fa-trash-alt"></i></a>
+                                    </td>
+                                </tr>>
+                            <?php endforeach ?>
+                        <?php endif; ?>
                         </tbody>
                     </table>
                 </div>
@@ -35,7 +50,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <?= $this->include("Modals/Order/delete") ?>
 <script>
-    $('.___js-delete-blog').on('click',function(){
+    $('.___js-delete-blog').on('click', function () {
         // Lấy dữ liệu từ nút xóa
         const id = $(this).data('id');
         console.log(id);

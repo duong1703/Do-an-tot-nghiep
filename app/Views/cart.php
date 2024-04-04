@@ -8,6 +8,7 @@
                     <li class="active">Giỏ hàng</li>
                 </ol>
             </div>
+            <button style="background: orange; margin-bottom: 20px; border-radius: 50px" id="button-empty">Xóa giỏ hàng</button>
             <div class="table-responsive cart_info">
                 <table class="table table-condensed">
                     <thead>
@@ -25,4 +26,6 @@
             </div>
         </div>
     </section>
+
+
 <?php include 'templates/footer.php'; ?>

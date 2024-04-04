@@ -4,25 +4,26 @@
 				<div class="row">
 					<div class="col-sm-2">
 						<div class="companyinfo">
-							
-						<img src="/assets/images/logo.png" alt="" width="180" height="90"/></a>
+						<img src="/assets/images/logo.png" alt="" width="180" height="90" class="img-responsive" /></a>
 						</div>
 					</div>
 
 					<div class="col-sm-3">
 						<div class="address">
-							<img src="/assets/user/images/home/map.png" alt="" />
+							<img src="/assets/user/images/home/map.png" alt="" class="img-fluid" />
 							<p>235 Hoàng Quốc việt, Hà Nội</p>
 						</div>
 					</div>
 
-					<div class="col-sm-2">
-						<div class="companyinfo">
-							
-						<img src="/assets/images/icon.png" alt="" width="500" height="90"/></a>
-						</div>
-					</div>
-					
+                    <div class="col-sm-3">
+                        <div class="flex-container">
+                            <a href="#">
+                                <img style="margin-top: 50px; margin-left 50px: " src="/assets/images/icon.png" class="img-responsive" alt="Company Logo" height="90px" width="250px">
+                            </a>
+                        </div>
+
+                    </div>
+
 				</div>
 			</div>
 		</div>
@@ -60,6 +61,7 @@
 							<ul class="nav nav-pills nav-stacked">
 								<li><a href="#">Chính sách sử dụng</a></li>
 								<li><a href="#">Chính sách ưu đãi</a></li>
+                                <li><a href="#">Chính sách mua hàng</a></li>
 
 							</ul>
 						</div>
@@ -77,13 +79,14 @@
 						</div>
 					</div>
 					<div class="col-sm-3 col-sm-offset-1">
-						<div class="single-widget">
-							<h2>Gửi mail nhận ưu đãi ngay hôm nay!</h2>
-							<form action="#" class="searchform">
-								<input type="text" placeholder="Your email address" />
-								<button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
-							</form>
-						</div>
+                        <div class="single-widget">
+                            <h2>Đăng ký nhận tin</h2>
+                            <form action="#" class="searchform">
+                                <input type="text" placeholder="Email">
+                                <button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
+                                <p>Đăng ký nhận tin để nhận những thông tin mới nhất về chúng tôi...</p>
+                            </form>
+                        </div>
 					</div>
 
 				</div>
@@ -108,8 +111,8 @@
 	<script src="assets/user/js/main.js"></script>
 	<script src="assets/admin/js/event.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.5/pagination.min.js"></script>
-
-<script src="https://uhchat.net/code.php?f=3c7a44"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
 
 <script>
     // Add active class to the current button (highlight it)
@@ -123,6 +126,57 @@
         });
     }
 
+    //Rating
+    const stars = document.querySelectorAll('.star');
+    const submitBtn = document.getElementById('submitBtn');
+
+    let rating = 0;
+
+    stars.forEach(star => {
+        star.addEventListener('click', () => {
+            rating = parseInt(star.getAttribute('data-value'));
+            updateStars();
+        });
+    });
+
+    function updateStars() {
+        stars.forEach((star, index) => {
+            if (index < rating) {
+                star.classList.add('active');
+            } else {
+                star.classList.remove('active');
+            }
+        });
+
+        if (rating > 0) {
+            submitBtn.style.display = 'block';
+        } else {
+            submitBtn.style.display = 'none';
+        }
+    }
+
+    //Slider
+    const swiper = new Swiper('.swiper', {
+        // Optional parameters
+        direction: 'vertical',
+        loop: true,
+
+        // If we need pagination
+        pagination: {
+            el: '.swiper-pagination',
+        },
+
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+
+        // And if we need scrollbar
+        scrollbar: {
+            el: '.swiper-scrollbar',
+        },
+    });
 </script>
 
 </body>

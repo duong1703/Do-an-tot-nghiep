@@ -52,3 +52,40 @@ function updateTime() {
 // Gọi hàm updateTime() mỗi giây để cập nhật thời gian
 setInterval(updateTime, 1000);
 
+
+//rating
+const stars = document.querySelectorAll('.star');
+const ratingValue = document.getElementById('rating-value');
+
+let rating = 0;
+
+stars.forEach((star, index) => {
+	star.addEventListener('click', () => {
+		rating = index + 1;
+		updateRating();
+	});
+
+	star.addEventListener('mouseover', () => {
+		resetRating();
+		for (let i = 0; i <= index; i++) {
+			stars[i].classList.add('active');
+		}
+	});
+
+	star.addEventListener('mouseout', () => {
+		resetRating();
+		for (let i = 0; i < rating; i++) {
+			stars[i].classList.add('active');
+		}
+	});
+});
+
+function resetRating() {
+	stars.forEach(star => {
+		star.classList.remove('active');
+	});
+}
+
+function updateRating() {
+	ratingValue.textContent = rating + ' / 5';
+}
