@@ -87,15 +87,27 @@ class UserControllers extends BaseController
         return redirect()->back()->withInput()->with($result['massageCode'], $result['messages']);
     }
 
-    public function delete($id)
+    public function delete()
     {
-        $user = $this->service->getUserByID($id);
 
-        if(!$user){
-            return redirect('error/404');
+        $UserModel = new UserModel();
+        $ids = $this->request->getPost('id');
+
+        // Chuyển $ids thành một mảng nếu nó không phải là mảng
+        if (!is_array($ids)) {
+            $ids = explode(',', $ids); // Phân tách chuỗi thành mảng dựa trên dấu phẩy
+        }
+        // Kiểm tra xem có id nào được gửi lên không
+        if (!empty($ids)) {
+            foreach ($ids as $id) {
+                // Xóa bài viết với id được chỉ định
+                $UserModel->delete($id);
+            }
+            session()->setFlashdata('msg_success', 'Thành công');
+        } else {
+            session()->setFlashdata('msg_error', 'Không thành công');
         }
 
-        $result = $this->service->deleteUser($id);
-        return redirect('admin/user/list')->with($result['massageCode'], $result['messages']);
+        return redirect()->to(base_url('admin/user/list'));
     }
 }

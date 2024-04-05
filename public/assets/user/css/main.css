@@ -218,12 +218,6 @@ a#scrollUp i{
 	background:#fff;
 }
 
-
-.header-bottom {
-  padding-bottom: 30px;
-  padding-top: 30px;
-}
-
 .navbar-collapse.collapse{
   padding-left: 0;
 }
@@ -902,7 +896,6 @@ h2.title {
   transition: height 500ms ease 0s;
   width: 100%;
   display: block;
-  opacity:;
 }
 
 .single-products:hover .product-overlay {
@@ -2800,6 +2793,52 @@ button {
   color: #ffcc00;
 }
 
+
+
+.price-range-slider {
+  width:100%;
+  float:left;
+  padding:10px 20px;
+.range-value {
+  margin:0;
+input {
+  width:100%;
+  background:none;
+  color: #000;
+  font-size: 16px;
+  font-weight: initial;
+  box-shadow: none;
+  border: none;
+  margin: 20px 0 20px 0;
+}
+}
+
+.range-bar {
+  border: none;
+  background: #000;
+  height: 3px;
+  width: 96%;
+  margin-left: 8px;
+
+.ui-slider-range {
+  background:#06b9c0;
+}
+
+.ui-slider-handle {
+  border:none;
+  border-radius:25px;
+  background:#fff;
+  border:2px solid #06b9c0;
+  height:17px;
+  width:17px;
+  top: -0.52em;
+  cursor:pointer;
+}
+.ui-slider-handle + span {
+  background:#06b9c0;
+}
+}
+}
 
 License Terms
 

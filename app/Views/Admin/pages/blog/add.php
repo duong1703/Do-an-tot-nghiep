@@ -27,6 +27,14 @@
                                 <label>Tiêu đề:</label>
                                 <input type="text" name="title" placeholder="Tiêu đề">
                             </div>
+                            <div style="padding-top: 20px" >
+                                <label for="images">Ảnh bài viết</label>
+                                <input name="images" type="file" accept="image/*" class="form-control-file" id="images"
+                                       required>
+                                <div class="form-group">
+                                    <img id="img-show" src="" class="img-fluid" alt="Hình đại diện." style="display: none; height: 80px; width: 80px;">
+                                </div>
+                            </div>
                             <div style="padding-top: 20px">
                                 <label>Nội dung</label>
                                 <textarea name="content" id="content">Welcome to TinyMCE!</textarea>
@@ -65,5 +73,21 @@
         ],
         ai_request: (request, respondWith) => respondWith.string(() => Promise.reject(
             "See docs to implement AI Assistant")),
+    });
+</script>
+
+<!-- JavaScript for file input preview -->
+<script>
+    document.getElementById('images').addEventListener('change', function (event) {
+        var input = event.target;
+        var img = document.getElementById('img-show');
+        img.style.display = 'block';
+
+        var reader = new FileReader();
+        reader.onload = function () {
+            img.src = reader.result;
+        };
+
+        reader.readAsDataURL(input.files[0]);
     });
 </script>

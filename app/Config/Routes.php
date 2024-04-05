@@ -31,8 +31,10 @@ $routes->get('views/profile', 'Users\HomeControllers::profile');
 $routes->get('views/blog', 'Users\HomeControllers::blog');
 $routes->get('views/intro', 'Users\HomeControllers::intro');
 $routes->get('views/contact', 'Users\HomeControllers::contact');
+$routes->get('views/product', 'Users\HomeControllers::product');
 $routes->get('views/product/(:segment)', 'Users\HomeControllers::product/$1');
 $routes->get('product_detail/(:num)', 'Users\HomeControllers::product_detail/$1');
+
 
 //giỏ hàng
 $routes->get('views/cart', 'Users\HomeControllers::cart');
@@ -46,9 +48,6 @@ $routes->group('product', function ($routes) {
 
 
 $routes->get('views/checkout', 'Users\HomeControllers::checkout');
-
-
-
 
 
 
@@ -74,7 +73,7 @@ $routes->get('error/404', function () {
 $routes->get('showfile/(:any)', 'Admin\FileControllers::index/$1');
 
 
-//Admin-web
+//Admin-web (Có bảo vệ routes)
 $routes->get('admin/login', 'Admin\LoginControllers::index');
 $routes->post('admin/login', 'Admin\LoginControllers::login');
 
@@ -90,7 +89,7 @@ $routes->group('admin', ['filter' => 'AuthFilter'], function ($routes) {
         $routes->post('create', 'Admin\UserControllers::create');
         $routes->get('edit/(:num)', 'Admin\UserControllers::edit/$1');
         $routes->post('update', 'Admin\UserControllers::update');
-        $routes->get('delete/(:num)', 'Admin\UserControllers::delete/$1');
+        $routes->post('delete/', 'Admin\UserControllers::delete');
     });
 
     $routes->group('product', function ($routes) {
@@ -98,7 +97,7 @@ $routes->group('admin', ['filter' => 'AuthFilter'], function ($routes) {
         $routes->get('add', 'Admin\ProductControllers::add');
         $routes->post('create', 'Admin\ProductControllers::create');
         $routes->match(['get', 'post'], 'edit/(:num)', 'Admin\ProductControllers::editOrUpdate/$1'); // Use match for both GET and POST
-        $routes->get('delete/(:num)', 'Admin\ProductControllers::delete/$1');
+        $routes->post('delete', 'Admin\ProductControllers::delete');
     });
 
     $routes->group('blog', function ($routes) {

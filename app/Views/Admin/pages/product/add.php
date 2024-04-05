@@ -35,7 +35,7 @@
                             <input name="images" type="file" accept="image/*" class="form-control-file" id="images"
                                    required>
                             <div class="form-group">
-                                <img id="img-show" src="" class="img-fluid" alt="Hình đại diện." style="display: none;">
+                                <img id="img-show" src="" class="img-fluid" alt="Hình đại diện." style="display: none;height: 100px; width: 100px;">
                             </div>
                         </div>
                     </div>

@@ -44,7 +44,7 @@
                     <div class="contactinfo">
                         <ul class="nav nav-pills">
                             <li><a href="#"><i class="fa fa-phone"></i>0812453363</a></li>
-                            <li><a href="#"><i class="fa fa-envelope"></i> dduong1703@gmail.com</a></li>
+                            <li><a href="#"><i class="fa fa-envelope"></i>dduong1703@gmail.com</a></li>
                         </ul>
                     </div>
                 </div>
@@ -61,99 +61,48 @@
         </div>
     </div><!--/header_top-->
 
-<<<<<<< HEAD
     <div class="header-middle"><!--header-middle-->
         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
                     <div class="logo pull-left">
-                        <a href="index.php?page=Trang-chu"><img src="/assets/images/logo.png" alt="" width="270"
-                                                                height="120"/></a>
+                        <a href="index.php?page=Trang-chu"><img src="/assets/images/logo.png" alt="" /></a>
                     </div>
-                    <!-- <div class="btn-group pull-right">
-                        <div class="btn-group">
-                        </div>
-=======
-		<div id="Header" class="header-bottom"><!--header-bottom-->
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-9">
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-							</button>
-						</div>
-						<div  class="mainmenu pull-left">
-							<ul  class="nav navbar-nav collapse navbar-collapse">
-								<li><a  href="index.php?page=Trang-chu" id="myactive" class=" breadcrumb-item active">Trang chủ</a></li>
-								<li class="dropdown"><a href="#">Cửa hàng<i class="fa fa-angle-down"></i></a>
-									<ul role="menu" class="sub-menu">
-										<li><a class="breadcrumb-item" href="views/product/0">Sản phẩm</a></li>
-										<!-- <li><a href="product-details.html">Product Details</a></li> -->
-									</ul>
-								</li>
-								
-								<!-- <li><a href="404.html">404</a></li> -->
-								<li><a class="breadcrumb-item" href="views/blog">Tin tức công nghệ</a></li>
-                                <li><a class="breadcrumb-item" href="views/intro">Giới thiệu</a></li>
-								<li><a class="breadcrumb-item" href="views/contact">Liên hệ</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-sm-3">
-						<div class="search_box pull-right">
-							<input type="text" placeholder="Search" />
-						</div>
-					</div>
-				</div>
-			</div>
-		</div><!--/header-bottom-->
-	</header><!--/header-->
->>>>>>> 5fdaf86673bca2b4547b1383b90bbf30452f6f17
 
-                        <div class="btn-group">
-                        </div>
-                    </div> -->
                 </div>
                 <div class="shop-menu pull-right">
                     <?php if (session()->has("customer_name")): ?>
                         <!-- Hiển thị khi người dùng đã đăng nhập -->
-                        <ul class="nav navbar-nav --bs-breadcrumb-divider: '>'">
-                            <li><a class="breadcrumb-item" href="views/profile"><i
-                                            class="fa fa-user"></i><?= session()->get("customer_name") ?></a></li>
-                            <li><a class="breadcrumb-item" href="#"><i class="fa fa-star"></i> Yêu thích</a></li>
-                            <li><a class="breadcrumb-item" href="views/cart"><i class="fa fa-shopping-cart"></i> Giỏ
+                        <ul class="nav navbar-nav: '>'">
+                            <li><a  href="views/profile"><i class="fa fa-user"></i><?= session()->get("customer_name") ?></a></li>
+                            <li><a  href="#"><i class="fa fa-star"></i> Yêu thích</a></li>
+                            <li><a  href="views/cart"><i class="fa fa-shopping-cart"></i> Giỏ
                                     hàng</a></li>
-                            <li><a class="breadcrumb-item" href="/logout"><i class="fa fa-sign-out"></i> Đăng xuất</a>
+                            <li><a  href="/logout"><i class="fa fa-sign-out"></i> Đăng xuất</a>
                             </li>
                         </ul>
                     <?php else: ?>
                         <!-- Hiển thị khi người dùng chưa đăng nhập -->
-                        <ul class="nav navbar-nav --bs-breadcrumb-divider: '>'">
-                            <li><a class="breadcrumb-item" href="views/profile"><i class="fa fa-user"></i>Tài khoản</a>
+                        <ul class="nav navbar-nav : '>'">
+                            <li><a  href="views/profile"><i class="fa fa-user"></i>Tài khoản</a>
                             </li>
-                            <li><a class="breadcrumb-item" href="#"><i class="fa fa-star"></i> Yêu thích</a></li>
-                            <li><a class="breadcrumb-item" href="views/cart"><i class="fa fa-shopping-cart"></i> Giỏ
+                            <li><a  href="#"><i class="fa fa-star"></i> Yêu thích</a></li>
+                            <li><a  href="views/cart"><i class="fa fa-shopping-cart"></i> Giỏ
                                     hàng</a></li>
-                            <li><a class="breadcrumb-item" href="/login"><i class="fa fa-lock"></i> Đăng nhập</a></li>
+                            <li><a  href="/login"><i class="fa fa-lock"></i> Đăng nhập</a></li>
                         </ul>
                     <?php endif; ?>
                 </div>
-
             </div>
         </div>
     </div><!--/header-middle-->
 
-    <div id="Header" class="header-bottom"><!--header-bottom-->
+    <div class="header-bottom" style="padding-bottom: 75px; padding-top: 25px"><!--header-bottom-->
         <div class="container">
             <div class="row">
                 <div class="col-sm-9">
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse"
-                                data-target=".navbar-collapse">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -162,19 +111,16 @@
                     </div>
                     <div class="mainmenu pull-left">
                         <ul class="nav navbar-nav collapse navbar-collapse">
-                            <li><a href="index.php?page=Trang-chu" id="myactive" class=" breadcrumb-item active">Trang
-                                    chủ</a></li>
+                            <li><a href="index.php?page=Trang-chu" class="active">Trang chủ</a></li>
                             <li class="dropdown"><a href="#">Cửa hàng<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
-                                    <li><a class="breadcrumb-item" href="views/product">Sản phẩm</a></li>
-                                    <!-- <li><a href="product-details.html">Product Details</a></li> -->
+                                    <li><a href="views/product/0">Sản phẩm</a></li>
                                 </ul>
                             </li>
 
-                            <!-- <li><a href="404.html">404</a></li> -->
-                            <li><a class="breadcrumb-item" href="views/blog">Tin tức công nghệ</a></li>
-                            <li><a class="breadcrumb-item" href="views/intro">Giới thiệu</a></li>
-                            <li><a class="breadcrumb-item" href="views/contact">Liên hệ</a></li>
+                            <li><a  href="views/blog">Tin tức công nghệ</a></li>
+                            <li><a  href="views/intro">Giới thiệu</a></li>
+                            <li><a  href="views/contact">Liên hệ</a></li>
                         </ul>
                     </div>
                 </div>
@@ -187,12 +133,3 @@
         </div>
     </div><!--/header-bottom-->
 </header><!--/header-->
-
-<style>
-    .product {
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        margin-bottom: 20px;
-    }
-</style>

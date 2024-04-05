@@ -129,17 +129,31 @@ class ProductControllers extends BaseController
         $data = $this->loadMasterLayout([], 'Sửa sản phẩm', 'admin/pages/product/edit', $dataLayout, $cssFiles, []);
         return view('admin/main', $data);
     }
-    public function delete($id)
+
+
+
+    public function delete()
     {
-        $product = $this->service->getProductByID($id);
 
+        $productModel = new ProductModel();
+        $ids = $this->request->getPost('id_product');
 
-        if (!$product) {
-            return redirect('error/404');
+        // Chuyển $ids thành một mảng nếu nó không phải là mảng
+        if (!is_array($ids)) {
+            $ids = explode(',', $ids); // Phân tách chuỗi thành mảng dựa trên dấu phẩy
+        }
+        // Kiểm tra xem có id nào được gửi lên không
+        if (!empty($ids)) {
+            foreach ($ids as $id) {
+                // Xóa sản phẳm với id được chỉ định
+                $productModel->delete($id);
+            }
+            session()->setFlashdata('msg_success', 'Thành công');
+        } else {
+            session()->setFlashdata('msg_error', 'Không thành công');
         }
 
-        $result = $this->service->deleteProduct($id);
-        return redirect('admin/product/list')->with($result['massageCode'], $result['messages']);
+        return redirect()->to(base_url('admin/product/list'));
     }
 
     public function search(){

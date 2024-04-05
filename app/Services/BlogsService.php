@@ -53,7 +53,7 @@ class BlogsService extends BaseService
         $rule = [
             'id' => 'max_length[255]',
             'title' => 'max_length[255]',
-            'content' => 'max_length[255]',
+            'content' => 'max_length[100]',
             'created_at' => 'max_length[255]',
             'updated_at' => 'max_length[255]',
             'deleted_at' => 'max_length[255]',

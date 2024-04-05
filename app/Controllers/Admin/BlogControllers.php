@@ -52,6 +52,7 @@ class BlogControllers extends BaseController
 
     public function add()
     {
+
         $data = [];
         $blogs = new BlogModel();
         $data['blogs'] = $blogs->findAll();
@@ -61,18 +62,40 @@ class BlogControllers extends BaseController
 
     public function create()
     {
+
+        $BlogModel = new BlogModel();
         // Check if the form is submitted
         if ($this->request->getMethod() === 'post') {
             // Get the form input
+            $images_blogs = $this->request->getPost('images_blogs');
             $content = $this->request->getPost('content');
             $title = $this->request->getPost('title');
             $data = [
+                'images_blogs' => $images_blogs,
                 'content' => $content,
                 'title' => $title,
                 // Add other fields here if needed
             ];
-            $blogModel = new BlogModel();
-            $newBlogID = $blogModel->save($data);
+
+            if ($imageFile = $this->request->getFile('images')) {
+                // Đường dẫn thư mục lưu trữ ảnh
+                $uploadDirectory = FCPATH . 'uploads'; // Thư mục lưu trữ trên máy chủ
+
+                // Tạo tên file duy nhất để tránh trùng lặp
+                $newName = $imageFile->getRandomName();
+
+                // Di chuyển ảnh vào thư mục lưu trữ
+                if ($imageFile->move($uploadDirectory, $newName)) {
+                    // Lưu đường dẫn của ảnh vào mảng dữ liệu sản phẩm
+                    $blog['images'] = $newName; // Chỉ lưu đường dẫn tương đối
+                }
+            } else {
+                // Nếu không có ảnh được tải lên, đặt giá trị của trường ảnh là chuỗi rỗng
+                $blog['images'] = '';
+            }
+
+
+            $newBlogID = $BlogModel->save($data);
             session()->setFlashdata('msg_success', 'Thành công');
             return redirect()->to('admin/blog/list');
         }

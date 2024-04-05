@@ -3,7 +3,16 @@
     <script src="public/vendor/toastr/build/toastr.min.js"></script>
     <div class="row">
         <div class="col-lg-12">
-        <?= view('messages/message') ?>
+            <?php if (session()->has("error")): { ?>
+                <div id="error" class="alert alert-danger p-1 " role="alert">
+                    <?= session()->get("error") ?>
+                </div>
+            <?php } endif; ?>
+            <?php if (session()->has("success")): { ?>
+                <div class="alert alert-success p-1 " role="alert">
+                    <?= session()->get("success") ?>
+                </div>
+            <?php } endif; ?>
             <div class="card easion-card rounded-4">
                 <div class="card-header rounded-4">
                     <div class="easion-card-icon">
@@ -25,6 +34,7 @@
                         </thead>
                         <tbody>
                             <?php foreach ($users as $user) : ?>
+                                <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
                                 <tr>
                                     <td><?= $user['id'] ?></td>
                                     <td><?= $user['name'] ?></td>

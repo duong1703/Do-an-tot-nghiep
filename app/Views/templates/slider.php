@@ -1,5 +1,10 @@
 <style>
 
+    swiper-container {
+        width: 100%;
+        height: 100%;
+    }
+
     .slider {
         width: 100%;
         height: 100%;

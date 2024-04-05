@@ -56,7 +56,7 @@
                     </div>
                 <?php } endif;?>
                 <?php if(session()->has("success")): {?>
-                    <div class="alert alert-success p-1 text-center" role="alert" id="successMessage" style="display: none;">Đăng nhập thành công!</div>>
+                    <div class="alert alert-success p-1 text-center" role="alert" id="successMessage";">Đăng nhập thành công!</div>>
                         <?= session()->get("success") ?>
                     </div>
                 <?php } endif;?>

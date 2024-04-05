@@ -3,7 +3,16 @@
     <script src="public/vendor/toastr/build/toastr.min.js"></script>
     <div class="row">
         <div class="col-lg-12">
-            <?= view('messages/message') ?>
+            <?php if (session()->has("error")): { ?>
+                <div id="error" class="alert alert-danger p-1 " role="alert">
+                    <?= session()->get("error") ?>
+                </div>
+            <?php } endif; ?>
+            <?php if (session()->has("success")): { ?>
+                <div class="alert alert-success p-1 " role="alert">
+                    <?= session()->get("success") ?>
+                </div>
+            <?php } endif; ?>
             <div class="card easion-card rounded-4">
                 <div class="card-header rounded-4">
                     <div class="easion-card-icon">
@@ -16,6 +25,7 @@
                         <thead>
                         <tr>
                             <th scope="col">ID</th>
+                            <th scope="col">Ảnh bài viết</th>
                             <th scope="col">Tiêu đề</th>
                             <th scope="col">Nội dung</th>
                             <th scope="col">Ngày tạo</th>
@@ -25,10 +35,25 @@
                         <tbody>
                         <?php if (isset($blogs) && !empty($blogs)) : ?>
                             <?php foreach ($blogs as $index => $blog) : ?>
+                                <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
                                 <tr>
                                     <td><?= $index + 1 ?></td>
+                                    <td>
+                                        <img src="uploads/<?php echo $blog['images_blogs']; ?>" alt="" height="60px" width="60px">
+                                    </td>
                                     <td><?= $blog['title'] ?></td>
-                                    <td><?= $blog['content'] ?></td>
+                                    <?php
+                                    $maxCharacters = 200; // Số ký tự tối đa muốn hiển thị trước khi cắt
+                                    $truncatedContent = substr($blog['content'], 0, $maxCharacters); // Cắt nội dung
+                                    $remainingContent = substr($blog['content'], $maxCharacters); // Phần còn lại của nội dung
+
+                                    $isTruncated = strlen($blog['content']) > $maxCharacters; // Kiểm tra xem nội dung đã bị cắt hay không
+                                    ?>
+                                    <td><?php echo $isTruncated ? $truncatedContent . '...' : $blog['content']; ?>
+                                        <?php if ($isTruncated): ?>
+                                            <div class="hidden-content" style="display: none;"><?php echo $remainingContent; ?></div>
+                                        <?php endif; ?>
+                                    </td>
                                     <td><?= $blog['created_at'] ?></td>
                                     <td class="text-center">
                                         <a href="admin/blog/edit/<?= $blog['id_blogs'] ?>" class="btn btn-primary btn-sm ___js-edit-blog"><i class="fas fa-edit"></i></a>
@@ -77,4 +102,3 @@
         }
     });
 </script>
-

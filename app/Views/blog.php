@@ -6,14 +6,12 @@
                     <h2 class="title text-center">Tin công nghệ mới nhất</h2>
                 </div>
             </div>
-            <?php if (!empty ($blogs) && is_array($blogs)): ?>
-                <?php foreach ($blogs as $blog) : ?>
-                    <li>
-                        <h2><?= $blog['title'] ?></h2>
-                        <p><?= $blog['content'] ?></p>
-                    </li>
-                <?php endforeach; ?>
-            <?php endif; ?>
+
+            <?php foreach ($blogs as $blog): ?>
+                <!-- Hiển thị thông tin của từng bài viết -->
+                <h2><?php echo $blog['title']; ?></h2>
+                <p><?php echo $blog['content']; ?></p>
+            <?php endforeach; ?>
         </div>
     </div>
 <?= view('templates/footer'); ?>

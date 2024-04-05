@@ -18,7 +18,6 @@
         "codeigniter4/shield": "^1.0",
         "fabpot/goutte": "^4.0",
         "firebase/php-jwt": "6.4",
-        "google/apiclient": "^2.0@dev",
         "jason-napolitano/codeigniter4-cart-module": "^1.0",
         "kejawenlab/ci4pager": "^1.0",
         "laminas/laminas-escaper": "^2.9",

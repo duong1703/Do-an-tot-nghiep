@@ -56,10 +56,6 @@ class HomeControllers extends BaseController
         return view('login');
     }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 5fdaf86673bca2b4547b1383b90bbf30452f6f17
     public function register()
     {
         if ($this->request->getMethod() === 'post') {
@@ -116,8 +112,8 @@ class HomeControllers extends BaseController
 
     public function blog()
     {
-        $model = new BlogModel();
-        $data['blogsObj'] = $model->findAll();
+        $BlogModel = new BlogModel();
+        $data['blogs'] = $BlogModel->findAll();
         return view('blog', $data);
     }
 
@@ -154,7 +150,7 @@ class HomeControllers extends BaseController
         return view('product', $data);
     }
 
-    public function product_detail()
+    public function product_detail($category = null)
     {
         return view('product_detail');
     }

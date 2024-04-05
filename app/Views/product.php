@@ -1,4 +1,5 @@
 <?php
+$totalItems = 100; // Giả sử bạn có tổng cộng 100 sản phẩm
 // Số sản phẩm trên mỗi trang
 $perPage = 12;
 
@@ -15,12 +16,7 @@ $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
     <div class="container">
         <div class="row">
             <div class="col-sm-3">
-<<<<<<< HEAD
-
-                <!-- Danh sách các danh mục sản phẩm -->
-=======
->>>>>>> 5fdaf86673bca2b4547b1383b90bbf30452f6f17
-                <h2>Danh mục sản phẩm</h2>
+                <h2 style="position: relative;" class="title text-center">Danh mục sản phẩm</h2>
                 <ul class="list-group">
                     <?php if(isset($categories) && !empty($categories)): ?>
                         <?php foreach ($categories as $category): ?>
@@ -32,20 +28,13 @@ $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
                         <li class="list-group-item">Không có danh mục sản phẩm.</li>
                     <?php endif; ?>
                 </ul>
-<<<<<<< HEAD
 
-=======
->>>>>>> 5fdaf86673bca2b4547b1383b90bbf30452f6f17
             </div>
 
             <div class="col-sm-9 padding-right">
                 <div class="features_items">
                     <h2 class="title text-center">Sản phẩm</h2>
                     <div id="dataContainer" class="row">
-<<<<<<< HEAD
-                        <?php if (!empty($products)): ?>
-                            <?php foreach ($products as $product): ?>
-=======
                         <?php
                         // Tính toán chỉ số bắt đầu của sản phẩm trên trang hiện tại
                         $startIndex = ($currentPage - 1) * $perPage;
@@ -55,7 +44,6 @@ $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
 
                         if (!empty($currentProducts)): ?>
                             <?php foreach ($currentProducts as $product): ?>
->>>>>>> 5fdaf86673bca2b4547b1383b90bbf30452f6f17
                                 <div class="col-sm-4">
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
@@ -80,9 +68,11 @@ $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
                                 </div>
                             <?php endforeach; ?>
                         <?php else: ?>
-                            <p>Không có sản phẩm nào trong danh mục này.</p>
+                            <p class="text-center">Không có sản phẩm nào trong danh mục này.</p>
                         <?php endif; ?>
                     </div>
+
+
                     <!-- Pagination -->
                     <div class="text-center">
                         <ul id="pagination" class="pagination">
