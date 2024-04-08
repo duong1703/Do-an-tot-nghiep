@@ -827,6 +827,7 @@ INFO - 2024-04-04 15:08:07 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2024-04-04 15:08:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-04-04 15:08:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-04-04 15:08:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+<<<<<<< HEAD
 >>>>>>> 5fdaf86673bca2b4547b1383b90bbf30452f6f17
 INFO - 2024-04-04 15:43:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-04-04 15:43:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
@@ -1287,3 +1288,13 @@ INFO - 2024-04-04 19:18:11 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2024-04-04 19:18:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-04-04 19:18:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-04-04 19:18:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+=======
+INFO - 2024-04-04 16:12:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-04 16:12:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-04 16:12:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-04 16:12:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-04 16:12:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-04 16:13:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-04 16:15:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-04 16:15:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+>>>>>>> 719cd6243ea28cab7d294643574d39d9789dbef1

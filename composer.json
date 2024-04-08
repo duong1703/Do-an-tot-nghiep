@@ -12,8 +12,7 @@
     },
     "require": {
         "php": "^8.0 || ^8.1 || ^8.2",
-        "ext-intl": "*",
-        "ext-json": "*",
+         "ext-json": "*",
         "ext-mbstring": "*",
         "codeigniter4/shield": "^1.0",
         "fabpot/goutte": "^4.0",
