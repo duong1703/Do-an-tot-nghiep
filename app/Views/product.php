@@ -1,16 +1,4 @@
-<?php
-// Số sản phẩm trên mỗi trang
-$perPage = 12;
-
-// Tính tổng số trang dựa trên số lượng sản phẩm và số sản phẩm trên mỗi trang
-$totalPages = ceil(count($products) / $perPage);
-
-// Khai báo biến $currentPage và khởi tạo giá trị mặc định là 1
-$currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
-?>
-
 <?php include 'templates/header.php'; ?>
-
 <section>
     <div class="container">
         <div class="row">
@@ -28,20 +16,12 @@ $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
                     <?php endif; ?>
                 </ul>
             </div>
-
             <div class="col-sm-9 padding-right">
                 <div class="features_items">
                     <h2 class="title text-center">Sản phẩm</h2>
                     <div id="dataContainer" class="row">
-                        <?php
-                        // Tính toán chỉ số bắt đầu của sản phẩm trên trang hiện tại
-                        $startIndex = ($currentPage - 1) * $perPage;
-
-                        // Lấy các sản phẩm cho trang hiện tại
-                        $currentProducts = array_slice($products, $startIndex, $perPage);
-
-                        if (!empty($currentProducts)): ?>
-                            <?php foreach ($currentProducts as $product): ?>
+                        <?php if (!empty($products)): ?>
+                            <?php foreach ($products as $product): ?>
                                 <div class="col-sm-4">
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
@@ -66,21 +46,10 @@ $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
                             <p>Không có sản phẩm nào trong danh mục này.</p>
                         <?php endif; ?>
                     </div>
-                    <!-- Pagination -->
-                    <div class="text-center">
-                        <ul id="pagination" class="pagination">
-                            <?php if ($currentPage > 1): ?>
-                                <li class="page-item"><a class="page-link" href="<?= site_url('views/product/' . urlencode($category) . '/' . ($currentPage - 1)) ?>">Previous</a></li>
-                            <?php endif; ?>
 
-                            <?php for ($i = 1; $i <= $totalPages; $i++): ?>
-                                <li class="page-item <?= $currentPage == $i ? 'active' : '' ?>"><a class="page-link" href="<?= site_url('views/product/' . urlencode($category) . '/' . $i) ?>"><?= $i ?></a></li>
-                            <?php endfor; ?>
-
-                            <?php if ($currentPage < $totalPages): ?>
-                                <li class="page-item"><a class="page-link" href="<?= site_url('views/product/' . urlencode($category) . '/' . ($currentPage + 1)) ?>">Next</a></li>
-                            <?php endif; ?>
-                        </ul>
+                    <!-- Hiển thị phân trang -->
+                    <div class="col-sm-12">
+                        <?php echo $pager->links(); ?>
                     </div>
                 </div>
             </div>

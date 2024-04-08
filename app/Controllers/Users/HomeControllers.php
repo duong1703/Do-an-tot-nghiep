@@ -28,7 +28,6 @@ class HomeControllers extends BaseController
         if (session()->has('logged_in') && session()->has('customer_id')) {
             return redirect()->to('/');
         }
-
         // Kiểm tra nếu có dữ liệu được gửi từ form đăng nhập
         if ($this->request->getMethod() === 'post') {
             // Lấy email và mật khẩu từ form đăng nhập
@@ -43,6 +42,8 @@ class HomeControllers extends BaseController
                 session()->set('logged_in', true);
                 session()->set('customer_id', $customer['customer_id']);
                 session()->set('customer_name', $customer['customer_name']);
+                session()->set('customer_email', $customer['customer_email']);
+                session()->set('created_at', $customer['created_at']);
                 return redirect()->to('/');
             } else {
                 // Đăng nhập không thành công, hiển thị thông báo lỗi
@@ -124,6 +125,9 @@ class HomeControllers extends BaseController
             // Nếu không có danh mục được chọn, hiển thị tất cả sản phẩm
             $data['products'] = $productModel->paginate(12);
         }
+        // Khởi tạo đối tượng Pager và truyền vào view
+        $pager = $productModel->pager;
+        $data['pager'] = $pager;
         // Danh sách các danh mục cố định
         $data['categories'] = [
             'MÀN HÌNH',
@@ -161,11 +165,27 @@ class HomeControllers extends BaseController
 
     }
 
-
     public function profile()
     {
-        return view('profile');
+        // Create a new instance of the CustomerModel
+        $customerModel = new CustomerModel();
+
+        // Get the customer_id from the session
+        $customer_id = session()->get('customer_id');
+
+        // Retrieve the customer record from the database based on the customer_id
+        $customer = $customerModel->find($customer_id);
+
+        // If the customer is not found, handle the case here
+        if (!$customer) {
+            // For example, you might redirect to an error page or return an error message
+            return redirect()->route('error')->with('error', 'Customer not found!');
+        }
+
+        // Pass the customer data to the view
+        return view('profile', ['customer' => $customer]);
     }
+
 
     public function checkout()
     {
