@@ -18,7 +18,8 @@
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplecartjs/3.0.5/simplecart.min.js">
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.6.0/pagination.min.js" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.6.0/pagination.js" rel="stylesheet">
 
 
     <!--[if lt IE 9]>

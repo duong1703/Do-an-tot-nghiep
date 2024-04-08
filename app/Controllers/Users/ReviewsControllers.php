@@ -7,26 +7,33 @@ use  App\Models\ReviewsModel;
 
 class ReviewsControllers extends BaseController
 {
-    public function create()
+    public function sendReviews()
     {
-        // Check if the form is submitted
-        if ($this->request->getMethod() === 'post') {
-            // Get the form input
-            $name = $this->request->getPost('customer_name');
-            $email = $this->request->getPost('email');
-            $content = $this->request->getPost('content');
-            $data = [
-                'customer_name' => $name,
-                'email' => $email,
-                'content' => $content,
-                // Add other fields here if needed
-            ];
-            $ReviewsModel = new ReviewsModel();
-            $newCommentID = $ReviewsModel->save($data);
-            session()->setFlashdata('msg_success', 'Thành công');
-            return redirect()->to('views/product_detail');
-        }
-        return view('index');
+        // Kiểm tra CSRF token và xác thực dữ liệu đầu vào
+        $this->validate([
+            'name' => 'required',
+            'email' => 'required|valid_email',
+            'content' => 'required',
+            //Thêm quy định cho rating nếu cần
+        ]);
+
+        // Lấy dữ liệu từ biểu mẫu
+        $name = $this->request->getPost('name');
+        $email = $this->request->getPost('email');
+        $content = $this->request->getPost('content');
+        // Lưu đánh giá vào cơ sở dữ liệu
+        $reviewModel = new ReviewModel();
+        $reviewModel->save([
+            'name' => $name,
+            'email' => $email,
+            'content' => $content,
+            //Thêm trường rating nếu có
+        ]);
+
+        // Gửi phản hồi thành công hoặc redirect đến trang cảm ơn
+        //return redirect()->to('/thankyou');
+        //hoặc gửi phản hồi thông qua JSON hoặc view
+        echo json_encode(['success' => true, 'message' => 'Đánh giá của bạn đã được gửi thành công!']);
     }
 
 }

@@ -26,7 +26,6 @@
                                     <div class="alert alert-success p-1 text-center" role="alert" id="successMessage" ;
                                     ">Đăng nhập thành công!
                             </div>
-                            >
                             <?= session()->get("success") ?>
                         </div>
                         <?php } endif; ?>

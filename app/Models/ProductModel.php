@@ -44,7 +44,7 @@ class ProductModel extends BaseModel
 
     public function getProduct($id)
     {
-        return $this->find($id, );
+        return $this->find($id);
     }
 
     public function search($keyword)
@@ -57,6 +57,9 @@ class ProductModel extends BaseModel
        return $querry->getResults();
     }
 
-
+    public function countProducts()
+    {
+        return $this->countAll(); // This will count all rows in the 'products' table
+    }
 }
 

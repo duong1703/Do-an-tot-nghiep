@@ -2,7 +2,8 @@
 
 use App\Controllers\Users\HomeControllers;
 use App\Controllers\Users\ProductsController;
-use App\Controllers\Admin\ProductController;
+use App\Controllers\Admin\ProductControllers;
+use App\Controllers\Users\PaymentControllers;
 use CodeIgniter\Router\RouteCollection;
 use CodeIgniter\RESTful\ResourceController;
 use App\Filters\AuthFilter;
@@ -29,6 +30,8 @@ $routes->get('logout', 'Users\HomeControllers::logout');
 //$routes->get('views/login', 'Users\HomeControllers::profile');
 $routes->get('views/profile', 'Users\HomeControllers::profile');
 $routes->get('views/blog', 'Users\HomeControllers::blog');
+$routes->get('views/blog/(:segment)', 'Users\HomeControllers::blog/$1');
+$routes->get('views/blog_single/(:num)', 'Users\HomeControllers::blog_single/$1');
 $routes->get('views/intro', 'Users\HomeControllers::intro');
 $routes->get('views/contact', 'Users\HomeControllers::contact');
 $routes->get('views/product', 'Users\HomeControllers::product');
@@ -40,11 +43,20 @@ $routes->get('product_detail/(:num)', 'Users\HomeControllers::product_detail/$1'
 $routes->get('views/cart', 'Users\HomeControllers::cart');
 
 
+//VNPAY Gateway
+$routes->post('/vnpay_payment', 'Users\PaymentControllers::vnpay_payment');
+
+
+
+
 // Product - User
 $routes->group('product', function ($routes) {
     $routes->get('product_detail/(:num)', 'Users\ProductsController::productDetail/$1');
 });
 
+
+
+$routes->post('views/sendreviews', 'ReviewsController::sendReviews');
 
 
 $routes->get('views/checkout', 'Users\HomeControllers::checkout');
@@ -61,8 +73,6 @@ $routes->get('admin/pages/product/add', 'UploadControllers::add');          // A
 $routes->post('public/upload', 'UploadControllers::upload'); // Add this line.
 
 
-//Checkout
-$routes->get('views/checkout', 'Users\HomeControllers::checkout');
 
 
 $routes->get('error/404', function () {

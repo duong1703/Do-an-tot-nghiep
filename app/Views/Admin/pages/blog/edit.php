@@ -24,14 +24,6 @@
                                 <label for="title">Tiêu đề:</label>
                                 <input type="text" class="form-control" id="title" name="title" value="<?= $blog['title'] ?>">
                             </div>
-                            <div style="padding-top: 20px" >
-                                <label for="images">Ảnh bài viết</label>
-                                <input name="images" type="file" accept="image/*" class="form-control-file" id="images"
-                                       required>
-                                <div class="form-group">
-                                    <img id="img-show" src="" class="img-fluid" alt="Hình đại diện." style="display: none; height: 100px; width: 100px;;">
-                                </div>
-                            </div>
                             <div class="form-group">
                                 <label for="content">Nội dung:</label>
                                 <textarea class="form-control" id="content" name="content"><?= $blog['content'] ?></textarea>

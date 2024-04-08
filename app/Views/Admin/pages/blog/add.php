@@ -3,13 +3,9 @@
         <h1 class="dash-title">Trang chủ / Bài viết / Thêm</h1>
         <div class="row">
             <div class="col-xl-12">
-                <?php if (session()->getFlashdata('message')): ?>
-                    <div class="alert alert-<?= session()->getFlashdata('message_type'); ?> alert-dismissible fade show"
-                         role="alert">
-                        <?= session()->getFlashdata('message'); ?>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                <?php if (session()->has('success')) : ?>
+                    <div class="alert alert-success" role="alert">
+                        <?= session('success') ?>
                     </div>
                 <?php endif; ?>
                 <div class="card easion-card rounded-4">

@@ -6,13 +6,15 @@
     <div class="row">
         <div class="col-lg-12">
             <?php if (session()->has("error")): { ?>
-                <div id="error" class="alert alert-danger p-1 " role="alert">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     <?= session()->get("error") ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             <?php } endif; ?>
             <?php if (session()->has("success")): { ?>
-                <div class="alert alert-success p-1 " role="alert">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
                     <?= session()->get("success") ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             <?php } endif; ?>
             <div class="card easion-card rounded-4">

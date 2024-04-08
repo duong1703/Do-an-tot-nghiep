@@ -98,11 +98,22 @@ $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
 <!-- JavaScript jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+<!-- CSS Bootstrap -->
+<!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
+
+<!-- JavaScript jQuery -->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+
+<!-- JavaScript Bootstrap -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <script>
     // Hàm để chuyển hướng đến trang hiển thị sản phẩm theo danh mục được chọn
     function viewProducts(category) {
         window.location.href = 'views/product/' + category;
     }
 </script>
+
+
 
 <?php include 'templates/footer.php'; ?>

@@ -72,10 +72,10 @@
                                    <p>Giá: <?= $productObj['price'] . ' ' . 'VND' ?></p>
                                     <label>Quantity:</label>
                                     <input type="number" min="1" value="1"/>
-                                    <form action="" method="post" id="cartForm">
+                                    <form action="<?= base_url('checkout') ?>" method="post" id="cartForm">
+                                        <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>"/>
                                         <input type="hidden" name="product_id" id="productId">
-                                        <button id="button" type="submit" class="btn btn-default add-to-cart"><i
-                                                    class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</button>
+                                        <button id="button" type="submit" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</button>
                                     </form>
 
                                 </span>
@@ -133,13 +133,7 @@
                         <swiper-container class="mySwiper" slides-per-view="3" centered-slides="true" space-between="30"
                                           pagination="true"
                                           pagination-type="fraction" navigation="true">
-                            <swiper-slide>
-                                <?php foreach ($productObj as $productObj): ?>
-                                    <?php if ($productObj === 'description'): ?>
-                                        <p><?= $productObj['name'] ?></p>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            </swiper-slide>
+                            <swiper-slide>Slide 1</swiper-slide>
                             <swiper-slide>Slide 2</swiper-slide>
                             <swiper-slide>Slide 3</swiper-slide>
                             <swiper-slide>Slide 4</swiper-slide>

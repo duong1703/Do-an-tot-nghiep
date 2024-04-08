@@ -38,11 +38,14 @@ class BlogControllers extends BaseController
             base_url() . '/assets/admin/css/datatable.css'
         ];
 
-        $blogModel = new BlogModel();
-        $blogs = $blogModel->findAll();
+        $BlogModel = new BlogModel();
+        $blogs = $BlogModel->findAll();
 
         $dataLayout = [];
         if ($blogs) {
+            foreach ($blogs as &$blog) {
+                $blog['content'] = strlen($blog['content']) > 500 ? substr($blog['content'], 0, 199) . '...' : $blog['content'];
+            }
             $dataLayout['blogs'] = $blogs;
         }
         $data = $this->loadMasterLayout($data, 'Danh sách bài viết', 'admin/pages/blog/list', $dataLayout, $cssFiles, $jsFiles);
@@ -54,85 +57,76 @@ class BlogControllers extends BaseController
     {
 
         $data = [];
-        $blogs = new BlogModel();
-        $data['blogs'] = $blogs->findAll();
+        $BlogModel = new BlogModel();
+        $data['blogs'] = $BlogModel->findAll();
         $data = $this->loadMasterLayout($data, 'Thêm bài viết', 'admin/pages/blog/add');
         return view('admin/main', $data);
     }
 
     public function create()
     {
-
         $BlogModel = new BlogModel();
-        // Check if the form is submitted
-        if ($this->request->getMethod() === 'post') {
-            // Get the form input
-            $images_blogs = $this->request->getPost('images_blogs');
-            $content = $this->request->getPost('content');
-            $title = $this->request->getPost('title');
-            $data = [
-                'images_blogs' => $images_blogs,
-                'content' => $content,
-                'title' => $title,
-                // Add other fields here if needed
-            ];
 
-            if ($imageFile = $this->request->getFile('images')) {
-                // Đường dẫn thư mục lưu trữ ảnh
-                $uploadDirectory = FCPATH . 'uploads'; // Thư mục lưu trữ trên máy chủ
+        // Lấy dữ liệu post
+        $blogsObj = $this->request->getPost();
 
-                // Tạo tên file duy nhất để tránh trùng lặp
-                $newName = $imageFile->getRandomName();
+        // Kiểm tra xem đã có tệp ảnh được tải lên hay chưa
+        if ($imageFile = $this->request->getFile('images')) {
+            // Đường dẫn thư mục lưu trữ ảnh
+            $uploadDirectory = FCPATH . 'uploads'; // Thư mục lưu trữ trên máy chủ
 
-                // Di chuyển ảnh vào thư mục lưu trữ
-                if ($imageFile->move($uploadDirectory, $newName)) {
-                    // Lưu đường dẫn của ảnh vào mảng dữ liệu sản phẩm
-                    $blog['images'] = $newName; // Chỉ lưu đường dẫn tương đối
-                }
-            } else {
-                // Nếu không có ảnh được tải lên, đặt giá trị của trường ảnh là chuỗi rỗng
-                $blog['images'] = '';
+            // Tạo tên file duy nhất để tránh trùng lặp
+            $newName = $imageFile->getRandomName();
+
+            // Di chuyển ảnh vào thư mục lưu trữ
+            if ($imageFile->move($uploadDirectory, $newName)) {
+                // Lưu đường dẫn của ảnh vào mảng dữ liệu sản phẩm
+                $blogsObj['images'] = $newName; // Chỉ lưu đường dẫn tương đối
             }
-
-
-            $newBlogID = $BlogModel->save($data);
-            session()->setFlashdata('msg_success', 'Thành công');
-            return redirect()->to('admin/blog/list');
+        } else {
+            // Nếu không có ảnh được tải lên, đặt giá trị của trường ảnh là chuỗi rỗng
+            $blogsObj['images'] = '';
         }
-        return view('admin/blog/create');
+
+        // Thiết lập giá trị cho trường khóa chính
+        $blogsObj['id_blogs'] = null;
+        $BlogModel->protect(false)->insert($blogsObj); // Loại bỏ bảo vệ trường khóa chính
+
+        // Chuyển hướng người dùng đến trang danh sách sản phẩm sau khi thêm thành công
+        return redirect()->to(base_url('admin/blog/list'));
     }
 
 
-    public function editOrUpdate($id_blogs)
+    public function editOrUpdate($id)
     {
-        $blogModel = new BlogModel();
-        $blogs = $this->service->getBlogsByID($id_blogs);
+        $BlogModel = new BlogModel();
+        $blogObj = $this->service->getBlogsByID($id);
 
-        if (!$blogs) {
-            return redirect()->to('error/404')->with('error', 'Không tìm thấy bài viết với ID: ' . $id_blogs);
+        if (!$blogObj) {
+            return redirect()->to('error/404')->with('error', 'Không tìm thấy bài viết với ID: ' . $id);
         }
         if ($this->request->getMethod() === 'post') {
             // Xử lý biểu mẫu khi người dùng gửi để cập nhật thông tin sản phẩm
             $updatedData = [
-                'content' => $this->request->getPost('content'),
                 'title' => $this->request->getPost('title'),
-
+                'content' => $this->request->getPost('content'),
+                // 'images' => $this->request->getPost('images'),
             ];
+
             // Cập nhật thông tin sản phẩm trong cơ sở dữ liệu
-            $blogModel->update($id_blogs, $updatedData);
-            // Chuyển hướng đến trang sản phẩm đã chỉnh sửa hoặc bất kỳ trang nào khác mong muốn
-            session()->setFlashdata('success', 'Sửa thành công');
-            return redirect()->to('admin/blog/edit/' . $id_blogs);
+            $BlogModel->update($id, $updatedData);
+            // Chuyển hướng đến trang bài viết đã chỉnh sửa hoặc bất kỳ trang nào khác mong muốn
+            session()->setFlashdata('success', 'Sửa bài viết thành công');
+            return redirect()->to('admin/blog/edit/' . $id);
         }
         // Hiển thị biểu mẫu chỉnh sửa
         $cssFiles = [
             base_url() . '/assets/admin/js/event.js'
         ];
-        $dataLayout['blog'] = $blogs;
-        $data = $this->loadMasterLayout([], 'Sửa tài khoản', 'admin/pages/blog/edit', $dataLayout, $cssFiles, []);
+        $dataLayout['blog'] = $blogObj;
+        $data = $this->loadMasterLayout([], 'Sửa sản phẩm', 'admin/pages/blog/edit', $dataLayout, $cssFiles, []);
         return view('admin/main', $data);
     }
-
     public function delete()
     {
 

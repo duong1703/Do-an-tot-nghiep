@@ -1,102 +1,69 @@
-<?php include 'templates/header.php'; ?>
-<section id="cart_items">
-    <div class="container">
-        <div class="breadcrumbs">
-            <ol class="breadcrumb">
-                <li><a href="#">Home</a></li>
-                <li class="active">Thanh toán</li>
-            </ol>
-        </div>
+<?php
+error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
+date_default_timezone_set('Asia/Ho_Chi_Minh');
 
-        <div class="shopper-informations">
-            <div class="row">
-                <div class="col-sm-5 clearfix">
-                    <div class="bill-to">
-                        <p>Thông tin thanh toán</p>
-                        <div class="form-one">
-                            <form>
-                                <input type="text" placeholder="Company Name">
-                                <input type="text" placeholder="Email*">
-                                <input type="text" placeholder="Title">
-                                <input type="text" placeholder="First Name *">
-                                <input type="text" placeholder="Middle Name">
-                                <input type="text" placeholder="Last Name *">
-                                <input type="text" placeholder="Address 1 *">
-                                <input type="text" placeholder="Address 2">
-                            </form>
-                        </div>
-                        <div class="form-two">
-                            <form>
-                                <input type="text" placeholder="Zip / Postal Code *">
-                                <select>
-                                    <option>-- Country --</option>
-                                    <option>United States</option>
-                                    <option>Bangladesh</option>
-                                    <option>UK</option>
-                                    <option>India</option>
-                                    <option>Pakistan</option>
-                                    <option>Ucrane</option>
-                                    <option>Canada</option>
-                                    <option>Dubai</option>
-                                </select>
-                                <select>
-                                    <option>-- State / Province / Region --</option>
-                                    <option>United States</option>
-                                    <option>Bangladesh</option>
-                                    <option>UK</option>
-                                    <option>India</option>
-                                    <option>Pakistan</option>
-                                    <option>Ucrane</option>
-                                    <option>Canada</option>
-                                    <option>Dubai</option>
-                                </select>
-                                <input type="password" placeholder="Confirm password">
-                                <input type="text" placeholder="Phone *">
-                                <input type="text" placeholder="Mobile Phone">
-                                <input type="text" placeholder="Fax">
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="order-message">
-                        <p>Shipping Order</p>
-                        <textarea name="message" placeholder="Notes about your order, Special Notes for Delivery"
-                                  rows="16"></textarea>
-                        <label><input type="checkbox"> Shipping to bill address</label>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="review-payment">
-            <h2>Kiểm tra lại hàng và tiến hành thanh toán</h2>
-        </div>
+$vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
+$vnp_Returnurl = "https://localhost/vnpay/vnpay_return.php";
+$vnp_TmnCode = "R4DYJ8FU";//Mã website tại VNPAY
+$vnp_HashSecret = "RLNYRYRCRVFXLXOOMFKKUJKXLJLKUUGW"; //Chuỗi bí mật
 
-        <div class="table-responsive cart_info">
-            <table class="table table-condensed">
-                <thead>
-                <tr class="cart_menu">
-                    <td class="id_product">ID</td>
-                    <td class="images">Ảnh sản phẩm</td>
-                    <td class="name">Tên sản phẩm</td>
-                    <td class="price">Giá</td>
-                    <td class="quantity">Số lượng</td>
-                    <td class="subtotal">Tổng</td>
-                </tr>
-                </thead>
+$vnp_TxnRef = '13333';
+$vnp_OrderInfo = 'Thanh toán';
+$vnp_OrderType = 'Bill';
+$vnp_Amount = 20000000 * 100;
+$vnp_Locale ='VN';
+$vnp_BankCode = 'NCB';
+$vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
+//Add Params of 2.0.1 Version
+//$vnp_ExpireDate = $_POST['txtexpire'];
+$inputData = array(
+    "vnp_Version" => "2.1.0",
+    "vnp_TmnCode" => $vnp_TmnCode,
+    "vnp_Amount" => $vnp_Amount,
+    "vnp_Command" => "pay",
+    "vnp_CreateDate" => date('YmdHis'),
+    "vnp_CurrCode" => "VND",
+    "vnp_IpAddr" => $vnp_IpAddr,
+    "vnp_Locale" => $vnp_Locale,
+    "vnp_OrderInfo" => $vnp_OrderInfo,
+    "vnp_OrderType" => $vnp_OrderType,
+    "vnp_ReturnUrl" => $vnp_Returnurl,
+    "vnp_TxnRef" => $vnp_TxnRef,
+);
 
-            </table>
-        </div>
-        <div class="payment-options" style="padding-right: 800px">
-            <select name="" id="" >
-                <option value="">Lựa chọn phương thức thanh toán</option>
-                <option value="">Thanh toán COD</option>
-                <option value="">Thanh toán VNPAY</option>
-                <option value="">Thanh toán chuyển khoản</option>
-            </select>
-            <button >Thanh toán</button>
-        </div>
+if (isset($vnp_BankCode) && $vnp_BankCode != "") {
+    $inputData['vnp_BankCode'] = $vnp_BankCode;
+}
+if (isset($vnp_Bill_State) && $vnp_Bill_State != "") {
+    $inputData['vnp_Bill_State'] = $vnp_Bill_State;
+}
 
-    </div>
-</section> <!--/#cart_items-->
-<?php include 'templates/footer.php'; ?>
+//var_dump($inputData);
+ksort($inputData);
+$query = "";
+$i = 0;
+$hashdata = "";
+foreach ($inputData as $key => $value) {
+    if ($i == 1) {
+        $hashdata .= '&' . urlencode($key) . "=" . urlencode($value);
+    } else {
+        $hashdata .= urlencode($key) . "=" . urlencode($value);
+        $i = 1;
+    }
+    $query .= urlencode($key) . "=" . urlencode($value) . '&';
+}
+
+$vnp_Url = $vnp_Url . "?" . $query;
+if (isset($vnp_HashSecret)) {
+    $vnpSecureHash = hash_hmac('sha512', $hashdata, $vnp_HashSecret);//
+    $vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
+}
+$returnData = array('code' => '00'
+, 'message' => 'success'
+, 'data' => $vnp_Url);
+if (isset($_POST['redirect'])) {
+    header('Location: ' . $vnp_Url);
+    die();
+} else {
+    echo json_encode($returnData);
+}

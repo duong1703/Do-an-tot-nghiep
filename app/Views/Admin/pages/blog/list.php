@@ -3,16 +3,7 @@
     <script src="public/vendor/toastr/build/toastr.min.js"></script>
     <div class="row">
         <div class="col-lg-12">
-            <?php if (session()->has("error")): { ?>
-                <div id="error" class="alert alert-danger p-1 " role="alert">
-                    <?= session()->get("error") ?>
-                </div>
-            <?php } endif; ?>
-            <?php if (session()->has("success")): { ?>
-                <div class="alert alert-success p-1 " role="alert">
-                    <?= session()->get("success") ?>
-                </div>
-            <?php } endif; ?>
+
             <div class="card easion-card rounded-4">
                 <div class="card-header rounded-4">
                     <div class="easion-card-icon">
@@ -36,10 +27,15 @@
                         <?php if (isset($blogs) && !empty($blogs)) : ?>
                             <?php foreach ($blogs as $index => $blog) : ?>
                                 <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
+                                <?php if (session()->has('success')) : ?>
+                                    <div class="alert alert-success" role="alert">
+                                        <?= session('success') ?>
+                                    </div>
+                                <?php endif; ?>
                                 <tr>
                                     <td><?= $index + 1 ?></td>
                                     <td>
-                                        <img src="uploads/<?php echo $blog['images_blogs']; ?>" alt="" height="60px" width="60px">
+                                        <img src="uploads/<?php echo $blog['images']; ?>" alt="" height="60px" width="60px">
                                     </td>
                                     <td><?= $blog['title'] ?></td>
                                     <?php
@@ -100,5 +96,15 @@
                         });
                 });
         }
+    });
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $(".read-more").click(function(e){
+            e.preventDefault();
+            $(this).hide();
+            $(this).siblings('.hidden-content').show();
+        });
     });
 </script>

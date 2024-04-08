@@ -3,16 +3,6 @@
 <div class="dash-content">
     <div class="container-fluid">
         <h1 class="dash-title">Trang chủ / Sản phẩm / Thêm mới</h1>
-        <?php if (session()->has("error")): { ?>
-            <div id="error" class="alert alert-danger p-1 " role="alert">
-                <?= session()->get("error") ?>
-            </div>
-        <?php } endif; ?>
-        <?php if (session()->has("success")): { ?>
-            <div class="alert alert-success p-1 " role="alert">
-                <?= session()->get("success") ?>
-            </div>
-        <?php } endif; ?>
 
         <div class="card easion-card rounded-4">
             <div class="card-header rounded-4">
@@ -24,6 +14,18 @@
             <div class="card-body">
                 <form action="<?= base_url('admin/product/create') ?>" enctype="multipart/form-data" method="post">
                     <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>"/>
+                    <?php if (session()->has("error")): { ?>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <?= session()->get("error") ?>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    <?php } endif; ?>
+                    <?php if (session()->has("success")): { ?>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <?= session()->get("success") ?>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    <?php } endif; ?>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="name">Tên sản phẩm</label>
@@ -75,6 +77,7 @@
                                 <option>LOA</option>
                                 <option>LAPTOP</option>
                                 <option>IPAD</option>
+                                <option>BALO MÁY TÍNH</option>
                             </select>
                         </div>
                         <div class="form-group col-md-6">

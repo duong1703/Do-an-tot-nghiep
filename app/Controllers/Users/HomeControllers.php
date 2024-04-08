@@ -114,7 +114,14 @@ class HomeControllers extends BaseController
     {
         $BlogModel = new BlogModel();
         $data['blogs'] = $BlogModel->findAll();
+        $data['blogs'] = $BlogModel->paginate(5);
         return view('blog', $data);
+    }
+
+    public function blog_single($id_blogs){
+        $BlogModel = new BlogModel();
+        $data['blogs'] = $BlogModel->find($id_blogs);
+        return view('blog_single', $data);
     }
 
     public function product($category = null){

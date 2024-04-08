@@ -64,6 +64,7 @@
                                         <option>LOA</option>
                                         <option>LAPTOP</option>
                                         <option>IPAD</option>
+                                        <option>BALO MÁY TÍNH</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6">

@@ -24,6 +24,7 @@ class BlogsService extends BaseService
     public function getAllBlogs()
     {
         return $this->blogs->findAll();
+
     }
 
     public function getBlogsByID($blogs)
@@ -33,7 +34,6 @@ class BlogsService extends BaseService
 
     public function addBlogsInfo($requestData)
     {
-
         // Thực hiện xác thực dữ liệu
         $validate = $this->validateAddBlogs($requestData);
         if ($validate->getErrors()) {
@@ -44,8 +44,52 @@ class BlogsService extends BaseService
                 'messages' => $validate->getErrors() // Sử dụng $validate->getErrors() để lấy thông báo lỗi
             ];
         }
-        
-        
+
+        // Lấy dữ liệu từ yêu cầu POST
+        $dataSave = $requestData->getPost();
+        $file = $requestData->getFile('images');
+
+        // Kiểm tra xem file có hợp lệ và chưa được di chuyển hay không
+        if ($file->isValid() && !$file->hasMoved()) {
+            $newName = $file->getRandomName();
+            $dataSave['images'] = $newName;
+
+            // Di chuyển file vào thư mục 'uploads'
+            if (!$file->move('uploads', $newName)) {
+                // Trả về thông báo lỗi nếu không thể di chuyển file
+                return [
+                    'status' => ResultUtils::STATUS_CODE_ERR,
+                    'messageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                    'messages' => ['success' => 'Không thể di chuyển file']
+                ];
+            }
+        } else {
+            // Trả về thông báo lỗi nếu file không hợp lệ
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'messageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'messages' => ['success' => 'File không hợp lệ hoặc đã được di chuyển']
+            ];
+        }
+
+        try {
+            // Thêm bài viết vào cơ sở dữ liệu
+            $this->blogs->insert($dataSave);
+
+            // Trả về thông báo thành công nếu không có lỗi
+            return [
+                'status' => ResultUtils::STATUS_CODE_OK,
+                'messageCode' => ResultUtils::MESSAGE_CODE_OK,
+                'messages' => ['success' => 'Thêm bài viết thành công']
+            ];
+        } catch (Exception $e) {
+            // Trả về thông báo lỗi nếu có lỗi khi thêm bài viết
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'messageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'messages' => ['success' => $e->getMessage()]
+            ];
+        }
     }
 
     public function validateAddBlogs($requestData)
@@ -53,7 +97,7 @@ class BlogsService extends BaseService
         $rule = [
             'id' => 'max_length[255]',
             'title' => 'max_length[255]',
-            'content' => 'max_length[100]',
+            'content' => 'max_length[200]',
             'created_at' => 'max_length[255]',
             'updated_at' => 'max_length[255]',
             'deleted_at' => 'max_length[255]',

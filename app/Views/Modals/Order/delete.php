@@ -1,15 +1,5 @@
 <form action="<?= base_url('admin/order/delete') ?>" method="post">
     <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
-    <?php if (session()->has("error")): { ?>
-        <div id="error" class="alert alert-danger p-1 " role="alert">
-            <?= session()->get("error") ?>
-        </div>
-    <?php } endif; ?>
-    <?php if (session()->has("success")): { ?>
-        <div class="alert alert-success p-1 " role="alert">
-            <?= session()->get("success") ?>
-        </div>
-    <?php } endif; ?>
     <div class="modal fade" id="confirmDeleteOrder" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteOrder" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
