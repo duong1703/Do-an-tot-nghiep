@@ -32,7 +32,7 @@
                     </div>
                     <div class="media-body">
                         <h5>Miễn phí vận chuyển</h5>
-                        <span>Cho đơn hàng trên 15.000.000 VND</span>
+                        <span>Cho đơn hàng trên 10.000.000 VND</span>
                     </div>
                 </div>
                 <!-- Money Return -->
