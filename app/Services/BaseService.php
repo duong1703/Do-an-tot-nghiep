@@ -5,7 +5,7 @@ namespace App\Services;
 class BaseService
 {
     /**
-        @var validation
+     *  @var validation
     */
 
     public $validation;

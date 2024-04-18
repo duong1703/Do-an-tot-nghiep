@@ -14,4 +14,8 @@ class UserModel extends Model
     public function getUser(){
         return $this->findAll();
     }
+
+    public function count(){
+        return $this->countAllResults();
+    }
 }

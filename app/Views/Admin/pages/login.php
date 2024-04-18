@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="assets/admin/css/easion.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
     <script src="assets/admin/js/chart-js-config.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <title>Đăng nhập</title>
 </head>
 
@@ -55,11 +56,6 @@
                         <?= session()->get("error") ?>
                     </div>
                 <?php } endif;?>
-                <?php if(session()->has("success")): {?>
-                    <div class="alert alert-success p-1 text-center" role="alert" id="successMessage";">Đăng nhập thành công!</div>>
-                        <?= session()->get("success") ?>
-                    </div>
-                <?php } endif;?>
                 <form id="loginForm" action="admin/login" method="post">
                     <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
                     <div  class="form-group">
@@ -72,7 +68,6 @@
                         <button id="loginButton" type="submit" class="btn btn-primary">Đăng nhập</button>
                     </div>
                 </form>
-                
             </div>
         </div>
         <div id="loading" class="loader mt-4" style="display:none;"></div>

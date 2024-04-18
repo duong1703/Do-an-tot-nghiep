@@ -15,6 +15,11 @@
                 <div class="card-body ">
                     <form action="admin/user/create" method="post">
                         <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
+                        <?php if (session()->has('success')) : ?>
+                                <div class="alert alert-success" role="alert">
+                                    <?= session('success') ?>
+                                </div>
+                            <?php endif; ?>
                         <div class="form-row">
                             <div class="form-group col-md-8">
                                 <label for="inputEmai">Email</label>

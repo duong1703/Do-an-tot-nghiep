@@ -10,7 +10,7 @@ use App\Services\getUserByID;
 class UserControllers extends BaseController
 {
     /**
-        @var Service
+     * @var Service
     */
     private $service;
 

@@ -32,7 +32,7 @@
                     </div>
                     <div class="media-body">
                         <h5>Miễn phí vận chuyển</h5>
-                        <span>Cho đơn hàng trên 500k.</span>
+                        <span>Cho đơn hàng trên 15.000.000 VND</span>
                     </div>
                 </div>
                 <!-- Money Return -->
@@ -100,6 +100,7 @@
                                 <?php if ($product['status_product'] == 1) : ?>
                                     <div class="col-sm-4">
                                         <div class="product-image-wrapper">
+                                            <a href="product/product_detail/<?= ($product['id_product']) ?>">
                                             <div class="single-products">
                                                 <form action="" method="post">
                                                     <div class="productinfo text-center">
@@ -116,16 +117,7 @@
                                                     </div>
                                                 </form>
                                             </div>
-                                            <div class="choose">
-                                                <ul class="nav nav-pills nav-justified">
-                                                    <li><a href="#"><i class="fa fa-plus-square"></i>Thêm vào sở
-                                                            thích</a></li>
-                                                    <li>
-                                                        <a href="<?= base_url('product/product_detail/' . $product['id_product']) ?>"><i
-                                                                    class="fa fa-plus-square"></i>Chi tiết sản phẩm</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                                            </a>
                                         </div>
                                     </div>
                                 <?php endif; ?>

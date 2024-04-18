@@ -13,18 +13,13 @@ class HomeControllers extends BaseController
         $db      = \Config\Database::connect();
     }
 
-
     public function index(): string
     {
-
-        $userModel = new UserModel();
         $data = [];
         $cssFiles = [];
         $jsFiles = [];
         $data = $this->loadMasterLayout ($data, 'Trang chủ', 'admin/pages/home', $jsFiles, $cssFiles);
-        return view('admin/main', $data );
+        return view('admin/main', $data);
     }
-
-
 
 }

@@ -3,6 +3,7 @@
 namespace App\Controllers\Users;
 use App\Controllers\BaseController;
 use App\Models\ProductModel;
+use App\Models\UserModel;
 use App\Models\CategoryModel;
 
 class ProductsController extends BaseController
@@ -89,21 +90,6 @@ class ProductsController extends BaseController
         return view('category', $data);
     }
 
-    public function search()
-    {
-        // Lấy từ khóa tìm kiếm từ URL
-        $keyword = $this->request->getGet('keyword');
-
-        // Tạo một đối tượng Model
-        $productModel = new ProductModel();
-
-        // Tìm kiếm sản phẩm với từ khóa
-        $products = $productModel->like('name', $keyword)->findAll();
-
-        // Truyền dữ liệu sản phẩm tìm được vào view để hiển thị
-        //return view('admin/product/list', ['products' => $products]);
-    }
-
 
     public function countProductsByCategory()
     {
@@ -122,7 +108,4 @@ class ProductsController extends BaseController
         // Pass $categoryCounts array to the view
         return view('category', ['categoryCounts' => $categoryCounts]);
     }
-
-
-
 }

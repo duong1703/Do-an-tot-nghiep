@@ -7,7 +7,9 @@
                     <i class="fas fa-user"></i>
                 </div>
                 <div class="stats-data">
+                    
                     <div class="stats-number"></div>
+                   
                 </div>
             </div>
         </div>
@@ -20,7 +22,7 @@
                     <i class="fas fa-cube"></i>
                 </div>
                 <div class="stats-data">
-                    <div class="stats-number"><?php echo '40'?></div>
+                    <div class="stats-number"></div>
                 </div>
             </div>
         </div>
@@ -33,7 +35,7 @@
                     <i class="fas fa-book"></i>
                 </div>
                 <div class="stats-data">
-                    <div class="stats-number"><?php echo '1'?></div>
+                    <div class="stats-number"></div>
                 </div>
             </div>
         </div>
@@ -46,11 +48,9 @@
                     <i class="fas fa-cube"></i>
                 </div>
                 <div class="stats-data">
-                    <div class="stats-number"><?php echo ''?></div>
+                    <div class="stats-number"></div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-

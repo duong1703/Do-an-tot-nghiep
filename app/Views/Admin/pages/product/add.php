@@ -13,31 +13,31 @@
             </div>
             <div class="card-body">
                 <form action="<?= base_url('admin/product/create') ?>" enctype="multipart/form-data" method="post">
-                    <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>"/>
-                    <?php if (session()->has("error")): { ?>
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <?= session()->get("error") ?>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    <?php } endif; ?>
+                    <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
+                    <?php if (session()->has('success')) : ?>
+                    <div class="alert alert-success" role="alert">
+                        <?= session('success') ?>
+                    </div>
+                    <?php endif; ?>
                     <?php if (session()->has("success")): { ?>
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <?= session()->get("success") ?>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <?= session()->get("success") ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
                     <?php } endif; ?>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="name">Tên sản phẩm</label>
                             <input value="<?= old('name') ?>" name="name" type="text" class="form-control" id="name"
-                                   placeholder="Nhập tên sản phẩm" required>
+                                placeholder="Nhập tên sản phẩm" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="images">Ảnh sản phẩm</label>
                             <input name="images" type="file" accept="image/*" class="form-control-file" id="images"
-                                   required>
+                                required>
                             <div class="form-group">
-                                <img id="img-show" src="" class="img-fluid" alt="Hình đại diện." style="display: none;height: 100px; width: 100px;">
+                                <img id="img-show" src="" class="img-fluid" alt="Hình đại diện."
+                                    style="display: none;height: 100px; width: 100px;">
                             </div>
                         </div>
                     </div>
@@ -45,21 +45,22 @@
                         <div class="form-group col-md-6">
                             <label for="price">Giá</label>
                             <input value="<?= old('price') ?>" name="price" type="text" class="form-control"
-                                   placeholder="Nhập giá bán sản phẩm" required>
+                                placeholder="Nhập giá bán sản phẩm" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="description">Thông số sản phẩm</label>
                             <textarea name="description" id="description"
-                                      class="form-control"><?= old('description') ?></textarea>
+                                class="form-control"><?= old('description') ?></textarea>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="category">Danh mục</label>
                             <!--                            <input value="-->
-                            <? //= old('category') ?><!--" name="category" type="text" class="form-control" id="category" placeholder="Nhập danh mục" required>-->
+                            <? //= old('category') ?>
+                            <!--" name="category" type="text" class="form-control" id="category" placeholder="Nhập danh mục" required>-->
                             <select value="<?= old('category') ?>" name="category" class="form-control" id="category"
-                                    required>
+                                required>
                                 <option>Nhập danh mục sản phẩm</option>
                                 <option>MÀN HÌNH</option>
                                 <option>THÙNG MÁY</option>
@@ -83,7 +84,7 @@
                         <div class="form-group col-md-6">
                             <label for="amount">Số lượng</label>
                             <input value="<?= old('amount') ?>" name="amount" type="number" class="form-control"
-                                   id="amount" placeholder="Nhập số lượng" required>
+                                id="amount" placeholder="Nhập số lượng" required>
                         </div>
                     </div>
 
@@ -103,7 +104,7 @@
                     <button type="submit" class="btn btn-success rounded-4">Thêm mới</button>
                     <button type="reset" class="btn btn-secondary rounded-4">Nhập lại</button>
                     <a style="background-color: yellow" href="<?= base_url('admin/product/list') ?>"
-                       class="btn btn-warning rounded-4 ">Quay lại</a>
+                        class="btn btn-warning rounded-4 ">Quay lại</a>
                 </form>
             </div>
         </div>
@@ -112,16 +113,16 @@
 
 <!-- JavaScript for file input preview -->
 <script>
-    document.getElementById('images').addEventListener('change', function (event) {
-        var input = event.target;
-        var img = document.getElementById('img-show');
-        img.style.display = 'block';
+document.getElementById('images').addEventListener('change', function(event) {
+    var input = event.target;
+    var img = document.getElementById('img-show');
+    img.style.display = 'block';
 
-        var reader = new FileReader();
-        reader.onload = function () {
-            img.src = reader.result;
-        };
+    var reader = new FileReader();
+    reader.onload = function() {
+        img.src = reader.result;
+    };
 
-        reader.readAsDataURL(input.files[0]);
-    });
+    reader.readAsDataURL(input.files[0]);
+});
 </script>

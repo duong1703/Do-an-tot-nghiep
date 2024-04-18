@@ -26,8 +26,8 @@
             </a>
 
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-                <a class="dropdown-item" href="javascript:void()">Xin chào, <?= session()->get('name') ?></a>
-                <a class="dropdown-item" href="admin/logout">Logout</a>
+                <a class="dropdown-item fa fa-user " href="javascript:void()"> Xin chào, <?= session()->get('name') ?></a>
+                <a class="dropdown-item " href="admin/logout"> Logout</a>
             </div>
         </div>
     </div>

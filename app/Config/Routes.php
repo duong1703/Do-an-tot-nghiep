@@ -38,29 +38,19 @@ $routes->get('views/product', 'Users\HomeControllers::product');
 $routes->get('views/product/(:segment)', 'Users\HomeControllers::product/$1');
 $routes->get('product_detail/(:num)', 'Users\HomeControllers::product_detail/$1');
 
+$routes->get('product_detail/(:num)', 'Users\CommentControllers::hiscomment');
+$routes->post('/comment_product', 'Users\HomeControllers::comment_product');
+
+
 
 //giỏ hàng
-$routes->get('views/cart', 'Users\HomeControllers::cart');
-
-
-//VNPAY Gateway
-$routes->post('/vnpay_payment', 'Users\PaymentControllers::vnpay_payment');
-
-
+$routes->get('views/cart', 'Users\HomeControllers::addToCart');
 
 
 // Product - User
 $routes->group('product', function ($routes) {
     $routes->get('product_detail/(:num)', 'Users\ProductsController::productDetail/$1');
 });
-
-
-
-$routes->post('views/sendreviews', 'ReviewsController::sendReviews');
-
-
-$routes->get('views/checkout', 'Users\HomeControllers::checkout');
-
 
 
 //Mail
@@ -71,9 +61,6 @@ $routes->match(['get', 'post'], 'contact/mail', 'Users\EmailController::sendMail
 //testup
 $routes->get('admin/pages/product/add', 'UploadControllers::add');          // Add this line.
 $routes->post('public/upload', 'UploadControllers::upload'); // Add this line.
-
-
-
 
 $routes->get('error/404', function () {
     return view('errors/html/error_404');
@@ -91,7 +78,7 @@ $routes->post('admin/login', 'Admin\LoginControllers::login');
 $routes->group('admin', ['filter' => 'AuthFilter'], function ($routes) {
     $routes->get('pages/home', 'Admin\HomeControllers::index');
 //    $routes->get('home', 'Admin\HomeControllers::index');
-    $routes->get('logout', 'Admin\LoginControllers::logout');
+    $routes->get('logout', 'Admin\LoginControllers::logout');   
 
     $routes->group('user', function ($routes) {
         $routes->get('list', 'Admin\UserControllers::list');
@@ -123,7 +110,7 @@ $routes->group('admin', ['filter' => 'AuthFilter'], function ($routes) {
     });
 
     $routes->group('reviews', function ($routes) {
-        $routes->get('list', 'Admin\ReviewsControllers::list');
+        $routes->get('list', 'Admin\CommentControllers::list');
+        $routes->post('delete', 'Admin\CommentControllers::delete');
     });
 });
-

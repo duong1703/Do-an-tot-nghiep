@@ -22,7 +22,7 @@
                     <hr>
                 </div>
             </div>
-            <div class="col-sm-8">
+            <div class="col-sm-12">
                 <div class="orderinfo">
                     <h4>Thông tin lịch sử mua hàng</h4>
                 </div>

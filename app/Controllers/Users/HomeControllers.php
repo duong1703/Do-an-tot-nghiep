@@ -4,9 +4,11 @@ namespace App\Controllers\Users;
 
 use App\Controllers\BaseController;
 use App\Models\CartModel;
+use App\Models\CommentModel;
 use App\Models\ProductModel;
 use App\Models\BlogModel;
 use App\Models\CategoryModel;
+use App\Models\ReviewsModel;
 use App\Models\UserModel;
 use App\Models\CustomerModel;
 use CodeIgniter\Database\RawSql;
@@ -23,7 +25,7 @@ class HomeControllers extends BaseController
         return view('index', $data);
     }
 
-    public function login()
+    public function login() 
     {
         // Kiểm tra nếu đã đăng nhập và là người dùng, chuyển hướng đến trang chính
         if (session()->has('logged_in') && session()->has('customer_id')) {
@@ -48,6 +50,8 @@ class HomeControllers extends BaseController
                 return redirect()->to('/');
             } else {
                 // Đăng nhập không thành công, hiển thị thông báo lỗi
+                $error = 'Email hoặc mật khẩu không chính xác';
+                session()->setFlashdata('error', $error);
                 $data['error'] = 'Email hoặc mật khẩu không chính xác.';
                 return view('login', $data);
             }
@@ -71,6 +75,8 @@ class HomeControllers extends BaseController
 
             if (!$this->validate($rules)) {
                 $data['validation'] = $this->validator;
+                $error = 'Thông tin đăng ký không đúng, vui lòng thử lại';
+                session()->setFlashdata('error', $error);
                 return view('register', $data);
             } else {
                 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
@@ -100,11 +106,6 @@ class HomeControllers extends BaseController
         return view('contact');
     }
 
-    public function reviews()
-    {
-        return view('reviews');
-    }
-
     public function intro(){
         return view('intro');
     }
@@ -129,6 +130,7 @@ class HomeControllers extends BaseController
         if($category){
             // Nếu có danh mục được chọn, lọc sản phẩm theo danh mục
             $data['products'] = $productModel->where('category', $category)->paginate(12);
+            
         } else {
             // Nếu không có danh mục được chọn, hiển thị tất cả sản phẩm
             $data['products'] = $productModel->paginate(12);
@@ -156,6 +158,7 @@ class HomeControllers extends BaseController
             'TABLET',
             'LOA'
         ];
+        
         return view('product', $data);
     }
 
@@ -168,6 +171,54 @@ class HomeControllers extends BaseController
     {
         return view('cart');
     }
+
+    public function addtocart()
+    {
+        return view('cart');
+    }
+
+    public function comment_product(){
+      
+        if ($this->request->getMethod() === 'post') {
+            $customer_email = $this->request->getPost('customer_email');
+            $customer_name = $this->request->getPost('customer_name');
+            $content = $this->request->getPost('content');
+            $rating = $this->request->getPost('rating');
+
+            $rules = [
+                'customer_email' => 'required|valid_email',
+                'customer_name' => 'required',
+        
+            ];
+            
+            if (!$this->validate($rules)) {
+                $data['validation'] = $this->validator;
+                $error = 'Gui danh gia that bai, vui long thu lai';
+                session()->setFlashdata('error', $error);
+                return view('comment_product', $data);
+            }else {
+                $CommentModel = new CommentModel();
+                $data = [
+                    'customer_email' => $customer_email,
+                    'customer_name' => $customer_name,
+                    'content' => $content,
+                    'rating' => $rating,
+                ];
+                $CommentModel->insert($data);
+                $success = 'Danh gia thanh cong';
+                session()->setFlashdata('success', $success);
+                return redirect()->to('/');
+            }
+
+        }
+    }
+    public function viewProductReviews($id_product)
+    {
+        $CommentModel = new CommentModel();
+        $data['comment_product'] = $CommentModel->getCommentByProductId($id_product);
+        return view('comment_product', $data);
+    }
+
 
 
     public function profile()
@@ -192,18 +243,14 @@ class HomeControllers extends BaseController
     }
 
 
-    public function checkout()
+    public function search()
     {
-
-        return view('checkout');
+        $keyword = $this->request->getVar('keyword');
+        
+        $productModel = new ProductModel();
+        $products = $productModel->search($keyword)->findAll();
+        
+        return view('product', ['products' => $products]);
     }
 
-    public function sendreviews()
-    {
-        return view('sendreviews');
-    }
 }
-
-
-
-

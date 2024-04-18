@@ -16,6 +16,7 @@
                         <thead>
                         <tr>
                             <th scope="col">ID</th>
+                            <th scope="col">ID Sản phẩm</th>
                             <th scope="col">Tên người dùng</th>
                             <th scope="col">Email</th>
                             <th scope="col">Mội dung</th>
@@ -25,21 +26,25 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <?php if (isset($comments) && !empty($comment)): ?>
-                            <?php foreach ($comment as $index => $comment) : ?>
+                        <?php if (isset($comment) && !empty($comment)) : ?>
+                                <?php foreach ($comment as $index => $comment) : ?>
+                                <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />   
                                 <tr>
                                     <td><?= $index + 1 ?></td>
-                                    <td><?= $comment['customer_name']; ?></td>
-                                    <td><?= $comment['customer_email']; ?></td>
-                                    <td><?= $comment['content']; ?></td>
-                                    <td><?= $comment['created_at']; ?></td>
-                                    <td><?= $comment['Rating']; ?></td>
+                                    <td><?= $comment['id_product'] ?></td>
+                                    <td><?= $comment['customer_name'] ?></td>
+                                    <td><?= $comment['customer_email'] ?></td>
+                                    <td><?= $comment['content'] ?></td>
+                                    <td><?= $comment['created_at'] ?></td>
+                                    <td><?= $comment['rating'] ?></td>
                                     <td class="text-center">
-                                        <a class="btn btn-danger btn-sm ___js-delete-blog" data-id="<?= @$comment['id'];?>"><i class="far fa-trash-alt"></i></a>
+                                        <a class="btn btn-danger btn-sm ___js-delete-comment" data-id="<?= @$comment['id_comment'];?>">
+                                            <i class="far fa-trash-alt"></i>
+                                        </a>
                                     </td>
-                                </tr>>
+                                </tr>
                             <?php endforeach ?>
-                        <?php endif; ?>
+                            <?php endif; ?>
                         </tbody>
                     </table>
                 </div>
@@ -48,16 +53,16 @@
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<?= $this->include("Modals/Order/delete") ?>
+<?= $this->include("Modals/Comment/delete") ?>
 <script>
-    $('.___js-delete-blog').on('click', function () {
+    $('.___js-delete-comment').on('click', function () {
         // Lấy dữ liệu từ nút xóa
         const id = $(this).data('id');
         console.log(id);
         // Đặt dữ liệu vào Form xóa
-        $('.Order_id_delete').val(id);
+        $('.comment_id_delete').val(id);
         // Gọi Modal xóa
-        $('#confirmDeleteOrder').modal('show');
+        $('#confirmDeleteComment').modal('show');
     });
 </script>
 

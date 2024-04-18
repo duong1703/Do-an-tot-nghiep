@@ -42,24 +42,26 @@ class ProductModel extends BaseModel
     }
 
 
+    public function getcountbycategory(){
+        return $this->countProducts();
+    }
+
     public function getProduct($id)
     {
         return $this->find($id);
     }
 
-    public function search($keyword)
-    {
-       $db = \Config\Database::connect();
-       $buider = $this->table = 'products';
-       $buider->select('*');
-       $buider->where('name',$keyword );
-       $querry = $buider->get();
-       return $querry->getResults();
-    }
-
     public function countProducts()
     {
-        return $this->countAll(); // This will count all rows in the 'products' table
+        return $this->countAllesults(); // This will count all rows in the 'products' table
     }
+
+    public function search($keyword)
+    {
+        return $this->like('name', $keyword)
+                    ->orWhere('description', $keyword)
+                    ->orWhere('category', $keyword);
+    }
+    
 }
 

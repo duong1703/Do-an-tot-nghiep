@@ -13,7 +13,7 @@
     		<div class="row">  	
 	    		<div class="col-sm-8">
 	    			<div class="contact-form" >
-	    				<h2 class="title text-center">Gửi thông tin tới chúng tôi để được hỗ trợ!</h2>
+	    				<h2 class="title text-center" >Gửi thông tin tới chúng tôi để được hỗ trợ!</h2>
 	    				<div class="status alert alert-success" style="display: none"></div>
 				    	<?= view('contact/mail'); ?>
 	    			</div>

@@ -12,13 +12,9 @@
     },
     "require": {
         "php": "^8.0 || ^8.1 || ^8.2",
-         "ext-json": "*",
+        "ext-json": "*",
         "ext-mbstring": "*",
-        "codeigniter4/shield": "^1.0",
-        "fabpot/goutte": "^4.0",
         "firebase/php-jwt": "6.4",
-        "jason-napolitano/codeigniter4-cart-module": "^1.0",
-        "kejawenlab/ci4pager": "^1.0",
         "laminas/laminas-escaper": "^2.9",
         "nowakowskir/php-jwt": "^2.1",
         "phpmailer/phpmailer": "dev-master",
@@ -66,7 +62,10 @@
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
     },
     "scripts": {
         "test": "phpunit"

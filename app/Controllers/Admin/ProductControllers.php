@@ -11,7 +11,7 @@ class ProductControllers extends BaseController
 {
 
     /**
-        @var Service
+     *  @var Service
      */
     private $service;
 

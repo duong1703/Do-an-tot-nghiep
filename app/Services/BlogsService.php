@@ -10,7 +10,7 @@ class BlogsService extends BaseService
 {
     private $blogs;
     /**
-        Tạo hàm constructor
+     * Tạo hàm constructor
      */
     function __construct()
     {
