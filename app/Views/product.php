@@ -1,5 +1,6 @@
 <?php include 'templates/header.php'; ?>
 <section>
+    <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>"/>
     <div class="container">
         <div class="row">
             <div class="col-sm-3">
@@ -29,8 +30,10 @@
                                                 <img id="images" src="uploads/<?= $product['images']; ?>" alt="images">
                                                 <h2 id="price"><?= $product['price']; ?> VND</h2>
                                                 <p id="product"><?= $product['name']; ?></p>
+                                                <p id="amount">Số lượng:<?= $product['amount']; ?></p>
                                                 <p id="category">Danh mục: <?= $product['category'] ?></p>
-                                                <a href="<?= site_url('views/cart/'. $product['id_product']) ?>" onclick="addToCart()" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
+                                                <!-- Modified the link to call addToCart() function -->
+                                                <a href="#" onclick="addToCart(<?= $product['id_product'] ?>)" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
                                             </div>
                                         </div>
                                         <div class="choose">
@@ -56,15 +59,35 @@
         </div>
     </div>
 </section>
-
-<!-- JavaScript jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
 <script>
-    // Hàm để chuyển hướng đến trang hiển thị sản phẩm theo danh mục được chọn
-    function viewProducts(category) {
-        window.location.href = 'views/product/' + category;
-    }
-</script>
+    // Function to add item to cart via AJAX
+    function addToCart(productId) {
+        console.log("id", productId);
+        // Retrieve the CSRF token name and value
+        const csrfName = $('[name="csrf_token"]').attr('name');
+        const csrfHash = $('[name="csrf_token"]').val();
 
+        // Make the AJAX request
+        $.ajax({
+            url: '<?= site_url('views/cart') ?>',
+            type: 'POST',
+            data: {
+                product_id: productId,
+                [csrfName]: csrfHash
+            },
+            success: function(response) {
+                console.log("data", response); // Log response from server
+                // Handle success response
+                alert('Sản phẩm đã được thêm vào giỏ hàng.');
+            },
+            error: function(xhr, status, error) {
+                // Handle error response
+                alert('Đã xảy ra lỗi: ' + error);
+            }
+        });
+    }
+
+
+</script>
 <?php include 'templates/footer.php'; ?>

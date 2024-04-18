@@ -192,7 +192,3 @@ class HomeControllers extends BaseController
         return view('checkout');
     }
 }
-
-
-
-

@@ -6,12 +6,11 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class CartModel extends Model
+class CartModel extends BaseModel
 {
-
     protected $table = 'cart';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['user_id', 'product_id ', 'images', 'quantity ', 'price ' , 'total', 'created_at '];
+    protected $allowedFields = ['customer_id', 'product_id ', 'quantity ', 'created_at', 'update_at', 'deleted_at'];
     protected $useAutoIncrement = true; // Thêm dòng này để bật AUTO_INCREMENT cho cột khóa chính
     protected function beforeInsert(array $data)
     {

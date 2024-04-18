@@ -1,35 +1,27 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Users;
 
+use App\Models\CartModel;
 use App\Models\ProductModel;
-use CodeIgniter\Controller;
+use App\Controllers\BaseController;
 
-class CartControllers extends Controller
+class CartControllers extends BaseController
 {
-    public function add()
+    // Trong CartControllers.php hoặc controller tương ứng
+    public function addCart()
     {
-        // Lấy dữ liệu từ request
-        $productId = $this->request->getVar('product_id');
-        $quantity = $this->request->getVar('quantity');
-
-        // Lấy thông tin sản phẩm
-        $productModel = new ProductModel();
-        $product = $productModel->find($productId);
-
-        // Thêm sản phẩm vào giỏ hàng
-        $cart = \Config\Services::cart();
-        $cart->insert([
-            'id' => $product['id'],
-            'images' => $product['images'],
-            'name' => $product['name'],
-            'price' => $product['price'],
-            'qty' => $quantity,
-            'total' => $product['total'],
-            'options' => [],
-        ]);
-
-        // Chuyển hướng đến trang giỏ hàng
-        return redirect()->to('views/cart');
+        $productId = $this->request->getPost('product_id');
+        // Kiểm tra xem productId có tồn tại không
+        if (!$productId) {
+            return $this->response->setStatusCode(400)->setJSON(['success' => false, 'message' => 'Không tìm thấy ID sản phẩm.']);
+        }
+        $cartModel = new CartModel();
+        $product = $cartModel->find($productId);
+        if (!$product) {
+            // Nếu sản phẩm không tồn tại, trả về phản hồi lỗi
+            return $this->response->setStatusCode(404)->setJSON(['success' => false, 'message' => 'Không tìm thấy sản phẩm.']);
+        }
+        return $this->response->setJSON(['success' => true, 'message' => 'Sản phẩm đã được thêm vào giỏ hàng.']);
     }
 }

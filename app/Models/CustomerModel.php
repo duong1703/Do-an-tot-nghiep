@@ -8,7 +8,8 @@ class CustomerModel extends BaseModel
 {
     protected $table = 'customer';
     protected $primaryKey = 'customer_id';
-    protected $allowedFields = ['customer_name', 'customer_email', 'customer_password', 'created_at', 'updated_at', 'deleted_at'];
+    protected $allowedFields = ['customer_name', 'customer_email', 'customer_password', 'created_at',
+                                'updated_at', 'deleted_at', 'status_customer'];
     protected $useAutoIncrement = true; // Thêm dòng này để bật AUTO_INCREMENT cho cột khóa chính
     protected $returnType = 'array';
     protected function beforeInsert(array $data)

@@ -35,8 +35,8 @@ $routes->get('views/product/(:segment)', 'Users\HomeControllers::product/$1');
 $routes->get('product_detail/(:num)', 'Users\HomeControllers::product_detail/$1');
 
 //giỏ hàng
-$routes->get('views/cart', 'Users\HomeControllers::cart');
-$routes->post('addToCart', 'Users\HomeControllers::addToCart');
+$routes->match(['get', 'post'], 'views/cart', 'Users\CartControllers::addCart');
+$routes->post('addToCart', 'Users\CartControllers::addToCart');
 
 // Product - User
 $routes->group('product', function ($routes) {

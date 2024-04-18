@@ -44,8 +44,6 @@ function updateDate() {
     document.getElementById('realtime-date').innerHTML = formattedDate;
 }
 
-// Gọi hàm updateDate() mỗi giây để cập nhật ngày
-setInterval(updateDate, 1000);
 
 /* date */
 function updateTime() {
@@ -55,8 +53,7 @@ function updateTime() {
     document.getElementById('realtime-time').innerHTML = time;
 }
 
-// Gọi hàm updateTime() mỗi giây để cập nhật thời gian
-setInterval(updateTime, 1000);
+
 
 
 

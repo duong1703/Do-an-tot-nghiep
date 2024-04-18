@@ -1,6 +1,8 @@
 <?php include 'templates/header.php'; ?>
 
     <section id="cart_items">
+        <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>"/>
+
         <div class="container">
             <div class="breadcrumbs">
                 <ol class="breadcrumb">
