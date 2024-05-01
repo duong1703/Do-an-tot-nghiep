@@ -25,7 +25,7 @@ class HomeControllers extends BaseController
         return view('index', $data);
     }
 
-    public function login() 
+    public function login()
     {
         // Kiểm tra nếu đã đăng nhập và là người dùng, chuyển hướng đến trang chính
         if (session()->has('logged_in') && session()->has('customer_id')) {
@@ -106,7 +106,8 @@ class HomeControllers extends BaseController
         return view('contact');
     }
 
-    public function intro(){
+    public function intro()
+    {
         return view('intro');
     }
 
@@ -118,19 +119,21 @@ class HomeControllers extends BaseController
         return view('blog', $data);
     }
 
-    public function blog_single($id_blogs){
+    public function blog_single($id_blogs)
+    {
         $BlogModel = new BlogModel();
         $data['blogs'] = $BlogModel->find($id_blogs);
         return view('blog_single', $data);
     }
 
-    public function product($category = null){
+    public function product($category = null)
+    {
         $productModel = new ProductModel();
         $data = [];
-        if($category){
+        if ($category) {
             // Nếu có danh mục được chọn, lọc sản phẩm theo danh mục
             $data['products'] = $productModel->where('category', $category)->paginate(12);
-            
+
         } else {
             // Nếu không có danh mục được chọn, hiển thị tất cả sản phẩm
             $data['products'] = $productModel->paginate(12);
@@ -158,27 +161,207 @@ class HomeControllers extends BaseController
             'TABLET',
             'LOA'
         ];
-        
+
         return view('product', $data);
     }
 
     public function product_detail($category = null)
     {
+
         return view('product_detail');
     }
 
     public function cart()
     {
-        return view('cart');
-    }
+        // Kiểm tra xem giỏ hàng đã tồn tại hay chưa
+        if (session()->has('cart')) {
+            // Lấy thông tin giỏ hàng từ session
+            $cart = session()->get('cart');
+    
+            // Lấy danh sách các ID sản phẩm trong giỏ hàng
+            $productIds = array_keys($cart);
+    
+            // Tạo một instance của model ProductModel
+            $productModel = new ProductModel();
+    
+            // Lấy thông tin sản phẩm từ model ProductModel
+            $products = $productModel->whereIn('id_product', $productIds)->findAll();
+    
+            // Tạo một mảng để lưu thông tin chi tiết của từng sản phẩm trong giỏ hàng
+            $cartItems = [];
+            
 
-    public function addtocart()
+
+            // Duyệt qua danh sách các sản phẩm và lấy thông tin chi tiết
+            foreach ($products as $product) {
+                $productId = $product['id_product'];
+    
+                // Kiểm tra xem sản phẩm có tồn tại trong giỏ hàng không
+                if (isset($cart[$productId])) {
+                    $quantity = intval($cart[$productId]);
+    
+                    // Chuyển đổi giá thành số
+                    $price = floatval($product['price']);
+                    
+    
+                    // Tính tổng tiền cho từng sản phẩm
+                    $total = $price * $quantity;
+    
+                    // Tạo một mảng chứa thông tin chi tiết của sản phẩm
+                    $cartItem = [
+                        'product' => $product,
+                        'quantity' => $quantity,
+                        'total' => $total
+                    ];
+    
+                    // Thêm sản phẩm vào danh sách
+                    $cartItems[] = $cartItem;
+                }
+            }
+    
+            // Truyền danh sách sản phẩm và giỏ hàng vào view
+            return view('cart', ['cartItems' => $cartItems]);
+        }
+    
+        // Nếu giỏ hàng không tồn tại, trả về view giỏ hàng rỗng
+        return view('emptycart');
+    }
+    
+
+    public function addToCart()
     {
-        return view('cart');
+        $id_product = $this->request->getPost('id_product');
+        $price = $this->request->getPost('price');
+        $quantity = $this->request->getPost('quantity');
+
+        // Kiểm tra xem giỏ hàng đã tồn tại hay chưa
+        if (!isset($_SESSION['cart'])) {
+            $_SESSION['cart'] = [];
+        }
+
+        // Kiểm tra xem sản phẩm đã có trong giỏ hàng hay chưa
+        if (isset($_SESSION['cart'][$id_product])) {
+            // Sản phẩm đã có trong giỏ hàng, cập nhật số lượng
+            $_SESSION['cart'][$id_product]['quantity'] += $quantity;
+        } else {
+            // Sản phẩm chưa có trong giỏ hàng, thêm mới
+            $_SESSION['cart'][$id_product] = [
+                'id_product' => $id_product,
+                'price' => $price,
+                'quantity' => $quantity
+            ];
+        }
+       
+
+        // Gán thông báo vào biến flashdata
+        session()->setFlashdata('cart_message', 'Sản phẩm đã được thêm vào giỏ hàng.');
+
+        // Chuyển hướng trở lại trang chi tiết sản phẩm
+        return redirect()->to('/product/product_detail/' . $id_product);
+    }
+  
+    public function removeFromCart()
+    {
+        // Kiểm tra xem giỏ hàng đã được tạo trong session chưa
+        // Kiểm tra xem có dữ liệu được gửi lên không
+        if ($this->request->isAJAX()) {
+            // Lấy ID sản phẩm cần xóa từ request
+            $productId = $this->request->getPost('product_id');
+
+            // Xóa sản phẩm khỏi session dựa trên ID
+            $cartItems = session()->get('cart');
+            unset($cartItem['product']['id_product'] );
+            session()->set('cart', $cartItems);
+
+            // Trả về JSON để thông báo rằng sản phẩm đã được xóa thành công
+            return $this->response->setJSON(['success' => true]);
+        }
+
+        // Nếu không phải yêu cầu AJAX, trả về 404
+        return $this->response->setStatusCode(404);
+    }
+    
+
+    public function checkout()
+    {
+        // if(isset($_POST['COD'])){
+        //     echo 'COD';
+        // }elseif(isset($_POST['redirect'])){
+        //     $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
+        //     $vnp_Returnurl = "http://localhost:8080/";
+        //     $vnp_TmnCode = "R4DYJ8FU";
+        //     $vnp_HashSecret = "RLNYRYRCRVFXLXOOMFKKUJKXLJLKUUGW"; 
+            
+        //     $vnp_TxnRef = 'Thanh toán sản phẩm'; 
+        
+        //     $vnp_OrderInfo ='Thanh toán';
+        //     $vnp_OrderType = 'Thanh toán';
+        //     $vnp_Amount = 120000 * 100;
+        //     $vnp_Locale = $_POST['language'];
+        //     $vnp_BankCode = $_POST['bank_code'];
+        //     $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
+        //     // //Add Params of 2.0.1 Version
+        //     // $vnp_ExpireDate = $_POST['txtexpire'];
+        //     $inputData = array(
+        //         "vnp_Version" => "2.1.0",
+        //         "vnp_TmnCode" => $vnp_TmnCode,
+        //         "vnp_Amount" => $vnp_Amount,
+        //         "vnp_Command" => "pay",
+        //         "vnp_CreateDate" => date('YmdHis'),
+        //         "vnp_CurrCode" => "VND",
+        //         "vnp_IpAddr" => $vnp_IpAddr,
+        //         "vnp_Locale" => $vnp_Locale,
+        //         "vnp_OrderInfo" => $vnp_OrderInfo,
+        //         "vnp_OrderType" => $vnp_OrderType,
+        //         "vnp_ReturnUrl" => $vnp_Returnurl,
+        //         "vnp_TxnRef" => $vnp_TxnRef,
+        //         // "vnp_ExpireDate"=>$vnp_ExpireDate,
+        //     );
+            
+        //     if (isset($vnp_BankCode) && $vnp_BankCode != "") {
+        //         $inputData['vnp_BankCode'] = $vnp_BankCode;
+        //     }
+        //     // if (isset($vnp_Bill_State) && $vnp_Bill_State != "") {
+        //     //     $inputData['vnp_Bill_State'] = $vnp_Bill_State;
+        //     // }
+            
+        //     //var_dump($inputData);
+        //     ksort($inputData);
+        //     $query = "";
+        //     $i = 0;
+        //     $hashdata = "";
+        //     foreach ($inputData as $key => $value) {
+        //         if ($i == 1) {
+        //             $hashdata .= '&' . urlencode($key) . "=" . urlencode($value);
+        //         } else {
+        //             $hashdata .= urlencode($key) . "=" . urlencode($value);
+        //             $i = 1;
+        //         }
+        //         $query .= urlencode($key) . "=" . urlencode($value) . '&';
+        //     }
+            
+        //     $vnp_Url = $vnp_Url . "?" . $query;
+        //     if (isset($vnp_HashSecret)) {
+        //         $vnpSecureHash =   hash_hmac('sha512', $hashdata, $vnp_HashSecret);//  
+        //         $vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
+        //     }
+        //     $returnData = array('code' => '00'
+        //         , 'message' => 'success'
+        //         , 'data' => $vnp_Url);
+        //         if (isset($_POST['redirect'])) {
+        //             header('Location: ' . $vnp_Url);
+        //             die();
+        //         } else {
+        //             echo json_encode($returnData);
+        //         }
+        //         // vui lòng tham 
+        // }
+        return view('checkout');
     }
 
-    public function comment_product(){
-      
+    public function comment_product()
+    {
+
         if ($this->request->getMethod() === 'post') {
             $customer_email = $this->request->getPost('customer_email');
             $customer_name = $this->request->getPost('customer_name');
@@ -188,15 +371,15 @@ class HomeControllers extends BaseController
             $rules = [
                 'customer_email' => 'required|valid_email',
                 'customer_name' => 'required',
-        
+
             ];
-            
+
             if (!$this->validate($rules)) {
                 $data['validation'] = $this->validator;
                 $error = 'Gui danh gia that bai, vui long thu lai';
                 session()->setFlashdata('error', $error);
                 return view('comment_product', $data);
-            }else {
+            } else {
                 $CommentModel = new CommentModel();
                 $data = [
                     'customer_email' => $customer_email,
@@ -246,11 +429,16 @@ class HomeControllers extends BaseController
     public function search()
     {
         $keyword = $this->request->getVar('keyword');
-        
+
         $productModel = new ProductModel();
         $products = $productModel->search($keyword)->findAll();
-        
+
         return view('product', ['products' => $products]);
+    }
+
+    public function thanks()
+    {
+        return view('thankspage');
     }
 
 }

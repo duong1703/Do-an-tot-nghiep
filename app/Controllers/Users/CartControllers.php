@@ -1,60 +1,65 @@
 <?php
 
 namespace App\Controllers;
-use App\Models\ProductModel;
+
 use App\Models\CartModel;
+use CodeIgniter\Controller;
+use App\Models\ProductModel;
 
-class CartControllers extends BaseController
+class CartControllers extends Controller
 {
-    public function addToCart($id_products)
+    
+
+    public function cart(){
+        // Khởi đầu session
+        session_start();
+
+        // Lấy giỏ hàng từ session (nếu có)
+        $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
+
+        // Tính tổng số tiền của giỏ hàng
+        $totalPrice = 0;
+        foreach ($cart as $product) {
+            $totalPrice += $product['price'] * $product['quantity'];
+        }
+
+        // Truyền tổng số tiền vào view
+        return view('cart', ['totalPrice' => $totalPrice]);
+    }
+
+    public function removeItem($id_product)
     {
-      // Lấy thông tin sản phẩm từ CSDL dựa vào $productId
-      $product = $this->ProductModel->find($id_products);
+        session_start();
 
-      // Kiểm tra nếu sản phẩm tồn tại
-      if ($product) {
-          // Lấy thông tin giỏ hàng từ session (nếu có)
-          $cart = session()->get('cart');
-
-            // Nếu giỏ hàng chưa được khởi tạo, khởi tạo giỏ hàng
-            if (!$cart) {
-                $cart = [];
+        $items = $_SESSION['cart'];
+        $cartItems = explode(",", $items);
+    
+        if(isset($_GET['remove']) & !empty($_GET['remove'])){
+    
+            $deleteitem = $_GET['remove'];
+    
+            if (($key = array_search($deleteitem, $cartItems)) !== false) {
+                unset($cartitems[$key]);
             }
+    
+            $itemids = implode(",", $cartItems);
+            $_SESSION['cart'] = $itemids;
+        }
+    
+    }
 
-          // Kiểm tra xem giỏ hàng đã được khởi tạo hay chưa
-          if (!$cart) {
-              $cart = [
-                  $id_products => [
-                      'id_products' => $product['id_products'],
-                      'name' => $product['name'],
-                      'price' => $product['price'],
-                      'quantity' => 1
-                  ]
-              ];
-          } else {
-              // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
-              if (isset($cart[$id_products])) {
-                  // Nếu đã có, tăng số lượng lên 1
-                  $cart[$id_products]['quantity']++;
-              } else {
-                  // Nếu chưa có, thêm sản phẩm mới vào giỏ hàng
-                  $cart[$id_products] = [
-                      'id_products' => $product['id_products'],
-                      'name' => $product['name'],
-                      'price' => $product['price'],
-                      'quantity' => 1
-                  ];
-              }
-          }
-
-          // Lưu thông tin giỏ hàng vào session
-          session()->set('cart', $cart);
-
-          // Redirect hoặc trả về view giỏ hàng
-          return redirect()->to('views/cart');
-      } else {
-          // Xử lý khi không tìm thấy s
-}}
-
+   
+  
+    private function unsetFromCart($productId)
+    {
+      $session = session();
+      $cart = $session->get('cart');
+      if (isset($cart[$productId])) {
+        unset($cart[$productId]);
+        $session->set('cart', $cart);
+      }
+    }
+  
+  
 
 }

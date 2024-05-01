@@ -32,7 +32,7 @@
                     </div>
                     <div class="media-body">
                         <h5>Miễn phí vận chuyển</h5>
-                        <span>Cho đơn hàng trên 5.000.000 VND</span>
+                        <span>Cho đơn hàng trên 15.000.000 VND</span>
                     </div>
                 </div>
                 <!-- Money Return -->
@@ -111,7 +111,7 @@
                                                         <p>Giá: <?= ($product['price']) . ' ' . 'VND' ?></p>
                                                         <p>Số lượng: <?= ($product['amount']) ?></p>
                                                         <p>Danh mục: <?= ($product['category']) ?></p>
-                                                        <button type="submit" class="btn btn-default add-to-cart"><i
+                                                        <button href="<?= site_url('cart/buy' . $product['id_product']) ?>" type="submit" class="btn btn-default add-to-cart"><i
                                                                     class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng
                                                         </button>
                                                     </div>

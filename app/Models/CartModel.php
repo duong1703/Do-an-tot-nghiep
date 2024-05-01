@@ -11,7 +11,7 @@ class CartModel extends Model
 
     protected $table = 'cart';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['user_id', 'product_id ', 'images', 'quantity ', 'price ' , 'total', 'created_at '];
+    protected $allowedFields = ['customers_id', 'product_id ', 'images', 'quantity ', 'price ' , 'total', 'created_at '];
     protected $useAutoIncrement = true; // Thêm dòng này để bật AUTO_INCREMENT cho cột khóa chính
     protected function beforeInsert(array $data)
     {
@@ -33,10 +33,9 @@ class CartModel extends Model
         return $data;
     }
 
-    public function getProduct($productId)
+    public function getProductById($productId)
     {
-        // Viết truy vấn để lấy thông tin của sản phẩm từ CSDL dựa trên $productId
-        // Trả về thông tin sản phẩm hoặc false nếu không tìm thấy sản phẩm
+        return $this->find($productId); 
     }
 
     public function addToCart($cartItem)

@@ -49,7 +49,7 @@ class Autoload extends AutoloadConfig
         'Config'      => APPPATH . 'Config',
         'App\Controllers\Admin' => APPPATH . 'Controllers/Admin',
         'Firebase' => APPPATH.'Vendor/firebase/',
-        'CodeIgniterCart' => ROOTPATH . 'vendor/jason-napolitano/codeigniter4-cart-module/src',
+        'CodeIgniterCart' => ROOTPATH . 'vendor/jason-napolitano/codeigniter4-cart-module/src'
     ];
 
     /**

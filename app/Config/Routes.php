@@ -4,6 +4,7 @@ use App\Controllers\Users\HomeControllers;
 use App\Controllers\Users\ProductsController;
 use App\Controllers\Admin\ProductControllers;
 use App\Controllers\Users\PaymentControllers;
+use App\Controllers\CartControllers;
 use CodeIgniter\Router\RouteCollection;
 use CodeIgniter\RESTful\ResourceController;
 use App\Filters\AuthFilter;
@@ -26,31 +27,79 @@ $routes->post('views/register', 'Users\HomeControllers::register');
 //Đăng xuất
 $routes->get('logout', 'Users\HomeControllers::logout');
 
-
+//User_profile
 //$routes->get('views/login', 'Users\HomeControllers::profile');
 $routes->get('views/profile', 'Users\HomeControllers::profile');
+
+//Blogs
 $routes->get('views/blog', 'Users\HomeControllers::blog');
 $routes->get('views/blog/(:segment)', 'Users\HomeControllers::blog/$1');
 $routes->get('views/blog_single/(:num)', 'Users\HomeControllers::blog_single/$1');
+
+//intro
 $routes->get('views/intro', 'Users\HomeControllers::intro');
+
+//contact
 $routes->get('views/contact', 'Users\HomeControllers::contact');
+
+//Sản phẩm
 $routes->get('views/product', 'Users\HomeControllers::product');
 $routes->get('views/product/(:segment)', 'Users\HomeControllers::product/$1');
 $routes->get('product_detail/(:num)', 'Users\HomeControllers::product_detail/$1');
 
+
+//Comment
 $routes->get('product_detail/(:num)', 'Users\CommentControllers::hiscomment');
 $routes->post('/comment_product', 'Users\HomeControllers::comment_product');
 
 
+//Checkout
+$routes->get('views/checkout', 'Users\HomeControllers::checkout');
+$routes->post('checkout', 'Users\PaymentControllers::checkout');
+
 
 //giỏ hàng
-$routes->get('views/cart', 'Users\HomeControllers::addToCart');
+
+$routes->get('cart', 'Users\HomeControllers::cart');
+// $routes->get('addToCart', 'Users\HomeControllers::addToCart');
+// $routes->get('addToCart/(:any)', 'Users\HomeControllers::addToCart/$1', ['as' => 'addToCart']);
+$routes->post('addToCart', 'Users\HomeControllers::addToCart');
+
+//Cart_add
+// $routes->post('cart/add', 'Users\CartControllers::addToCart');
+
+//Cart_delete
+$routes->post('remove-from-cart', 'Users\HomeControllers::removeFromCart');
+
+
+
+
+
+//cart_update
+$routes->post('update-cart', 'Users\HomeControllers::updateCart');
+
+//cart_destroy
+$routes->get('delete', 'Users\HomeControllers::delete');
+$routes->post('delete', 'Users\HomeControllers::delete');
+
+//Cart_total
+$routes->get('cart/total-price', 'Users\CartControllers::totalPrice');
+
 
 
 // Product - User
 $routes->group('product', function ($routes) {
     $routes->get('product_detail/(:num)', 'Users\ProductsController::productDetail/$1');
 });
+
+
+//Pay
+$routes->post('online_checkout', 'Users\PaymentControlers::online_checkout');
+
+
+//Thankspage
+$routes->get('views/thankspage', 'Users\HomeControllers::thanks');
+
 
 
 //Mail
@@ -77,7 +126,7 @@ $routes->post('admin/login', 'Admin\LoginControllers::login');
 
 $routes->group('admin', ['filter' => 'AuthFilter'], function ($routes) {
     $routes->get('pages/home', 'Admin\HomeControllers::index');
-//    $routes->get('home', 'Admin\HomeControllers::index');
+//    $routes->get('home', 'Admin\HomeControllers::index'); 
     $routes->get('logout', 'Admin\LoginControllers::logout');   
 
     $routes->group('user', function ($routes) {

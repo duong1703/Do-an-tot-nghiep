@@ -128,47 +128,48 @@
 <script src="https://www.google.com/recaptcha/api.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
+<script async src="https://cse.google.com/cse.js?cx=76d01f3bea7db4066"></script>
 
 <script>
 // Add active class to the current button (highlight it)
-var header = document.getElementById("myactive");
-var btns = header.getElementsByClassName("li");
-for (var i = 0; i < btns.length; i++) {
-    btns[i].addEventListener("click", function() {
-        var current = document.getElementsByClassName("active");
-        current[0].className = current[0].className.replace(" active", "");
-        this.className += " active";
-    });
-}
+// var header = document.getElementById("myactive");
+// var btns = header.getElementsByClassName("li");
+// for (var i = 0; i < btns.length; i++) {
+//     btns[i].addEventListener("click", function() {
+//         var current = document.getElementsByClassName("active");
+//         current[0].className = current[0].className.replace(" active", "");
+//         this.className += " active";
+//     });
+// }
 
 //Rating
-const stars = document.querySelectorAll('.star');
-const submitBtn = document.getElementById('submitBtn');
+// const stars = document.querySelectorAll('.star');
+// const submitBtn = document.getElementById('submitBtn');
 
-let rating = 0;
+// let rating = 0;
 
-stars.forEach(star => {
-    star.addEventListener('click', () => {
-        rating = parseInt(star.getAttribute('data-value'));
-        updateStars();
-    });
-});
+// stars.forEach(star => {
+//     star.addEventListener('click', () => {
+//         rating = parseInt(star.getAttribute('data-value'));
+//         updateStars();
+//     });
+// });
 
-function updateStars() {
-    stars.forEach((star, index) => {
-        if (index < rating) {
-            star.classList.add('active');
-        } else {
-            star.classList.remove('active');
-        }
-    });
+// function updateStars() {
+//     stars.forEach((star, index) => {
+//         if (index < rating) {
+//             star.classList.add('active');
+//         } else {
+//             star.classList.remove('active');
+//         }
+//     });
 
-    if (rating > 0) {
-        submitBtn.style.display = 'block';
-    } else {
-        submitBtn.style.display = 'none';
-    }
-}
+//     if (rating > 0) {
+//         submitBtn.style.display = 'block';
+//     } else {
+//         submitBtn.style.display = 'none';
+//     }
+// }
 
 //Slider
 const swiper = new Swiper('.swiper', {
@@ -196,31 +197,36 @@ const swiper = new Swiper('.swiper', {
 
 //search
 
-document.getElementById('searchForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Ngăn chặn gửi form mặc định
+// document.getElementById('searchForm').addEventListener('submit', function(event) {
+//     event.preventDefault(); // Ngăn chặn gửi form mặc định
 
-    // Lấy giá trị từ khung tìm kiếm
-    var keyword = document.getElementById('searchInput').value.trim();
+//     // Lấy giá trị từ khung tìm kiếm
+//     var keyword = document.getElementById('searchInput').value.trim();
 
-    // Thực hiện các thao tác tìm kiếm ở đây, ví dụ gửi keyword qua AJAX để xử lý trên server
-    // Gửi keyword tìm kiếm lên server sử dụng AJAX
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'views/product/0?q=' + encodeURIComponent(keyword),true); // Thay 'search.php' bằng URL của file xử lý tìm kiếm trên server
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-            if (xhr.status === 200) {
-                // Xử lý kết quả tìm kiếm từ server
-                var response = xhr.responseText;
-                // Hiển thị kết quả tìm kiếm lên trang web
-                document.getElementById('searchResults').innerHTML = response;
-            } else {
-                // Xử lý lỗi nếu có
-                console.error('Error: ' + xhr.status);
-            }
-        }
-    };
-    xhr.send();
-});
+//     // Thực hiện các thao tác tìm kiếm ở đây, ví dụ gửi keyword qua AJAX để xử lý trên server
+//     // Gửi keyword tìm kiếm lên server sử dụng AJAX
+//     var xhr = new XMLHttpRequest();
+//     xhr.open('GET', 'views/product/0?q=' + encodeURIComponent(keyword),
+//     true); // Thay 'search.php' bằng URL của file xử lý tìm kiếm trên server
+//     xhr.onreadystatechange = function() {
+//         if (xhr.readyState === XMLHttpRequest.DONE) {
+//             if (xhr.status === 200) {
+//                 // Xử lý kết quả tìm kiếm từ server
+//                 var response = xhr.responseText;
+//                 // Hiển thị kết quả tìm kiếm lên trang web
+//                 document.getElementById('searchResults').innerHTML = response;
+//             } else {
+//                 // Xử lý lỗi nếu có
+//                 console.error('Error: ' + xhr.status);
+//             }
+//         }
+//     };
+//     xhr.send();
+// });
+
+
+
+    
 </script>
 
 </body>

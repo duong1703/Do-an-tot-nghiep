@@ -26,6 +26,26 @@ class UserControllers extends BaseController
         return view('admin/pages/home', $data);
     }
 
+    public function getUserCountAndStoreInSession()
+    {
+    // Tạo instance của ProductModel
+    $UserModel = new UserModel();
+
+    // Truy vấn số lượng sản phẩm
+    $UserCount = $UserModel->countAll();
+      
+    // Lưu số lượng sản phẩm vào session
+    session()->set('user_count', $UserCount);
+    }
+
+
+    public function showUserCount()
+    {
+    // Lấy số lượng sản phẩm từ session
+    $UserCount = session()->get('user_count');
+
+   dd($UserCount);
+    }   
 
     public function list(): string
     {

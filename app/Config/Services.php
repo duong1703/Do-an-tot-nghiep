@@ -3,6 +3,7 @@
 namespace Config;
 
 use CodeIgniter\Config\BaseService;
+use App\Libraries\Cart;
 
 /**
  * Services Configuration file.
@@ -29,5 +30,14 @@ class Services extends BaseService
      *     return new \CodeIgniter\Example();
      * }
      */
+
+     public static function cart($getShared = true)
+    {
+        if ($getShared) {
+            return static::getSharedInstance('cart');
+        }
+
+        return new Cart();
+    }
 
 }

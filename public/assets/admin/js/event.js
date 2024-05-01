@@ -35,28 +35,28 @@ $(".submit_contact").click(function(){
     window.location.href = url;
 });
 
-/* date */
-function updateDate() {
-    var now = new Date();
-    var options = { year: 'numeric', month: 'long', day: 'numeric' };
-    var formattedDate = now.toLocaleDateString('en-US', options);
+// /* date */
+// function updateDate() {
+//     var now = new Date();
+//     var options = { year: 'numeric', month: 'long', day: 'numeric' };
+//     var formattedDate = now.toLocaleDateString('en-US', options);
 
-    document.getElementById('realtime-date').innerHTML = formattedDate;
-}
+//     document.getElementById('realtime-date').innerHTML = formattedDate;
+// }
 
-// Gọi hàm updateDate() mỗi giây để cập nhật ngày
-setInterval(updateDate, 1000);
+// // Gọi hàm updateDate() mỗi giây để cập nhật ngày
+// setInterval(updateDate, 1000);
 
-/* date */
-function updateTime() {
-    var now = new Date();
-    var time = now.toLocaleTimeString();
+// /* date */
+// function updateTime() {
+//     var now = new Date();
+//     var time = now.toLocaleTimeString();
 
-    document.getElementById('realtime-time').innerHTML = time;
-}
+//     document.getElementById('realtime-time').innerHTML = time;
+// }
 
-// Gọi hàm updateTime() mỗi giây để cập nhật thời gian
-setInterval(updateTime, 1000);
+// // Gọi hàm updateTime() mỗi giây để cập nhật thời gian
+// setInterval(updateTime, 1000);
 
 
 

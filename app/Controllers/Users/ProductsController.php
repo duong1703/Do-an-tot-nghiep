@@ -49,24 +49,24 @@ class ProductsController extends BaseController
         return view('category', $data);
     }
 
-    public function productDetail($productId)
+    public function productDetail($id_product)
     {
         $productModel = new ProductModel();
-        $product = $productModel->find($productId);
+        $product = $productModel->find($id_product);
         if (!$product) {
             return false;
         }
         $condition = [
             'deleted_at' => null,
-            'id_product' => $productId
+            'id_product' => $id_product
         ];
-        $withSelect = 'name, description, price, images, amount, category';
+        $withSelect = 'id_product, name, description, price, images, amount, category';
         $productObj = $productModel->getFirstByConditions($condition, '', $withSelect);
         if (!$productObj) {
             return false;
         }
         $data['productObj'] = $productObj;
-        $data['productId'] = $productId;
+        $data['id_product'] = $id_product;
         return view('product_detail', $data);
     }
 

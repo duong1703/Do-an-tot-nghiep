@@ -62,32 +62,30 @@ swiper-container {
                         <div style="border: 1px solid #F7F7F0">
                             <img src="uploads/<?php echo $productObj['images']; ?>" alt="images" height="300.6px"
                                 width="279.29px" class="centered-image">
+
                         </div>
                     </div>
-
                     <div class="col-sm-7">
+                    <form method="POST" action="<?= base_url('addToCart') ?>" id="addToCartForm">
+                        <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
                         <div class="product-information">
-                            <!--/product-information-->
-                            <!--                                <img src="images/product-details/new.jpg" class="newarrival" alt="" />-->
                             <h2><?= $productObj['name'] ?></h2>
                             <p>Số lượng: <?= $productObj['amount'] ?></p>
-                            <img src="images/product-details/rating.png" alt="" />
+                            <p>Mã sản phẩm: <?= $productObj['id_product'] ?></p>
+                            <input type="hidden" name="id_product" value="<?= $productObj['id_product'] ?>">
                             <span>
                                 <p>Giá: <?= $productObj['price'] . ' ' . 'VND' ?></p>
+                                <input type="hidden" name="price" value="<?= $productObj['price'] ?>">
                                 <label>Quantity:</label>
-                                <input type="number" min="1" value="1" />
-                                <form action="<?= base_url('checkout') ?>" method="post" id="cartForm">
-                                    <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
-                                    <input type="hidden" name="product_id" id="productId">
-                                    <button id="button" type="submit" class="btn btn-default add-to-cart"><i
-                                            class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</button>
-                                </form>
-
+                                <input type="number" name="quantity" id="quantity" min="1" value="1" />
+                                <button type="submit" class="add-to-cart-btn btn btn-default add-to-cart" onclick="addToCart(<?= $productObj['id_product'] ?>)">Thêm vào giỏ hàng</button>
                             </span>
                             <p>Danh mục: <?= $productObj['category'] ?></p>
                             <a style="margin-top: 30px" href="#"><i class="fa fa-heart"></i> Thêm vào sở thích</a>
-
                         </div>
+                    </form>
+                                            
+
                         <!--/product-information-->
                     </div>
                 </div>
@@ -168,7 +166,7 @@ swiper-container {
                 <div class="recommended_items">
                     <!--recommended_items-->
                     <!-- <h2 class="title text-center">Một số sản phẩm khác</h2> -->
-<!-- 
+                    <!-- 
                     <body>
 
                         <swiper-container class="mySwiper" slides-per-view="3" centered-slides="true" space-between="30"
@@ -228,5 +226,58 @@ swiper-container {
                     </body> -->
 </section>
 
+<script>
+/* date */
+function updateDate() {
+    var now = new Date();
+    var options = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    };
+    var formattedDate = now.toLocaleDateString('en-US', options);
+
+    document.getElementById('realtime-date').innerHTML = formattedDate;
+}
+
+// Gọi hàm updateDate() mỗi giây để cập nhật ngày
+setInterval(updateDate, 1000);
+
+/* date */
+function updateTime() {
+    var now = new Date();
+    var time = now.toLocaleTimeString();
+
+    document.getElementById('realtime-time').innerHTML = time;
+}
+
+// Gọi hàm updateTime() mỗi giây để cập nhật thời gian
+setInterval(updateTime, 1000);
+// cart
+$(document).ready(function() {
+        $('#addToCartForm').submit(function(e) {
+            e.preventDefault();
+            
+            $.ajax({
+                url: '<?php echo site_url('add_to_cart'); ?>',
+                type: 'post',
+                data: $(this).serialize(),
+                dataType: 'json',
+                success: function(response) {
+                    if (response.success) {
+                        alert('Item added to cart successfully');
+                    } else {
+                        alert('Failed to add item to cart');
+                    }
+                }
+            });
+        });
+    });
+
+
+// Thêm sản phẩm vào giỏ hàng
+
+
+</script>
 
 <?= view('templates/footer'); ?>

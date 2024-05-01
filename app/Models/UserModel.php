@@ -15,7 +15,14 @@ class UserModel extends Model
         return $this->findAll();
     }
 
-    public function count(){
-        return $this->countAllResults();
+    public function getCount($id)
+    {
+    $userModel = new UserModel();
+    
+    $count = $userModel->where('id', $id)->countAllResults(); 
+
+   
+    return $count;
     }
+
 }

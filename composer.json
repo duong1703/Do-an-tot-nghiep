@@ -15,10 +15,12 @@
         "ext-json": "*",
         "ext-mbstring": "*",
         "firebase/php-jwt": "6.4",
+        "jason-napolitano/codeigniter4-cart-module": "^1.0",
         "laminas/laminas-escaper": "^2.9",
         "nowakowskir/php-jwt": "^2.1",
         "phpmailer/phpmailer": "dev-master",
         "psr/log": "^1.1",
+        "stripe/stripe-php": "^14.3",
         "tinymce/tinymce": "dev-master"
     },
     "require-dev": {

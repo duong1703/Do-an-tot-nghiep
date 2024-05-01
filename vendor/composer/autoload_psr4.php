@@ -22,6 +22,7 @@ return array(
     'Symfony\\Component\\Filesystem\\' => array($vendorDir . '/symfony/filesystem'),
     'Symfony\\Component\\EventDispatcher\\' => array($vendorDir . '/symfony/event-dispatcher'),
     'Symfony\\Component\\Console\\' => array($vendorDir . '/symfony/console'),
+    'Stripe\\' => array($vendorDir . '/stripe/stripe-php/lib'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'Psr\\EventDispatcher\\' => array($vendorDir . '/psr/event-dispatcher/src'),
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
@@ -46,4 +47,5 @@ return array(
     'Composer\\Pcre\\' => array($vendorDir . '/composer/pcre/src'),
     'CodeIgniter\\CodingStandard\\' => array($vendorDir . '/codeigniter/coding-standard/src'),
     'CodeIgniter\\' => array($baseDir . '/system'),
+    'CodeIgniterCart\\' => array($vendorDir . '/jason-napolitano/codeigniter4-cart-module/src'),
 );

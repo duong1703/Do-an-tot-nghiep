@@ -13,5 +13,7 @@ class RunAllSeeder extends Seeder
         $this->call('SliderSeeder');
         $this->call('BlogSeeder');
         $this->call('CartSeeder');
+        $this->call('PaymentSeeder');
+
     }
 }

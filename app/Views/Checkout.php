@@ -1,69 +1,42 @@
-<?php
-error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
-date_default_timezone_set('Asia/Ho_Chi_Minh');
+<?php include 'templates/header.php'; ?>
 
-$vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-$vnp_Returnurl = "https://localhost/vnpay/vnpay_return.php";
-$vnp_TmnCode = "R4DYJ8FU";//Mã website tại VNPAY
-$vnp_HashSecret = "RLNYRYRCRVFXLXOOMFKKUJKXLJLKUUGW"; //Chuỗi bí mật
+<section>
+    <!--form-->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <div class="login-form">
+                    <!--login form-->
+                    <h2>Điền thông tin thanh toán:</h2>
 
-$vnp_TxnRef = '13333';
-$vnp_OrderInfo = 'Thanh toán';
-$vnp_OrderType = 'Bill';
-$vnp_Amount = 20000000 * 100;
-$vnp_Locale ='VN';
-$vnp_BankCode = 'NCB';
-$vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
-//Add Params of 2.0.1 Version
-//$vnp_ExpireDate = $_POST['txtexpire'];
-$inputData = array(
-    "vnp_Version" => "2.1.0",
-    "vnp_TmnCode" => $vnp_TmnCode,
-    "vnp_Amount" => $vnp_Amount,
-    "vnp_Command" => "pay",
-    "vnp_CreateDate" => date('YmdHis'),
-    "vnp_CurrCode" => "VND",
-    "vnp_IpAddr" => $vnp_IpAddr,
-    "vnp_Locale" => $vnp_Locale,
-    "vnp_OrderInfo" => $vnp_OrderInfo,
-    "vnp_OrderType" => $vnp_OrderType,
-    "vnp_ReturnUrl" => $vnp_Returnurl,
-    "vnp_TxnRef" => $vnp_TxnRef,
-);
+                    <form onsubmit="return confirm('Xác nhận đặt hàng?')" method="POST"
+                        action="<?php echo base_url("online_checkout") ?>">
+                        <label>Họ và Tên:</label>
+                        <input type="text" name="name" placeholder="Họ và Tên" />
 
-if (isset($vnp_BankCode) && $vnp_BankCode != "") {
-    $inputData['vnp_BankCode'] = $vnp_BankCode;
-}
-if (isset($vnp_Bill_State) && $vnp_Bill_State != "") {
-    $inputData['vnp_Bill_State'] = $vnp_Bill_State;
-}
+                        <label>Địa chỉ giao hàng:</label>
+                        <input type="text" name="address" placeholder="Địa chỉ giao hàng" />
 
-//var_dump($inputData);
-ksort($inputData);
-$query = "";
-$i = 0;
-$hashdata = "";
-foreach ($inputData as $key => $value) {
-    if ($i == 1) {
-        $hashdata .= '&' . urlencode($key) . "=" . urlencode($value);
-    } else {
-        $hashdata .= urlencode($key) . "=" . urlencode($value);
-        $i = 1;
-    }
-    $query .= urlencode($key) . "=" . urlencode($value) . '&';
-}
+                        <label>Số điện thoại:</label>
+                        <input type="text" name="phone" placeholder="Số điện thoại" />
 
-$vnp_Url = $vnp_Url . "?" . $query;
-if (isset($vnp_HashSecret)) {
-    $vnpSecureHash = hash_hmac('sha512', $hashdata, $vnp_HashSecret);//
-    $vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
-}
-$returnData = array('code' => '00'
-, 'message' => 'success'
-, 'data' => $vnp_Url);
-if (isset($_POST['redirect'])) {
-    header('Location: ' . $vnp_Url);
-    die();
-} else {
-    echo json_encode($returnData);
-}
+                        <label>Email:</label>
+                        <input type="email" name="email" placeholder="Email" />
+                      
+                    <button type="submit" name="redirect" class="btn btn-success">Thanh toán VNPAY</button>
+                
+
+
+
+                        <!-- <button type="submit" class="btn btn-default">Xác nhận</button> -->
+                    </form>
+
+                </div>
+                <!--/login form-->
+            </div>
+        </div>
+    </div>
+</section>
+<!--/form-->
+
+<?php include 'templates/footer.php'; ?>

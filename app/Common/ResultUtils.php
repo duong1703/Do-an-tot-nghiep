@@ -9,3 +9,8 @@ class ResultUtils
     const MESSAGE_CODE_OK = 'successMsg';
     const MESSAGE_CODE_ERR = 'errorMsg';
 }
+
+function cart(bool $getShared = true)
+{
+    return \Config\Services::cart($getShared);
+}

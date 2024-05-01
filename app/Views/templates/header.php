@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Trang chủ</title>
+    <title></title>
     <base href="http://localhost:8080/">
     <link href="/assets/user/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/user/css/font-awesome.min.css" rel="stylesheet">
@@ -15,13 +15,13 @@
     <link href="/assets/user/css/animate.css" rel="stylesheet">
     <link href="/assets/user/css/main.css" rel="stylesheet">
     <link href="/assets/user/css/responsive.css" rel="stylesheet">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplecartjs/3.0.5/simplecart.min.js">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplecartjs/3.0.5/simplecart.min.js">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.6.0/pagination.min.js" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.6.0/pagination.js" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.6.0/pagination.js" rel="stylesheet"> -->
 
-   
+
 
 
     <!--[if lt IE 9]>
@@ -86,8 +86,8 @@
                             <li><a href="views/profile"><i
                                         class="fa fa-user"></i><?= session()->get("customer_name") ?></a></li>
                             <li><a href="#"><i class="fa fa-star"></i> Yêu thích</a></li>
-                            <li><a href="views/cart"><i class="fa fa-shopping-cart"></i> Giỏ
-                                    hàng</a></li>
+                            <li><a href="cart"><i class="fa fa-shopping-cart"></i> Giỏ
+                                    hàng </a></li>
                             <li><a href="/logout"><i class="fa fa-sign-out"></i> Đăng xuất</a>
                             </li>
                         </ul>
@@ -97,7 +97,7 @@
                             <li><a href="views/profile"><i class="fa fa-user"></i>Tài khoản</a>
                             </li>
                             <li><a href="#"><i class="fa fa-star"></i> Yêu thích</a></li>
-                            <li><a href="views/cart"><i class="fa fa-shopping-cart"></i> Giỏ
+                            <li><a href="cart"><i class="fa fa-shopping-cart"></i> Giỏ
                                     hàng</a></li>
                             <li><a href="/login"><i class="fa fa-lock"></i> Đăng nhập</a></li>
                         </ul>
@@ -138,18 +138,25 @@
                         </div>
                     </div>
                     <div class="col-sm-3">
-                        <form action="" method="get">
-                            <div class="input-group">
-                                <input type="search" id="searchInput" class="form-control rounded" name="keyword" placeholder="Search"
-                                    aria-label="Search" aria-describedby="search-addon" />
+                        <div class="gcse-search">
+                            <!-- <form action="" method="get">
+                                <input type="search" id="filter" class="form-control rounded" name="keyword"
+                                    placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
                                 <button style="display:none;" type="submit" class="btn btn-outline-primary"
                                     data-mdb-ripple-init>search</button>
-                            </div>
-                        </form>
+                            </form> -->
+                        </div>
                     </div>
+
                 </div>
             </div>
+        </div>
         </div>
         <!--/header-bottom-->
     </header>
     <!--/header-->
+    <?php if (session()->has('cart_message')) : ?>
+    <div class="alert alert-success">
+        <?= session('cart_message') ?>
+    </div>
+    <?php endif; ?>

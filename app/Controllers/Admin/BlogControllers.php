@@ -38,6 +38,7 @@ class BlogControllers extends BaseController
 
         $BlogModel = new BlogModel();
         $blogs = $BlogModel->findAll();
+        
 
         $dataLayout = [];
         if ($blogs) {

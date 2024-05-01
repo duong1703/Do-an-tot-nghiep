@@ -7,9 +7,9 @@
                     <i class="fas fa-user"></i>
                 </div>
                 <div class="stats-data">
-                    
-                    <div class="stats-number"></div>
-                   
+
+                    <div class="stats-number"><?= $usercount ?></div>
+
                 </div>
             </div>
         </div>
@@ -22,7 +22,7 @@
                     <i class="fas fa-cube"></i>
                 </div>
                 <div class="stats-data">
-                    <div class="stats-number"></div>
+                    <div class="stats-number"><?= $productcount ?></div>
                 </div>
             </div>
         </div>
@@ -35,7 +35,7 @@
                     <i class="fas fa-book"></i>
                 </div>
                 <div class="stats-data">
-                    <div class="stats-number"></div>
+                    <div class="stats-number"><?= $blogcount ?></div>
                 </div>
             </div>
         </div>
@@ -54,3 +54,32 @@
         </div>
     </div>
 </div>
+    
+<script>
+/* date */
+function updateDate() {
+    var now = new Date();
+    var options = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    };
+    var formattedDate = now.toLocaleDateString('en-US', options);
+
+    document.getElementById('realtime-date').innerHTML = formattedDate;
+}
+
+// Gọi hàm updateDate() mỗi giây để cập nhật ngày
+setInterval(updateDate, 1000);
+
+/* date */
+function updateTime() {
+    var now = new Date();
+    var time = now.toLocaleTimeString();
+
+    document.getElementById('realtime-time').innerHTML = time;
+}
+
+// Gọi hàm updateTime() mỗi giây để cập nhật thời gian
+setInterval(updateTime, 1000);
+</script>

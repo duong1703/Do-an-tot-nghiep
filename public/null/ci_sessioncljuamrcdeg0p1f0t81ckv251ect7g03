@@ -1,0 +1,1 @@
+__ci_last_regenerate|i:1714542618;csrf_test_name|s:32:"25bc05c6f95781b571c0d9388b7e3f81";_ci_previous_url|s:36:"http://localhost:8080/views/checkout";logged_in|b:1;name|s:5:"admin";id|s:1:"7";email|s:20:"dduong1703@gmail.com";cart|a:1:{i:5;a:3:{s:10:"id_product";s:1:"5";s:5:"price";s:10:"25.000.000";s:8:"quantity";s:1:"1";}}

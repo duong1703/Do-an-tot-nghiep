@@ -1,0 +1,1 @@
+__ci_last_regenerate|i:1714565798;csrf_test_name|s:32:"278e7b7a7c8f242bfba80ac0af942e42";_ci_previous_url|s:36:"http://localhost:8080/views/checkout";cart|a:2:{i:13;a:3:{s:10:"id_product";s:2:"13";s:5:"price";s:10:"22.999.000";s:8:"quantity";s:1:"1";}i:10;a:3:{s:10:"id_product";s:2:"10";s:5:"price";s:10:"10.699.000";s:8:"quantity";s:1:"1";}}
